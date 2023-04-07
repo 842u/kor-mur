@@ -33,7 +33,7 @@ Because of buisness nature of the project, the main focus is to create a website
   | Code quality | ESLint, Prettier | ESLint is a popular linter for JavaScript. Prettier is a popular code formatter. |
   | Version control | Git, GitHub, GitLab, Bitbucket | Git is a popular version control system. GitHub, GitLab and Bitbucket are popular hosting services for Git repositories. |
   | Hosting | Netlify, Vercel | Netlify and Vercel are popular hosting services for static websites. |
-  | CI/CD | GitHub Actions, Netlify, Vercel | Netlify and Vercel have built-in CI/CD. GitHub Actions gives more control over CI/CD pipeline. |
+  | CI/CD | GitHub Actions, CircleCI, Jenkins, GitLab, Netlify, Vercel | Netlify and Vercel have built-in CI/CD. Rest gives more control over CI/CD pipeline. |
   | Build | Webpack, Vite, Next.js, Gatsby.js | Next.js and Gatsby.js have built-in bundlers. |
   | Project and work management | Jiira, Notion, Trello | Jiira and Trello are popular project management tools. Notion is a popular tool for documentation, notes, planning, etc. |
   | Workflow | Agile with Scrum or Kanban | Agile is a popular workflow for software development. Scrum and Kanban are most popular Agile workflows. |
