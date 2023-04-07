@@ -19,7 +19,7 @@
   | <img src="https://img.icons8.com/material-outlined/256/notion--v1.png" alt="Notion logo" width=32 height=32>| Notion | project management, documentation, information sharing, notes, planning |
 
 ## 📋 2. Analysis
-Because of buisness nature of the project, the main focus is to create a website that will be easy to navigate and easy to use for potential clients to maximalize convertion rate. It also needs to be performant and responsive. Another consideration is that the website needs to be easy to maintain and update. Content will not change frequently, but it will be updated from time to time. To improve reach and visibility, SEO friendly techniques like SSG or SSR. To ensure good quality of overall product and code, implement testing. Ensure that the project will be delivered on time and with high quality and to be able to adapt to changes and requirements.
+Because of buisness nature of the project, the main focus is to create a website that will be easy to navigate and easy to use for potential clients to maximalize convertion rate. It also needs to be performant and responsive. Another consideration is that the website needs to be easy to maintain and update. Content will not change frequently, but it will be updated from time to time. To improve reach and visibility, use SEO friendly techniques like SSG or SSR. mplement testing, to provide good quality of overall product and code. Ensure that the project will be delivered on time and with high quality and ability to adapt to changes and requirements.
 
 #### ✏️ Technology Considerations:
   | Subject | Options | Why? |
