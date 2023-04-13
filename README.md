@@ -46,3 +46,20 @@ Because of buisness nature of the project, the main focus is to create a website
 
 ## 🔨 3. Prototyping
 To create basic understanding of user interface and user experience. Sketching and wireframing to create low fidelity prototypes.
+
+Due to the dynamic nature of client requirements, the project will be developed in iterations. Created prototypes will be used as a base for the next iterations and will likely to change.
+
+#### 💭 Wireframes & Prototypes:
+  | Screen size |  |  |
+  | ------ | ------ | ------ |
+  | Mobile | <a href="https://www.figma.com/file/T9dJa9ck29CvkLH5yA1CcU/kor-mur-Wireframes?node-id=35%3A477&t=3LtvFHsMaSQbzBul-1">Wireframe</a> | <a href="https://www.figma.com/proto/T9dJa9ck29CvkLH5yA1CcU/kor-mur-Wireframes?node-id=1-2&scaling=scale-down&page-id=0%3A1&starting-point-node-id=1%3A2">Prototype</a> |
+  | Tablet | <a href="https://www.figma.com/file/T9dJa9ck29CvkLH5yA1CcU/kor-mur-Wireframes?node-id=123%3A910&t=3LtvFHsMaSQbzBul-1">Wireframe</a> | <a href="https://www.figma.com/proto/T9dJa9ck29CvkLH5yA1CcU/kor-mur-Wireframes?node-id=123-1028&scaling=scale-down&page-id=123%3A908&starting-point-node-id=123%3A1028">Prototype</a> |
+  | Desktop | <a href="https://www.figma.com/file/T9dJa9ck29CvkLH5yA1CcU/kor-mur-Wireframes?node-id=123%3A1387&t=3LtvFHsMaSQbzBul-1">Wireframe</a> | <a href="https://www.figma.com/proto/T9dJa9ck29CvkLH5yA1CcU/kor-mur-Wireframes?node-id=123-1506&scaling=scale-down&page-id=123%3A909&starting-point-node-id=123%3A1506">Prototype</a> |
+
+#### 🛠️ Tools Used In This Phase:
+  || Tool | Used for |
+  | ------ | ------ | ------ |
+  | <img src="https://img.icons8.com/material-outlined/256/figma--v1.png" alt="Figma logo" width=32 height=32> | Figma | wireframing, prototyping |
+
+## 🎨 4. Design
+To choose colors, fonts, icons etc. to get basic understanding of visual design.
