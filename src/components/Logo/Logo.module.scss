@@ -1,0 +1,50 @@
+.logo-container {
+  display: grid;
+  place-items: center;
+  min-height: 100vh;
+  animation: spin 10s linear infinite;
+}
+
+.logo-outline {
+  --radius: 400px;
+
+  position: relative;
+
+  width: var(--radius);
+  height: var(--radius);
+
+  border: 10px solid #83805e;
+  border-radius: 50%;
+}
+
+.logo-letter {
+  --offset: 170px;
+
+  position: absolute;
+
+  // prettier-ignore
+  transform: translate(
+    calc(cos(var(--degrees)) * var(--offset)),
+    calc(sin(var(--degrees)) * var(--offset))
+  )
+    rotate(calc(90deg + var(--degrees)));
+  font-size: 48px;
+}
+
+$total: 15;
+
+@for $i from 0 through ($total - 1) {
+  .logo-letter:nth-of-type(#{$i + 1}) {
+    --degrees: calc(#{$i} * (180deg / #{$total}));
+  }
+}
+
+@keyframes spin {
+  0% {
+    transform: rotate(0deg);
+  }
+
+  100% {
+    transform: rotate(360deg);
+  }
+}
