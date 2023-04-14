@@ -39,4 +39,4 @@ jobs:
         uses: Ilshidur/action-discord@master
         with:
           args: |
-            New PRODUCTION build on {{ EVENT_PAYLOAD.repository.full_name }}, available at {{ env.URL }}
+            New PRODUCTION build on {{ EVENT_PAYLOAD.repository.full_name }}, available at ${{ env.URL }}
