@@ -36,3 +36,5 @@ next-env.d.ts
 
 # update README.md on GitHub
 README.md
+
+.vercel
