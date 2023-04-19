@@ -10,7 +10,7 @@ export default function App({ Component, pageProps }) {
   return (
     <main className={inter.className}>
       {/* eslint-disable-next-line */}
-      <Component {...pageProps} />;
+      <Component {...pageProps} />
     </main>
   );
 }

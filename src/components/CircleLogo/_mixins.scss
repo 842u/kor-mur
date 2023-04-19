@@ -1,0 +1,40 @@
+@mixin configure(
+  $logo-width: 200px,
+  $text-total-characters: 12,
+  $character-rotation-angle: 90deg,
+  $font-size: 24px,
+  $text-spread-angle: 360deg,
+  $border-size: 10px,
+  $border-color: #000,
+  $spin: false,
+  $spin-duration: 10s
+) {
+  --logo-width: #{$logo-width};
+  --character-rotation-angle: #{$character-rotation-angle};
+  --font-size: #{$font-size};
+  --text-spread-angle: #{$text-spread-angle};
+  --border-size: #{$border-size};
+  --border-color: #{$border-color};
+
+  composes: logo-outline from '../components/CircleLogo/CircleLogo.module.scss';
+
+  @for $i from 0 through ($text-total-characters - 1) {
+    span:nth-of-type(#{$i + 1}) {
+      --degrees: calc(#{$i} * (var(--text-spread-angle) / #{$text-total-characters}));
+    }
+  }
+
+  @if $spin {
+    animation: spin $spin-duration linear infinite;
+  }
+}
+
+@keyframes spin {
+  0% {
+    transform: rotate(0deg);
+  }
+
+  100% {
+    transform: rotate(360deg);
+  }
+}

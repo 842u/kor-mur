@@ -1,0 +1,44 @@
+$text-total-characters: 12;
+
+@for $i from 0 through ($text-total-characters - 1) {
+  .logo-character:nth-of-type(#{$i + 1}) {
+    --degrees: calc(#{$i} * (var(--text-spread-angle) / #{$text-total-characters}));
+  }
+}
+
+.logo-outline {
+  --logo-width: 200px;
+  --character-rotation-angle: 90deg;
+  --font-size: 24px;
+  --text-spread-angle: 360deg;
+  --border-size: 10px;
+  --border-color: #000;
+  --text-radius: calc(var(--logo-width) / 2 - var(--font-size) - var(--border-size));
+
+  position: relative;
+
+  aspect-ratio: 1/1;
+  width: var(--logo-width);
+
+  border: var(--border-size) solid var(--border-color);
+  border-radius: 50%;
+
+  .logo-character {
+    position: absolute;
+    top: calc(50% - var(--font-size) / 2);
+    left: calc(50% - var(--font-size) / 4);
+
+    // prettier-ignore
+    transform: translate(
+      calc(cos(var(--degrees)) * var(--text-radius)),
+      calc(sin(var(--degrees)) * var(--text-radius))
+      )
+      
+      rotate(calc(var(--character-rotation-angle) + var(--degrees)));
+
+    width: calc(var(--font-size) / 2);
+
+    font-size: var(--font-size);
+    text-align: center;
+  }
+}

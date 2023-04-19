@@ -1,5 +1,11 @@
-import Logo from '@/components/Logo/Logo';
+import CircleLogo from '@/components/CircleLogo/CircleLogo';
+
+import styles from './index.module.scss';
 
 export default function Home() {
-  return <Logo />;
+  return (
+    <div className={styles.center}>
+      <CircleLogo text="murawska.studio" className={styles['brand-logo']} />
+    </div>
+  );
 }
