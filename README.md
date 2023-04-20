@@ -63,3 +63,25 @@ Due to the dynamic nature of client requirements, the project will be developed 
 
 ## 🎨 4. Design
 To choose colors, fonts, icons etc. to get basic understanding of visual design.
+
+#### 
+| Color Palette |
+| ------ |
+| <a href="https://www.figma.com/file/7MlMZr0CoRwcLto6aAkac9/kor-mur-design?node-id=19-3">Figma File</a>
+
+| Fonts | | | | | |
+| ------ | ------ | ------ | ------ | ------ | ------ |
+| Primary | <a href="https://fonts.google.com/specimen/Bebas+Neue?query=beba">Bebas Neue</a> | <a href="https://fonts.google.com/specimen/Inter">Inter</a> | <a href="https://www.fontshare.com/fonts/general-sans">General Sans</a> |
+| Secondary | <a href="https://rajputrajesh-448.gumroad.com/l/MerchantTypeface?layout=profile">Merchant</a> | <a href="https://visuely.net/serif/mileur-free/">Mileur</a> | <a href="https://www.behance.net/gallery/163825025/NT-Fabulous-FONT?tracking_source=project_owner_other_projects">Fabulous</a> | <a href="https://fontesk.com/bumerang-font/">Bumerang</a> | <a href="https://fontesk.com/remboy-font/">Remboy</a> |
+
+## 🚧 5. Development
+
+    - react
+    - next.js
+    - eslint
+    - stylelint
+    - jest
+    - testing library
+    - vercel
+    - jira
+    - git
