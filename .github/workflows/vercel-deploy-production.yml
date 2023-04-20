@@ -15,9 +15,27 @@ jobs:
     runs-on: ubuntu-latest
     environment:
       name: Production
-      url: ${{ env.URL }}
+      url: https://www.murawska.studio
     steps:
       - uses: actions/checkout@v3
+
+      - uses: actions/setup-node@v3
+        with:
+          node-version: '18'
+
+      - name: Get Npm Cache Directory
+        id: npm-cache-dir
+        shell: bash
+        run: echo "dir=$(npm config get cache)" >> ${GITHUB_OUTPUT}
+
+      - name: Cache Npm Dependencies
+        uses: actions/cache@v3
+        id: npm-cache
+        with:
+          path: ${{ steps.npm-cache-dir.outputs.dir }}
+          key: ${{ runner.os }}-node-${{ hashFiles('**/package-lock.json') }}
+          restore-keys: |
+            ${{ runner.os }}-node-
       
       - name: Install Vercel CLI
         run: npm install --global vercel@latest
@@ -39,4 +57,4 @@ jobs:
         uses: Ilshidur/action-discord@master
         with:
           args: |
-            New PRODUCTION build on {{ EVENT_PAYLOAD.repository.full_name }}, available at ${{ env.URL }}
+            New PRODUCTION build on {{ EVENT_PAYLOAD.repository.full_name }}, available at https://www.murawska.studio
