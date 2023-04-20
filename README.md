@@ -85,3 +85,4 @@ To choose colors, fonts, icons etc. to get basic understanding of visual design.
     - vercel
     - jira
     - git
+    - Lighthouse
