@@ -8,7 +8,7 @@ export default function Home() {
   return (
     <div className={styles.center}>
       <Head>
-        <title>MURAWSKA.STUDIO</title>
+        <title>Murawska Studio</title>
       </Head>
       <CircleLogo text="murawska.studio" className={styles['brand-logo']} />
     </div>
