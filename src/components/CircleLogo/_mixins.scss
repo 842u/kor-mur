@@ -16,7 +16,7 @@
   --border-size: #{$border-size};
   --border-color: #{$border-color};
 
-  composes: logo-outline from '../components/CircleLogo/CircleLogo.module.scss';
+  composes: logo-outline from '@/components/CircleLogo/CircleLogo.module.scss';
 
   @for $i from 0 through ($text-total-characters - 1) {
     span:nth-of-type(#{$i + 1}) {
