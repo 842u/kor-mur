@@ -8,7 +8,7 @@
     $font-size: 24px,
     $text-spread-angle: 200deg,
     $border-size: 20px,
-    $border-color: #9c997e,
+    $border-color: var(--secondary-500),
     $spin: true,
     $spin-duration: 15s
   );

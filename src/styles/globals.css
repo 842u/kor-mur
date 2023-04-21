@@ -31,10 +31,8 @@
   --primary-900: #4b464f;
 }
 
-* {
+*,
+*::before,
+*::after {
   box-sizing: border-box;
-}
-
-.asd {
-  color: red;
 }
