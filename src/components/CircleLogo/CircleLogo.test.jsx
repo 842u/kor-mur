@@ -14,6 +14,7 @@ describe('CircleLogo', () => {
 
     [...logoText].forEach((character) => {
       expect(screen.getByText(character)).toBeInTheDocument();
+      expect(screen.getByText(character, { exact: true })).toBeVisible();
     });
   });
 });
