@@ -1,5 +1,12 @@
 @use '../CircleLogo/mixins.scss' as Logo;
 
+.loader {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+}
+
 .brand-logo {
   @include Logo.configure(
     $logo-width: 200px,
@@ -12,11 +19,4 @@
     $spin: true,
     $spin-duration: 15s
   );
-}
-
-.loader {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  height: 100vh;
 }
