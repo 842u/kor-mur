@@ -10,7 +10,7 @@ export default function Document() {
         />
         <meta name="author" content="Murawska Studio" />
         <body>
-          <div id="overlay" />
+          <div id="overlay" role="dialog" />
           <Main />
           <NextScript />
         </body>
