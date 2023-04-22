@@ -2,7 +2,7 @@
 
 const ContentSecurityPolicy = `
   default-src 'self';
-  script-src 'self';
+  script-src 'self' vercel.live;
   style-src 'self';
   font-src 'self';  
 `;
