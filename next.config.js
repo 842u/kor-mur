@@ -16,8 +16,8 @@ module.exports = (phase) => {
   const ContentSecurityPolicy = `
     default-src 'self';
     script-src 'self';
-    style-src 'self';
-    font-src 'self';  
+    style-src 'self' 'unsafe-inline';
+    font-src 'self';
   `;
 
   const securityHeaders = [
@@ -44,7 +44,7 @@ module.exports = (phase) => {
     },
     {
       key: 'Referrer-Policy',
-      value: 'origin-when-cross-origin',
+      value: 'strict-origin-when-cross-origin',
     },
     {
       key: 'Content-Security-Policy',
@@ -56,7 +56,6 @@ module.exports = (phase) => {
     async headers() {
       return [
         {
-          // Apply these headers to all routes in your application.
           source: '/:path*',
           headers: securityHeaders,
         },
