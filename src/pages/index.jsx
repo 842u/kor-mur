@@ -9,7 +9,6 @@ export default function Home() {
       <Head>
         <title>Murawska Studio</title>
       </Head>
-      AHA
       <motion.div
         initial={{ y: 0 }}
         animate={{ y: -2000 }}
