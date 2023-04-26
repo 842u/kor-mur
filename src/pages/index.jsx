@@ -8,6 +8,7 @@ export default function Home() {
       <Head>
         <title>Murawska Studio</title>
       </Head>
+      AHA
       <WelcomeScreen />
     </div>
   );
