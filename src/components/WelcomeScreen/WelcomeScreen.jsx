@@ -12,7 +12,6 @@ export default function WelcomeScreen() {
         transition={{
           type: 'spring',
           duration: 3,
-          ease: 'circInOut',
         }}
       >
         <CircleLogo text="murawska.studio" className={styles['brand-logo']} />

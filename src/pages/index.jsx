@@ -23,7 +23,7 @@ export default function Home() {
           <motion.div
             initial={{ y: 0 }}
             exit={{ y: -2000 }}
-            transition={{ ease: 'circInOut', delay: 3.5, duration: 2 }}
+            transition={{ delay: 3.5, duration: 1 }}
           >
             <WelcomeScreen />
           </motion.div>

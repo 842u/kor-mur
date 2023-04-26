@@ -1,0 +1,34 @@
+@use '../CircleLogo/mixins.scss' as Logo;
+
+.navbar {
+  position: sticky;
+  top: 0;
+  left: 0;
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  height: 5rem;
+  padding: 5px 16px;
+
+  border: 1px solid red;
+}
+
+.logo {
+  @include Logo.configure(
+    $logo-width: calc(5rem - 10px),
+    $text-total-characters: 15,
+    $character-rotation-angle: 90deg,
+    $font-size: 0.7rem,
+    $text-spread-angle: 340deg,
+    $border-size: 3px,
+    $border-color: var(--secondary-500),
+    $spin: true,
+    $spin-duration: 30s
+  );
+}
+
+.menu {
+  display: flex;
+}
