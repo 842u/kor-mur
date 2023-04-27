@@ -2,11 +2,9 @@ import Link from 'next/link';
 
 import styles from './NavMenu.module.scss';
 
-export default function NavMenu({ isMenuActive }) {
-  const activeClass = isMenuActive ? '--active' : '';
-
+export default function NavMenu({ isMenuActive, className }) {
   return (
-    <ul className={styles[`links${activeClass}`]}>
+    <ul className={`${styles.menu} ${isMenuActive && styles['menu--active']} ${className}`}>
       <li>
         <Link href="/">Strona Główna</Link>
       </li>

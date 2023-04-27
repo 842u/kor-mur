@@ -15,8 +15,12 @@ export default function Navbar() {
     <header className={styles.navbar}>
       <CircleLogo text="murawska.studio" className={styles.logo} />
       <nav>
-        <HamburgerButton onClick={clickHandler} isMenuActive={isMenuActive} />
-        <NavMenu isMenuActive={isMenuActive} />
+        <HamburgerButton
+          onClick={clickHandler}
+          isMenuActive={isMenuActive}
+          className={styles.hamburger}
+        />
+        <NavMenu isMenuActive={isMenuActive} className={styles.menu} />
       </nav>
     </header>
   );

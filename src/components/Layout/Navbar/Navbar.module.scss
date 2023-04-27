@@ -28,5 +28,17 @@
     $spin-duration: 30s
   );
 
-  margin-inline-start: 1rem;
+  margin-left: 1rem;
+}
+
+@media (width > 810px) {
+  .navbar {
+    .hamburger {
+      display: none;
+    }
+
+    .menu {
+      display: flex;
+    }
+  }
 }
