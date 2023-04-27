@@ -1,19 +1,27 @@
-import { useState } from 'react';
+import Link from 'next/link';
 
-import HamburgerButton from './HamburgerButton/HamburgerButton';
-import NavLinks from './NavLinks/NavLinks';
+import styles from './NavMenu.module.scss';
 
-export default function NavMenu() {
-  const [isMenuActive, setIsMenuActive] = useState(false);
-
-  const clickHandler = () => {
-    setIsMenuActive((currentState) => !currentState);
-  };
+export default function NavMenu({ isMenuActive }) {
+  const activeClass = isMenuActive ? '--active' : '';
 
   return (
-    <nav>
-      <HamburgerButton onClick={clickHandler} isMenuActive={isMenuActive} />
-      <NavLinks isMenuActive={isMenuActive} />
-    </nav>
+    <ul className={styles[`links${activeClass}`]}>
+      <li>
+        <Link href="/">Strona Główna</Link>
+      </li>
+      <li>
+        <Link href="/services">Oferta</Link>
+      </li>
+      <li>
+        <Link href="/projects">Projekty</Link>
+      </li>
+      <li>
+        <Link href="/about">O mnie</Link>
+      </li>
+      <li>
+        <Link href="/#contact">Kontakt</Link>
+      </li>
+    </ul>
   );
 }
