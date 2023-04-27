@@ -6,7 +6,7 @@ export default function HamburgerButton({ isMenuActive, onClick, className }) {
       onClick={onClick}
       className={`${styles.button} ${isMenuActive && styles['button--active']} ${className}`}
       type="button"
-      aria-label="Hamburger Menu Button"
+      aria-label="menu"
     >
       <div />
       <div />

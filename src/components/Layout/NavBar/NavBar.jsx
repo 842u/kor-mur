@@ -1,3 +1,4 @@
+import { useRouter } from 'next/router.js';
 import { useState } from 'react';
 
 import CircleLogo from '../../CircleLogo/CircleLogo.jsx';
@@ -7,17 +8,30 @@ import NavMenu from './NavMenu/NavMenu.jsx';
 
 export default function NavBar() {
   const [isMenuActive, setIsMenuActive] = useState(false);
+  const router = useRouter();
 
-  const clickHandler = () => {
+  const clickHamburgerHandler = () => {
     setIsMenuActive((currentState) => !currentState);
+  };
+
+  const clickLogoHandler = () => {
+    router.push('/');
+    setIsMenuActive(false);
   };
 
   return (
     <header className={styles.navbar}>
-      <CircleLogo text="murawska.studio" className={styles.logo} />
+      <button
+        onClick={clickLogoHandler}
+        aria-label="home page"
+        type="button"
+        className={styles['logo-button']}
+      >
+        <CircleLogo text="murawska.studio" className={styles.logo} />
+      </button>
       <nav>
         <HamburgerButton
-          onClick={clickHandler}
+          onClick={clickHamburgerHandler}
           isMenuActive={isMenuActive}
           className={styles.hamburger}
         />

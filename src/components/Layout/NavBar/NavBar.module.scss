@@ -13,6 +13,12 @@
   height: 5rem;
 
   background-color: var(--secondary-100);
+
+  .logo-button {
+    margin-left: 1rem;
+    background: none;
+    border: none;
+  }
 }
 
 .logo {
@@ -27,8 +33,6 @@
     $spin: true,
     $spin-duration: 30s
   );
-
-  margin-left: 1rem;
 }
 
 @media (width > 810px) {
@@ -38,7 +42,13 @@
     }
 
     .menu {
-      display: flex;
+      position: initial;
+
+      flex-direction: row;
+
+      width: initial;
+      height: initial;
+      margin-right: 1rem;
     }
   }
 }
