@@ -5,7 +5,7 @@ import HamburgerButton from './HamburgerButton/HamburgerButton.jsx';
 import styles from './NavBar.module.scss';
 import NavMenu from './NavMenu/NavMenu.jsx';
 
-export default function Navbar() {
+export default function NavBar() {
   const [isMenuActive, setIsMenuActive] = useState(false);
 
   const clickHandler = () => {
