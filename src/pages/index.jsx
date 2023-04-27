@@ -2,7 +2,7 @@ import { AnimatePresence, motion } from 'framer-motion';
 import Head from 'next/head';
 import { useEffect, useState } from 'react';
 
-import WelcomeScreen from '@/components/WelcomeScreen/WelcomeScreen';
+import WelcomeScreen from '../components/WelcomeScreen/WelcomeScreen';
 
 export default function Home() {
   const [showWelcomeScreen, setShowWelcomeScreen] = useState(true);
@@ -18,12 +18,12 @@ export default function Home() {
       <Head>
         <title>Murawska Studio</title>
       </Head>
-      <AnimatePresence mode="sync">
+      <AnimatePresence>
         {showWelcomeScreen && (
           <motion.div
             initial={{ y: 0 }}
             exit={{ y: -2000 }}
-            transition={{ delay: 3.5, duration: 1 }}
+            transition={{ delay: 2.5, duration: 1 }}
           >
             <WelcomeScreen />
           </motion.div>
