@@ -1,7 +1,7 @@
 @use '../../CircleLogo/mixins.scss' as Logo;
 
 .navbar {
-  position: sticky;
+  position: fixed;
   top: 0;
   left: 0;
 
@@ -10,17 +10,8 @@
   justify-content: space-between;
 
   height: 5rem;
-  padding: 5px 16px;
 
-  border: 1px solid red;
-
-  ul {
-    display: flex;
-
-    li {
-      list-style: none;
-    }
-  }
+  background-color: var(--primary-200);
 }
 
 .logo {
@@ -35,4 +26,6 @@
     $spin: true,
     $spin-duration: 30s
   );
+
+  margin-inline-start: 1rem;
 }
