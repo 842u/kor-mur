@@ -11,6 +11,7 @@ export default function NavBar() {
   const clickHandler = () => {
     setIsMenuActive((currentState) => !currentState);
   };
+
   return (
     <header className={styles.navbar}>
       <CircleLogo text="murawska.studio" className={styles.logo} />
