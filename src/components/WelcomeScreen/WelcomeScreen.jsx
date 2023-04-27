@@ -3,12 +3,12 @@ import { motion } from 'framer-motion';
 import CircleLogo from '../CircleLogo/CircleLogo.jsx';
 import styles from './WelcomeScreen.module.scss';
 
-export default function WelcomeScreen() {
+export default function WelcomeScreen({ className }) {
   return (
-    <div className={styles.loader}>
+    <div className={`${styles.loader} ${className}`}>
       <motion.div
         initial={{ opacity: 0, scale: 0, rotate: 0 }}
-        exit={{ opacity: 1, scale: 1, rotate: 900 }}
+        animate={{ opacity: 1, scale: 1, rotate: 900 }}
         transition={{
           type: 'spring',
           duration: 2,
