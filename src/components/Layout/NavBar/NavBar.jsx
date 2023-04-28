@@ -27,7 +27,7 @@ export default function NavBar() {
         type="button"
         className={styles['logo-button']}
       >
-        <CircleLogo text="murawska.studio" className={styles.logo} />
+        <CircleLogo text="MURAWSKA.STUDIO" className={styles.logo} />
       </button>
       <nav>
         <HamburgerButton
