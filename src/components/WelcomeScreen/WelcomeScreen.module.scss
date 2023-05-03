@@ -17,12 +17,12 @@
 
 .brand-logo {
   @include Logo.configure(
-    $logo-width: 200px,
+    $logo-width: 250px,
     $text-total-characters: 15,
     $character-rotation-angle: 90deg,
     $font-size: 24px,
     $text-spread-angle: 200deg,
-    $border-size: 20px,
+    $border-size: 10px,
     $border-color: var(--secondary-500)
   );
 }

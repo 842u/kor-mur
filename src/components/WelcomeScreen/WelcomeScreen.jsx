@@ -1,22 +1,23 @@
-import { motion } from 'framer-motion';
+import { domAnimation, LazyMotion, m } from 'framer-motion';
 
 import CircleLogo from '../CircleLogo/CircleLogo.jsx';
 import styles from './WelcomeScreen.module.scss';
 
-export default function WelcomeScreen() {
+export default function WelcomeScreen({ className }) {
   return (
-    <div className={styles.loader}>
-      <motion.div
-        initial={{ opacity: 0, scale: 0, rotate: 0 }}
-        exit={{ opacity: 1, scale: 1, rotate: 900 }}
-        transition={{
-          type: 'spring',
-          duration: 3,
-          ease: 'circInOut',
-        }}
-      >
-        <CircleLogo text="murawska.studio" className={styles['brand-logo']} />
-      </motion.div>
+    <div className={`${styles.loader} ${className}`}>
+      <LazyMotion features={domAnimation}>
+        <m.div
+          initial={{ scale: 0, rotate: 0 }}
+          animate={{ scale: 1, rotate: 900 }}
+          transition={{
+            type: 'spring',
+            duration: 2,
+          }}
+        >
+          <CircleLogo text="MURAWSKA.STUDIO" className={styles['brand-logo']} />
+        </m.div>
+      </LazyMotion>
     </div>
   );
 }

@@ -1,22 +1,16 @@
-@use '../components/CircleLogo/mixins' as Logo;
-
-.brand-logo {
-  @include Logo.configure(
-    $logo-width: 200px,
-    $text-total-characters: 15,
-    $character-rotation-angle: 90deg,
-    $font-size: 24px,
-    $text-spread-angle: 200deg,
-    $border-size: 20px,
-    $border-color: var(--secondary-500),
-    $spin: true,
-    $spin-duration: 15s
-  );
+.welcome {
+  position: absolute;
+  top: 0;
+  left: 0;
+  animation: slide 500ms ease-in-out 2500ms forwards;
 }
 
-.center {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  height: 100vh;
+@keyframes slide {
+  0% {
+    transform: translateY(0);
+  }
+
+  100% {
+    transform: translateY(-100vh);
+  }
 }

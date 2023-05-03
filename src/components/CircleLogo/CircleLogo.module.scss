@@ -15,10 +15,13 @@ $text-total-characters: 12;
   --border-color: #000;
   --text-radius: calc(var(--logo-width) / 2 - var(--font-size) - var(--border-size));
 
+  user-select: none;
+
   position: relative;
 
-  aspect-ratio: 1/1;
+  aspect-ratio: 1 / 1;
   width: var(--logo-width);
+  height: var(--logo-width);
 
   border: var(--border-size) solid var(--border-color);
   border-radius: 50%;
