@@ -1,35 +1,39 @@
-import Link from 'next/link';
-
 import styles from './NavMenu.module.scss';
+import NavMenuItem from './NavMenuItem/NavMenuItem';
 
-export default function NavMenu({ isMenuActive, className }) {
+const menuItems = [
+  {
+    href: '/',
+    text: 'STRONA GŁÓWNA',
+  },
+  {
+    href: '/services',
+    text: 'OFERTA',
+  },
+  {
+    href: '/projects',
+    text: 'PROJEKTY',
+  },
+  {
+    href: '/about',
+    text: 'O MNIE',
+  },
+  {
+    href: '#contact',
+    text: 'KONTAKT',
+  },
+];
+
+export default function NavMenu({ isMenuActive, className, onMenuItemClick }) {
+  const styleClass = `${styles.menu} ${isMenuActive && styles['menu--active']} ${className}`;
+
   return (
-    <ul className={`${styles.menu} ${isMenuActive && styles['menu--active']} ${className}`}>
-      <li>
-        <Link href="/">
-          <button type="button">Strona Główna</button>
-        </Link>
-      </li>
-      <li>
-        <Link href="/services">
-          <button type="button">Oferta</button>
-        </Link>
-      </li>
-      <li>
-        <Link href="/projects">
-          <button type="button">Projekty</button>
-        </Link>
-      </li>
-      <li>
-        <Link href="/about">
-          <button type="button">O mnie</button>
-        </Link>
-      </li>
-      <li>
-        <Link href="/#contact">
-          <button type="button">Kontakt</button>
-        </Link>
-      </li>
+    <ul className={styleClass}>
+      {menuItems.map((item) => (
+        <NavMenuItem key={item.href} onClick={onMenuItemClick} href={item.href}>
+          {item.text}
+        </NavMenuItem>
+      ))}
     </ul>
   );
 }

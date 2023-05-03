@@ -10,7 +10,7 @@ export default function NavBar() {
   const [isMenuActive, setIsMenuActive] = useState(false);
   const router = useRouter();
 
-  const clickHamburgerHandler = () => {
+  const toggleMenuHandler = () => {
     setIsMenuActive((currentState) => !currentState);
   };
 
@@ -31,11 +31,15 @@ export default function NavBar() {
       </button>
       <nav>
         <HamburgerButton
-          onClick={clickHamburgerHandler}
+          onClick={toggleMenuHandler}
           isMenuActive={isMenuActive}
           className={styles.hamburger}
         />
-        <NavMenu isMenuActive={isMenuActive} className={styles.menu} />
+        <NavMenu
+          onMenuItemClick={toggleMenuHandler}
+          isMenuActive={isMenuActive}
+          className={styles.menu}
+        />
       </nav>
     </header>
   );
