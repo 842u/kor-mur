@@ -1,7 +1,7 @@
 import styles from './NavMenu.module.scss';
 import NavMenuItem from './NavMenuItem/NavMenuItem';
 
-const menuItems = [
+const links = [
   {
     href: '/',
     text: 'STRONA GŁÓWNA',
@@ -24,7 +24,7 @@ const menuItems = [
   },
 ];
 
-export default function NavMenu({ isMenuActive, className, onMenuItemClick }) {
+export default function NavMenu({ isMenuActive, className, onMenuItemClick, menuItems = links }) {
   const styleClass = `${styles.menu} ${isMenuActive && styles['menu--active']} ${className}`;
 
   return (
