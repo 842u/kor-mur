@@ -86,3 +86,5 @@ To choose colors, fonts, icons etc. to get basic understanding of visual design.
     - jira
     - git
     - Lighthouse
+    - security headers
+    - bundle analyzer
