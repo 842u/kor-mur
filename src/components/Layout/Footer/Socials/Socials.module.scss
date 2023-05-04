@@ -1,0 +1,31 @@
+.socials {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  font-size: 2rem;
+  font-style: normal;
+
+  &::before,
+  &::after {
+    content: '';
+    width: 80vw;
+    height: 2px;
+    background-color: var(--secondary-500);
+  }
+}
+
+@media (width > 810px) {
+  .socials {
+    flex-direction: row;
+    font-size: 1rem;
+
+    &::before,
+    &::after {
+      content: '';
+      width: 2px;
+      height: 150px;
+      background-color: var(--secondary-500);
+    }
+  }
+}
