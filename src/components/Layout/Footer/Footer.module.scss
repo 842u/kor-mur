@@ -11,7 +11,7 @@
 
   width: 100%;
 
-  border: 1px solid red;
+  background-color: var(--primary-500);
 }
 
 .logo {
@@ -28,4 +28,26 @@
   );
 
   margin: 1rem;
+}
+
+@media (width > 810px) {
+  .footer {
+    flex-direction: row;
+    align-self: start;
+    justify-content: space-between;
+  }
+
+  .logo {
+    @include Logo.configure(
+      $logo-width: 150px,
+      $text-total-characters: 15,
+      $character-rotation-angle: 90deg,
+      $font-size: 1rem,
+      $text-spread-angle: 200deg,
+      $border-size: 2px,
+      $border-color: var(--secondary-500),
+      $spin: true,
+      $spin-duration: 30s
+    );
+  }
 }

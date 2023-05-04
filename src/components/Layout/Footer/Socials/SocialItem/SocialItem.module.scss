@@ -5,13 +5,22 @@
 
   margin: 0.5rem;
 
-  font-size: 1.5rem;
   color: var(--black-500);
   text-decoration: none;
 
   transition: 0.2s ease-in-out;
 
   &:hover {
-    scale: 1.02;
+    scale: 1.1;
+  }
+}
+
+@media (width > 810px) {
+  .item {
+    flex-direction: column;
+
+    img:nth-child(2) {
+      display: none;
+    }
   }
 }
