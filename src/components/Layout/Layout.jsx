@@ -1,8 +1,8 @@
 import { useEffect, useState } from 'react';
 
-import WelcomeScreen from '../WelcomeScreen/WelcomeScreen';
 import Footer from './Footer/Footer';
 import NavBar from './NavBar/NavBar';
+import WelcomeScreen from './WelcomeScreen/WelcomeScreen';
 
 export default function Layout({ children }) {
   const [isWelcomeAnimationFinished, setIsWelcomeAnimationFinished] = useState(false);
