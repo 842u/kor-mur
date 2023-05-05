@@ -1,0 +1,22 @@
+.hero-section {
+  position: relative;
+  top: 5rem;
+
+  display: grid;
+  grid-template-columns: repeat(12, 1fr);
+
+  height: 800px;
+  margin: 0 -1rem;
+
+  border: 1px solid royalblue;
+
+  .brand {
+    position: absolute;
+    z-index: 5;
+    color: var(--white-500);
+  }
+
+  .img-1 {
+    grid-column: 1 / span 4;
+  }
+}
