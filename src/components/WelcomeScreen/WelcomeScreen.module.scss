@@ -1,7 +1,7 @@
 @use '../CircleLogo/mixins.scss' as Logo;
 
 .loader {
-  position: fixed;
+  position: absolute;
   z-index: 20;
   top: 0;
   left: 0;
@@ -14,9 +14,11 @@
   height: 100vh;
 
   background-color: var(--white-500);
+
+  animation: slide-up 500ms ease-in-out 2500ms forwards;
 }
 
-.brand-logo {
+.logo {
   @include Logo.configure(
     $logo-width: 250px,
     $text-total-characters: 15,
@@ -26,4 +28,14 @@
     $border-size: 10px,
     $border-color: var(--secondary-500)
   );
+}
+
+@keyframes slide-up {
+  0% {
+    transform: translateY(0);
+  }
+
+  100% {
+    transform: translateY(-100vh);
+  }
 }
