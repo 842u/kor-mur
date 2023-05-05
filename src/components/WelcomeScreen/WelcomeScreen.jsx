@@ -15,7 +15,7 @@ export default function WelcomeScreen({ className }) {
             duration: 2,
           }}
         >
-          <CircleLogo text="MURAWSKA.STUDIO" className={styles['brand-logo']} />
+          <CircleLogo text="MURAWSKA.STUDIO" className={styles.logo} />
         </m.div>
       </LazyMotion>
     </div>
