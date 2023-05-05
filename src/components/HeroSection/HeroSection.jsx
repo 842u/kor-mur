@@ -14,7 +14,6 @@ export default function HeroSection() {
         src={heroImg1}
         priority
         fill
-        quality={50}
         placeholder="blur"
         sizes="33vw"
         className={styles['img-1']}
@@ -23,7 +22,6 @@ export default function HeroSection() {
       />
       <Image
         src={heroImg2}
-        quality={50}
         placeholder="blur"
         fill
         sizes="33vw"
@@ -33,7 +31,6 @@ export default function HeroSection() {
       />
       <Image
         src={heroImg3}
-        quality={50}
         placeholder="blur"
         fill
         sizes="33vw"
@@ -43,7 +40,6 @@ export default function HeroSection() {
       />
       <Image
         src={heroImg4}
-        quality={50}
         placeholder="blur"
         fill
         sizes="33vw"
@@ -53,7 +49,6 @@ export default function HeroSection() {
       />
       <Image
         src={heroImg5}
-        quality={50}
         placeholder="blur"
         fill
         sizes="33vw"
