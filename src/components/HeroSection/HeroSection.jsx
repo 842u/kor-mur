@@ -10,11 +10,57 @@ import styles from './HeroSection.module.scss';
 export default function HeroSection() {
   return (
     <section className={styles['hero-section']}>
-      <Image src={heroImg1} fill sizes="50vw" className={styles['img-1']} aria-hidden alt="" />
-      <Image src={heroImg2} fill sizes="50vw" className={styles['img-2']} aria-hidden alt="" />
-      <Image src={heroImg3} fill sizes="50vw" className={styles['img-3']} aria-hidden alt="" />
-      <Image src={heroImg4} fill sizes="50vw" className={styles['img-4']} aria-hidden alt="" />
-      <Image src={heroImg5} fill sizes="50vw" className={styles['img-5']} aria-hidden alt="" />
+      <Image
+        src={heroImg1}
+        priority
+        fill
+        quality={50}
+        placeholder="blur"
+        sizes="33vw"
+        className={styles['img-1']}
+        aria-hidden
+        alt=""
+      />
+      <Image
+        src={heroImg2}
+        quality={50}
+        placeholder="blur"
+        fill
+        sizes="33vw"
+        className={styles['img-2']}
+        aria-hidden
+        alt=""
+      />
+      <Image
+        src={heroImg3}
+        quality={50}
+        placeholder="blur"
+        fill
+        sizes="33vw"
+        className={styles['img-3']}
+        aria-hidden
+        alt=""
+      />
+      <Image
+        src={heroImg4}
+        quality={50}
+        placeholder="blur"
+        fill
+        sizes="33vw"
+        className={styles['img-4']}
+        aria-hidden
+        alt=""
+      />
+      <Image
+        src={heroImg5}
+        quality={50}
+        placeholder="blur"
+        fill
+        sizes="33vw"
+        className={styles['img-5']}
+        aria-hidden
+        alt=""
+      />
     </section>
   );
 }
