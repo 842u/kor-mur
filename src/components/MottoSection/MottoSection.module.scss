@@ -1,7 +1,14 @@
 .motto-section {
   padding: 1rem;
+  color: var(--secondary-700);
 
   h1 {
-    margin: 0;
+    margin: 1rem;
+    text-align: right;
+    letter-spacing: 0.5rem;
+  }
+
+  p {
+    text-align: justify;
   }
 }
