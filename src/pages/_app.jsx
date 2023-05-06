@@ -1,12 +1,8 @@
 import 'normalize.css';
 import '@/styles/globals.css';
 
-// eslint-disable-next-line
-import { Oswald } from 'next/font/google';
-
 import Layout from '@/components/Layout/Layout';
-
-const primaryFont = Oswald({ subsets: ['latin'] });
+import { primaryFont } from '@/utils/fonts';
 
 export default function App({ Component, pageProps }) {
   return (
