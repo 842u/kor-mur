@@ -2,13 +2,58 @@
   padding: 1rem;
   color: var(--secondary-700);
 
-  h1 {
-    margin: 1rem;
+  .motto {
     text-align: right;
     letter-spacing: 0.5rem;
   }
 
   p {
+    margin: 1rem 0;
     text-align: justify;
+  }
+
+  .decor {
+    display: flex;
+    flex-direction: column;
+
+    .image-container {
+      position: relative;
+      aspect-ratio: 16 / 9;
+      width: 100%;
+    }
+
+    .image {
+      object-fit: cover;
+    }
+
+    .link {
+      display: block;
+      width: 70%;
+      height: 4rem;
+      margin: auto;
+    }
+
+    .button {
+      width: 100%;
+      height: 100%;
+      background-color: var(--primary-200);
+    }
+  }
+}
+
+@media (width > 810px) {
+  .motto-section {
+    padding: 2rem;
+    font-size: 1.5rem;
+
+    .decor {
+      flex-direction: row-reverse;
+    }
+
+    .image-container {
+      aspect-ratio: 9 / 16;
+      width: calc(50% - 1rem);
+      max-height: 300px;
+    }
   }
 }
