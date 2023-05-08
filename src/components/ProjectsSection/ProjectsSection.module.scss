@@ -1,3 +1,9 @@
+@use '../../styles/mixins.scss' as mixins;
+
 .projects-section {
-  padding: 1rem;
+  @include mixins.section;
+
+  h2 {
+    text-align: right;
+  }
 }

@@ -1,0 +1,28 @@
+@mixin section {
+  padding: 1rem;
+  color: var(--secondary-700);
+
+  h2 {
+    @include section-heading;
+  }
+
+  @media (width > 800px) {
+    padding: 2rem;
+    font-size: 1.5rem;
+  }
+
+  @media (width > 1200px) {
+    padding: 3rem;
+  }
+}
+
+@mixin section-heading {
+  margin: 1rem 0;
+  font-size: 2rem;
+  letter-spacing: 0.5rem;
+
+  @media (width > 1200px) {
+    font-size: 3rem;
+    letter-spacing: 1rem;
+  }
+}
