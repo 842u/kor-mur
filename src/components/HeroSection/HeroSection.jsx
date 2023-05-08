@@ -21,7 +21,7 @@ export default function HeroSection() {
           fill
           placeholder="blur"
           sizes="33vw"
-          className={styles['img-1']}
+          className={styles['image-1']}
           aria-hidden
           alt=""
         />
@@ -30,7 +30,7 @@ export default function HeroSection() {
           placeholder="blur"
           fill
           sizes="33vw"
-          className={styles['img-2']}
+          className={styles['image-2']}
           aria-hidden
           alt=""
         />
@@ -39,7 +39,7 @@ export default function HeroSection() {
           placeholder="blur"
           fill
           sizes="33vw"
-          className={styles['img-3']}
+          className={styles['image-3']}
           aria-hidden
           alt=""
         />
@@ -48,7 +48,7 @@ export default function HeroSection() {
           placeholder="blur"
           fill
           sizes="33vw"
-          className={styles['img-4']}
+          className={styles['image-4']}
           aria-hidden
           alt=""
         />
@@ -57,7 +57,7 @@ export default function HeroSection() {
           placeholder="blur"
           fill
           sizes="33vw"
-          className={styles['img-5']}
+          className={styles['image-5']}
           aria-hidden
           alt=""
         />
