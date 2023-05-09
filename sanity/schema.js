@@ -1,5 +1,7 @@
+import project from './schema/Project';
+
 const schema = {
-  types: [],
+  types: [project],
 };
 
 export default schema;
