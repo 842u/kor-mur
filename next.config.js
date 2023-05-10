@@ -15,9 +15,10 @@ module.exports = (phase) => {
 
   const ContentSecurityPolicy = `
     default-src 'self';
+    connect-src 'self' https://*.api.sanity.io wss://*.api.sanity.io;
     script-src 'self';
     style-src 'self' 'unsafe-inline';
-    img-src 'self' data:;
+    img-src 'self' data: https://*.githubusercontent.com https://cdn.sanity.io;
     font-src 'self';
   `;
 

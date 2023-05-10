@@ -1,11 +1,7 @@
-.motto-section {
-  padding: 1rem;
-  color: var(--secondary-700);
+@use '../../styles/mixins.scss' as mixins;
 
-  h2 {
-    text-align: right;
-    letter-spacing: 0.5rem;
-  }
+.motto-section {
+  @include mixins.section;
 
   p {
     margin: 1rem 0;
@@ -50,11 +46,6 @@
 }
 
 @media (width > 800px) {
-  .motto-section {
-    padding: 2rem;
-    font-size: 1.5rem;
-  }
-
   .addnotation {
     flex-direction: row-reverse;
     align-items: center;
