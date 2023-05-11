@@ -4,9 +4,10 @@
 
 import featuredProjects from './schema/featuredProjects';
 import project from './schema/project';
+import tag from './schema/tag';
 
 const schema = {
-  types: [project, featuredProjects],
+  types: [project, featuredProjects, tag],
 };
 
 export default schema;

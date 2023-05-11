@@ -5,17 +5,17 @@ import { secondaryFont } from '@/utils/fonts';
 import styles from './ProjectCard.module.scss';
 
 export default function ProjectCard({ project, sizes }) {
-  const projectImgSrc = project.projectMainImage.asset.url;
-  const { projectName } = project;
-  const { projectDescription } = project;
+  const mainImageUrl = project.mainImage.asset.url;
+  const { name } = project;
+  const { description } = project;
 
   return (
     <div className={styles['project-card']}>
-      <h3 className={secondaryFont.className}>{projectName}</h3>
+      <h3 className={secondaryFont.className}>{name}</h3>
       <div className={styles['image-container']}>
-        <Image src={projectImgSrc} fill sizes={sizes} alt={`${projectName} main image`} />
+        <Image src={mainImageUrl} fill sizes={sizes} alt={`${name} main image`} />
       </div>
-      <p>{projectDescription}</p>
+      <p>{description}</p>
     </div>
   );
 }

@@ -6,39 +6,47 @@ const project = defineType({
   type: 'document',
   fields: [
     defineField({
-      name: 'projectName',
+      name: 'name',
       title: 'Project Name',
       type: 'string',
     }),
 
     defineField({
-      name: 'projectDescription',
+      name: 'description',
       title: 'Project Description',
       type: 'text',
     }),
 
     defineField({
-      name: 'projectSlug',
+      name: 'slug',
       title: 'Project Slug',
       description:
         'This is used to generate the url for this project e.g. "my-project" will generate the url "https://www.example.com/projects/my-project"',
       type: 'slug',
       options: {
         source: (doc) => {
-          return `${doc.projectName}`;
+          return `${doc.name}`;
         },
       },
       validation: (Rule) => Rule.required(),
     }),
 
     defineField({
-      name: 'projectMainImage',
+      name: 'tags',
+      title: 'Project Tags',
+      type: 'array',
+      of: [{ type: 'reference', weak: true, to: { type: 'tag' }, options: { disableNew: true } }],
+      validation: (Rule) => Rule.unique(),
+    }),
+
+    defineField({
+      name: 'mainImage',
       title: 'Project Main Image',
       type: 'image',
     }),
 
     defineField({
-      name: 'projectImages',
+      name: 'images',
       title: 'Project Images',
       type: 'array',
       of: [{ type: 'image' }],
