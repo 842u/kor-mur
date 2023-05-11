@@ -1,9 +1,9 @@
 import Head from 'next/head';
 
+import ProjectsSection from '@/components/FeaturedProjectsSection/FeaturedProjectsSection';
 import HeroSection from '@/components/HeroSection/HeroSection';
 import Layout from '@/components/Layout/Layout';
 import MottoSection from '@/components/MottoSection/MottoSection';
-import ProjectsSection from '@/components/ProjectsSection/ProjectsSection';
 
 import apolloClient from '../../graphql/apolloClient';
 import GET_ALL_FEATURED_PROJECTS from '../../graphql/queryAllFeaturedProjects';
@@ -19,7 +19,7 @@ export default function Home({ featuredProjects }) {
       <Layout>
         <HeroSection />
         <MottoSection />
-        <ProjectsSection />
+        <ProjectsSection featuredProjects={featuredProjects} />
       </Layout>
     </>
   );

@@ -6,6 +6,14 @@ module.exports = (phase) => {
 
     const nextConfig = {
       reactStrictMode: true,
+      images: {
+        remotePatterns: [
+          {
+            protocol: 'https',
+            hostname: 'cdn.sanity.io',
+          },
+        ],
+      },
     };
 
     return nextConfig;
@@ -62,6 +70,14 @@ module.exports = (phase) => {
           headers: securityHeaders,
         },
       ];
+    },
+    images: {
+      remotePatterns: [
+        {
+          protocol: 'https',
+          hostname: 'cdn.sanity.io',
+        },
+      ],
     },
   };
 

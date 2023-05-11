@@ -25,6 +25,7 @@
     "simple-import-sort/exports": "error",
     "react/prop-types": "off",
     "import/no-unresolved": "off",
-    "import/extensions": "off"
+    "import/extensions": "off",
+    "no-underscore-dangle": "off"
   }
 }
