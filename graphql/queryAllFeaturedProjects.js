@@ -5,15 +5,18 @@ const GET_ALL_FEATURED_PROJECTS = gql`
     allFeaturedProjects(limit: $limit) {
       projects {
         _id
-        projectName
-        projectDescription
-        projectSlug {
+        name
+        description
+        slug {
           current
         }
-        projectMainImage {
+        mainImage {
           asset {
             url
           }
+        }
+        tags {
+          name
         }
       }
     }

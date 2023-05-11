@@ -9,6 +9,11 @@ export default function ProjectCard({ project, sizes }) {
   const { name } = project;
   const { description } = project;
 
+  let tags = [];
+  if (project.tags !== null && project.tags !== undefined) {
+    tags = project.tags;
+  }
+
   return (
     <div className={styles['project-card']}>
       <h3 className={secondaryFont.className}>{name}</h3>
@@ -16,6 +21,7 @@ export default function ProjectCard({ project, sizes }) {
         <Image src={mainImageUrl} fill sizes={sizes} alt={`${name} main image`} />
       </div>
       <p>{description}</p>
+      {tags && tags.map((tag) => <span key={tag.name}>{tag.name}</span>)}
     </div>
   );
 }
