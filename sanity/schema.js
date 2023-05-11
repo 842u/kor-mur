@@ -2,10 +2,11 @@
  * ! Remember to deploy graphql api after changing any schemas !
  */
 
-import project from './schema/Project';
+import featuredProjects from './schema/featuredProjects';
+import project from './schema/project';
 
 const schema = {
-  types: [project],
+  types: [project, featuredProjects],
 };
 
 export default schema;
