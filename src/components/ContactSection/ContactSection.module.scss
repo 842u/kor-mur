@@ -1,0 +1,7 @@
+@use '../../styles/mixins.scss' as mixins;
+
+.contact-section {
+  @include mixins.section;
+
+  background-color: var(--primary-200);
+}

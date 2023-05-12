@@ -1,0 +1,15 @@
+.contact-form {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  border: 1px solid red;
+
+  label {
+    display: flex;
+    flex-direction: column;
+  }
+
+  textarea {
+    min-width: 100%;
+  }
+}

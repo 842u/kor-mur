@@ -1,5 +1,6 @@
 import Head from 'next/head';
 
+import ContactSection from '@/components/ContactSection/ContactSection';
 import ProjectsSection from '@/components/FeaturedProjectsSection/FeaturedProjectsSection';
 import HeroSection from '@/components/HeroSection/HeroSection';
 import Layout from '@/components/Layout/Layout';
@@ -20,6 +21,7 @@ export default function Home({ featuredProjects }) {
         <HeroSection />
         <MottoSection />
         <ProjectsSection featuredProjects={featuredProjects} />
+        <ContactSection />
       </Layout>
     </>
   );
