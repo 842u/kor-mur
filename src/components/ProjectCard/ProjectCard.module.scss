@@ -9,14 +9,16 @@
     padding: 1rem;
   }
 
-  .project-link {
-    position: relative;
-  }
-
   .project-image {
     width: 100%;
     height: auto;
+    min-height: 40vh;
     max-height: 100vh;
+
     object-fit: cover;
+  }
+
+  .project-link {
+    position: relative;
   }
 }
