@@ -13,6 +13,9 @@ const GET_ALL_FEATURED_PROJECTS = gql`
         mainImage {
           asset {
             url
+            metadata {
+              lqip
+            }
           }
         }
         tags {

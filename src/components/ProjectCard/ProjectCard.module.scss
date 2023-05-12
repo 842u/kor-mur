@@ -1,10 +1,18 @@
 .project-card {
-  // height: 70vh;
-  border: 1px solid red;
+  margin: 1rem 0;
+  background-color: var(--primary-100);
+  box-shadow: 5px 5px 10px rgb(0 0 0 / 50%);
 
-  .image-container {
-    position: relative;
-    aspect-ratio: 1 / 1;
+  h3,
+  p {
+    // margin: 1rem 0;
+    padding: 1rem;
+  }
+
+  .project-image {
     width: 100%;
+    height: auto;
+    max-height: 100vh;
+    object-fit: cover;
   }
 }
