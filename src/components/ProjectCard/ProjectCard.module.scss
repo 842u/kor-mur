@@ -1,0 +1,22 @@
+.project-card {
+  position: relative;
+  margin: 1rem 0;
+  background-color: var(--primary-100);
+  box-shadow: 5px 5px 10px rgb(0 0 0 / 50%);
+
+  h3,
+  p {
+    padding: 1rem;
+  }
+
+  .project-link {
+    position: relative;
+  }
+
+  .project-image {
+    width: 100%;
+    height: auto;
+    max-height: 100vh;
+    object-fit: cover;
+  }
+}

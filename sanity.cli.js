@@ -1,9 +1,9 @@
 import { defineCliConfig } from 'sanity/cli';
 
-import { projectId } from './sanity/env';
+import { dataset, projectId } from './sanity/env';
 
 export default defineCliConfig({
-  api: { projectId },
+  api: { projectId, dataset },
   graphql: [
     {
       playground: false,
