@@ -1,6 +1,15 @@
+@use '@/styles/mixins.scss' as mixins;
+
 .contact-form {
   display: flex;
   flex-direction: column;
+
   width: 100%;
+  padding: 1rem;
+
   border: 1px solid red;
+
+  button {
+    @include mixins.button;
+  }
 }

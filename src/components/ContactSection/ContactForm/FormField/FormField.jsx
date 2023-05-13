@@ -1,7 +1,9 @@
 import styles from './FormField.module.scss';
 
-export default function FormField({ label, type, id, placeholder, rows = 5 }) {
-  const textareaField = <textarea id={id} name={id} placeholder={placeholder} rows={rows} />;
+export default function FormField({ label, type, id, placeholder, required = false }) {
+  const textareaField = (
+    <textarea id={id} name={id} placeholder={placeholder} required={required} />
+  );
 
   const inputField = (
     <input
@@ -10,12 +12,13 @@ export default function FormField({ label, type, id, placeholder, rows = 5 }) {
       name={id}
       placeholder={placeholder}
       aria-label={`${id} input field`}
+      required={required}
     />
   );
 
   return (
     <label className={styles['field-label']} htmlFor={id}>
-      {label}
+      {`${label}:${required ? '*' : ''}`}
       {type === 'textarea' ? textareaField : inputField}
     </label>
   );
