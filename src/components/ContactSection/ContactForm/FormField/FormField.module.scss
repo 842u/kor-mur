@@ -1,0 +1,8 @@
+.field-label {
+  display: flex;
+  flex-direction: column;
+
+  textarea {
+    min-width: 100%;
+  }
+}

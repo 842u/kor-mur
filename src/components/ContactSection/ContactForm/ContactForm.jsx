@@ -1,24 +1,13 @@
 import styles from './ContactForm.module.scss';
+import FormField from './FormField/FormField';
 
 export default function ContactForm() {
   return (
     <form className={styles['contact-form']}>
-      <label htmlFor="name">
-        Name
-        <input type="text" id="name" name="name" placeholder="Your name" required />
-      </label>
-      <label htmlFor="email">
-        Email
-        <input type="email" id="email" name="email" placeholder="Your email" required />
-      </label>
-      <label htmlFor="telephone">
-        Telephone
-        <input type="tel" id="telephone" name="telephone" placeholder="Your telephone" />
-      </label>
-      <label htmlFor="message">
-        Message
-        <textarea id="message" name="message" placeholder="Your message" />
-      </label>
+      <FormField label="Name" type="text" id="name" placeholder="Enter your name" />
+      <FormField label="Email" type="email" id="email" placeholder="Enter your email" />
+      <FormField label="Telephone" type="tel" id="telephone" placeholder="Enter your telephone" />
+      <FormField label="Message" type="textarea" id="message" placeholder="Enter your message" />
       <button type="submit">Send</button>
     </form>
   );
