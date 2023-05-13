@@ -1,7 +1,11 @@
 .field-label {
+  position: relative;
+
   display: flex;
   flex-direction: column;
-  margin-bottom: 1rem;
+  gap: 0.5rem;
+
+  margin-bottom: 2rem;
 
   textarea {
     resize: vertical;
@@ -11,6 +15,7 @@
 
   input {
     height: 3rem;
+    outline: none;
   }
 
   input,
@@ -18,5 +23,30 @@
     padding: 0.5rem;
     border: 1px solid #ccc;
     border-radius: 4px;
+  }
+
+  p {
+    position: absolute;
+    right: 0;
+  }
+}
+
+.invalid {
+  input {
+    outline: 1px solid red;
+
+    &:focus {
+      outline: 3px solid red;
+    }
+  }
+}
+
+.valid {
+  input {
+    outline: 1px solid green;
+
+    &:focus {
+      outline: 3px solid green;
+    }
   }
 }
