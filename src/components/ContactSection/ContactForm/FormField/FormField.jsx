@@ -1,5 +1,7 @@
 import { useState } from 'react';
 
+import getValidationInfo from '@/utils/validation';
+
 import styles from './FormField.module.scss';
 
 export default function FormField({
@@ -11,41 +13,39 @@ export default function FormField({
   minLength,
   maxLength,
 }) {
-  const [fieldValue, setValue] = useState('');
+  const [fieldValue, setFieldValue] = useState('');
   const [isTouched, setIsTouched] = useState(false);
   const [hasError, setHasError] = useState(true);
   const [errorMessage, setErrorMessage] = useState('');
 
   const valueChangeHandler = (event) => {
-    setValue(event.target.value);
-    if (required && event.target.value.trim().length === 0) {
-      setHasError(true);
-      setErrorMessage('This field is required');
-    } else if (event.target.value.trim().length < minLength) {
-      setHasError(true);
-      setErrorMessage(`This field must be at least ${minLength} characters long`);
-    } else if (event.target.value.trim().length > maxLength) {
-      setHasError(true);
-      setErrorMessage(`This field must be no more than ${maxLength} characters long`);
-    } else {
-      setHasError(false);
-    }
+    const { hasErrorInfo, errorMessageInfo } = getValidationInfo(
+      event.target.value,
+      type,
+      minLength,
+      maxLength,
+      required
+    );
+
+    setFieldValue(event.target.value);
+    setHasError(hasErrorInfo);
+    setErrorMessage(errorMessageInfo);
   };
 
   const isTouchedHandler = (event) => {
     setIsTouched(true);
-    if (required && event.target.value.trim().length === 0) {
-      setHasError(true);
-      setErrorMessage('This field is required');
-    } else if (event.target.value.trim().length < minLength) {
-      setHasError(true);
-      setErrorMessage(`This field must be at least ${minLength} characters long`);
-    } else if (event.target.value.trim().length > maxLength) {
-      setHasError(true);
-      setErrorMessage(`This field must be no more than ${maxLength} characters long`);
-    } else {
-      setHasError(false);
-    }
+
+    const { hasErrorInfo, errorMessageInfo } = getValidationInfo(
+      event.target.value,
+      type,
+      minLength,
+      maxLength,
+      required
+    );
+
+    setFieldValue(event.target.value);
+    setHasError(hasErrorInfo);
+    setErrorMessage(errorMessageInfo);
   };
 
   const textareaField = (

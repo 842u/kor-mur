@@ -14,8 +14,15 @@ export default function ContactForm() {
         id="name"
         placeholder="Enter your name"
         required
-        minLength="2"
+        minLength="3"
         maxLength="30"
+      />
+      <FormField label="Email" type="email" id="email" placeholder="Enter your email" required />
+      <FormField
+        label="Telephone"
+        type="tel"
+        id="telephone"
+        placeholder="Enter your phone number"
       />
       <button type="submit">Send</button>
     </form>

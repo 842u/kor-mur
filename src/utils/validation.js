@@ -1,33 +1,41 @@
-export default function getValidationInfo({ value, type, minLength, maxLength, required }) {
+export default function getValidationInfo(value, type, minLength, maxLength, required) {
   const trimmedValue = value.trim();
 
   if (required && trimmedValue.length === 0) {
-    return { isValid: false, errorMessage: 'This field is required.' };
+    return { hasErrorInfo: true, errorMessageInfo: 'This field is required.' };
   }
 
   if (minLength && trimmedValue.length < minLength) {
     return {
-      isValid: false,
-      errorMessage: `Please enter at least ${minLength} characters.`,
+      hasErrorInfo: true,
+      errorMessageInfo: `Please enter at least ${minLength} characters.`,
     };
   }
 
   if (maxLength && trimmedValue.length > maxLength) {
     return {
-      isValid: false,
-      errorMessage: `Please enter no more than ${maxLength} characters.`,
+      hasErrorInfo: true,
+      errorMessageInfo: `Please enter no more than ${maxLength} characters.`,
     };
   }
 
-  if (type === 'text') {
-    return { isValid: true, errorMessage: '' };
+  if (type === 'email' && trimmedValue.length > 0) {
+    const emailRegexp = /[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,4}/i;
+
+    const hasErrorInfo = !emailRegexp.test(trimmedValue);
+    const errorMessageInfo = hasErrorInfo ? 'Please enter a valid email address.' : '';
+
+    return { hasErrorInfo, errorMessageInfo };
   }
 
-  if (type === 'email') {
-    const isValid = trimmedValue.includes('@');
-    const errorMessage = isValid ? '' : 'Please enter a valid email address.';
-    return { isValid, errorMessage };
+  if (type === 'tel' && trimmedValue.length > 0) {
+    const phoneRegexp = /^[0-9]+$/;
+
+    const hasErrorInfo = !phoneRegexp.test(trimmedValue);
+    const errorMessageInfo = hasErrorInfo ? 'Phone number should contain only digits.' : '';
+
+    return { hasErrorInfo, errorMessageInfo };
   }
 
-  return { isValid: true, errorMessage: '' };
+  return { hasErrorInfo: false, errorMessageInfo: '' };
 }
