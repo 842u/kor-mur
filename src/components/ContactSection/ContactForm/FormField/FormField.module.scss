@@ -1,4 +1,4 @@
-.field-label {
+.field {
   position: relative;
 
   display: flex;
@@ -15,7 +15,8 @@
 
   input {
     height: 3rem;
-    outline: none;
+
+    // outline: none;
   }
 
   input,
@@ -43,10 +44,14 @@
 
 .valid {
   input {
-    outline: 1px solid green;
+    outline: initial;
 
     &:focus {
       outline: 3px solid green;
     }
   }
+}
+
+.required-flag {
+  color: #d60000;
 }
