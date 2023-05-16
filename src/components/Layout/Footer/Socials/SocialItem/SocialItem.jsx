@@ -11,10 +11,10 @@ export default function SocialItem({
   alt,
 }) {
   return (
-    <a href={href} target="_blank" rel="noreferrer" className={styles.item}>
-      <Image src={iconSrc} alt={alt} width={32} height={32} />
+    <a className={styles.item} href={href} rel="noreferrer" target="_blank">
+      <Image alt={alt} height={32} src={iconSrc} width={32} />
       {children}
-      <Image src="./icons/open-outline.svg" alt="open link" width={16} height={16} />
+      <Image alt="open link" height={16} src="./icons/open-outline.svg" width={16} />
     </a>
   );
 }

@@ -9,7 +9,7 @@ export default function Project({ project }) {
     <>
       <h1>{project.name}</h1>
       <p>{project.description}</p>
-      <Image src={project.mainImage.asset.url} alt={`${project.name}`} width={400} height={400} />
+      <Image alt={`${project.name}`} height={400} src={project.mainImage.asset.url} width={400} />
     </>
   );
 }

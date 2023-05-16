@@ -5,7 +5,7 @@ import styles from './ContactSection.module.scss';
 
 export default function ContactSection() {
   return (
-    <section id="contact" className={styles['contact-section']}>
+    <section className={styles['contact-section']} id="contact">
       <h2 className={secondaryFont.className}>CONTACT</h2>
       <p>
         Lorem ipsum dolor sit amet consectetur adipisicing elit. Ratione hic soluta illo consectetur

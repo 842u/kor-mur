@@ -7,7 +7,7 @@ export default function Logo({ text = 'default text', className }) {
   const textCharacters = text.split('');
 
   return (
-    <div className={`${styles['logo-outline']} ${className}`} aria-hidden>
+    <div aria-hidden className={`${styles['logo-outline']} ${className}`}>
       {textCharacters.map((character, index) => (
         // eslint-disable-next-line react/no-array-index-key
         <span key={`char-${index}`} className={styles['logo-character']}>

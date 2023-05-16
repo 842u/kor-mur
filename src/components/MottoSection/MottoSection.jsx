@@ -18,12 +18,12 @@ export default function MottoSection() {
       <div className={styles.addnotation}>
         <div className={styles['image-container']}>
           <Image
-            src={mottoImg1}
+            fill
+            alt="motto img"
+            className={styles.image}
             placeholder="blur"
             sizes="(max-width: 810px) 100vw, 50vw"
-            alt="motto img"
-            fill
-            className={styles.image}
+            src={mottoImg1}
           />
         </div>
         <div className={styles.about}>
@@ -32,7 +32,7 @@ export default function MottoSection() {
             et, atque laborum excepturi deserunt molestias porro unde consequatur inventore totam
             architecto omnis corporis placeat magni voluptas? Magnam?
           </p>
-          <Link href="/about" className={styles.link}>
+          <Link className={styles.link} href="/about">
             O MNIE
           </Link>
         </div>

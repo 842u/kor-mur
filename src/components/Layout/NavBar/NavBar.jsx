@@ -22,23 +22,23 @@ export default function NavBar() {
   return (
     <header className={styles.navbar}>
       <button
-        onClick={clickLogoHandler}
         aria-label="home page"
-        type="button"
         className={styles['logo-button']}
+        type="button"
+        onClick={clickLogoHandler}
       >
-        <CircleLogo text="MURAWSKA.STUDIO" className={styles.logo} />
+        <CircleLogo className={styles.logo} text="MURAWSKA.STUDIO" />
       </button>
       <nav>
         <HamburgerButton
-          onClick={toggleMenuHandler}
-          isMenuActive={isMenuActive}
           className={styles.hamburger}
+          isMenuActive={isMenuActive}
+          onClick={toggleMenuHandler}
         />
         <NavMenu
-          onMenuItemClick={toggleMenuHandler}
-          isMenuActive={isMenuActive}
           className={styles.menu}
+          isMenuActive={isMenuActive}
+          onMenuItemClick={toggleMenuHandler}
         />
       </nav>
     </header>

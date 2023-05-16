@@ -30,7 +30,7 @@ export default function NavMenu({ isMenuActive, className, onMenuItemClick, menu
   return (
     <ul className={styleClass}>
       {menuItems.map((item) => (
-        <NavMenuItem key={item.href} onClick={onMenuItemClick} href={item.href}>
+        <NavMenuItem key={item.href} href={item.href} onClick={onMenuItemClick}>
           {item.text}
         </NavMenuItem>
       ))}

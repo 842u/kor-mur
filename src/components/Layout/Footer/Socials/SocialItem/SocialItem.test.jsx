@@ -9,7 +9,7 @@ describe('SocialItem', () => {
     const text = 'test';
 
     render(
-      <SocialItem href="/" alt="test">
+      <SocialItem alt="test" href="/">
         {text}
       </SocialItem>
     );

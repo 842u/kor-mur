@@ -12,54 +12,54 @@ export default function HeroSection() {
   return (
     <section className={styles['hero-section']}>
       <div className={styles['logo-container']}>
-        <CircleLogo text="MURAWSKA.STUDIO" className={styles.logo} />
+        <CircleLogo className={styles.logo} text="MURAWSKA.STUDIO" />
       </div>
       <div className={styles['image-container']}>
         <Image
-          src={heroImg1}
+          aria-hidden
+          fill
           priority
-          fill
-          placeholder="blur"
-          sizes="33vw"
+          alt=""
           className={styles['image-1']}
-          aria-hidden
-          alt=""
+          placeholder="blur"
+          sizes="33vw"
+          src={heroImg1}
         />
         <Image
-          src={heroImg2}
-          placeholder="blur"
+          aria-hidden
           fill
-          sizes="33vw"
+          alt=""
           className={styles['image-2']}
-          aria-hidden
-          alt=""
+          placeholder="blur"
+          sizes="33vw"
+          src={heroImg2}
         />
         <Image
-          src={heroImg3}
-          placeholder="blur"
+          aria-hidden
           fill
-          sizes="33vw"
+          alt=""
           className={styles['image-3']}
-          aria-hidden
-          alt=""
+          placeholder="blur"
+          sizes="33vw"
+          src={heroImg3}
         />
         <Image
-          src={heroImg4}
-          placeholder="blur"
+          aria-hidden
           fill
-          sizes="33vw"
+          alt=""
           className={styles['image-4']}
-          aria-hidden
-          alt=""
+          placeholder="blur"
+          sizes="33vw"
+          src={heroImg4}
         />
         <Image
-          src={heroImg5}
-          placeholder="blur"
-          fill
-          sizes="33vw"
-          className={styles['image-5']}
           aria-hidden
+          fill
           alt=""
+          className={styles['image-5']}
+          placeholder="blur"
+          sizes="33vw"
+          src={heroImg5}
         />
       </div>
     </section>

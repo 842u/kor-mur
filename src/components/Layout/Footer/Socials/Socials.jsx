@@ -32,7 +32,7 @@ export default function Socials({ socialItems = socials }) {
   return (
     <address className={styles.socials}>
       {socialItems.map((item) => (
-        <SocialItem key={item.text} iconSrc={item.iconSrc} alt={item.alt} href={item.href}>
+        <SocialItem key={item.text} alt={item.alt} href={item.href} iconSrc={item.iconSrc}>
           {item.text}
         </SocialItem>
       ))}

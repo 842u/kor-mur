@@ -10,8 +10,6 @@ import apolloClient from '../../graphql/apolloClient';
 import GET_ALL_FEATURED_PROJECTS from '../../graphql/queryAllFeaturedProjects';
 
 export default function Home({ featuredProjects }) {
-  console.log(featuredProjects);
-
   return (
     <>
       <Head>

@@ -21,12 +21,12 @@ export default function ProjectCard({ project, sizes }) {
       <h3 className={secondaryFont.className}>{name}</h3>
       <Link className={styles['project-link']} href={`/projects/${slug}`}>
         <Image
+          alt={`${name} main image`}
           className={styles['project-image']}
-          src={mainImageUrl}
-          width={1}
           height={1}
           sizes={sizes}
-          alt={`${name} main image`}
+          src={mainImageUrl}
+          width={1}
         />
       </Link>
       <p>{description}</p>
