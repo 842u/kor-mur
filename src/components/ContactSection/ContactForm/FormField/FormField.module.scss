@@ -1,3 +1,5 @@
+// stylelint-disable no-descending-specificity
+
 .field {
   position: relative;
 
@@ -38,10 +40,26 @@
       outline: 3px solid red;
     }
   }
+
+  textarea {
+    outline: 1px solid red;
+
+    &:focus {
+      outline: 3px solid red;
+    }
+  }
 }
 
 .valid {
   input {
+    outline: initial;
+
+    &:focus {
+      outline: 3px solid green;
+    }
+  }
+
+  textarea {
     outline: initial;
 
     &:focus {

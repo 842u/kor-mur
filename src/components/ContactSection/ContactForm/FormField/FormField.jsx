@@ -1,7 +1,3 @@
-import { useState } from 'react';
-
-import getValidationInfo from '@/utils/validation';
-
 import styles from './FormField.module.scss';
 
 export default function FormField({
@@ -9,70 +5,42 @@ export default function FormField({
   type,
   id,
   placeholder,
-  required = false,
+  value,
+  required,
   minLength,
   maxLength,
+  onChange,
+  onBlur,
+  isTouched,
+  hasError,
+  errorMessage,
 }) {
-  const [fieldValue, setFieldValue] = useState('');
-  const [isTouched, setIsTouched] = useState(false);
-  const [hasError, setHasError] = useState(true);
-  const [errorMessage, setErrorMessage] = useState('');
-
-  const valueChangeHandler = (event) => {
-    const { hasErrorInfo, errorMessageInfo } = getValidationInfo(
-      event.target.value,
-      type,
-      minLength,
-      maxLength,
-      required
-    );
-
-    setFieldValue(event.target.value);
-    setHasError(hasErrorInfo);
-    setErrorMessage(errorMessageInfo);
-  };
-
-  const isTouchedHandler = (event) => {
-    setIsTouched(true);
-
-    const { hasErrorInfo, errorMessageInfo } = getValidationInfo(
-      event.target.value,
-      type,
-      minLength,
-      maxLength,
-      required
-    );
-
-    setFieldValue(event.target.value);
-    setHasError(hasErrorInfo);
-    setErrorMessage(errorMessageInfo);
-  };
-
   const textareaField = (
     <textarea
       id={id}
+      maxLength={maxLength}
+      minLength={minLength}
       name={id}
       placeholder={placeholder}
-      value={fieldValue}
       required={required}
-      onChange={valueChangeHandler}
-      onBlur={isTouchedHandler}
+      value={value}
+      onBlur={onBlur}
+      onChange={onChange}
     />
   );
 
   const inputField = (
     <input
-      type={type}
       id={id}
+      maxLength={maxLength}
+      minLength={minLength}
       name={id}
       placeholder={placeholder}
-      value={fieldValue}
-      aria-label={`${id} input field`}
       required={required}
-      minLength={minLength}
-      maxLength={maxLength}
-      onChange={valueChangeHandler}
-      onBlur={isTouchedHandler}
+      type={type}
+      value={value}
+      onBlur={onBlur}
+      onChange={onChange}
     />
   );
 
