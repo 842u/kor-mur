@@ -26,18 +26,18 @@
     "react/prop-types": "off",
     "import/no-unresolved": "off",
     "import/extensions": "off",
-    "no-underscore-dangle": "off",
-    "react/jsx-sort-props": [
-      "error",
-      {
-        "callbacksLast": true,
-        "shorthandFirst": true,
-        "shorthandLast": false,
-        "multiline": "last",
-        "ignoreCase": true,
-        "noSortAlphabetically": false,
-        "reservedFirst": true
-      }
-    ]
+    "no-underscore-dangle": "off"
+    // "react/jsx-sort-props": [
+    //   "error",
+    //   {
+    //     "callbacksLast": true,
+    //     "shorthandFirst": true,
+    //     "shorthandLast": false,
+    //     "multiline": "last",
+    //     "ignoreCase": true,
+    //     "noSortAlphabetically": false,
+    //     "reservedFirst": true
+    //   }
+    // ]
   }
 }
