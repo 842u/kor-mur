@@ -42,6 +42,7 @@ export default function ContactForm() {
 
   const formSubmitHandler = (event) => {
     event.preventDefault();
+    fetch('/api/contact');
   };
 
   return (

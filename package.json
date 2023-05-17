@@ -14,6 +14,7 @@
     "@apollo/client": "3.7.14",
     "@sanity/image-url": "1.0.2",
     "@sanity/vision": "3.10.0",
+    "@sendgrid/mail": "7.7.0",
     "framer-motion": "10.12.4",
     "graphql": "16.6.0",
     "next": "13.3.0",
