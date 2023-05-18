@@ -1,10 +1,12 @@
-const sgMail = require('@sendgrid/mail');
+const sendgridMail = require('@sendgrid/mail');
 
-sgMail.setApiKey(process.env.SENDGRID_API_KEY);
+sendgridMail.setApiKey(process.env.SENDGRID_API_KEY);
 
 // eslint-disable-next-line
 export default async function sendMail(req, res) {
-  const msg = {
+  console.log(req.body);
+
+  const mail = {
     to: 'admin@murawska.studio',
     from: 'kontakt@murawska.studio',
     subject: 'Sending with SendGrid is Fun',
@@ -12,13 +14,10 @@ export default async function sendMail(req, res) {
     html: '<strong>and easy to do anywhere, even with Node.js</strong>',
   };
 
-  await sgMail
-    .send(msg)
-    .then((response) => {
-      console.log(response[0].statusCode);
-      console.log(response[0].headers);
-    })
-    .catch((error) => {
-      console.error(error);
-    });
+  try {
+    const response = await sendgridMail.send(mail);
+    console.log(response);
+  } catch (error) {
+    console.error(error);
+  }
 }

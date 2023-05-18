@@ -40,9 +40,27 @@ export default function ContactForm() {
     messageIsTouchedHandler,
   ] = useInputField();
 
-  const formSubmitHandler = (event) => {
+  const formSubmitHandler = async (event) => {
     event.preventDefault();
-    fetch('/api/contact');
+
+    const formData = {
+      name: nameValue,
+      email: emailValue,
+      phone: phoneValue,
+      message: messageValue,
+    };
+
+    try {
+      const response = await fetch('/api/contact', {
+        method: 'POST',
+        body: JSON.stringify(formData),
+      });
+
+      const parsedResponse = await response.json();
+      console.log(parsedResponse);
+    } catch (error) {
+      console.log(error);
+    }
   };
 
   return (
