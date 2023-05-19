@@ -20,7 +20,7 @@ export default function getValidationInfo(value, type, minLength, maxLength, req
   }
 
   if (type === 'email' && trimmedValue.length > 0) {
-    const emailRegexp = /[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,4}/i;
+    const emailRegexp = /^[\w-.]+@([\w-]+\.)+[\w-]{2,4}$/i;
 
     const hasErrorInfo = !emailRegexp.test(trimmedValue);
     const errorMessageInfo = hasErrorInfo ? 'Please enter a valid email address.' : '';

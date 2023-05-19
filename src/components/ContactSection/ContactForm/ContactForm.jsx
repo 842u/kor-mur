@@ -1,9 +1,13 @@
+import { useState } from 'react';
+
 import useInputField from '@/utils/hooks/useInputField';
 
 import styles from './ContactForm.module.scss';
 import FormField from './FormField/FormField';
 
 export default function ContactForm() {
+  const [serverResponseMessage, setServerResponseMessage] = useState('');
+
   const [
     nameValue,
     nameIsTouched,
@@ -40,6 +44,8 @@ export default function ContactForm() {
     messageIsTouchedHandler,
   ] = useInputField();
 
+  const formHasError = nameHasError || emailHasError || phoneHasError || messageHasError;
+
   const formSubmitHandler = async (event) => {
     event.preventDefault();
 
@@ -56,10 +62,15 @@ export default function ContactForm() {
         body: JSON.stringify(formData),
       });
 
-      const parsedResponse = await response.json();
-      console.log(parsedResponse);
+      const responseData = await response.json();
+
+      if (!response.ok) {
+        throw new Error(responseData.message || 'Something went wrong!');
+      }
+
+      setServerResponseMessage(responseData.message);
     } catch (error) {
-      console.log(error);
+      setServerResponseMessage(error.message);
     }
   };
 
@@ -121,7 +132,10 @@ export default function ContactForm() {
         onBlur={messageIsTouchedHandler}
         onChange={messageValueChangeHandler}
       />
-      <button type="submit">Send</button>
+      <button disabled={!!formHasError} type="submit">
+        Send
+      </button>
+      <p>{serverResponseMessage || ' '}</p>
     </form>
   );
 }

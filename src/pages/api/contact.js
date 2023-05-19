@@ -1,30 +1,51 @@
-const sendgridMail = require('@sendgrid/mail');
+// const sendgridMail = require('@sendgrid/mail');
+import sendgridMail from '@sendgrid/mail';
+
+import getValidationInfo from '@/utils/validation';
 
 sendgridMail.setApiKey(process.env.SENDGRID_API_KEY);
 
-// eslint-disable-next-line
 export default async function sendMail(req, res) {
   if (req.method !== 'POST') {
     res.status(400).json({ message: 'Only POST requests allowed' });
     return;
   }
 
-  console.log(req.body);
+  const formData = JSON.parse(req.body);
 
-  const mail = {
+  // formData.name = 'a';
+
+  const { hasErrorInfo: nameHasError, errorMessageInfo: nameErrorMessage } = getValidationInfo(
+    formData.name,
+    'text',
+    3,
+    30,
+    true
+  );
+
+  if (nameHasError) {
+    res.status(400).json({ message: nameErrorMessage });
+    return;
+  }
+
+  const mailTemplate = {
     to: 'admin@murawska.studio',
     from: 'kontakt@murawska.studio',
-    subject: 'Sending with SendGrid is Fun',
-    text: 'and easy to do anywhere, even with Node.js',
-    html: '<strong>test</strong>',
+    subject: `Cześć Kornelia! Masz nową wiadomość od ${formData.name} z formularza kontaktowego!`,
+    html: `<h2>Cześć Kornelia! Ktoś wysłał do Ciebie wiadomość z formularza kontaktowego. Oto jej treść:</h2>
+    <p><strong>Imię:</strong> ${formData.name}</p>
+    <p><strong>Email:</strong> ${formData.email}</p>
+    <p><strong>Telefon:</strong> ${formData.phone}</p>
+    <p><strong>Wiadomość:</strong> ${formData.message}</p>`,
   };
 
   try {
-    const response = await sendgridMail.send(mail);
-    console.log(response);
-    res.status(200).json({ message: 'email send' });
+    await sendgridMail.send(mailTemplate);
+
+    res
+      .status(200)
+      .json({ message: 'We recived your message and will contact you as soon as possible.' });
   } catch (error) {
-    console.error(error);
-    res.status(400).json({ message: `${error.message}` });
+    res.status(400).json({ message: `Something went wrong!` });
   }
 }
