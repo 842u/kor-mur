@@ -16,6 +16,7 @@ export default function ContactForm() {
 
   const [
     nameValue,
+    setNameValue,
     nameIsTouched,
     nameHasError,
     nameErrorMessage,
@@ -25,6 +26,7 @@ export default function ContactForm() {
 
   const [
     emailValue,
+    setEmailValue,
     emailIsTouched,
     emailHasError,
     emailErrorMessage,
@@ -34,6 +36,7 @@ export default function ContactForm() {
 
   const [
     phoneValue,
+    setPhoneValue,
     phoneIsTouched,
     phoneHasError,
     phoneErrorMessage,
@@ -43,6 +46,7 @@ export default function ContactForm() {
 
   const [
     messageValue,
+    setMessageValue,
     messageIsTouched,
     messageHasError,
     messageErrorMessage,
@@ -54,6 +58,11 @@ export default function ContactForm() {
 
   const formSubmitHandler = async (event) => {
     event.preventDefault();
+
+    setNameValue('');
+    setEmailValue('');
+    setPhoneValue('');
+    setMessageValue('');
 
     const formData = {
       name: nameValue,

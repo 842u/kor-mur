@@ -49,6 +49,7 @@ export default function useInputField() {
 
   return [
     fieldValue,
+    setFieldValue,
     isTouched,
     hasError.current,
     errorMessage.current,
