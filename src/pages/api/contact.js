@@ -1,9 +1,21 @@
-// const sendgridMail = require('@sendgrid/mail');
 import sendgridMail from '@sendgrid/mail';
 
-import getValidationInfo from '@/utils/validation';
+import getFormValidationInfo from '@/utils/validation/getFormValidationInfo';
 
 sendgridMail.setApiKey(process.env.SENDGRID_API_KEY);
+
+function mailTemplate(name, email, phone, message) {
+  return {
+    to: 'admin@murawska.studio',
+    from: 'kontakt@murawska.studio',
+    subject: `Cześć Kornelia! Masz nową wiadomość od ${name} z formularza kontaktowego!`,
+    html: `<h2>Cześć Kornelia! Ktoś wysłał do Ciebie wiadomość z formularza kontaktowego. Oto jej treść:</h2>
+    <p><strong>Imię:</strong> ${name}</p>
+    <p><strong>Email:</strong> ${email}</p>
+    <p><strong>Telefon:</strong> ${phone}</p>
+    <p><strong>Wiadomość:</strong> ${message}</p>`,
+  };
+}
 
 export default async function sendMail(req, res) {
   if (req.method !== 'POST') {
@@ -13,34 +25,17 @@ export default async function sendMail(req, res) {
 
   const formData = JSON.parse(req.body);
 
-  // formData.name = 'a';
+  const { hasError, errorMessage } = getFormValidationInfo(formData);
 
-  const { hasErrorInfo: nameHasError, errorMessageInfo: nameErrorMessage } = getValidationInfo(
-    formData.name,
-    'text',
-    3,
-    30,
-    true
-  );
-
-  if (nameHasError) {
-    res.status(400).json({ message: nameErrorMessage });
+  if (hasError) {
+    res.status(400).json({ message: errorMessage });
     return;
   }
 
-  const mailTemplate = {
-    to: 'admin@murawska.studio',
-    from: 'kontakt@murawska.studio',
-    subject: `Cześć Kornelia! Masz nową wiadomość od ${formData.name} z formularza kontaktowego!`,
-    html: `<h2>Cześć Kornelia! Ktoś wysłał do Ciebie wiadomość z formularza kontaktowego. Oto jej treść:</h2>
-    <p><strong>Imię:</strong> ${formData.name}</p>
-    <p><strong>Email:</strong> ${formData.email}</p>
-    <p><strong>Telefon:</strong> ${formData.phone}</p>
-    <p><strong>Wiadomość:</strong> ${formData.message}</p>`,
-  };
-
   try {
-    await sendgridMail.send(mailTemplate);
+    await sendgridMail.send(
+      mailTemplate(formData.name, formData.email, formData.phone, formData.message)
+    );
 
     res
       .status(200)

@@ -1,12 +1,18 @@
 import { useState } from 'react';
 
 import useInputField from '@/utils/hooks/useInputField';
+import {
+  emailInputReqirements,
+  messageInputReqirements,
+  nameInputReqirements,
+  phoneInputReqirements,
+} from '@/utils/validation/fieldRequirements';
 
 import styles from './ContactForm.module.scss';
 import FormField from './FormField/FormField';
 
 export default function ContactForm() {
-  const [serverResponseMessage, setServerResponseMessage] = useState('');
+  const [serverResponseMessages, setServerResponseMessages] = useState([]);
 
   const [
     nameValue,
@@ -68,39 +74,39 @@ export default function ContactForm() {
         throw new Error(responseData.message || 'Something went wrong!');
       }
 
-      setServerResponseMessage(responseData.message);
+      setServerResponseMessages([responseData.message]);
     } catch (error) {
-      setServerResponseMessage(error.message);
+      setServerResponseMessages(error.message.split(','));
     }
   };
 
   return (
     <form className={styles['contact-form']} onSubmit={formSubmitHandler}>
       <FormField
-        required
         errorMessage={nameErrorMessage}
         hasError={nameHasError}
         id="name"
         isTouched={nameIsTouched}
         label="Name"
-        maxLength="30"
-        minLength="3"
+        maxLength={nameInputReqirements.maxLength}
+        minLength={nameInputReqirements.minLength}
         placeholder="Enter your name"
-        type="text"
+        required={nameInputReqirements.required}
+        type={nameInputReqirements.type}
         value={nameValue}
         onBlur={nameIsTouchedHandler}
         onChange={nameValueChangeHandler}
       />
       <FormField
-        required
         errorMessage={emailErrorMessage}
         hasError={emailHasError}
         id="email"
         isTouched={emailIsTouched}
         label="Email"
-        maxLength="30"
+        maxLength={emailInputReqirements.maxLength}
         placeholder="Enter your email"
-        type="email"
+        required={emailInputReqirements.required}
+        type={emailInputReqirements.type}
         value={emailValue}
         onBlur={emailIsTouchedHandler}
         onChange={emailValueChangeHandler}
@@ -111,23 +117,23 @@ export default function ContactForm() {
         id="phone"
         isTouched={phoneIsTouched}
         label="Phone"
-        maxLength="12"
+        maxLength={phoneInputReqirements.maxLength}
         placeholder="Enter your phone number"
-        type="tel"
+        type={phoneInputReqirements.type}
         value={phoneValue}
         onBlur={phoneIsTouchedHandler}
         onChange={phoneValueChangeHandler}
       />
       <FormField
-        required
         errorMessage={messageErrorMessage}
         hasError={messageHasError}
         id="message"
         isTouched={messageIsTouched}
         label="Message"
-        maxLength="500"
+        maxLength={messageInputReqirements.maxLength}
         placeholder="Enter your message"
-        type="textarea"
+        required={messageInputReqirements.required}
+        type={messageInputReqirements.type}
         value={messageValue}
         onBlur={messageIsTouchedHandler}
         onChange={messageValueChangeHandler}
@@ -135,7 +141,9 @@ export default function ContactForm() {
       <button disabled={!!formHasError} type="submit">
         Send
       </button>
-      <p>{serverResponseMessage || ' '}</p>
+      {serverResponseMessages.map((message) => (
+        <p>{message}</p>
+      ))}
     </form>
   );
 }

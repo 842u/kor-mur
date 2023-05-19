@@ -1,6 +1,6 @@
 import { useRef, useState } from 'react';
 
-import getValidationInfo from '../validation';
+import getFieldValidationInfo from '@/utils/validation/getFieldValidationInfo';
 
 export default function useInputField() {
   const [fieldValue, setFieldValue] = useState('');
@@ -12,12 +12,16 @@ export default function useInputField() {
   const valueChangeHandler = (event) => {
     setFieldValue(event.target.value);
 
-    const { hasErrorInfo, errorMessageInfo } = getValidationInfo(
+    const fieldRequirements = {
+      type: event.target.type,
+      minLength: event.target.minLength,
+      maxLength: event.target.maxLength,
+      required: event.target.required,
+    };
+
+    const { hasErrorInfo, errorMessageInfo } = getFieldValidationInfo(
       event.target.value,
-      event.target.type,
-      event.target.minLength,
-      event.target.maxLength,
-      event.target.required
+      fieldRequirements
     );
 
     hasError.current = hasErrorInfo;
@@ -27,12 +31,16 @@ export default function useInputField() {
   const isTouchedHandler = (event) => {
     setIsTouched(true);
 
-    const { hasErrorInfo, errorMessageInfo } = getValidationInfo(
+    const fieldRequirements = {
+      type: event.target.type,
+      minLength: event.target.minLength,
+      maxLength: event.target.maxLength,
+      required: event.target.required,
+    };
+
+    const { hasErrorInfo, errorMessageInfo } = getFieldValidationInfo(
       event.target.value,
-      event.target.type,
-      event.target.minLength,
-      event.target.maxLength,
-      event.target.required
+      fieldRequirements
     );
 
     hasError.current = hasErrorInfo;

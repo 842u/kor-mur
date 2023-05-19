@@ -91,3 +91,4 @@ To choose colors, fonts, icons etc. to get basic understanding of visual design.
     - sanity headles cms
     - apollo client
     - sendgrid
+    - serverside form validation
