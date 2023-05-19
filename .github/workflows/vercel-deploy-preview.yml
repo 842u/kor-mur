@@ -37,6 +37,8 @@ jobs:
           restore-keys: |
             ${{ runner.os }}-node-
 
+      - name: Clear Npm Cache
+        run: npm cache clean --force
       
       - name: Install Vercel CLI
         if: steps.npm-cache.outputs.cache-hit != 'true'
