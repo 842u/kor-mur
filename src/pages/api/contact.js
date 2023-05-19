@@ -1,21 +1,9 @@
 import sendgridMail from '@sendgrid/mail';
 
+import contactEmailTemplate from '@/utils/emailTemplate';
 import getFormValidationInfo from '@/utils/validation/getFormValidationInfo';
 
 sendgridMail.setApiKey(process.env.SENDGRID_API_KEY);
-
-function mailTemplate(name, email, phone, message) {
-  return {
-    to: 'admin@murawska.studio',
-    from: 'kontakt@murawska.studio',
-    subject: `Cześć Kornelia! Masz nową wiadomość od ${name} z formularza kontaktowego!`,
-    html: `<h2>Cześć Kornelia! Ktoś wysłał do Ciebie wiadomość z formularza kontaktowego. Oto jej treść:</h2>
-    <p><strong>Imię:</strong> ${name}</p>
-    <p><strong>Email:</strong> ${email}</p>
-    <p><strong>Telefon:</strong> ${phone}</p>
-    <p><strong>Wiadomość:</strong> ${message}</p>`,
-  };
-}
 
 export default async function sendMail(req, res) {
   if (req.method !== 'POST') {
@@ -24,6 +12,7 @@ export default async function sendMail(req, res) {
   }
 
   const formData = JSON.parse(req.body);
+  const { name, email, phone, message } = formData;
 
   const { hasError, errorMessage } = getFormValidationInfo(formData);
 
@@ -33,9 +22,7 @@ export default async function sendMail(req, res) {
   }
 
   try {
-    await sendgridMail.send(
-      mailTemplate(formData.name, formData.email, formData.phone, formData.message)
-    );
+    await sendgridMail.send(contactEmailTemplate(name, email, phone, message));
 
     res
       .status(200)
