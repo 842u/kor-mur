@@ -7,49 +7,27 @@ import {
 import getFieldValidationInfo from './getFieldValidationInfo';
 
 export default function getFormValidationInfo(formData) {
-  const errorsMessages = [];
+  const fields = [
+    { name: 'name', value: formData.name, requirements: nameInputReqirements },
+    { name: 'email', value: formData.email, requirements: emailInputReqirements },
+    { name: 'phone', value: formData.phone, requirements: phoneInputReqirements },
+    { name: 'message', value: formData.message, requirements: messageInputReqirements },
+  ];
 
   const formValidationInfo = {
     hasError: false,
-    errorMessage: errorsMessages,
+    errorMessage: [],
   };
 
-  const { hasErrorInfo: nameHasError, errorMessageInfo: nameErrorMessage } = getFieldValidationInfo(
-    formData.name,
-    nameInputReqirements
-  );
-
-  const { hasErrorInfo: emailHasError, errorMessageInfo: emailErrorMessage } =
-    getFieldValidationInfo(formData.email, emailInputReqirements);
-
-  const { hasErrorInfo: phoneHasError, errorMessageInfo: phoneErrorMessage } =
-    getFieldValidationInfo(formData.phone, phoneInputReqirements);
-
-  const { hasErrorInfo: messageHasError, errorMessageInfo: messageErrorMessage } =
-    getFieldValidationInfo(formData.message, messageInputReqirements);
-
-  function createErrorInfo(field, errorMessage) {
-    formValidationInfo.hasError = true;
-    errorsMessages.push(
-      `${field.charAt(0).toUpperCase() + field.slice(1)} server validation error: ${errorMessage}!`
-    );
-  }
-
-  if (nameHasError) {
-    createErrorInfo('name', nameErrorMessage);
-  }
-
-  if (emailHasError) {
-    createErrorInfo('email', emailErrorMessage);
-  }
-
-  if (phoneHasError) {
-    createErrorInfo('phone', phoneErrorMessage);
-  }
-
-  if (messageHasError) {
-    createErrorInfo('message', messageErrorMessage);
-  }
+  fields.forEach(({ name, value, requirements }) => {
+    const { hasErrorInfo, errorMessageInfo } = getFieldValidationInfo(value, requirements);
+    if (hasErrorInfo) {
+      formValidationInfo.hasError = true;
+      formValidationInfo.errorMessage.push(
+        `${name.charAt(0).toUpperCase() + name.slice(1)} validation error: ${errorMessageInfo}!`
+      );
+    }
+  });
 
   return formValidationInfo;
 }

@@ -151,7 +151,7 @@ export default function ContactForm() {
         Send
       </button>
       {serverResponseMessages.map((message) => (
-        <p>{message}</p>
+        <p key={message.split(' ')[0]}>{message}</p>
       ))}
     </form>
   );
