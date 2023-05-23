@@ -13,45 +13,46 @@ import FormField from './FormField/FormField';
 
 export default function ContactForm() {
   const [serverResponseMessages, setServerResponseMessages] = useState([]);
+  const [isSubmitting, setIsSubmitting] = useState(false);
 
   const [
     nameValue,
-    setNameValue,
     nameIsTouched,
     nameHasError,
     nameErrorMessage,
     nameValueChangeHandler,
-    nameIsTouchedHandler,
+    nameOnTouchHandler,
+    nameOnSubmitHandler,
   ] = useInputField();
 
   const [
     emailValue,
-    setEmailValue,
     emailIsTouched,
     emailHasError,
     emailErrorMessage,
     emailValueChangeHandler,
     emailIsTouchedHandler,
+    emailOnSubmitHandler,
   ] = useInputField();
 
   const [
     phoneValue,
-    setPhoneValue,
     phoneIsTouched,
     phoneHasError,
     phoneErrorMessage,
     phoneValueChangeHandler,
     phoneIsTouchedHandler,
+    phoneOnSubmitHandler,
   ] = useInputField();
 
   const [
     messageValue,
-    setMessageValue,
     messageIsTouched,
     messageHasError,
     messageErrorMessage,
     messageValueChangeHandler,
     messageIsTouchedHandler,
+    messageOnSubmitHandler,
   ] = useInputField();
 
   const formHasError = nameHasError || emailHasError || phoneHasError || messageHasError;
@@ -59,10 +60,12 @@ export default function ContactForm() {
   const formSubmitHandler = async (event) => {
     event.preventDefault();
 
-    setNameValue('');
-    setEmailValue('');
-    setPhoneValue('');
-    setMessageValue('');
+    setIsSubmitting(true);
+
+    nameOnSubmitHandler();
+    emailOnSubmitHandler();
+    phoneOnSubmitHandler();
+    messageOnSubmitHandler();
 
     const formData = {
       name: nameValue,
@@ -86,6 +89,8 @@ export default function ContactForm() {
       setServerResponseMessages([responseData.message]);
     } catch (error) {
       setServerResponseMessages(error.message.split(','));
+    } finally {
+      setIsSubmitting(false);
     }
   };
 
@@ -103,7 +108,7 @@ export default function ContactForm() {
         required={nameInputReqirements.required}
         type={nameInputReqirements.type}
         value={nameValue}
-        onBlur={nameIsTouchedHandler}
+        onBlur={nameOnTouchHandler}
         onChange={nameValueChangeHandler}
       />
       <FormField
@@ -148,7 +153,7 @@ export default function ContactForm() {
         onChange={messageValueChangeHandler}
       />
       <button disabled={!!formHasError} type="submit">
-        Send
+        {isSubmitting ? 'Sending...' : 'Send'}
       </button>
       {serverResponseMessages.map((message) => (
         <p key={message.split(' ')[0]}>{message}</p>

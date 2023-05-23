@@ -28,18 +28,25 @@ export default function useInputField() {
     validateFieldHelper(event.target.value, event.target, hasError, errorMessage);
   };
 
-  const isTouchedHandler = (event) => {
+  const onTouchHandler = (event) => {
     setIsTouched(true);
     validateFieldHelper(event.target.value, event.target, hasError, errorMessage);
   };
 
+  const onSubmitHandler = () => {
+    setFieldValue('');
+    setIsTouched(false);
+    hasError.current = true;
+    errorMessage.current = '';
+  };
+
   return [
     fieldValue,
-    setFieldValue,
     isTouched,
     hasError.current,
     errorMessage.current,
     valueChangeHandler,
-    isTouchedHandler,
+    onTouchHandler,
+    onSubmitHandler,
   ];
 }
