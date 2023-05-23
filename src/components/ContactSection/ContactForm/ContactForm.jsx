@@ -13,6 +13,7 @@ import FormField from './FormField/FormField';
 
 export default function ContactForm() {
   const [serverResponseMessages, setServerResponseMessages] = useState([]);
+  const [isSubmitting, setIsSubmitting] = useState(false);
 
   const [
     nameValue,
@@ -59,6 +60,8 @@ export default function ContactForm() {
   const formSubmitHandler = async (event) => {
     event.preventDefault();
 
+    setIsSubmitting(true);
+
     setNameValue('');
     setEmailValue('');
     setPhoneValue('');
@@ -86,6 +89,8 @@ export default function ContactForm() {
       setServerResponseMessages([responseData.message]);
     } catch (error) {
       setServerResponseMessages(error.message.split(','));
+    } finally {
+      setIsSubmitting(false);
     }
   };
 
@@ -148,7 +153,7 @@ export default function ContactForm() {
         onChange={messageValueChangeHandler}
       />
       <button disabled={!!formHasError} type="submit">
-        Send
+        {isSubmitting ? 'Sending...' : 'Send'}
       </button>
       {serverResponseMessages.map((message) => (
         <p key={message.split(' ')[0]}>{message}</p>
