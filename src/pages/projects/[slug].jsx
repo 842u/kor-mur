@@ -1,8 +1,8 @@
 import Image from 'next/image';
 
 import apolloClient from '../../../graphql/apolloClient';
-import GET_ALL_PROJECT_BY_SLUG from '../../../graphql/queryAllProjectBySlug';
-import GET_ALL_PROJECT_SLUG from '../../../graphql/queryAllProjectSlug';
+import GET_ALL_PROJECTS_SLUGS from '../../../graphql/queryAllProjectsSlugs';
+import GET_PROJECT_BY_SLUG from '../../../graphql/queryProjectBySlug';
 
 export default function Project({ project }) {
   return (
@@ -16,7 +16,7 @@ export default function Project({ project }) {
 
 export async function getStaticPaths() {
   const { data } = await apolloClient.query({
-    query: GET_ALL_PROJECT_SLUG,
+    query: GET_ALL_PROJECTS_SLUGS,
   });
 
   const paths = data.allProject.map((project) => ({
@@ -28,7 +28,7 @@ export async function getStaticPaths() {
 
 export async function getStaticProps({ params }) {
   const { data } = await apolloClient.query({
-    query: GET_ALL_PROJECT_BY_SLUG,
+    query: GET_PROJECT_BY_SLUG,
     variables: {
       where: {
         slug: {
