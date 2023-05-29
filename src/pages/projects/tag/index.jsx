@@ -5,7 +5,7 @@ export default function TagPage() {
   const router = useRouter();
 
   useEffect(() => {
-    router.push('/');
+    router.replace('/projects');
   });
 
   return <p>Redirecting</p>;
