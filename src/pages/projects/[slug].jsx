@@ -4,7 +4,7 @@ import apolloClient from '../../../graphql/apolloClient';
 import GET_ALL_PROJECTS_SLUGS from '../../../graphql/queryAllProjectsSlugs';
 import GET_PROJECT_BY_SLUG from '../../../graphql/queryProjectBySlug';
 
-export default function Project({ project }) {
+export default function SpecificProjectPage({ project }) {
   return (
     <>
       <h1>{project.name}</h1>

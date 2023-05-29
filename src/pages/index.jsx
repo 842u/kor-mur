@@ -8,7 +8,7 @@ import MottoSection from '@/components/MottoSection/MottoSection';
 import apolloClient from '../../graphql/apolloClient';
 import GET_ALL_FEATURED_PROJECTS from '../../graphql/queryAllFeaturedProjects';
 
-export default function Home({ featuredProjects }) {
+export default function HomePage({ featuredProjects }) {
   return (
     <>
       <Head>

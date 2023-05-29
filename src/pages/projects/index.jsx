@@ -6,7 +6,7 @@ import GET_ALL_PROJECTS_DATA from '../../../graphql/queryAllProjectsData';
 import GET_ALL_TAGS_DATA from '../../../graphql/queryAllTags';
 import styles from './index.module.scss';
 
-export default function Projects({ projects, tags }) {
+export default function ProjectsPage({ projects, tags }) {
   return (
     <>
       <h1 className={styles['page-title']}>Projects Page</h1>
