@@ -9,19 +9,21 @@ const project = defineType({
       name: 'name',
       title: 'Project Name',
       type: 'string',
+      validation: (Rule) => Rule.required(),
     }),
 
     defineField({
       name: 'description',
       title: 'Project Description',
       type: 'text',
+      validation: (Rule) => Rule.required(),
     }),
 
     defineField({
       name: 'slug',
       title: 'Project Slug',
       description:
-        'This is used to generate the url for this project e.g. "my-project" will generate the url "https://www.example.com/projects/my-project"',
+        'This is used to generate the url for this project e.g. "my-project" will generate the url "https://www.example.com/projects/my-project".',
       type: 'slug',
       options: {
         source: (doc) => {
@@ -35,7 +37,7 @@ const project = defineType({
       name: 'tags',
       title: 'Project Tags',
       type: 'array',
-      of: [{ type: 'reference', weak: true, to: { type: 'tag' }, options: { disableNew: true } }],
+      of: [{ type: 'reference', to: { type: 'tag' }, options: { disableNew: true } }],
       validation: (Rule) => Rule.unique(),
     }),
 

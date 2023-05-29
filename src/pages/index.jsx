@@ -3,31 +3,28 @@ import Head from 'next/head';
 import ContactSection from '@/components/ContactSection/ContactSection';
 import ProjectsSection from '@/components/FeaturedProjectsSection/FeaturedProjectsSection';
 import HeroSection from '@/components/HeroSection/HeroSection';
-import Layout from '@/components/Layout/Layout';
 import MottoSection from '@/components/MottoSection/MottoSection';
 
 import apolloClient from '../../graphql/apolloClient';
-import GET_ALL_FEATURED_PROJECTS from '../../graphql/queryAllFeaturedProjects';
+import GET_ALL_FEATURED_PROJECTS_DATA from '../../graphql/queryAllFeaturedProjectsData';
 
-export default function Home({ featuredProjects }) {
+export default function HomePage({ featuredProjects }) {
   return (
     <>
       <Head>
         <title>Murawska Studio</title>
       </Head>
-      <Layout>
-        <HeroSection />
-        <MottoSection />
-        <ProjectsSection featuredProjects={featuredProjects} />
-        <ContactSection />
-      </Layout>
+      <HeroSection />
+      <MottoSection />
+      <ProjectsSection featuredProjects={featuredProjects} />
+      <ContactSection />
     </>
   );
 }
 
 export async function getStaticProps() {
   const { data } = await apolloClient.query({
-    query: GET_ALL_FEATURED_PROJECTS,
+    query: GET_ALL_FEATURED_PROJECTS_DATA,
     variables: { limit: 1 },
   });
 

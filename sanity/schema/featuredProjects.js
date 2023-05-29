@@ -9,9 +9,7 @@ const featuredProjects = defineType({
       name: 'projects',
       title: 'Projects',
       type: 'array',
-      of: [
-        { type: 'reference', weak: true, to: { type: 'project' }, options: { disableNew: true } },
-      ],
+      of: [{ type: 'reference', to: { type: 'project' }, options: { disableNew: true } }],
       validation: (Rule) => Rule.unique().max(3),
     }),
   ],

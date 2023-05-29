@@ -14,7 +14,7 @@ export default function SocialItem({
     <a className={styles.item} href={href} rel="noreferrer" target="_blank">
       <Image alt={alt} height={32} src={iconSrc} width={32} />
       {children}
-      <Image alt="open link" height={16} src="./icons/open-outline.svg" width={16} />
+      <Image alt="open link" height={16} src="/icons/open-outline.svg" width={16} />
     </a>
   );
 }
