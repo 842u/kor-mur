@@ -21,6 +21,9 @@ const GET_ALL_PROJECTS_DATA = gql`
       }
       tags {
         name
+        slug {
+          current
+        }
       }
     }
   }

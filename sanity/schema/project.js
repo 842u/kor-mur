@@ -9,12 +9,14 @@ const project = defineType({
       name: 'name',
       title: 'Project Name',
       type: 'string',
+      validation: (Rule) => Rule.required(),
     }),
 
     defineField({
       name: 'description',
       title: 'Project Description',
       type: 'text',
+      validation: (Rule) => Rule.required(),
     }),
 
     defineField({

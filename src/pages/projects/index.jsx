@@ -3,21 +3,8 @@ import SelectFilter from '@/components/SelectFilter/SelectFilter';
 
 import apolloClient from '../../../graphql/apolloClient';
 import GET_ALL_PROJECTS_DATA from '../../../graphql/queryAllProjectsData';
+import GET_ALL_TAGS_DATA from '../../../graphql/queryAllTags';
 import styles from './index.module.scss';
-
-function getProjectsTags(projects) {
-  const tags = new Set();
-
-  projects.forEach((project) => {
-    if (project.tags) {
-      project.tags.forEach((tag) => {
-        tags.add(tag.name);
-      });
-    }
-  });
-
-  return Array.from(tags);
-}
 
 export default function Projects({ projects, tags }) {
   return (
@@ -32,10 +19,13 @@ export default function Projects({ projects, tags }) {
 }
 
 export async function getStaticProps() {
-  const { data } = await apolloClient.query({ query: GET_ALL_PROJECTS_DATA });
+  let data;
 
+  ({ data } = await apolloClient.query({ query: GET_ALL_PROJECTS_DATA }));
   const projects = data.allProject;
-  const tags = getProjectsTags(projects);
+
+  ({ data } = await apolloClient.query({ query: GET_ALL_TAGS_DATA }));
+  const tags = data.allTag;
 
   return {
     props: {
