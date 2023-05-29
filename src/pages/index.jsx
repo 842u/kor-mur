@@ -6,7 +6,7 @@ import HeroSection from '@/components/HeroSection/HeroSection';
 import MottoSection from '@/components/MottoSection/MottoSection';
 
 import apolloClient from '../../graphql/apolloClient';
-import GET_ALL_FEATURED_PROJECTS from '../../graphql/queryAllFeaturedProjects';
+import GET_ALL_FEATURED_PROJECTS_DATA from '../../graphql/queryAllFeaturedProjectsData';
 
 export default function HomePage({ featuredProjects }) {
   return (
@@ -24,7 +24,7 @@ export default function HomePage({ featuredProjects }) {
 
 export async function getStaticProps() {
   const { data } = await apolloClient.query({
-    query: GET_ALL_FEATURED_PROJECTS,
+    query: GET_ALL_FEATURED_PROJECTS_DATA,
     variables: { limit: 1 },
   });
 

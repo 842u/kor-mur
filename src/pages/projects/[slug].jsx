@@ -2,7 +2,7 @@ import Image from 'next/image';
 
 import apolloClient from '../../../graphql/apolloClient';
 import GET_ALL_PROJECTS_SLUGS from '../../../graphql/queryAllProjectsSlugs';
-import GET_PROJECT_BY_SLUG from '../../../graphql/queryProjectBySlug';
+import GET_PROJECT_DATA_BY_SLUG from '../../../graphql/queryProjectDataBySlug';
 
 export default function SpecificProjectPage({ project }) {
   return (
@@ -28,7 +28,7 @@ export async function getStaticPaths() {
 
 export async function getStaticProps({ params }) {
   const { data } = await apolloClient.query({
-    query: GET_PROJECT_BY_SLUG,
+    query: GET_PROJECT_DATA_BY_SLUG,
     variables: {
       where: {
         slug: {

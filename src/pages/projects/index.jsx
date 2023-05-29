@@ -3,7 +3,7 @@ import SelectFilter from '@/components/SelectFilter/SelectFilter';
 
 import apolloClient from '../../../graphql/apolloClient';
 import GET_ALL_PROJECTS_DATA from '../../../graphql/queryAllProjectsData';
-import GET_ALL_TAGS_DATA from '../../../graphql/queryAllTags';
+import GET_ALL_TAGS_DATA from '../../../graphql/queryAllTagsData';
 import styles from './index.module.scss';
 
 export default function ProjectsPage({ projects, tags }) {

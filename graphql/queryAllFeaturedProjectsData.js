@@ -1,6 +1,6 @@
 import { gql } from '@apollo/client';
 
-const GET_ALL_FEATURED_PROJECTS = gql`
+const GET_ALL_FEATURED_PROJECTS_DATA = gql`
   query AllFeaturedProjects($limit: Int) {
     allFeaturedProjects(limit: $limit) {
       projects {
@@ -26,4 +26,4 @@ const GET_ALL_FEATURED_PROJECTS = gql`
   }
 `;
 
-export default GET_ALL_FEATURED_PROJECTS;
+export default GET_ALL_FEATURED_PROJECTS_DATA;
