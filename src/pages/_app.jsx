@@ -2,7 +2,7 @@
 import 'normalize.css';
 import '@/styles/globals.css';
 
-import Layout from '@/components/Layout/Layout';
+import DefaultLayout from '@/components/layouts/DefaultLayout';
 import { primaryFont } from '@/utils/fonts';
 
 export default function App({ Component, pageProps }) {
@@ -10,7 +10,7 @@ export default function App({ Component, pageProps }) {
     Component.getLayout ??
     ((page) => (
       <main className={primaryFont.className}>
-        <Layout>{page}</Layout>
+        <DefaultLayout>{page}</DefaultLayout>
       </main>
     ));
 

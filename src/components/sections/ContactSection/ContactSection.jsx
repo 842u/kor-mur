@@ -1,6 +1,6 @@
+import ContactForm from '@/components/ui/ContactForm/ContactForm';
 import { secondaryFont } from '@/utils/fonts';
 
-import ContactForm from './ContactForm/ContactForm';
 import styles from './ContactSection.module.scss';
 
 export default function ContactSection() {

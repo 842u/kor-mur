@@ -5,7 +5,8 @@ import heroImg1 from 'public/images/hero/render-4.png';
 import heroImg4 from 'public/images/hero/render-6.png';
 import heroImg2 from 'public/images/hero/render-9.png';
 
-import CircleLogo from '../CircleLogo/CircleLogo';
+import CircleLogo from '@/components/ui/CircleLogo/CircleLogo';
+
 import styles from './HeroSection.module.scss';
 
 export default function HeroSection() {

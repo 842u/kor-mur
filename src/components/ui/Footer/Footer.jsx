@@ -1,4 +1,5 @@
-import CircleLogo from '../../CircleLogo/CircleLogo';
+import CircleLogo from '@/components/ui/CircleLogo/CircleLogo';
+
 import Credits from './Credits/Credits';
 import styles from './Footer.module.scss';
 import Socials from './Socials/Socials';

@@ -1,6 +1,6 @@
 import { secondaryFont } from '@/utils/fonts';
 
-import ProjectCard from '../ProjectCard/ProjectCard';
+import ProjectCard from '../../ui/ProjectCard/ProjectCard';
 import styles from './FeaturedProjectsSection.module.scss';
 
 export default function ProjectsSection({ featuredProjects }) {
