@@ -1,12 +1,11 @@
 import Head from 'next/head';
 
-import ContactSection from '@/components/ContactSection/ContactSection';
-import ProjectsSection from '@/components/FeaturedProjectsSection/FeaturedProjectsSection';
-import HeroSection from '@/components/HeroSection/HeroSection';
-import MottoSection from '@/components/MottoSection/MottoSection';
-
-import apolloClient from '../../graphql/apolloClient';
-import GET_ALL_FEATURED_PROJECTS_DATA from '../../graphql/queryAllFeaturedProjectsData';
+import apolloClient from '@/../graphql/apolloClient';
+import GET_ALL_FEATURED_PROJECTS_DATA from '@/../graphql/queryAllFeaturedProjectsData';
+import ContactSection from '@/components/sections/ContactSection/ContactSection';
+import ProjectsSection from '@/components/sections/FeaturedProjectsSection/FeaturedProjectsSection';
+import HeroSection from '@/components/sections/HeroSection/HeroSection';
+import MottoSection from '@/components/sections/MottoSection/MottoSection';
 
 export default function HomePage({ featuredProjects }) {
   return (

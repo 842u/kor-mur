@@ -1,7 +1,8 @@
 import { useRouter } from 'next/router.js';
 import { useState } from 'react';
 
-import CircleLogo from '../../CircleLogo/CircleLogo.jsx';
+import CircleLogo from '@/components/ui/CircleLogo/CircleLogo.jsx';
+
 import HamburgerButton from './HamburgerButton/HamburgerButton.jsx';
 import styles from './NavBar.module.scss';
 import NavMenu from './NavMenu/NavMenu.jsx';

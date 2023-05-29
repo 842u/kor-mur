@@ -1,5 +1,5 @@
-import ProjectCard from '@/components/ProjectCard/ProjectCard';
-import SelectFilter from '@/components/SelectFilter/SelectFilter';
+import ProjectCard from '@/components/ui/ProjectCard/ProjectCard';
+import SelectFilter from '@/components/ui/SelectFilter/SelectFilter';
 
 import apolloClient from '../../../graphql/apolloClient';
 import GET_ALL_PROJECTS_DATA from '../../../graphql/queryAllProjectsData';

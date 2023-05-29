@@ -1,6 +1,7 @@
 import { domAnimation, LazyMotion, m } from 'framer-motion';
 
-import CircleLogo from '../../CircleLogo/CircleLogo.jsx';
+import CircleLogo from '@/components/ui/CircleLogo/CircleLogo.jsx';
+
 import styles from './WelcomeScreen.module.scss';
 
 export default function WelcomeScreen({ className }) {
