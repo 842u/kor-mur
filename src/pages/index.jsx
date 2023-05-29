@@ -3,7 +3,6 @@ import Head from 'next/head';
 import ContactSection from '@/components/ContactSection/ContactSection';
 import ProjectsSection from '@/components/FeaturedProjectsSection/FeaturedProjectsSection';
 import HeroSection from '@/components/HeroSection/HeroSection';
-import Layout from '@/components/Layout/Layout';
 import MottoSection from '@/components/MottoSection/MottoSection';
 
 import apolloClient from '../../graphql/apolloClient';
@@ -15,12 +14,10 @@ export default function Home({ featuredProjects }) {
       <Head>
         <title>Murawska Studio</title>
       </Head>
-      <Layout>
-        <HeroSection />
-        <MottoSection />
-        <ProjectsSection featuredProjects={featuredProjects} />
-        <ContactSection />
-      </Layout>
+      <HeroSection />
+      <MottoSection />
+      <ProjectsSection featuredProjects={featuredProjects} />
+      <ContactSection />
     </>
   );
 }
