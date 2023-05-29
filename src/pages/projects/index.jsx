@@ -3,6 +3,7 @@ import SelectFilter from '@/components/SelectFilter/SelectFilter';
 
 import apolloClient from '../../../graphql/apolloClient';
 import GET_ALL_PROJECTS_DATA from '../../../graphql/queryAllProjectsData';
+import styles from './index.module.scss';
 
 function getProjectsTags(projects) {
   const tags = new Set();
@@ -21,7 +22,7 @@ function getProjectsTags(projects) {
 export default function Projects({ projects, tags }) {
   return (
     <>
-      <h1>Projects Page</h1>
+      <h1 className={styles['page-title']}>Projects Page</h1>
       <SelectFilter options={tags} />
       {projects.map((project) => (
         <ProjectCard key={project._id} project={project} sizes="100vw" />
