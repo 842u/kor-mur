@@ -89,6 +89,7 @@ To choose colors, fonts, icons etc. to get basic understanding of visual design.
     - security headers
     - bundle analyzer
     - sanity headles cms
+    - sanity studio custom desk structure
     - apollo client
     - sendgrid
     - serverside form validation
