@@ -36,8 +36,8 @@ const mottoSectionSettings = defineType({
   ],
   initialValue: {
     title: 'Motto Section Title',
-    text: 'Motto Text',
-    description: 'Motto Description',
+    text: 'Motto Section Text',
+    description: 'Motto Section Description',
   },
 });
 

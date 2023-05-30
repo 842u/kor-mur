@@ -29,14 +29,12 @@ export async function getStaticProps() {
     query: GET_ALL_FEATURED_PROJECTS_DATA,
     variables: { limit: 1 },
   }));
-
-  const featuredProjects = data.allFeaturedProjects[0]?.projects;
+  const featuredProjects = data.allFeaturedProjects[0]?.projects || [];
 
   ({ data } = await apolloClient.query({
     query: GET_MOTTO_SECTION_SETTINGS,
   }));
-
-  const mottoSectionSettings = data.allMottoSectionSettings[0];
+  const mottoSectionSettings = data.allMottoSectionSettings[0] || [];
 
   return {
     props: {
