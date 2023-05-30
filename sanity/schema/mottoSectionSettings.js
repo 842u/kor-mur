@@ -11,15 +11,34 @@ const mottoSectionSettings = defineType({
   fields: [
     defineField({
       name: 'title',
-      title: 'Motto Title',
+      title: 'Motto Section Title',
       type: 'string',
+      validation: (Rule) => Rule.required(),
+    }),
+    defineField({
+      name: 'text',
+      title: 'Motto Text',
+      type: 'text',
+      validation: (Rule) => Rule.required(),
     }),
     defineField({
       name: 'description',
       title: 'Motto Description',
       type: 'text',
+      validation: (Rule) => Rule.required(),
+    }),
+    defineField({
+      name: 'image',
+      title: 'Motto Image',
+      type: 'image',
+      validation: (Rule) => Rule.required(),
     }),
   ],
+  initialValue: {
+    title: 'Motto Section Title',
+    text: 'Motto Text',
+    description: 'Motto Description',
+  },
 });
 
 export default mottoSectionSettings;

@@ -1,13 +1,25 @@
-import { MasterDetailIcon } from '@sanity/icons';
+import { DashboardIcon } from '@sanity/icons';
+
+const sectionSettingsIcon = DashboardIcon;
 
 const deskToolStructureBuilder = (S) =>
   S.list()
     .title('Base')
     .items([
       S.listItem()
-        .title('Motto Section Settings')
-        .icon(MasterDetailIcon)
-        .child(S.document().schemaType('mottoSectionSettings').documentId('mottoSectionSettings')),
+        .title('Settings')
+        .child(
+          S.list()
+            .title('Settings')
+            .items([
+              S.listItem()
+                .title('Motto Section Settings')
+                .icon(sectionSettingsIcon)
+                .child(
+                  S.document().schemaType('mottoSectionSettings').documentId('mottoSectionSettings')
+                ),
+            ])
+        ),
       ...S.documentTypeListItems().filter(
         (listItem) => !['mottoSectionSettings'].includes(listItem.getId())
       ),
