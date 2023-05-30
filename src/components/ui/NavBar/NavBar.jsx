@@ -7,7 +7,7 @@ import HamburgerButton from './HamburgerButton/HamburgerButton.jsx';
 import styles from './NavBar.module.scss';
 import NavMenu from './NavMenu/NavMenu.jsx';
 
-export default function NavBar() {
+export default function NavBar({ className }) {
   const [isMenuActive, setIsMenuActive] = useState(false);
   const router = useRouter();
 
@@ -21,7 +21,7 @@ export default function NavBar() {
   };
 
   return (
-    <header className={styles.navbar}>
+    <header className={`${styles.navbar} ${className}`}>
       <button
         aria-label="home page"
         className={styles['logo-button']}
