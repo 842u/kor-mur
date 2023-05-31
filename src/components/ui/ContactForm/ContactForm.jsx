@@ -95,7 +95,11 @@ export default function ContactForm() {
   };
 
   return (
-    <form className={styles['contact-form']} onSubmit={formSubmitHandler}>
+    <form
+      className={styles['contact-form']}
+      data-testid="contact-form"
+      onSubmit={formSubmitHandler}
+    >
       <FormField
         errorMessage={nameErrorMessage}
         hasError={nameHasError}
