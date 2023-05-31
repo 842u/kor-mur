@@ -1,14 +1,13 @@
 import Head from 'next/head';
 
 import apolloClient from '@/../graphql/apolloClient';
+import GET_CONTACT_SECTION_SETTINGS from '@/../graphql/queryContactSectionSettings';
+import GET_FEATURED_PROJECTS_SECTION_SETTINGS from '@/../graphql/queryFeaturedProjectsSectionSettings';
 import GET_MOTTO_SECTION_SETTINGS from '@/../graphql/queryMottoSectionSettings';
 import ContactSection from '@/components/sections/ContactSection/ContactSection';
 import ProjectsSection from '@/components/sections/FeaturedProjectsSection/FeaturedProjectsSection';
 import HeroSection from '@/components/sections/HeroSection/HeroSection';
 import MottoSection from '@/components/sections/MottoSection/MottoSection';
-
-import GET_CONTACT_SECTION_SETTINGS from '../../graphql/queryContactSectionSettings';
-import GET_FEATURED_PROJECTS_SECTION_SETTINGS from '../../graphql/queryFeaturedProjectsSectionSettings';
 
 export default function HomePage({
   mottoSectionSettings,
