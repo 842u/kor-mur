@@ -18,10 +18,19 @@ const deskToolStructureBuilder = (S) =>
                 .child(
                   S.document().schemaType('mottoSectionSettings').documentId('mottoSectionSettings')
                 ),
+              S.listItem()
+                .title('Featured Projects Section Settings')
+                .icon(sectionSettingsIcon)
+                .child(
+                  S.document()
+                    .schemaType('featuredProjectsSectionSettings')
+                    .documentId('featuredProjectsSectionSettings')
+                ),
             ])
         ),
       ...S.documentTypeListItems().filter(
-        (listItem) => !['mottoSectionSettings'].includes(listItem.getId())
+        (listItem) =>
+          !['mottoSectionSettings', 'featuredProjectsSectionSettings'].includes(listItem.getId())
       ),
     ]);
 
