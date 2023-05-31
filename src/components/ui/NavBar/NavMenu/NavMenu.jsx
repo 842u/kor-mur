@@ -19,7 +19,7 @@ const links = [
     text: 'O MNIE',
   },
   {
-    href: '#contact',
+    href: '/#contact',
     text: 'KONTAKT',
   },
 ];
