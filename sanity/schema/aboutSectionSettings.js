@@ -16,6 +16,12 @@ const aboutSectionSettings = defineType({
       validation: (Rule) => Rule.required(),
     }),
     defineField({
+      name: 'image',
+      title: 'About Section Image',
+      type: 'image',
+      validation: (Rule) => Rule.required(),
+    }),
+    defineField({
       name: 'firstParagraph',
       title: 'About Section First Paragraph',
       type: 'text',
