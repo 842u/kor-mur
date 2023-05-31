@@ -2,4 +2,6 @@
 
 .contact-section {
   @include mixins.section;
+
+  scroll-margin-top: 5rem;
 }
