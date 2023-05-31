@@ -2,6 +2,7 @@
  * ! Remember to deploy graphql api after changing any schemas
  */
 
+import aboutSectionSettings from './schema/aboutSectionSettings';
 import contactSectionSettings from './schema/contactSectionSettings';
 import featuredProjectsSectionSettings from './schema/featuredProjectsSectionSettings';
 import mottoSectionSettings from './schema/mottoSectionSettings';
@@ -15,6 +16,7 @@ const schema = {
     mottoSectionSettings,
     featuredProjectsSectionSettings,
     contactSectionSettings,
+    aboutSectionSettings,
   ],
 };
 

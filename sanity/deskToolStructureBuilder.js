@@ -73,6 +73,7 @@ const deskToolStructureBuilder = (S) =>
             'mottoSectionSettings',
             'featuredProjectsSectionSettings',
             'contactSectionSettings',
+            'aboutSectionSettings',
           ].includes(listItem.getId())
       ),
     ]);
