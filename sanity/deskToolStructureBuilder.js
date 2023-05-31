@@ -1,5 +1,7 @@
-import { DashboardIcon } from '@sanity/icons';
+import { CogIcon, DashboardIcon, MasterDetailIcon } from '@sanity/icons';
 
+const settingsIcon = CogIcon;
+const pageSettingsIcon = MasterDetailIcon;
 const sectionSettingsIcon = DashboardIcon;
 
 const deskToolStructureBuilder = (S) =>
@@ -8,31 +10,60 @@ const deskToolStructureBuilder = (S) =>
     .items([
       S.listItem()
         .title('Settings')
+        .icon(settingsIcon)
         .child(
           S.list()
             .title('Settings')
             .items([
               S.listItem()
-                .title('Motto Section Settings')
-                .icon(sectionSettingsIcon)
+                .title('Home Page Settings')
+                .icon(pageSettingsIcon)
                 .child(
-                  S.document().schemaType('mottoSectionSettings').documentId('mottoSectionSettings')
+                  S.list()
+                    .title('Home Page Settings')
+                    .items([
+                      S.listItem()
+                        .title('Motto Section Settings')
+                        .icon(sectionSettingsIcon)
+                        .child(
+                          S.document()
+                            .schemaType('mottoSectionSettings')
+                            .documentId('mottoSectionSettings')
+                        ),
+                      S.listItem()
+                        .title('Featured Projects Section Settings')
+                        .icon(sectionSettingsIcon)
+                        .child(
+                          S.document()
+                            .schemaType('featuredProjectsSectionSettings')
+                            .documentId('featuredProjectsSectionSettings')
+                        ),
+                      S.listItem()
+                        .title('Contact Section Settings')
+                        .icon(sectionSettingsIcon)
+                        .child(
+                          S.document()
+                            .schemaType('contactSectionSettings')
+                            .documentId('contactSectionSettings')
+                        ),
+                    ])
                 ),
               S.listItem()
-                .title('Featured Projects Section Settings')
-                .icon(sectionSettingsIcon)
+                .title('About Page Settings')
+                .icon(pageSettingsIcon)
                 .child(
-                  S.document()
-                    .schemaType('featuredProjectsSectionSettings')
-                    .documentId('featuredProjectsSectionSettings')
-                ),
-              S.listItem()
-                .title('Contact Section Settings')
-                .icon(sectionSettingsIcon)
-                .child(
-                  S.document()
-                    .schemaType('contactSectionSettings')
-                    .documentId('contactSectionSettings')
+                  S.list()
+                    .title('About Page Settings')
+                    .items([
+                      S.listItem()
+                        .title('About Section Settings')
+                        .icon(sectionSettingsIcon)
+                        .child(
+                          S.document()
+                            .schemaType('aboutSectionSettings')
+                            .documentId('aboutSectionSettings')
+                        ),
+                    ])
                 ),
             ])
         ),
