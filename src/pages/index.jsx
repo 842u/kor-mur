@@ -7,9 +7,14 @@ import ProjectsSection from '@/components/sections/FeaturedProjectsSection/Featu
 import HeroSection from '@/components/sections/HeroSection/HeroSection';
 import MottoSection from '@/components/sections/MottoSection/MottoSection';
 
+import GET_CONTACT_SECTION_SETTINGS from '../../graphql/queryContactSectionSettings';
 import GET_FEATURED_PROJECTS_SECTION_SETTINGS from '../../graphql/queryFeaturedProjectsSectionSettings';
 
-export default function HomePage({ mottoSectionSettings, featuredProjectsSectionSettings }) {
+export default function HomePage({
+  mottoSectionSettings,
+  featuredProjectsSectionSettings,
+  contactSectionSettings,
+}) {
   return (
     <>
       <Head>
@@ -18,7 +23,7 @@ export default function HomePage({ mottoSectionSettings, featuredProjectsSection
       <HeroSection />
       <MottoSection mottoSectionSettings={mottoSectionSettings} />
       <ProjectsSection featuredProjectsSectionSettings={featuredProjectsSectionSettings} />
-      <ContactSection />
+      <ContactSection contactSectionSettings={contactSectionSettings} />
     </>
   );
 }
@@ -36,10 +41,16 @@ export async function getStaticProps() {
   }));
   const featuredProjectsSectionSettings = data.allFeaturedProjectsSectionSettings[0] || [];
 
+  ({ data } = await apolloClient.query({
+    query: GET_CONTACT_SECTION_SETTINGS,
+  }));
+  const contactSectionSettings = data.allContactSectionSettings[0] || [];
+
   return {
     props: {
       mottoSectionSettings,
       featuredProjectsSectionSettings,
+      contactSectionSettings,
     },
   };
 }
