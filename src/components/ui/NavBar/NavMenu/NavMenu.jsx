@@ -7,10 +7,6 @@ const links = [
     text: 'STRONA GŁÓWNA',
   },
   {
-    href: '/services',
-    text: 'OFERTA',
-  },
-  {
     href: '/projects',
     text: 'PROJEKTY',
   },
