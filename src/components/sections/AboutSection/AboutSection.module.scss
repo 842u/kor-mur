@@ -1,0 +1,7 @@
+@use '@/styles/mixins.scss' as mixins;
+
+.about-section {
+  @include mixins.section;
+
+  margin-top: 5rem;
+}
