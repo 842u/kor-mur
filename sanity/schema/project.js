@@ -20,6 +20,35 @@ const project = defineType({
     }),
 
     defineField({
+      name: 'year',
+      title: 'Project Year',
+      type: 'date',
+      options: { dateFormat: 'YYYY' },
+      validation: (Rule) => Rule.required(),
+    }),
+
+    defineField({
+      name: 'location',
+      title: 'Project Location',
+      type: 'string',
+      validation: (Rule) => Rule.required(),
+    }),
+
+    defineField({
+      name: 'area',
+      title: 'Project Area [ m² ]',
+      type: 'number',
+      validation: (Rule) => Rule.required(),
+    }),
+
+    defineField({
+      name: 'budget',
+      title: 'Project Budget [ PLN ]',
+      type: 'number',
+      validation: (Rule) => Rule.required(),
+    }),
+
+    defineField({
       name: 'slug',
       title: 'Project Slug',
       description:
@@ -38,13 +67,14 @@ const project = defineType({
       title: 'Project Tags',
       type: 'array',
       of: [{ type: 'reference', to: { type: 'tag' }, options: { disableNew: true } }],
-      validation: (Rule) => Rule.unique(),
+      validation: (Rule) => Rule.unique().required(),
     }),
 
     defineField({
       name: 'mainImage',
       title: 'Project Main Image',
       type: 'image',
+      validation: (Rule) => Rule.required(),
     }),
 
     defineField({
