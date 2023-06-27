@@ -7,7 +7,7 @@ const defaultDocumentNode = (S, { schemaType }) => {
       S.view
         .component(Iframe)
         .options({
-          url: `http://localhost:3000/api/enable-draft`,
+          url: `${window.location.host}/api/enable-draft`,
         })
         .title('Preview'),
     ]);
