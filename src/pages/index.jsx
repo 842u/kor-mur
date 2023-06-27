@@ -1,4 +1,7 @@
 import Head from 'next/head';
+import { groq } from 'next-sanity';
+import { PreviewSuspense } from 'next-sanity/preview';
+import { lazy } from 'react';
 
 import apolloClient from '@/../graphql/apolloClient';
 import GET_CONTACT_SECTION_SETTINGS from '@/../graphql/queryContactSectionSettings';
@@ -9,7 +12,14 @@ import ProjectsSection from '@/components/sections/FeaturedProjectsSection/Featu
 import HeroSection from '@/components/sections/HeroSection/HeroSection';
 import MottoSection from '@/components/sections/MottoSection/MottoSection';
 
+const MottoSectionPreview = lazy(() =>
+  import('@/components/sections/MottoSection/MottoSectionPreview')
+);
+
+const query = groq`*[_type == "mottoSectionSettings"]`;
+
 export default function HomePage({
+  preview,
   mottoSectionSettings,
   featuredProjectsSectionSettings,
   contactSectionSettings,
@@ -20,14 +30,26 @@ export default function HomePage({
         <title>Murawska Studio</title>
       </Head>
       <HeroSection />
-      <MottoSection mottoSectionSettings={mottoSectionSettings} />
+      {preview ? (
+        <PreviewSuspense>
+          <MottoSectionPreview query={query} />
+        </PreviewSuspense>
+      ) : (
+        <MottoSection mottoSectionSettings={mottoSectionSettings} />
+      )}
       <ProjectsSection featuredProjectsSectionSettings={featuredProjectsSectionSettings} />
       <ContactSection contactSectionSettings={contactSectionSettings} />
     </>
   );
 }
 
-export async function getStaticProps() {
+export async function getStaticProps({ preview = false }) {
+  if (preview) {
+    return {
+      props: { preview },
+    };
+  }
+
   let data;
 
   ({ data } = await apolloClient.query({
