@@ -9,10 +9,13 @@ import styles from './MottoSection.module.scss';
 const defaultSettings = getDefaultMottoSectionSettings();
 
 export default function MottoSection({ mottoSectionSettings }) {
-  const mottoTitle = mottoSectionSettings?.title || defaultSettings.title;
-  const mottoText = mottoSectionSettings?.text || defaultSettings.text;
-  const mottoImageSrc = mottoSectionSettings?.image?.asset?.url || defaultSettings.image;
-  const mottoDescription = mottoSectionSettings?.description || defaultSettings.description;
+  const mottoTitle = mottoSectionSettings[0]?.title || defaultSettings.title;
+  const mottoText = mottoSectionSettings[0]?.text || defaultSettings.text;
+  const mottoDescription = mottoSectionSettings[0]?.description || defaultSettings.description;
+  const mottoImageSrc =
+    mottoSectionSettings[0]?.image?.asset?.url ||
+    mottoSectionSettings[0].imgUrl ||
+    defaultSettings.image;
 
   return (
     <section className={styles['motto-section']}>

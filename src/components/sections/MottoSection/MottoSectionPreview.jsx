@@ -5,7 +5,7 @@ import usePreview from '@/../sanity/lib/preview';
 import MottoSection from './MottoSection';
 
 export default function MottoSectionPreview({ query }) {
-  const { data } = usePreview(null, query);
+  const data = usePreview(null, query);
 
   return (
     <>

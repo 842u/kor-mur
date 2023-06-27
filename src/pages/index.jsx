@@ -16,7 +16,13 @@ const MottoSectionPreview = lazy(() =>
   import('@/components/sections/MottoSection/MottoSectionPreview')
 );
 
-const query = groq`*[_type == "mottoSectionSettings"]`;
+const query = groq`*[_type == "mottoSectionSettings"]{
+  _id,
+  text,
+  title,
+  description,
+  "imgUrl": image.asset->url
+}`;
 
 export default function HomePage({
   preview,
@@ -55,7 +61,7 @@ export async function getStaticProps({ preview = false }) {
   ({ data } = await apolloClient.query({
     query: GET_MOTTO_SECTION_SETTINGS,
   }));
-  const mottoSectionSettings = data.allMottoSectionSettings[0] || [];
+  const mottoSectionSettings = data.allMottoSectionSettings || [];
 
   ({ data } = await apolloClient.query({
     query: GET_FEATURED_PROJECTS_SECTION_SETTINGS,
