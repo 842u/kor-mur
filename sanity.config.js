@@ -1,3 +1,4 @@
+import { visionTool } from '@sanity/vision';
 import { defineConfig } from 'sanity';
 import { deskTool } from 'sanity/desk';
 
@@ -13,7 +14,7 @@ export default defineConfig([
     name: 'production-workspace',
     title: 'Production workspace',
     schema,
-    plugins: [deskTool({ structure: deskToolStructureBuilder })],
+    plugins: [deskTool({ structure: deskToolStructureBuilder }), visionTool()],
   },
   {
     basePath: '/studio/development',
@@ -22,6 +23,6 @@ export default defineConfig([
     name: 'development-workspace',
     title: 'Development workspace',
     schema,
-    plugins: [deskTool({ structure: deskToolStructureBuilder })],
+    plugins: [deskTool({ structure: deskToolStructureBuilder }), visionTool()],
   },
 ]);
