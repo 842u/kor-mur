@@ -15,7 +15,13 @@ export default defineConfig([
     name: 'production-workspace',
     title: 'Production workspace',
     schema,
-    plugins: [deskTool({ structure: deskToolStructureBuilder }), visionTool()],
+    plugins: [
+      deskTool({
+        defaultDocumentNode,
+        structure: deskToolStructureBuilder,
+      }),
+      visionTool(),
+    ],
   },
   {
     basePath: '/studio/development',
