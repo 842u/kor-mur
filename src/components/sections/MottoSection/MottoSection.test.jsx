@@ -5,12 +5,14 @@ import { render, screen } from '@testing-library/react';
 import getDefaultMottoSectionSettings from './getDefaultMottoSectionSettings';
 import MottoSection from './MottoSection';
 
-const mockSettings = {
-  title: 'Motto title',
-  text: 'Motto text',
-  description: 'Motto description',
-  image: 'url',
-};
+const mockSettings = [
+  {
+    title: 'Motto title',
+    text: 'Motto text',
+    description: 'Motto description',
+    image: 'url',
+  },
+];
 
 const defaultSettings = getDefaultMottoSectionSettings();
 
@@ -18,7 +20,7 @@ describe('MottoSection', () => {
   it('should render motto title provided in settings prop', () => {
     render(<MottoSection mottoSectionSettings={mockSettings} />);
 
-    const mottoTitle = screen.getByText(mockSettings.title);
+    const mottoTitle = screen.getByText(mockSettings[0].title);
 
     expect(mottoTitle).toBeInTheDocument();
   });
@@ -26,7 +28,7 @@ describe('MottoSection', () => {
   it('should render motto text provided in settings prop', () => {
     render(<MottoSection mottoSectionSettings={mockSettings} />);
 
-    const mottoTitle = screen.getByText(mockSettings.text);
+    const mottoTitle = screen.getByText(mockSettings[0].text);
 
     expect(mottoTitle).toBeInTheDocument();
   });
@@ -34,7 +36,7 @@ describe('MottoSection', () => {
   it('should render motto description provided in settings prop', () => {
     render(<MottoSection mottoSectionSettings={mockSettings} />);
 
-    const mottoTitle = screen.getByText(mockSettings.description);
+    const mottoTitle = screen.getByText(mockSettings[0].description);
 
     expect(mottoTitle).toBeInTheDocument();
   });
