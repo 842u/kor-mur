@@ -4,8 +4,8 @@ import { lazy } from 'react';
 
 import MottoSectionDefault from './MottoSectionDefault';
 
-const MottoSectionPreview = lazy(() =>
-  import('@/components/sections/MottoSection/MottoSectionPreview')
+const MottoSectionDraft = lazy(() =>
+  import('@/components/sections/MottoSection/MottoSectionDraft')
 );
 
 const query = groq`*[_type == "mottoSectionSettings"]{
@@ -19,7 +19,7 @@ const query = groq`*[_type == "mottoSectionSettings"]{
 export default function MottoSection({ draftMode, mottoSectionSettings }) {
   return draftMode ? (
     <PreviewSuspense fallback="loading">
-      <MottoSectionPreview query={query} />
+      <MottoSectionDraft query={query} />
     </PreviewSuspense>
   ) : (
     <MottoSectionDefault mottoSectionSettings={mottoSectionSettings} />
