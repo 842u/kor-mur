@@ -11,8 +11,7 @@ const defaultSettings = getDefaultMottoSectionSettings();
 export default function MottoSectionDefault({ mottoSectionSettings }) {
   const mottoTitle = mottoSectionSettings?.[0]?.title || defaultSettings.title;
   const mottoText = mottoSectionSettings?.[0]?.text || defaultSettings.text;
-  const mottoDescription =
-    mottoSectionSettings?.[0]?.description || defaultSettings.description;
+  const mottoDescription = mottoSectionSettings?.[0]?.description || defaultSettings.description;
   const mottoImageSrc =
     mottoSectionSettings?.[0]?.image?.asset?.url ||
     mottoSectionSettings?.[0]?.imgUrl ||

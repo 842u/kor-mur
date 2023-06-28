@@ -21,13 +21,8 @@ export default function HomePage({
         <title>Murawska Studio</title>
       </Head>
       <HeroSection />
-      <MottoSection
-        draftMode={draftMode}
-        mottoSectionSettings={mottoSectionSettings}
-      />
-      <ProjectsSection
-        featuredProjectsSectionSettings={featuredProjectsSectionSettings}
-      />
+      <MottoSection draftMode={draftMode} mottoSectionSettings={mottoSectionSettings} />
+      <ProjectsSection featuredProjectsSectionSettings={featuredProjectsSectionSettings} />
       <ContactSection contactSectionSettings={contactSectionSettings} />
     </>
   );
@@ -50,8 +45,7 @@ export async function getStaticProps({ draftMode = false }) {
   ({ data } = await apolloClient.query({
     query: GET_FEATURED_PROJECTS_SECTION_SETTINGS,
   }));
-  const featuredProjectsSectionSettings =
-    data.allFeaturedProjectsSectionSettings[0] || [];
+  const featuredProjectsSectionSettings = data.allFeaturedProjectsSectionSettings[0] || [];
 
   ({ data } = await apolloClient.query({
     query: GET_CONTACT_SECTION_SETTINGS,
