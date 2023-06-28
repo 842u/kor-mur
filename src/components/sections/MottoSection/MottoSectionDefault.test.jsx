@@ -3,7 +3,7 @@ import '@testing-library/jest-dom';
 import { render, screen } from '@testing-library/react';
 
 import getDefaultMottoSectionSettings from './getDefaultMottoSectionSettings';
-import MottoSection from './MottoSection';
+import MottoSectionDefault from './MottoSectionDefault';
 
 const mockSettings = [
   {
@@ -18,7 +18,7 @@ const defaultSettings = getDefaultMottoSectionSettings();
 
 describe('MottoSection', () => {
   it('should render motto title provided in settings prop', () => {
-    render(<MottoSection mottoSectionSettings={mockSettings} />);
+    render(<MottoSectionDefault mottoSectionSettings={mockSettings} />);
 
     const mottoTitle = screen.getByText(mockSettings[0].title);
 
@@ -26,7 +26,7 @@ describe('MottoSection', () => {
   });
 
   it('should render motto text provided in settings prop', () => {
-    render(<MottoSection mottoSectionSettings={mockSettings} />);
+    render(<MottoSectionDefault mottoSectionSettings={mockSettings} />);
 
     const mottoTitle = screen.getByText(mockSettings[0].text);
 
@@ -34,7 +34,7 @@ describe('MottoSection', () => {
   });
 
   it('should render motto description provided in settings prop', () => {
-    render(<MottoSection mottoSectionSettings={mockSettings} />);
+    render(<MottoSectionDefault mottoSectionSettings={mockSettings} />);
 
     const mottoTitle = screen.getByText(mockSettings[0].description);
 
@@ -42,7 +42,7 @@ describe('MottoSection', () => {
   });
 
   it('should render default motto title if not provided with settings prop', () => {
-    render(<MottoSection />);
+    render(<MottoSectionDefault />);
 
     const mottoTitle = screen.getByText(defaultSettings.title);
 
@@ -50,7 +50,7 @@ describe('MottoSection', () => {
   });
 
   it('should render default motto text if not provided with settings prop', () => {
-    render(<MottoSection />);
+    render(<MottoSectionDefault />);
 
     const mottoTitle = screen.getByText(defaultSettings.text);
 
@@ -58,7 +58,7 @@ describe('MottoSection', () => {
   });
 
   it('should render default motto description if not provided with settings prop', () => {
-    render(<MottoSection />);
+    render(<MottoSectionDefault />);
 
     const mottoTitle = screen.getByText(defaultSettings.description);
 
@@ -66,7 +66,7 @@ describe('MottoSection', () => {
   });
 
   it('should render motto image', () => {
-    render(<MottoSection />);
+    render(<MottoSectionDefault />);
 
     const mottoImage = screen.getByRole('img', { name: 'motto image' });
 
