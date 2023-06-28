@@ -25,7 +25,7 @@ const query = groq`*[_type == "mottoSectionSettings"]{
 }`;
 
 export default function HomePage({
-  preview,
+  draftMode,
   mottoSectionSettings,
   featuredProjectsSectionSettings,
   contactSectionSettings,
@@ -36,8 +36,8 @@ export default function HomePage({
         <title>Murawska Studio</title>
       </Head>
       <HeroSection />
-      {preview ? (
-        <PreviewSuspense>
+      {draftMode ? (
+        <PreviewSuspense fallback="loading">
           <MottoSectionPreview query={query} />
         </PreviewSuspense>
       ) : (
@@ -49,10 +49,10 @@ export default function HomePage({
   );
 }
 
-export async function getStaticProps({ preview = false }) {
-  if (preview) {
+export async function getStaticProps({ draftMode = false }) {
+  if (draftMode) {
     return {
-      props: { preview },
+      props: { draftMode },
     };
   }
 

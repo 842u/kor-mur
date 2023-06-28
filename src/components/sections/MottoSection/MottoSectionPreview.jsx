@@ -10,7 +10,9 @@ export default function MottoSectionPreview({ query }) {
   return (
     <>
       <MottoSection mottoSectionSettings={data} />
-      <Link href="/api/disable-draft">Exit Preview Mode</Link>
+      <Link href="/api/disable-draft" prefetch={false}>
+        Exit Preview Mode
+      </Link>
     </>
   );
 }
