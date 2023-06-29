@@ -67,7 +67,7 @@ const project = defineType({
       title: 'Project Tags',
       type: 'array',
       of: [{ type: 'reference', to: { type: 'tag' }, options: { disableNew: true } }],
-      validation: (Rule) => Rule.unique().required(),
+      validation: (Rule) => Rule.unique(),
     }),
 
     defineField({

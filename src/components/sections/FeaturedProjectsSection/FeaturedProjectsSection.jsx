@@ -4,9 +4,12 @@ import { lazy } from 'react';
 
 import FeaturedProjectsSectionDefault from './FeaturedProjectsSectionDefault';
 
-const FeaturedProjectsSectionDraft = lazy(() => import('./FeaturedProjectsSectionDraft'));
+const FeaturedProjectsSectionDraft = lazy(() =>
+  import('@/components/sections/FeaturedProjectsSection/FeaturedProjectsSectionDraft')
+);
 
 const query = groq`*[_type == "featuredProjectsSectionSettings"]{
+  _id,
   title,
   description,
   "featuredProjects": 

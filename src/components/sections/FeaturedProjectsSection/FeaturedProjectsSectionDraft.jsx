@@ -1,6 +1,6 @@
 import Link from 'next/link';
 
-import usePreview from '@/sanity/lib/preview';
+import usePreview from '@/../sanity/lib/preview';
 
 import FeaturedProjectsSectionDefault from './FeaturedProjectsSectionDefault';
 
