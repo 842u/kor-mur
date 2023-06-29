@@ -1,24 +1,39 @@
-import { secondaryFont } from '@/utils/fonts';
+import { groq } from 'next-sanity';
+import { PreviewSuspense } from 'next-sanity/preview';
+import { lazy } from 'react';
 
-import ProjectCard from '../../ui/ProjectCard/ProjectCard';
-import styles from './FeaturedProjectsSection.module.scss';
-import getDefaultFeaturedProjectsSettings from './getDefaultFeaturedProjectsSectionSettings';
+import FeaturedProjectsSectionDefault from './FeaturedProjectsSectionDefault';
 
-const defaultSettings = getDefaultFeaturedProjectsSettings();
+const FeaturedProjectsSectionDraft = lazy(() => import('./FeaturedProjectsSectionDraft'));
 
-export default function FeaturedProjectsSection({ featuredProjectsSectionSettings }) {
-  const sectionTitle = featuredProjectsSectionSettings?.title || defaultSettings.title;
-  const sectionDescription =
-    featuredProjectsSectionSettings?.description || defaultSettings.description;
-  const featuredProjects = featuredProjectsSectionSettings?.featuredProjects || [];
+const query = groq`*[_type == "featuredProjectsSectionSettings"]{
+  title,
+  description,
+  "featuredProjects": 
+    featuredProjects[]-> {
+      _id,
+      name,
+      description,
+      slug,
+      "tags": tags[]-> {
+        name
+      },
+      "mainImage": {
+        "asset": {
+          "url" : mainImage.asset->url
+        }
+      },
+    }
+}`;
 
-  return (
-    <section className={styles['projects-section']}>
-      <h2 className={secondaryFont.className}>{sectionTitle}</h2>
-      <p>{sectionDescription}</p>
-      {featuredProjects.map((project) => (
-        <ProjectCard key={project._id} project={project} sizes="90vw" />
-      ))}
-    </section>
+export default function FeaturedProjectsSection({ draftMode, featuredProjectsSectionSettings }) {
+  return draftMode ? (
+    <PreviewSuspense fallback="loading">
+      <FeaturedProjectsSectionDraft query={query} />
+    </PreviewSuspense>
+  ) : (
+    <FeaturedProjectsSectionDefault
+      featuredProjectsSectionSettings={featuredProjectsSectionSettings}
+    />
   );
 }

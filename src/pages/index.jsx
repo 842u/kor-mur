@@ -5,7 +5,7 @@ import GET_CONTACT_SECTION_SETTINGS from '@/../graphql/queryContactSectionSettin
 import GET_FEATURED_PROJECTS_SECTION_SETTINGS from '@/../graphql/queryFeaturedProjectsSectionSettings';
 import GET_MOTTO_SECTION_SETTINGS from '@/../graphql/queryMottoSectionSettings';
 import ContactSection from '@/components/sections/ContactSection/ContactSection';
-import ProjectsSection from '@/components/sections/FeaturedProjectsSection/FeaturedProjectsSection';
+import FeaturedProjectsSection from '@/components/sections/FeaturedProjectsSection/FeaturedProjectsSectionDefault';
 import HeroSection from '@/components/sections/HeroSection/HeroSection';
 import MottoSection from '@/components/sections/MottoSection/MottoSection';
 
@@ -22,7 +22,10 @@ export default function HomePage({
       </Head>
       <HeroSection />
       <MottoSection draftMode={draftMode} mottoSectionSettings={mottoSectionSettings} />
-      <ProjectsSection featuredProjectsSectionSettings={featuredProjectsSectionSettings} />
+      <FeaturedProjectsSection
+        draftMode={draftMode}
+        featuredProjectsSectionSettings={featuredProjectsSectionSettings}
+      />
       <ContactSection contactSectionSettings={contactSectionSettings} />
     </>
   );
