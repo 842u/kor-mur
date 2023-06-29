@@ -26,7 +26,7 @@ export default function HomePage({
         draftMode={draftMode}
         featuredProjectsSectionSettings={featuredProjectsSectionSettings}
       />
-      <ContactSection contactSectionSettings={contactSectionSettings} />
+      <ContactSection contactSectionSettings={contactSectionSettings} draftMode={draftMode} />
     </>
   );
 }
@@ -53,7 +53,7 @@ export async function getStaticProps({ draftMode = false }) {
   ({ data } = await apolloClient.query({
     query: GET_CONTACT_SECTION_SETTINGS,
   }));
-  const contactSectionSettings = data.allContactSectionSettings[0] || [];
+  const contactSectionSettings = data.allContactSectionSettings || [];
 
   return {
     props: {
