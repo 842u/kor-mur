@@ -2,35 +2,37 @@ import '@testing-library/jest-dom';
 
 import { render, screen } from '@testing-library/react';
 
-import ContactSection from './ContactSection';
+import ContactSectionDefault from './ContactSectionDefault';
 import getDefaultContactSectionSettings from './getDefaultContactSectionSettings';
 
-const mockSettings = {
-  title: 'mock title',
-  description: 'mock description',
-};
+const mockSettings = [
+  {
+    title: 'mock title',
+    description: 'mock description',
+  },
+];
 
 const defaultSettings = getDefaultContactSectionSettings();
 
 describe('ContactSection', () => {
   it('should render title provided in settings prop', () => {
-    render(<ContactSection contactSectionSettings={mockSettings} />);
+    render(<ContactSectionDefault contactSectionSettings={mockSettings} />);
 
-    const title = screen.getByText(mockSettings.title);
+    const title = screen.getByText(mockSettings[0].title);
 
     expect(title).toBeInTheDocument();
   });
 
   it('should render description provided in settings prop', () => {
-    render(<ContactSection contactSectionSettings={mockSettings} />);
+    render(<ContactSectionDefault contactSectionSettings={mockSettings} />);
 
-    const description = screen.getByText(mockSettings.description);
+    const description = screen.getByText(mockSettings[0].description);
 
     expect(description).toBeInTheDocument();
   });
 
   it('should render default title if not provided with settings prop', () => {
-    render(<ContactSection />);
+    render(<ContactSectionDefault />);
 
     const title = screen.getByText(defaultSettings.title);
 
@@ -38,7 +40,7 @@ describe('ContactSection', () => {
   });
 
   it('should render default description if not provided with settings prop', () => {
-    render(<ContactSection />);
+    render(<ContactSectionDefault />);
 
     const description = screen.getByText(defaultSettings.description);
 
@@ -46,7 +48,7 @@ describe('ContactSection', () => {
   });
 
   it('should render ContactForm component', () => {
-    render(<ContactSection />);
+    render(<ContactSectionDefault />);
 
     const form = screen.getByTestId('contact-form');
 
