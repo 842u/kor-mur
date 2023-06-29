@@ -10,6 +10,7 @@ import GET_HOME_PAGE_SETTINGS from '../../graphql/queryHomePageSettings';
 
 export default function HomePage({
   draftMode,
+  heroSectionSettings,
   mottoSectionSettings,
   featuredProjectsSectionSettings,
   contactSectionSettings,
@@ -19,7 +20,7 @@ export default function HomePage({
       <Head>
         <title>Murawska Studio</title>
       </Head>
-      <HeroSection />
+      <HeroSection draftMode={draftMode} heroSectionSettings={heroSectionSettings} />
       <MottoSection draftMode={draftMode} mottoSectionSettings={mottoSectionSettings} />
       <FeaturedProjectsSection
         draftMode={draftMode}
@@ -41,6 +42,8 @@ export async function getStaticProps({ draftMode = false }) {
     query: GET_HOME_PAGE_SETTINGS,
   });
 
+  const heroSectionSettings = data.allHeroSectionSettings || [];
+
   const mottoSectionSettings = data.allMottoSectionSettings || [];
 
   const featuredProjectsSectionSettings = data.allFeaturedProjectsSectionSettings || [];
@@ -49,6 +52,7 @@ export async function getStaticProps({ draftMode = false }) {
 
   return {
     props: {
+      heroSectionSettings,
       mottoSectionSettings,
       featuredProjectsSectionSettings,
       contactSectionSettings,
