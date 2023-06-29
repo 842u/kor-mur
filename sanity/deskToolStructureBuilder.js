@@ -23,6 +23,11 @@ const deskToolStructureBuilder = (S) =>
                     .title('Home Page Settings')
                     .items([
                       S.documentListItem()
+                        .schemaType('heroSectionSettings')
+                        .id('heroSectionSettings')
+                        .title('Hero Section Settings')
+                        .icon(sectionSettingsIcon),
+                      S.documentListItem()
                         .schemaType('mottoSectionSettings')
                         .id('mottoSectionSettings')
                         .title('Motto Section Settings')
@@ -61,6 +66,7 @@ const deskToolStructureBuilder = (S) =>
       ...S.documentTypeListItems().filter(
         (listItem) =>
           ![
+            'heroSectionSettings',
             'mottoSectionSettings',
             'featuredProjectsSectionSettings',
             'contactSectionSettings',
