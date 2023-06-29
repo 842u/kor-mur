@@ -1,7 +1,18 @@
 import { gql } from '@apollo/client';
 
-const GET_FEATURED_PROJECTS_SECTION_SETTINGS = gql`
-  query FeaturedProjectsSectionSettings {
+const GET_HOME_PAGE_SETTINGS = gql`
+  query HomePageSettings {
+    allMottoSectionSettings {
+      title
+      text
+      description
+      image {
+        asset {
+          url
+        }
+      }
+    }
+
     allFeaturedProjectsSectionSettings {
       title
       description
@@ -22,7 +33,12 @@ const GET_FEATURED_PROJECTS_SECTION_SETTINGS = gql`
         }
       }
     }
+
+    allContactSectionSettings {
+      title
+      description
+    }
   }
 `;
 
-export default GET_FEATURED_PROJECTS_SECTION_SETTINGS;
+export default GET_HOME_PAGE_SETTINGS;
