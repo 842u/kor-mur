@@ -2,19 +2,21 @@ import '@testing-library/jest-dom';
 
 import { render, screen } from '@testing-library/react';
 
-import AboutSection from './AboutSection';
+import AboutSection from './AboutSectionDefault';
 import getDefaultAboutSectionSettings from './getDefaultAboutSectionSettings';
 
-const mockSettings = {
-  title: 'mock title',
-  firstParagraph: 'mock first paragraph',
-  secondParagraph: 'mock second paragraph',
-  image: {
-    asset: {
-      url: '/mock-url',
+const mockSettings = [
+  {
+    title: 'mock title',
+    firstParagraph: 'mock first paragraph',
+    secondParagraph: 'mock second paragraph',
+    image: {
+      asset: {
+        url: '/mock-url',
+      },
     },
   },
-};
+];
 
 const defaultSettings = getDefaultAboutSectionSettings();
 
@@ -22,7 +24,7 @@ describe('AboutSection', () => {
   it('should render section title provided in settings prop', () => {
     render(<AboutSection aboutSectionSettings={mockSettings} />);
 
-    const title = screen.getByText(mockSettings.title);
+    const title = screen.getByText(mockSettings[0].title);
 
     expect(title).toBeInTheDocument();
   });
@@ -30,7 +32,7 @@ describe('AboutSection', () => {
   it('should render section first paragraph provided in settings prop', () => {
     render(<AboutSection aboutSectionSettings={mockSettings} />);
 
-    const firstParagraph = screen.getByText(mockSettings.firstParagraph);
+    const firstParagraph = screen.getByText(mockSettings[0].firstParagraph);
 
     expect(firstParagraph).toBeInTheDocument();
   });
@@ -38,7 +40,7 @@ describe('AboutSection', () => {
   it('should render section second paragraph provided in settings prop', () => {
     render(<AboutSection aboutSectionSettings={mockSettings} />);
 
-    const secondParagraph = screen.getByText(mockSettings.secondParagraph);
+    const secondParagraph = screen.getByText(mockSettings[0].secondParagraph);
 
     expect(secondParagraph).toBeInTheDocument();
   });

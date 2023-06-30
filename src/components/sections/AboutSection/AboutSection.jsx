@@ -1,26 +1,27 @@
-import Image from 'next/image';
+import { PreviewSuspense } from 'next-sanity/preview';
+import { lazy } from 'react';
 
-import styles from './AboutSection.module.scss';
-import getDefaultAboutSectionSettings from './getDefaultAboutSectionSettings';
+import AboutSectionDefault from './AboutSectionDefault';
 
-const defaultSettings = getDefaultAboutSectionSettings();
+const AboutSectionDraft = lazy(() => import('./AboutSectionDraft'));
 
-export default function AboutSection({ aboutSectionSettings }) {
-  const sectionTitle = aboutSectionSettings?.title || defaultSettings.title;
-  const sectionFirstParagraph =
-    aboutSectionSettings?.firstParagraph || defaultSettings.firstParagraph;
-  const sectionSecondParagraph =
-    aboutSectionSettings?.secondParagraph || defaultSettings.secondParagraph;
-  const sectionImage = aboutSectionSettings?.image?.asset?.url || defaultSettings.image;
+const query = `*[_type == "aboutSectionSettings"]{
+  title,
+  firstParagraph,
+  secondParagraph,
+  "image": {
+    "asset": {
+      "url": image.asset->url
+    }
+  }
+}`;
 
-  return (
-    <section className={styles['about-section']}>
-      <h2>{sectionTitle}</h2>
-      <div>
-        <Image alt="Photo of Kornelia" height={100} src={sectionImage} width={100} />
-        <p>{sectionFirstParagraph}</p>
-      </div>
-      <p>{sectionSecondParagraph}</p>
-    </section>
+export default function AboutSection({ draftMode, aboutSectionSettings }) {
+  return draftMode ? (
+    <PreviewSuspense fallback="loading">
+      <AboutSectionDraft query={query} />
+    </PreviewSuspense>
+  ) : (
+    <AboutSectionDefault aboutSectionSettings={aboutSectionSettings} />
   );
 }
