@@ -27,6 +27,9 @@ const defaultDocumentNode = (S, { schemaType }) => {
     case 'contactSectionSettings':
       return enableDraftView(S, schemaType);
 
+    case 'aboutSectionSettings':
+      return enableDraftView(S, schemaType);
+
     default:
       return S.document().views([S.view.form()]);
   }

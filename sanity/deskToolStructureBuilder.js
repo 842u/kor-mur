@@ -51,14 +51,11 @@ const deskToolStructureBuilder = (S) =>
                   S.list()
                     .title('About Page Settings')
                     .items([
-                      S.listItem()
+                      S.documentListItem()
+                        .schemaType('aboutSectionSettings')
+                        .id('aboutSectionSettings')
                         .title('About Section Settings')
-                        .icon(sectionSettingsIcon)
-                        .child(
-                          S.document()
-                            .schemaType('aboutSectionSettings')
-                            .documentId('aboutSectionSettings')
-                        ),
+                        .icon(sectionSettingsIcon),
                     ])
                 ),
             ])
