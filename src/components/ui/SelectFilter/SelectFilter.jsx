@@ -19,9 +19,6 @@ export default function SelectFilter({ options }) {
         name="category"
         onChange={filterChangeHandler}
       >
-        <option aria-label="Filter by all" value="all">
-          All
-        </option>
         {options.map((option) => (
           <option
             key={option._id}
