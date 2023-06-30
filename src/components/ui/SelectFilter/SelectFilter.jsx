@@ -6,11 +6,7 @@ export default function SelectFilter({ options }) {
   const router = useRouter();
 
   const filterChangeHandler = (event) => {
-    if (event.target.value === 'all') {
-      router.push('/projects');
-    } else {
-      router.push(`/projects/tag/${event.target.value}`);
-    }
+    router.push(`/projects/tag/${event.target.value}`);
   };
 
   return (
