@@ -1,5 +1,6 @@
 import { useRouter } from 'next/router';
 
+// import { useState } from 'react';
 import styles from './SelectFilter.module.scss';
 
 export default function SelectFilter({ options }) {
@@ -14,9 +15,9 @@ export default function SelectFilter({ options }) {
       choose category
       <select
         className={styles.dropdown}
-        defaultValue="all"
         id="category"
         name="category"
+        value={router.query.slug}
         onChange={filterChangeHandler}
       >
         {options.map((option) => (
