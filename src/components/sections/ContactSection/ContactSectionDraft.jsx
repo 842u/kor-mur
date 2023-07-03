@@ -1,18 +1,9 @@
-import Link from 'next/link';
-
-import usePreview from '@/../sanity/lib/preview';
+import { useLiveQuery } from 'next-sanity/preview';
 
 import ContactSectionDefault from './ContactSectionDefault';
 
 export default function ContactSectionDraft({ query }) {
-  const data = usePreview(null, query);
+  const [data] = useLiveQuery(null, query);
 
-  return (
-    <>
-      <ContactSectionDefault contactSectionSettings={data} />
-      <Link href="/api/disable-draft" prefetch={false}>
-        Exit Draft Mode
-      </Link>
-    </>
-  );
+  return <ContactSectionDefault contactSectionSettings={data} />;
 }

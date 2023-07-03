@@ -1,9 +1,12 @@
-import { PreviewSuspense } from 'next-sanity/preview';
-import { lazy } from 'react';
+import dynamic from 'next/dynamic';
+import Link from 'next/link';
 
 import AboutSectionDefault from './AboutSectionDefault';
+import AboutSectionDraft from './AboutSectionDraft';
 
-const AboutSectionDraft = lazy(() => import('./AboutSectionDraft'));
+const DraftProvider = dynamic(() => import('@/components/DraftProvider'), {
+  loading: () => <p>loading...</p>,
+});
 
 const query = `*[_type == "aboutSectionSettings"]{
   title,
@@ -16,11 +19,14 @@ const query = `*[_type == "aboutSectionSettings"]{
   }
 }`;
 
-export default function AboutSection({ draftMode, aboutSectionSettings }) {
+export default function AboutSection({ readToken, draftMode, aboutSectionSettings }) {
   return draftMode ? (
-    <PreviewSuspense fallback="loading">
+    <DraftProvider readToken={readToken}>
       <AboutSectionDraft query={query} />
-    </PreviewSuspense>
+      <Link href="/api/disable-draft" prefetch={false}>
+        Exit Draft Mode
+      </Link>
+    </DraftProvider>
   ) : (
     <AboutSectionDefault aboutSectionSettings={aboutSectionSettings} />
   );

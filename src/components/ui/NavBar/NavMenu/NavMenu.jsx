@@ -7,7 +7,7 @@ const links = [
     text: 'STRONA GŁÓWNA',
   },
   {
-    href: '/projects',
+    href: '/projects/tag/all',
     text: 'PROJEKTY',
   },
   {

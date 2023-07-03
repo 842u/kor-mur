@@ -6,11 +6,7 @@ export default function SelectFilter({ options }) {
   const router = useRouter();
 
   const filterChangeHandler = (event) => {
-    if (event.target.value === 'all') {
-      router.push('/projects');
-    } else {
-      router.push(`/projects/tag/${event.target.value}`);
-    }
+    router.push(`/projects/tag/${event.target.value}`);
   };
 
   return (
@@ -18,14 +14,11 @@ export default function SelectFilter({ options }) {
       choose category
       <select
         className={styles.dropdown}
-        defaultValue="all"
         id="category"
         name="category"
+        value={router.query.slug}
         onChange={filterChangeHandler}
       >
-        <option aria-label="Filter by all" value="all">
-          All
-        </option>
         {options.map((option) => (
           <option
             key={option._id}

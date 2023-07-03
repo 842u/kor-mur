@@ -1,10 +1,13 @@
+import dynamic from 'next/dynamic';
+import Link from 'next/link';
 import { groq } from 'next-sanity';
-import { PreviewSuspense } from 'next-sanity/preview';
-import { lazy } from 'react';
 
 import HeroSectionDefault from './HeroSectionDefault';
+import HeroSectionDraft from './HeroSectionDraft';
 
-const HeroSectionDraft = lazy(() => import('@/components/sections/HeroSection/HeroSectionDraft'));
+const DraftProvider = dynamic(() => import('@/components/DraftProvider'), {
+  loading: () => <p>Loading...</p>,
+});
 
 const query = groq`*[_type == "heroSectionSettings"]{
   "imageLeft": {
@@ -38,11 +41,14 @@ const query = groq`*[_type == "heroSectionSettings"]{
   },
 }`;
 
-export default function HeroSection({ draftMode, heroSectionSettings }) {
+export default function HeroSection({ draftMode, heroSectionSettings, readToken }) {
   return draftMode ? (
-    <PreviewSuspense fallback="loading">
+    <DraftProvider readToken={readToken}>
       <HeroSectionDraft query={query} />
-    </PreviewSuspense>
+      <Link href="/api/disable-draft" prefetch={false}>
+        Exit Draft Mode
+      </Link>
+    </DraftProvider>
   ) : (
     <HeroSectionDefault heroSectionSettings={heroSectionSettings} />
   );

@@ -1,36 +1,12 @@
-import ProjectCard from '@/components/ui/ProjectCard/ProjectCard';
-import SelectFilter from '@/components/ui/SelectFilter/SelectFilter';
+import { useRouter } from 'next/router';
+import { useEffect } from 'react';
 
-import apolloClient from '../../../graphql/apolloClient';
-import GET_ALL_PROJECTS_DATA from '../../../graphql/queryAllProjectsData';
-import GET_ALL_TAGS_DATA from '../../../graphql/queryAllTagsData';
-import styles from './index.module.scss';
+export default function ProjectsPage() {
+  const router = useRouter();
 
-export default function ProjectsPage({ projects, tags }) {
-  return (
-    <>
-      <h1 className={styles['page-title']}>Projects Page</h1>
-      <SelectFilter options={tags} />
-      {projects.map((project) => (
-        <ProjectCard key={project._id} project={project} sizes="100vw" />
-      ))}
-    </>
-  );
-}
+  useEffect(() => {
+    router.push('/projects/tag/all');
+  });
 
-export async function getStaticProps() {
-  let data;
-
-  ({ data } = await apolloClient.query({ query: GET_ALL_PROJECTS_DATA }));
-  const projects = data.allProject;
-
-  ({ data } = await apolloClient.query({ query: GET_ALL_TAGS_DATA }));
-  const tags = data.allTag;
-
-  return {
-    props: {
-      projects,
-      tags,
-    },
-  };
+  return <p>Redirecting</p>;
 }
