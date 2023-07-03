@@ -1,11 +1,20 @@
 import { createClient } from 'next-sanity';
 
-import { apiVersion, projectId, useCdn } from '../env';
+import { apiVersion, dataset, projectId, useCdn } from '../env';
 
-const client = createClient({
-  apiVersion,
-  projectId,
-  useCdn,
-});
+export default function getClient({ readToken }) {
+  const client = createClient({
+    apiVersion,
+    projectId,
+    useCdn,
+    dataset,
+  });
 
-export default client;
+  return readToken
+    ? client.withConfig({
+        token: readToken,
+        ignoreBrowserTokenWarning: true,
+        perspective: 'previewDraft',
+      })
+    : client;
+}

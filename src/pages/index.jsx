@@ -10,6 +10,7 @@ import GET_HOME_PAGE_SETTINGS from '../../graphql/queryHomePageSettings';
 
 export default function HomePage({
   draftMode,
+  readToken,
   heroSectionSettings,
   mottoSectionSettings,
   featuredProjectsSectionSettings,
@@ -20,38 +21,49 @@ export default function HomePage({
       <Head>
         <title>Murawska Studio</title>
       </Head>
-      <HeroSection draftMode={draftMode} heroSectionSettings={heroSectionSettings} />
-      <MottoSection draftMode={draftMode} mottoSectionSettings={mottoSectionSettings} />
+      <HeroSection
+        draftMode={draftMode}
+        heroSectionSettings={heroSectionSettings}
+        readToken={readToken}
+      />
+      <MottoSection
+        draftMode={draftMode}
+        mottoSectionSettings={mottoSectionSettings}
+        readToken={readToken}
+      />
       <FeaturedProjectsSection
         draftMode={draftMode}
         featuredProjectsSectionSettings={featuredProjectsSectionSettings}
+        readToken={readToken}
       />
-      <ContactSection contactSectionSettings={contactSectionSettings} draftMode={draftMode} />
+      <ContactSection
+        contactSectionSettings={contactSectionSettings}
+        draftMode={draftMode}
+        readToken={readToken}
+      />
     </>
   );
 }
 
 export async function getStaticProps({ draftMode = false }) {
-  if (draftMode) {
-    return {
-      props: { draftMode },
-    };
-  }
+  const readToken = draftMode ? process.env.SANITY_READ_TOKEN : '';
 
   const { data } = await apolloClient.query({
     query: GET_HOME_PAGE_SETTINGS,
   });
 
-  const heroSectionSettings = data.allHeroSectionSettings || [];
+  const heroSectionSettings = data.allHeroSectionSettings;
 
-  const mottoSectionSettings = data.allMottoSectionSettings || [];
+  const mottoSectionSettings = data.allMottoSectionSettings;
 
-  const featuredProjectsSectionSettings = data.allFeaturedProjectsSectionSettings || [];
+  const featuredProjectsSectionSettings = data.allFeaturedProjectsSectionSettings;
 
-  const contactSectionSettings = data.allContactSectionSettings || [];
+  const contactSectionSettings = data.allContactSectionSettings;
 
   return {
     props: {
+      draftMode,
+      readToken,
       heroSectionSettings,
       mottoSectionSettings,
       featuredProjectsSectionSettings,

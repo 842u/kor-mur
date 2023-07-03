@@ -1,12 +1,13 @@
+import dynamic from 'next/dynamic';
+import Link from 'next/link';
 import { groq } from 'next-sanity';
-import { PreviewSuspense } from 'next-sanity/preview';
-import { lazy } from 'react';
 
 import FeaturedProjectsSectionDefault from './FeaturedProjectsSectionDefault';
+import FeaturedProjectsSectionDraft from './FeaturedProjectsSectionDraft';
 
-const FeaturedProjectsSectionDraft = lazy(() =>
-  import('@/components/sections/FeaturedProjectsSection/FeaturedProjectsSectionDraft')
-);
+const DraftProvider = dynamic(() => import('@/components/DraftProvider'), {
+  loading: () => <p>Loading...</p>,
+});
 
 const query = groq`*[_type == "featuredProjectsSectionSettings"]{
   _id,
@@ -29,11 +30,18 @@ const query = groq`*[_type == "featuredProjectsSectionSettings"]{
     }
 }`;
 
-export default function FeaturedProjectsSection({ draftMode, featuredProjectsSectionSettings }) {
+export default function FeaturedProjectsSection({
+  readToken,
+  draftMode,
+  featuredProjectsSectionSettings,
+}) {
   return draftMode ? (
-    <PreviewSuspense fallback="loading">
+    <DraftProvider readToken={readToken}>
       <FeaturedProjectsSectionDraft query={query} />
-    </PreviewSuspense>
+      <Link href="/api/disable-draft" prefetch={false}>
+        Exit Draft Mode
+      </Link>
+    </DraftProvider>
   ) : (
     <FeaturedProjectsSectionDefault
       featuredProjectsSectionSettings={featuredProjectsSectionSettings}
