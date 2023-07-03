@@ -1,17 +1,9 @@
-import Link from 'next/link';
+import { useLiveQuery } from 'next-sanity/preview';
 
-import usePreview from '../../../../sanity/lib/preview';
 import AboutSectionDefault from './AboutSectionDefault';
 
 export default function AboutSectionDraft({ query }) {
-  const data = usePreview(null, query);
+  const [data] = useLiveQuery(null, query);
 
-  return (
-    <>
-      <AboutSectionDefault aboutSectionSettings={data} />
-      <Link href="/api/disable-draft" prefetch={false}>
-        Exit Draft Mode
-      </Link>
-    </>
-  );
+  return <AboutSectionDefault aboutSectionSettings={data} />;
 }
