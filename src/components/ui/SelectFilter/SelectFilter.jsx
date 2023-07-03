@@ -1,6 +1,5 @@
 import { useRouter } from 'next/router';
 
-// import { useState } from 'react';
 import styles from './SelectFilter.module.scss';
 
 export default function SelectFilter({ options }) {
