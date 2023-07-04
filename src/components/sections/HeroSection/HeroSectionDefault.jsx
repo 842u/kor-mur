@@ -2,25 +2,11 @@ import Image from 'next/image';
 
 import CircleLogo from '@/components/ui/CircleLogo/CircleLogo';
 
-import getDefaultHeroSectionSettings from './getDefaultHeroSectionSettings';
+import getHeroSectionSetup from './getHeroSectionSetup';
 import styles from './HeroSectionDefault.module.scss';
 
-const defaultSettings = getDefaultHeroSectionSettings();
-
 export default function HeroSectionDefault({ heroSectionSettings }) {
-  const imageLeftUrl = heroSectionSettings?.[0]?.imageLeft?.asset?.url || defaultSettings.imageLeft;
-
-  const imageMiddleTopUrl =
-    heroSectionSettings?.[0]?.imageMiddleTop?.asset?.url || defaultSettings.imageMiddleTop;
-
-  const imageMiddleBottomUrl =
-    heroSectionSettings?.[0]?.imageMiddleBottom?.asset?.url || defaultSettings.imageMiddleBottom;
-
-  const imageRightTopUrl =
-    heroSectionSettings?.[0]?.imageRightTop?.asset?.url || defaultSettings.imageRightTop;
-
-  const imageRightBottomUrl =
-    heroSectionSettings?.[0]?.imageRightBottom?.asset?.url || defaultSettings.imageRightBottom;
+  const setup = getHeroSectionSetup(heroSectionSettings);
 
   return (
     <section className={styles['hero-section']}>
@@ -35,7 +21,7 @@ export default function HeroSectionDefault({ heroSectionSettings }) {
           alt=""
           className={styles['image-1']}
           sizes="33vw"
-          src={imageLeftUrl}
+          src={setup.imageLeft}
         />
         <Image
           aria-hidden
@@ -43,7 +29,7 @@ export default function HeroSectionDefault({ heroSectionSettings }) {
           alt=""
           className={styles['image-2']}
           sizes="33vw"
-          src={imageMiddleTopUrl}
+          src={setup.imageMiddleTop}
         />
         <Image
           aria-hidden
@@ -51,7 +37,7 @@ export default function HeroSectionDefault({ heroSectionSettings }) {
           alt=""
           className={styles['image-3']}
           sizes="33vw"
-          src={imageMiddleBottomUrl}
+          src={setup.imageMiddleBottom}
         />
         <Image
           aria-hidden
@@ -59,7 +45,7 @@ export default function HeroSectionDefault({ heroSectionSettings }) {
           alt=""
           className={styles['image-4']}
           sizes="33vw"
-          src={imageRightTopUrl}
+          src={setup.imageRightTop}
         />
         <Image
           aria-hidden
@@ -67,7 +53,7 @@ export default function HeroSectionDefault({ heroSectionSettings }) {
           alt=""
           className={styles['image-5']}
           sizes="33vw"
-          src={imageRightBottomUrl}
+          src={setup.imageRightBottom}
         />
       </div>
     </section>

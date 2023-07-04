@@ -3,7 +3,7 @@ import '@testing-library/jest-dom';
 import { render, screen } from '@testing-library/react';
 
 import AboutSection from './AboutSectionDefault';
-import getDefaultAboutSectionSettings from './getDefaultAboutSectionSettings';
+import getDefaultAboutSectionSettings from './getAboutSectionSetup';
 
 const mockSettings = [
   {

@@ -1,7 +1,7 @@
 import Image from 'next/image';
 
 import styles from './AboutSectionDefault.module.scss';
-import getAboutSectionSetup from './getDefaultAboutSectionSettings';
+import getAboutSectionSetup from './getAboutSectionSetup';
 
 export default function AboutSectionDefault({ aboutSectionSettings }) {
   const setup = getAboutSectionSetup(aboutSectionSettings);
