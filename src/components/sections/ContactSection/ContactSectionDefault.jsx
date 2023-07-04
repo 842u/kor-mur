@@ -2,19 +2,15 @@ import ContactForm from '@/components/ui/ContactForm/ContactForm';
 import { secondaryFont } from '@/utils/fonts';
 
 import styles from './ContactSectionDefault.module.scss';
-import getDefaultContactSectionSettings from './getDefaultContactSectionSettings';
-
-const defaultSettings = getDefaultContactSectionSettings();
+import getContactSectionSetup from './getContactSectionSetup';
 
 export default function ContactSectionDefault({ contactSectionSettings }) {
-  const sectionTitle = contactSectionSettings?.[0]?.title || defaultSettings.title;
-  const sectionDescription =
-    contactSectionSettings?.[0]?.description || defaultSettings.description;
+  const setup = getContactSectionSetup(contactSectionSettings);
 
   return (
     <section className={styles['contact-section']} id="contact">
-      <h2 className={secondaryFont.className}>{sectionTitle}</h2>
-      <p>{sectionDescription}</p>
+      <h2 className={secondaryFont.className}>{setup.title}</h2>
+      <p>{setup.description}</p>
       <ContactForm />
     </section>
   );
