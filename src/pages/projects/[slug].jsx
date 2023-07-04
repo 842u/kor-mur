@@ -1,22 +1,18 @@
 import ProjectSection from '@/components/sections/ProjectSection/ProjectSection';
 
 import apolloClient from '../../../graphql/apolloClient';
-import GET_ALL_PROJECTS_SLUGS from '../../../graphql/queryAllProjectsSlugs';
-import GET_PROJECT_DATA_BY_SLUG from '../../../graphql/queryProjectDataBySlug';
+import gqlQueryAllProjectsSlugs from '../../../graphql/queryAllProjectsSlugs';
+import gqlQueryProjectBySlug from '../../../graphql/queryProjectDataBySlug';
 
-export default function SpecificProjectPage({ readToken, draftMode, projectData }) {
+export default function SpecificProjectPage({ readToken, draftMode, project }) {
   return (
-    <ProjectSection
-      draftMode={draftMode}
-      projectSectionSettings={projectData}
-      readToken={readToken}
-    />
+    <ProjectSection draftMode={draftMode} projectSectionSettings={project} readToken={readToken} />
   );
 }
 
 export async function getStaticPaths() {
   const { data } = await apolloClient.query({
-    query: GET_ALL_PROJECTS_SLUGS,
+    query: gqlQueryAllProjectsSlugs,
   });
 
   const paths = data.allProject.map((project) => ({
@@ -30,7 +26,7 @@ export async function getStaticProps({ params, draftMode = false }) {
   const readToken = draftMode ? process.env.SANITY_READ_TOKEN : '';
 
   const { data } = await apolloClient.query({
-    query: GET_PROJECT_DATA_BY_SLUG,
+    query: gqlQueryProjectBySlug,
     variables: {
       where: {
         slug: {
@@ -42,13 +38,13 @@ export async function getStaticProps({ params, draftMode = false }) {
     },
   });
 
-  const projectData = data.allProject;
+  const project = data.allProject;
 
   return {
     props: {
       readToken,
       draftMode,
-      projectData,
+      project,
     },
   };
 }

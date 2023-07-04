@@ -1,6 +1,6 @@
 import { gql } from '@apollo/client';
 
-const GET_PROJECT_DATA_BY_SLUG = gql`
+const gqlQueryProjectBySlug = gql`
   query ProjectBySlug($where: ProjectFilter) {
     allProject(where: $where) {
       name
@@ -29,4 +29,4 @@ const GET_PROJECT_DATA_BY_SLUG = gql`
   }
 `;
 
-export default GET_PROJECT_DATA_BY_SLUG;
+export default gqlQueryProjectBySlug;

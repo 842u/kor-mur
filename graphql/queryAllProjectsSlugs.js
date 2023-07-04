@@ -1,6 +1,6 @@
 import { gql } from '@apollo/client';
 
-const GET_ALL_PROJECTS_SLUGS = gql`
+const gqlQueryAllProjectsSlugs = gql`
   query AllProjectsSlugs {
     allProject {
       slug {
@@ -10,4 +10,4 @@ const GET_ALL_PROJECTS_SLUGS = gql`
   }
 `;
 
-export default GET_ALL_PROJECTS_SLUGS;
+export default gqlQueryAllProjectsSlugs;
