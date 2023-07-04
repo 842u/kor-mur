@@ -1,7 +1,7 @@
 import { gql } from '@apollo/client';
 
-const GET_ALL_TAGS_DATA = gql`
-  query AllTagsData {
+const gqlQueryAllTags = gql`
+  query AllTags {
     allTag {
       _id
       name
@@ -12,4 +12,4 @@ const GET_ALL_TAGS_DATA = gql`
   }
 `;
 
-export default GET_ALL_TAGS_DATA;
+export default gqlQueryAllTags;

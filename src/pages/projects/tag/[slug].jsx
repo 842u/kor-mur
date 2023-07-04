@@ -2,9 +2,9 @@ import ProjectCard from '@/components/ui/ProjectCard/ProjectCard';
 import SelectFilter from '@/components/ui/SelectFilter/SelectFilter';
 
 import apolloClient from '../../../../graphql/apolloClient';
-import GET_ALL_PROJECTS_DATA from '../../../../graphql/queryAllProjectsData';
-import GET_ALL_TAGS_DATA from '../../../../graphql/queryAllTagsData';
-import GET_PROJECT_DATA_BY_TAG_ID from '../../../../graphql/queryProjectDataByTagId';
+import gqlQueryAllProjects from '../../../../graphql/queryAllProjects';
+import gqlQueryAllTags from '../../../../graphql/queryAllTags';
+import gqlQueryProjectByTagId from '../../../../graphql/queryProjectByTagId';
 import styles from './[slug].module.scss';
 
 const allTagMock = {
@@ -28,13 +28,11 @@ export default function SpecificTagPage({ projectsWithQueryTag, tags }) {
 }
 
 export async function getStaticPaths() {
-  const { data } = await apolloClient.query({
-    query: GET_ALL_TAGS_DATA,
+  const allTagsData = await apolloClient.query({
+    query: gqlQueryAllTags,
   });
 
-  const allTagsData = data.allTag;
-
-  const tags = [allTagMock, ...allTagsData];
+  const tags = [allTagMock, ...allTagsData.data.allTag];
 
   const paths = tags.map((tag) => ({
     params: { slug: tag.slug.current },
@@ -45,38 +43,21 @@ export async function getStaticPaths() {
 
 export async function getStaticProps({ params }) {
   const allTagsData = await apolloClient.query({
-    query: GET_ALL_TAGS_DATA,
+    query: gqlQueryAllTags,
   });
 
   const tags = [allTagMock, ...allTagsData.data.allTag];
 
   const tagFromQuery = tags.find((tag) => tag.slug.current === params.slug);
 
-  if (tagFromQuery._id === allTagMock._id) {
-    const allProjectsData = await apolloClient.query({ query: GET_ALL_PROJECTS_DATA });
+  const isAllTag = tagFromQuery._id === allTagMock._id;
 
-    const projectsWithQueryTag = allProjectsData.data.allProject;
-
-    return {
-      props: {
-        tags,
-        projectsWithQueryTag,
-      },
-    };
-  }
-
-  const projectByTagIdData = await apolloClient.query({
-    query: GET_PROJECT_DATA_BY_TAG_ID,
-    variables: {
-      where: {
-        _: {
-          references: tagFromQuery._id,
-        },
-      },
-    },
+  const allProjectsByTagData = await apolloClient.query({
+    query: isAllTag ? gqlQueryAllProjects : gqlQueryProjectByTagId,
+    variables: isAllTag ? {} : { where: { _: { references: tagFromQuery._id } } },
   });
 
-  const projectsWithQueryTag = projectByTagIdData.data.allProject;
+  const projectsWithQueryTag = allProjectsByTagData.data.allProject;
 
   return {
     props: {
