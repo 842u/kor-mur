@@ -1,14 +1,17 @@
 import { gql } from '@apollo/client';
 
-const GET_ALL_PROJECTS_DATA = gql`
-  query AllProjectsData {
-    allProject {
+const gqlQueryProjectByTagId = gql`
+  query ProjectByTagId($where: ProjectFilter) {
+    allProject(where: $where) {
       _id
+      name
+      description
       slug {
         current
       }
-      name
-      description
+      tags {
+        name
+      }
       mainImage {
         asset {
           url
@@ -19,14 +22,8 @@ const GET_ALL_PROJECTS_DATA = gql`
           url
         }
       }
-      tags {
-        name
-        slug {
-          current
-        }
-      }
     }
   }
 `;
 
-export default GET_ALL_PROJECTS_DATA;
+export default gqlQueryProjectByTagId;

@@ -3,7 +3,7 @@ import '@testing-library/jest-dom';
 import { render, screen } from '@testing-library/react';
 
 import FeaturedProjectsSectionDefault from './FeaturedProjectsSectionDefault';
-import getDefaultFeaturedProjectsSettings from './getDefaultFeaturedProjectsSectionSettings';
+import getDefaultFeaturedProjectsSettings from './getFeaturedProjectsSetup';
 
 const mockSettings = [
   {

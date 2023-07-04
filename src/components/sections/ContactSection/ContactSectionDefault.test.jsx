@@ -3,7 +3,7 @@ import '@testing-library/jest-dom';
 import { render, screen } from '@testing-library/react';
 
 import ContactSectionDefault from './ContactSectionDefault';
-import getDefaultContactSectionSettings from './getDefaultContactSectionSettings';
+import getDefaultContactSectionSettings from './getContactSectionSetup';
 
 const mockSettings = [
   {

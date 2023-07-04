@@ -1,6 +1,6 @@
 import { gql } from '@apollo/client';
 
-const GET_ABOUT_SECTION_SETTINGS = gql`
+const gqlQueryAboutSectionSettings = gql`
   query AboutSectionSettings {
     allAboutSectionSettings {
       title
@@ -15,4 +15,4 @@ const GET_ABOUT_SECTION_SETTINGS = gql`
   }
 `;
 
-export default GET_ABOUT_SECTION_SETTINGS;
+export default gqlQueryAboutSectionSettings;

@@ -3,24 +3,16 @@ import Link from 'next/link';
 
 import { secondaryFont } from '@/utils/fonts';
 
-import getDefaultMottoSectionSettings from './getDefaultMottoSectionSettings';
+import getMottoSectionSetup from './getMottoSectionSetup';
 import styles from './MottoSectionDefault.module.scss';
 
-const defaultSettings = getDefaultMottoSectionSettings();
-
 export default function MottoSectionDefault({ mottoSectionSettings }) {
-  const mottoTitle = mottoSectionSettings?.[0]?.title || defaultSettings.title;
-  const mottoText = mottoSectionSettings?.[0]?.text || defaultSettings.text;
-  const mottoDescription = mottoSectionSettings?.[0]?.description || defaultSettings.description;
-  const mottoImageSrc =
-    mottoSectionSettings?.[0]?.image?.asset?.url ||
-    mottoSectionSettings?.[0]?.imgUrl ||
-    defaultSettings.image;
+  const setup = getMottoSectionSetup(mottoSectionSettings);
 
   return (
     <section className={styles['motto-section']}>
-      <h2 className={secondaryFont.className}>{mottoTitle}</h2>
-      <p>{mottoText}</p>
+      <h2 className={secondaryFont.className}>{setup.title}</h2>
+      <p>{setup.text}</p>
       <div className={styles.addnotation}>
         <div className={styles['image-container']}>
           <Image
@@ -28,11 +20,11 @@ export default function MottoSectionDefault({ mottoSectionSettings }) {
             alt="motto image"
             className={styles.image}
             sizes="(max-width: 810px) 100vw, 50vw"
-            src={mottoImageSrc}
+            src={setup.image}
           />
         </div>
         <div className={styles.about}>
-          <p>{mottoDescription}</p>
+          <p>{setup.description}</p>
           <Link className={styles.link} href="/about">
             O MNIE
           </Link>
