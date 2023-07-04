@@ -1,6 +1,6 @@
 import { gql } from '@apollo/client';
 
-const GET_HOME_PAGE_SETTINGS = gql`
+const gqlQueryHomePageSettings = gql`
   query HomePageSettings {
     allHeroSectionSettings {
       imageLeft {
@@ -73,4 +73,4 @@ const GET_HOME_PAGE_SETTINGS = gql`
   }
 `;
 
-export default GET_HOME_PAGE_SETTINGS;
+export default gqlQueryHomePageSettings;

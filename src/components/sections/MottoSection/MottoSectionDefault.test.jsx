@@ -2,7 +2,7 @@ import '@testing-library/jest-dom';
 
 import { render, screen } from '@testing-library/react';
 
-import getDefaultMottoSectionSettings from './getDefaultMottoSectionSettings';
+import getDefaultMottoSectionSettings from './getMottoSectionSetup';
 import MottoSectionDefault from './MottoSectionDefault';
 
 const mockSettings = [

@@ -6,7 +6,7 @@ import FeaturedProjectsSection from '@/components/sections/FeaturedProjectsSecti
 import HeroSection from '@/components/sections/HeroSection/HeroSection';
 import MottoSection from '@/components/sections/MottoSection/MottoSection';
 
-import GET_HOME_PAGE_SETTINGS from '../../graphql/queryHomePageSettings';
+import gqlQueryHomePageSettings from '../../graphql/queryHomePageSettings';
 
 export default function HomePage({
   draftMode,
@@ -49,7 +49,7 @@ export async function getStaticProps({ draftMode = false }) {
   const readToken = draftMode ? process.env.SANITY_READ_TOKEN : '';
 
   const { data } = await apolloClient.query({
-    query: GET_HOME_PAGE_SETTINGS,
+    query: gqlQueryHomePageSettings,
   });
 
   const heroSectionSettings = data.allHeroSectionSettings;
