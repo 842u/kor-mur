@@ -1,26 +1,19 @@
 import Image from 'next/image';
 
 import styles from './AboutSectionDefault.module.scss';
-import getDefaultAboutSectionSettings from './getDefaultAboutSectionSettings';
-
-const defaultSettings = getDefaultAboutSectionSettings();
+import getAboutSectionSetup from './getDefaultAboutSectionSettings';
 
 export default function AboutSectionDefault({ aboutSectionSettings }) {
-  const sectionTitle = aboutSectionSettings?.[0]?.title || defaultSettings.title;
-  const sectionFirstParagraph =
-    aboutSectionSettings?.[0]?.firstParagraph || defaultSettings.firstParagraph;
-  const sectionSecondParagraph =
-    aboutSectionSettings?.[0]?.secondParagraph || defaultSettings.secondParagraph;
-  const sectionImage = aboutSectionSettings?.[0]?.image?.asset?.url || defaultSettings.image;
+  const setup = getAboutSectionSetup(aboutSectionSettings);
 
   return (
     <section className={styles['about-section']}>
-      <h2>{sectionTitle}</h2>
+      <h2>{setup.title}</h2>
       <div>
-        <Image alt="Photo of Kornelia" height={100} src={sectionImage} width={100} />
-        <p>{sectionFirstParagraph}</p>
+        <Image alt="Photo of Kornelia" height={100} src={setup.image} width={100} />
+        <p>{setup.firstParagraph}</p>
       </div>
-      <p>{sectionSecondParagraph}</p>
+      <p>{setup.secondParagraph}</p>
     </section>
   );
 }
