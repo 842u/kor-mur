@@ -6,8 +6,8 @@ import { secondaryFont } from '@/utils/fonts';
 import getMottoSectionSetup from './getMottoSectionSetup';
 import styles from './MottoSectionDefault.module.scss';
 
-export default function MottoSectionDefault({ mottoSectionSettings }) {
-  const setup = getMottoSectionSetup(mottoSectionSettings);
+export default function MottoSectionDefault({ settings }) {
+  const setup = getMottoSectionSetup(settings);
 
   return (
     <section className={styles['motto-section']}>

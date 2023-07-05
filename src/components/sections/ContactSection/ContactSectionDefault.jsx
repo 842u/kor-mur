@@ -4,8 +4,8 @@ import { secondaryFont } from '@/utils/fonts';
 import styles from './ContactSectionDefault.module.scss';
 import getContactSectionSetup from './getContactSectionSetup';
 
-export default function ContactSectionDefault({ contactSectionSettings }) {
-  const setup = getContactSectionSetup(contactSectionSettings);
+export default function ContactSectionDefault({ settings }) {
+  const setup = getContactSectionSetup(settings);
 
   return (
     <section className={styles['contact-section']} id="contact">

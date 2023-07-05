@@ -5,8 +5,8 @@ import CircleLogo from '@/components/ui/CircleLogo/CircleLogo';
 import getHeroSectionSetup from './getHeroSectionSetup';
 import styles from './HeroSectionDefault.module.scss';
 
-export default function HeroSectionDefault({ heroSectionSettings }) {
-  const setup = getHeroSectionSetup(heroSectionSettings);
+export default function HeroSectionDefault({ settings }) {
+  const setup = getHeroSectionSetup(settings);
 
   return (
     <section className={styles['hero-section']}>

@@ -1,5 +1,9 @@
 import dynamic from 'next/dynamic';
 import Link from 'next/link';
+import { useContext } from 'react';
+
+import DraftModeContext from '@/context/DraftModeContext';
+import SanityReadTokenContext from '@/context/SanityReadTokenContext';
 
 import groqQueryMottoSectionSettings from '../../../../groq/queryMottoSectionSettings';
 import MottoSectionDefault from './MottoSectionDefault';
@@ -9,7 +13,10 @@ const DraftProvider = dynamic(() => import('@/components/DraftProvider'), {
   loading: () => <p>Loading...</p>,
 });
 
-export default function MottoSection({ draftMode, mottoSectionSettings, readToken }) {
+export default function MottoSection({ settings }) {
+  const draftMode = useContext(DraftModeContext);
+  const readToken = useContext(SanityReadTokenContext);
+
   return draftMode ? (
     <DraftProvider readToken={readToken}>
       <MottoSectionDraft query={groqQueryMottoSectionSettings} />
@@ -18,6 +25,6 @@ export default function MottoSection({ draftMode, mottoSectionSettings, readToke
       </Link>
     </DraftProvider>
   ) : (
-    <MottoSectionDefault mottoSectionSettings={mottoSectionSettings} />
+    <MottoSectionDefault settings={settings} />
   );
 }
