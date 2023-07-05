@@ -5,5 +5,5 @@ import MottoSectionDefault from './MottoSectionDefault';
 export default function MottoSectionDraft({ query }) {
   const [data] = useLiveQuery(null, query);
 
-  return <MottoSectionDefault mottoSectionSettings={data} />;
+  return <MottoSectionDefault settings={data} />;
 }

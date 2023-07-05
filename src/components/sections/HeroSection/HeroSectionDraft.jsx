@@ -5,5 +5,5 @@ import HeroSectionDefault from './HeroSectionDefault';
 export default function HeroSectionDraft({ query }) {
   const [data] = useLiveQuery(null, query);
 
-  return <HeroSectionDefault heroSectionSettings={data} />;
+  return <HeroSectionDefault settings={data} />;
 }

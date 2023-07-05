@@ -1,4 +1,6 @@
 import ProjectSection from '@/components/sections/ProjectSection/ProjectSection';
+import DraftModeContext from '@/context/DraftModeContext';
+import SanityReadTokenContext from '@/context/SanityReadTokenContext';
 
 import apolloClient from '../../../graphql/apolloClient';
 import gqlQueryAllProjectsSlugs from '../../../graphql/queryAllProjectsSlugs';
@@ -6,7 +8,11 @@ import gqlQueryProjectBySlug from '../../../graphql/queryProjectDataBySlug';
 
 export default function SpecificProjectPage({ readToken, draftMode, project }) {
   return (
-    <ProjectSection draftMode={draftMode} projectSectionSettings={project} readToken={readToken} />
+    <DraftModeContext.Provider value={draftMode}>
+      <SanityReadTokenContext.Provider value={readToken}>
+        <ProjectSection settings={project} />
+      </SanityReadTokenContext.Provider>
+    </DraftModeContext.Provider>
   );
 }
 

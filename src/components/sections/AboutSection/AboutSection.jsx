@@ -1,5 +1,9 @@
 import dynamic from 'next/dynamic';
 import Link from 'next/link';
+import { useContext } from 'react';
+
+import DraftModeContext from '@/context/DraftModeContext';
+import SanityReadTokenContext from '@/context/SanityReadTokenContext';
 
 import groqQueryAboutSectionSettings from '../../../../groq/queryAboutSectionSettings';
 import AboutSectionDefault from './AboutSectionDefault';
@@ -9,7 +13,10 @@ const DraftProvider = dynamic(() => import('@/components/DraftProvider'), {
   loading: () => <p>loading...</p>,
 });
 
-export default function AboutSection({ readToken, draftMode, aboutSectionSettings }) {
+export default function AboutSection({ settings }) {
+  const draftMode = useContext(DraftModeContext);
+  const readToken = useContext(SanityReadTokenContext);
+
   return draftMode ? (
     <DraftProvider readToken={readToken}>
       <AboutSectionDraft query={groqQueryAboutSectionSettings} />
@@ -18,6 +25,6 @@ export default function AboutSection({ readToken, draftMode, aboutSectionSetting
       </Link>
     </DraftProvider>
   ) : (
-    <AboutSectionDefault aboutSectionSettings={aboutSectionSettings} />
+    <AboutSectionDefault settings={settings} />
   );
 }

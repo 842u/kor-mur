@@ -1,5 +1,9 @@
 import dynamic from 'next/dynamic';
 import Link from 'next/link';
+import { useContext } from 'react';
+
+import DraftModeContext from '@/context/DraftModeContext';
+import SanityReadTokenContext from '@/context/SanityReadTokenContext';
 
 import groqQueryContactSectionSettings from '../../../../groq/queryContactSectionSettings';
 import ContactSectionDefault from './ContactSectionDefault';
@@ -9,7 +13,10 @@ const DraftProvider = dynamic(() => import('@/components/DraftProvider'), {
   loading: () => <p>Loading...</p>,
 });
 
-export default function ContactSection({ readToken, draftMode, contactSectionSettings }) {
+export default function ContactSection({ settings }) {
+  const draftMode = useContext(DraftModeContext);
+  const readToken = useContext(SanityReadTokenContext);
+
   return draftMode ? (
     <DraftProvider readToken={readToken}>
       <ContactSectionDraft query={groqQueryContactSectionSettings} />
@@ -18,6 +25,6 @@ export default function ContactSection({ readToken, draftMode, contactSectionSet
       </Link>
     </DraftProvider>
   ) : (
-    <ContactSectionDefault contactSectionSettings={contactSectionSettings} />
+    <ContactSectionDefault settings={settings} />
   );
 }

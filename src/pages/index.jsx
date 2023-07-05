@@ -5,6 +5,8 @@ import ContactSection from '@/components/sections/ContactSection/ContactSection'
 import FeaturedProjectsSection from '@/components/sections/FeaturedProjectsSection/FeaturedProjectsSection';
 import HeroSection from '@/components/sections/HeroSection/HeroSection';
 import MottoSection from '@/components/sections/MottoSection/MottoSection';
+import DraftModeContext from '@/context/DraftModeContext';
+import SanityReadTokenContext from '@/context/SanityReadTokenContext';
 
 import gqlQueryHomePageSettings from '../../graphql/queryHomePageSettings';
 
@@ -21,26 +23,14 @@ export default function HomePage({
       <Head>
         <title>Murawska Studio</title>
       </Head>
-      <HeroSection
-        draftMode={draftMode}
-        heroSectionSettings={heroSectionSettings}
-        readToken={readToken}
-      />
-      <MottoSection
-        draftMode={draftMode}
-        mottoSectionSettings={mottoSectionSettings}
-        readToken={readToken}
-      />
-      <FeaturedProjectsSection
-        draftMode={draftMode}
-        featuredProjectsSectionSettings={featuredProjectsSectionSettings}
-        readToken={readToken}
-      />
-      <ContactSection
-        contactSectionSettings={contactSectionSettings}
-        draftMode={draftMode}
-        readToken={readToken}
-      />
+      <DraftModeContext.Provider value={draftMode}>
+        <SanityReadTokenContext.Provider value={readToken}>
+          <HeroSection settings={heroSectionSettings} />
+          <MottoSection settings={mottoSectionSettings} />
+          <FeaturedProjectsSection settings={featuredProjectsSectionSettings} />
+          <ContactSection settings={contactSectionSettings} />
+        </SanityReadTokenContext.Provider>
+      </DraftModeContext.Provider>
     </>
   );
 }

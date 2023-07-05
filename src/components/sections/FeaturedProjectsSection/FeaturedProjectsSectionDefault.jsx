@@ -4,8 +4,8 @@ import ProjectCard from '../../ui/ProjectCard/ProjectCard';
 import styles from './FeaturedProjectsSectionDefault.module.scss';
 import getFeaturedProjectsSetup from './getFeaturedProjectsSetup';
 
-export default function FeaturedProjectsSectionDefault({ featuredProjectsSectionSettings }) {
-  const setup = getFeaturedProjectsSetup(featuredProjectsSectionSettings);
+export default function FeaturedProjectsSectionDefault({ settings }) {
+  const setup = getFeaturedProjectsSetup(settings);
 
   return (
     <section className={styles['projects-section']}>

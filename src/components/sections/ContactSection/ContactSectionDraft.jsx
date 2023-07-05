@@ -5,5 +5,5 @@ import ContactSectionDefault from './ContactSectionDefault';
 export default function ContactSectionDraft({ query }) {
   const [data] = useLiveQuery(null, query);
 
-  return <ContactSectionDefault contactSectionSettings={data} />;
+  return <ContactSectionDefault settings={data} />;
 }
