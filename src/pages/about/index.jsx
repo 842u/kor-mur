@@ -1,15 +1,17 @@
 import apolloClient from '@/../graphql/apolloClient';
 import AboutSection from '@/components/sections/AboutSection/AboutSection';
+import DraftModeContext from '@/context/DraftModeContext';
+import SanityReadTokenContext from '@/context/SanityReadTokenContext';
 
 import gqlQueryAboutSectionSettings from '../../../graphql/queryAboutSectionSettings';
 
 export default function AboutPage({ readToken, draftMode, aboutSectionSettings }) {
   return (
-    <AboutSection
-      aboutSectionSettings={aboutSectionSettings}
-      draftMode={draftMode}
-      readToken={readToken}
-    />
+    <DraftModeContext.Provider value={draftMode}>
+      <SanityReadTokenContext.Provider value={readToken}>
+        <AboutSection aboutSectionSettings={aboutSectionSettings} />
+      </SanityReadTokenContext.Provider>
+    </DraftModeContext.Provider>
   );
 }
 
