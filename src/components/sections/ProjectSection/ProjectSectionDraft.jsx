@@ -9,5 +9,5 @@ export default function ProjectSectionDraft({ query }) {
 
   const [data] = useLiveQuery(null, query, querySlug);
 
-  return <ProjectSectionDefault projectSectionSettings={data} />;
+  return <ProjectSectionDefault settings={data} />;
 }

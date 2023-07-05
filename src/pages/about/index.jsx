@@ -9,7 +9,7 @@ export default function AboutPage({ readToken, draftMode, aboutSectionSettings }
   return (
     <DraftModeContext.Provider value={draftMode}>
       <SanityReadTokenContext.Provider value={readToken}>
-        <AboutSection aboutSectionSettings={aboutSectionSettings} />
+        <AboutSection settings={aboutSectionSettings} />
       </SanityReadTokenContext.Provider>
     </DraftModeContext.Provider>
   );

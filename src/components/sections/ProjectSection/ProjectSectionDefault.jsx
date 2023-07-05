@@ -3,8 +3,8 @@ import Image from 'next/image';
 import getProjectSectionSetup from './getProjectSectionSetup';
 import styles from './ProjectSectionDefault.module.scss';
 
-export default function ProjectSectionDefault({ projectSectionSettings }) {
-  const setup = getProjectSectionSetup(projectSectionSettings);
+export default function ProjectSectionDefault({ settings }) {
+  const setup = getProjectSectionSetup(settings);
 
   return (
     <section className={styles['project-section']}>
