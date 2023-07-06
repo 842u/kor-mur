@@ -15,3 +15,7 @@ export default function getAboutSectionSetup(settings) {
     image: settings?.[0]?.image?.asset?.url || defaultSettings.image,
   };
 }
+
+export function getDefaultAboutSectionSettings() {
+  return defaultSettings;
+}

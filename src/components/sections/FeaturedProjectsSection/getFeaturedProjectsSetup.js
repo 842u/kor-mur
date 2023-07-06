@@ -27,3 +27,6 @@ export default function getFeaturedProjectsSetup(settings) {
     featuredProjects: settings?.[0]?.featuredProjects || defaultSettings.featuredProjects,
   };
 }
+export function getDefaultFeaturedProjectsSettings() {
+  return defaultSettings;
+}

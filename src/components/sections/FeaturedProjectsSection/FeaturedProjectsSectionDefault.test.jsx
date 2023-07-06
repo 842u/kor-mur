@@ -3,7 +3,7 @@ import '@testing-library/jest-dom';
 import { render, screen } from '@testing-library/react';
 
 import FeaturedProjectsSectionDefault from './FeaturedProjectsSectionDefault';
-import getDefaultFeaturedProjectsSettings from './getFeaturedProjectsSetup';
+import { getDefaultFeaturedProjectsSettings } from './getFeaturedProjectsSetup';
 
 const mockSettings = [
   {
@@ -16,7 +16,7 @@ const defaultSettings = getDefaultFeaturedProjectsSettings();
 
 describe('FeaturedProjectsSection', () => {
   it('should render section title provided in settings prop', () => {
-    render(<FeaturedProjectsSectionDefault featuredProjectsSectionSettings={mockSettings} />);
+    render(<FeaturedProjectsSectionDefault settings={mockSettings} />);
 
     const sectionTitle = screen.getByText(mockSettings[0].title);
 
@@ -24,7 +24,7 @@ describe('FeaturedProjectsSection', () => {
   });
 
   it('should render section description provided in settings prop', () => {
-    render(<FeaturedProjectsSectionDefault featuredProjectsSectionSettings={mockSettings} />);
+    render(<FeaturedProjectsSectionDefault settings={mockSettings} />);
 
     const sectionDescription = screen.getByText(mockSettings[0].description);
 
