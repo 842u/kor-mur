@@ -2,10 +2,24 @@ const { PHASE_DEVELOPMENT_SERVER } = require('next/constants');
 
 module.exports = (phase) => {
   if (phase === PHASE_DEVELOPMENT_SERVER) {
-    /** @type {import('next').NextConfig} */
-
     const nextConfig = {
+      async redirects() {
+        return [
+          {
+            source: '/projects',
+            destination: '/projects/tag/all',
+            permanent: true,
+          },
+          {
+            source: '/projects/tag',
+            destination: '/projects/tag/all',
+            permanent: true,
+          },
+        ];
+      },
+
       reactStrictMode: true,
+
       images: {
         remotePatterns: [
           {
@@ -18,8 +32,6 @@ module.exports = (phase) => {
 
     return nextConfig;
   }
-
-  /** @type {import('next').NextConfig} */
 
   const ContentSecurityPolicy = `
     default-src 'self';
@@ -63,6 +75,21 @@ module.exports = (phase) => {
   ];
 
   const nextConfig = {
+    async redirects() {
+      return [
+        {
+          source: '/projects',
+          destination: '/projects/tag/all',
+          permanent: true,
+        },
+        {
+          source: '/projects/tag',
+          destination: '/projects/tag/all',
+          permanent: true,
+        },
+      ];
+    },
+
     async headers() {
       return [
         {
@@ -71,6 +98,7 @@ module.exports = (phase) => {
         },
       ];
     },
+
     images: {
       remotePatterns: [
         {
