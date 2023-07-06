@@ -1,6 +1,6 @@
 import '@testing-library/jest-dom';
 
-import { render, screen } from '@testing-library/react';
+import { render, screen, waitFor } from '@testing-library/react';
 
 import ProjectCard from './ProjectCard';
 
@@ -19,41 +19,49 @@ const projectData = {
 };
 
 describe('ProjectCard', () => {
-  it('should render project name', () => {
+  it('should render project name', async () => {
     render(<ProjectCard project={projectData} />);
 
     const projectName = screen.getByText(projectData.name);
-    expect(projectName).toBeInTheDocument();
+
+    await waitFor(() => expect(projectName).toBeInTheDocument());
   });
 
-  it('should render project description', () => {
+  it('should render project description', async () => {
     render(<ProjectCard project={projectData} />);
 
     const projectDescription = screen.getByText(projectData.description);
-    expect(projectDescription).toBeInTheDocument();
+
+    await waitFor(() => expect(projectDescription).toBeInTheDocument());
   });
 
-  it('should render project image', () => {
+  it('should render project image', async () => {
     render(<ProjectCard project={projectData} />);
 
     const projectImage = screen.getByAltText(`${projectData.name} main image`);
-    expect(projectImage).toBeInTheDocument();
+
+    await waitFor(() => expect(projectImage).toBeInTheDocument());
   });
 
-  it('should render project tags', () => {
+  it('should render project tags', async () => {
     render(<ProjectCard project={projectData} />);
 
-    projectData.tags.forEach((tag) => {
+    projectData.tags.forEach(async (tag) => {
       const projectTag = screen.getByText(tag.name);
-      expect(projectTag).toBeInTheDocument();
+
+      await waitFor(() => expect(projectTag).toBeInTheDocument());
     });
   });
 
-  it('should render project link', () => {
+  it('should render project link', async () => {
     render(<ProjectCard project={projectData} />);
 
     const projectLink = screen.getByRole('link');
-    expect(projectLink).toBeInTheDocument();
+
+    await waitFor(() => {
+      expect(projectLink).toBeInTheDocument();
+    });
+
     expect(projectLink).toHaveAttribute('href', `/projects/${projectData.slug.current}`);
   });
 });

@@ -4,14 +4,14 @@ import { deskTool } from 'sanity/desk';
 
 import defaultDocumentNode from './sanity/defaultDocumentNode';
 import deskToolStructureBuilder from './sanity/deskToolStructureBuilder';
-import { projectId } from './sanity/env';
+import { dataset, projectId } from './sanity/lib/client';
 import schema from './sanity/schema';
 
 export default defineConfig([
   {
     basePath: '/studio/production',
     projectId,
-    dataset: 'production',
+    dataset,
     name: 'production-workspace',
     title: 'Production workspace',
     schema,
@@ -26,7 +26,7 @@ export default defineConfig([
   {
     basePath: '/studio/development',
     projectId,
-    dataset: 'development',
+    dataset,
     name: 'development-workspace',
     title: 'Development workspace',
     schema,
