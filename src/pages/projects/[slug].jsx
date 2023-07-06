@@ -1,3 +1,5 @@
+import { useContext, useEffect } from 'react';
+
 import ProjectSection from '@/components/sections/ProjectSection/ProjectSection';
 import DraftModeContext from '@/context/DraftModeContext';
 import SanityReadTokenContext from '@/context/SanityReadTokenContext';
@@ -7,13 +9,15 @@ import gqlQueryAllProjectsSlugs from '../../../graphql/queryAllProjectsSlugs';
 import gqlQueryProjectBySlug from '../../../graphql/queryProjectDataBySlug';
 
 export default function SpecificProjectPage({ readToken, draftMode, project }) {
-  return (
-    <DraftModeContext.Provider value={draftMode}>
-      <SanityReadTokenContext.Provider value={readToken}>
-        <ProjectSection settings={project} />
-      </SanityReadTokenContext.Provider>
-    </DraftModeContext.Provider>
-  );
+  const { setIsDraftMode } = useContext(DraftModeContext);
+  const { setSanityReadToken } = useContext(SanityReadTokenContext);
+
+  useEffect(() => {
+    setIsDraftMode(draftMode);
+    setSanityReadToken(readToken);
+  }, []);
+
+  return <ProjectSection settings={project} />;
 }
 
 export async function getStaticPaths() {

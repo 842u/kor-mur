@@ -14,11 +14,11 @@ const DraftProvider = dynamic(() => import('@/components/providers/DraftProvider
 });
 
 export default function ProjectSection({ settings }) {
-  const draftMode = useContext(DraftModeContext);
-  const readToken = useContext(SanityReadTokenContext);
+  const { isDraftMode } = useContext(DraftModeContext);
+  const { sanityReadToken } = useContext(SanityReadTokenContext);
 
-  return draftMode ? (
-    <DraftProvider readToken={readToken}>
+  return isDraftMode ? (
+    <DraftProvider readToken={sanityReadToken}>
       <ProjectSectionDraft query={groqQueryProjectBySlug} />
       <Link href="/api/disable-draft" prefetch={false}>
         Exit Draft Mode
