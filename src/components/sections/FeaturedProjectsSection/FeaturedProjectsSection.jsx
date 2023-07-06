@@ -9,7 +9,7 @@ import groqQueryFeaturedProjectsSection from '../../../../groq/queryFeaturedProj
 import FeaturedProjectsSectionDefault from './FeaturedProjectsSectionDefault';
 import FeaturedProjectsSectionDraft from './FeaturedProjectsSectionDraft';
 
-const DraftProvider = dynamic(() => import('@/components/DraftProvider'), {
+const DraftProvider = dynamic(() => import('@/components/providers/DraftProvider'), {
   loading: () => <p>Loading...</p>,
 });
 

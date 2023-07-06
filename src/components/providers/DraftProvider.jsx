@@ -1,7 +1,7 @@
 import { LiveQueryProvider } from 'next-sanity/preview';
 import { useMemo } from 'react';
 
-import getClient from '../../sanity/lib/client';
+import getClient from '../../../sanity/lib/client';
 
 export default function DraftProvider({ children, readToken }) {
   const client = useMemo(() => getClient(readToken), [readToken]);

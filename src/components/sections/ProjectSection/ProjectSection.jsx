@@ -9,7 +9,7 @@ import SanityReadTokenContext from '@/context/SanityReadTokenContext';
 import ProjectSectionDefault from './ProjectSectionDefault';
 import ProjectSectionDraft from './ProjectSectionDraft';
 
-const DraftProvider = dynamic(() => import('@/components/DraftProvider'), {
+const DraftProvider = dynamic(() => import('@/components/providers/DraftProvider'), {
   loading: () => <p>Loading...</p>,
 });
 

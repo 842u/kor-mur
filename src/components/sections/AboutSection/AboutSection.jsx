@@ -9,7 +9,7 @@ import groqQueryAboutSectionSettings from '../../../../groq/queryAboutSectionSet
 import AboutSectionDefault from './AboutSectionDefault';
 import AboutSectionDraft from './AboutSectionDraft';
 
-const DraftProvider = dynamic(() => import('@/components/DraftProvider'), {
+const DraftProvider = dynamic(() => import('@/components/providers/DraftProvider'), {
   loading: () => <p>loading...</p>,
 });
 

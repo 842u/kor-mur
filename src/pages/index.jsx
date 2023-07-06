@@ -1,4 +1,5 @@
 import Head from 'next/head';
+import { useContext, useEffect } from 'react';
 
 import apolloClient from '@/../graphql/apolloClient';
 import ContactSection from '@/components/sections/ContactSection/ContactSection';
@@ -18,19 +19,23 @@ export default function HomePage({
   featuredProjectsSectionSettings,
   contactSectionSettings,
 }) {
+  const { setIsDraftMode } = useContext(DraftModeContext);
+  const { setSanityReadToken } = useContext(SanityReadTokenContext);
+
+  useEffect(() => {
+    setIsDraftMode(draftMode);
+    setSanityReadToken(readToken);
+  }, []);
+
   return (
     <>
       <Head>
         <title>Murawska Studio</title>
       </Head>
-      <DraftModeContext.Provider value={draftMode}>
-        <SanityReadTokenContext.Provider value={readToken}>
-          <HeroSection settings={heroSectionSettings} />
-          <MottoSection settings={mottoSectionSettings} />
-          <FeaturedProjectsSection settings={featuredProjectsSectionSettings} />
-          <ContactSection settings={contactSectionSettings} />
-        </SanityReadTokenContext.Provider>
-      </DraftModeContext.Provider>
+      <HeroSection settings={heroSectionSettings} />
+      <MottoSection settings={mottoSectionSettings} />
+      <FeaturedProjectsSection settings={featuredProjectsSectionSettings} />
+      <ContactSection settings={contactSectionSettings} />
     </>
   );
 }
