@@ -3,7 +3,7 @@ import '@testing-library/jest-dom';
 import { render, screen } from '@testing-library/react';
 
 import AboutSection from './AboutSectionDefault';
-import getDefaultAboutSectionSettings from './getAboutSectionSetup';
+import { getDefaultAboutSectionSettings } from './getAboutSectionSetup';
 
 const mockSettings = [
   {
@@ -22,7 +22,7 @@ const defaultSettings = getDefaultAboutSectionSettings();
 
 describe('AboutSection', () => {
   it('should render section title provided in settings prop', () => {
-    render(<AboutSection aboutSectionSettings={mockSettings} />);
+    render(<AboutSection settings={mockSettings} />);
 
     const title = screen.getByText(mockSettings[0].title);
 
@@ -30,7 +30,7 @@ describe('AboutSection', () => {
   });
 
   it('should render section first paragraph provided in settings prop', () => {
-    render(<AboutSection aboutSectionSettings={mockSettings} />);
+    render(<AboutSection settings={mockSettings} />);
 
     const firstParagraph = screen.getByText(mockSettings[0].firstParagraph);
 
@@ -38,7 +38,7 @@ describe('AboutSection', () => {
   });
 
   it('should render section second paragraph provided in settings prop', () => {
-    render(<AboutSection aboutSectionSettings={mockSettings} />);
+    render(<AboutSection settings={mockSettings} />);
 
     const secondParagraph = screen.getByText(mockSettings[0].secondParagraph);
 
@@ -46,7 +46,7 @@ describe('AboutSection', () => {
   });
 
   it('should render default section title if not provided in settings prop', () => {
-    render(<AboutSection aboutSectionSettings={defaultSettings} />);
+    render(<AboutSection />);
 
     const title = screen.getByText(defaultSettings.title);
 
@@ -54,7 +54,7 @@ describe('AboutSection', () => {
   });
 
   it('should render default section first paragraph if not provided in settings prop', () => {
-    render(<AboutSection aboutSectionSettings={defaultSettings} />);
+    render(<AboutSection />);
 
     const firstParagraph = screen.getByText(defaultSettings.firstParagraph);
 
@@ -62,7 +62,7 @@ describe('AboutSection', () => {
   });
 
   it('should render default section second paragraph if not provided in settings prop', () => {
-    render(<AboutSection aboutSectionSettings={defaultSettings} />);
+    render(<AboutSection />);
 
     const secondParagraph = screen.getByText(defaultSettings.secondParagraph);
 

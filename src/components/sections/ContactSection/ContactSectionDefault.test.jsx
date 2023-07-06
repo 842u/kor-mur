@@ -3,7 +3,7 @@ import '@testing-library/jest-dom';
 import { render, screen } from '@testing-library/react';
 
 import ContactSectionDefault from './ContactSectionDefault';
-import getDefaultContactSectionSettings from './getContactSectionSetup';
+import { getDefaultContactSectionSettings } from './getContactSectionSetup';
 
 const mockSettings = [
   {
@@ -16,7 +16,7 @@ const defaultSettings = getDefaultContactSectionSettings();
 
 describe('ContactSection', () => {
   it('should render title provided in settings prop', () => {
-    render(<ContactSectionDefault contactSectionSettings={mockSettings} />);
+    render(<ContactSectionDefault settings={mockSettings} />);
 
     const title = screen.getByText(mockSettings[0].title);
 
@@ -24,7 +24,7 @@ describe('ContactSection', () => {
   });
 
   it('should render description provided in settings prop', () => {
-    render(<ContactSectionDefault contactSectionSettings={mockSettings} />);
+    render(<ContactSectionDefault settings={mockSettings} />);
 
     const description = screen.getByText(mockSettings[0].description);
 

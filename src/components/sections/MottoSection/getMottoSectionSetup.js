@@ -15,3 +15,7 @@ export default function getMottoSectionSetup(settings) {
     image: settings?.[0]?.image?.asset?.url || defaultSettings.image,
   };
 }
+
+export function getDefaultMottoSectionSettings() {
+  return defaultSettings;
+}

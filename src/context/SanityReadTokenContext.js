@@ -1,5 +1,5 @@
 const { createContext } = require('react');
 
-const SanityReadTokenContext = createContext('');
+const SanityReadTokenContext = createContext(null);
 
 export default SanityReadTokenContext;

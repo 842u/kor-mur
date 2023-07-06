@@ -1,5 +1,5 @@
 const { createContext } = require('react');
 
-const DraftModeContext = createContext(false);
+const DraftModeContext = createContext(null);
 
 export default DraftModeContext;

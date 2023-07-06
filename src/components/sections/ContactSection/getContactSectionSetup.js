@@ -9,3 +9,7 @@ export default function getContactSectionSetup(settings) {
     description: settings?.[0]?.description || defaultSettings.description,
   };
 }
+
+export function getDefaultContactSectionSettings() {
+  return defaultSettings;
+}

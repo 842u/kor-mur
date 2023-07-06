@@ -9,16 +9,16 @@ import groqQueryContactSectionSettings from '../../../../groq/queryContactSectio
 import ContactSectionDefault from './ContactSectionDefault';
 import ContactSectionDraft from './ContactSectionDraft';
 
-const DraftProvider = dynamic(() => import('@/components/DraftProvider'), {
+const DraftProvider = dynamic(() => import('@/components/providers/DraftProvider'), {
   loading: () => <p>Loading...</p>,
 });
 
 export default function ContactSection({ settings }) {
-  const draftMode = useContext(DraftModeContext);
-  const readToken = useContext(SanityReadTokenContext);
+  const { isDraftMode } = useContext(DraftModeContext);
+  const { sanityReadToken } = useContext(SanityReadTokenContext);
 
-  return draftMode ? (
-    <DraftProvider readToken={readToken}>
+  return isDraftMode ? (
+    <DraftProvider readToken={sanityReadToken}>
       <ContactSectionDraft query={groqQueryContactSectionSettings} />
       <Link href="/api/disable-draft" prefetch={false}>
         Exit Draft Mode

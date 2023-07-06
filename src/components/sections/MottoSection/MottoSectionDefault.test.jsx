@@ -2,7 +2,7 @@ import '@testing-library/jest-dom';
 
 import { render, screen } from '@testing-library/react';
 
-import getDefaultMottoSectionSettings from './getMottoSectionSetup';
+import { getDefaultMottoSectionSettings } from './getMottoSectionSetup';
 import MottoSectionDefault from './MottoSectionDefault';
 
 const mockSettings = [
@@ -18,7 +18,7 @@ const defaultSettings = getDefaultMottoSectionSettings();
 
 describe('MottoSection', () => {
   it('should render motto title provided in settings prop', () => {
-    render(<MottoSectionDefault mottoSectionSettings={mockSettings} />);
+    render(<MottoSectionDefault settings={mockSettings} />);
 
     const mottoTitle = screen.getByText(mockSettings[0].title);
 
@@ -26,7 +26,7 @@ describe('MottoSection', () => {
   });
 
   it('should render motto text provided in settings prop', () => {
-    render(<MottoSectionDefault mottoSectionSettings={mockSettings} />);
+    render(<MottoSectionDefault settings={mockSettings} />);
 
     const mottoTitle = screen.getByText(mockSettings[0].text);
 
@@ -34,7 +34,7 @@ describe('MottoSection', () => {
   });
 
   it('should render motto description provided in settings prop', () => {
-    render(<MottoSectionDefault mottoSectionSettings={mockSettings} />);
+    render(<MottoSectionDefault settings={mockSettings} />);
 
     const mottoTitle = screen.getByText(mockSettings[0].description);
 

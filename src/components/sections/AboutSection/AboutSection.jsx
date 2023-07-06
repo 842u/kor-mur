@@ -9,16 +9,16 @@ import groqQueryAboutSectionSettings from '../../../../groq/queryAboutSectionSet
 import AboutSectionDefault from './AboutSectionDefault';
 import AboutSectionDraft from './AboutSectionDraft';
 
-const DraftProvider = dynamic(() => import('@/components/DraftProvider'), {
+const DraftProvider = dynamic(() => import('@/components/providers/DraftProvider'), {
   loading: () => <p>loading...</p>,
 });
 
 export default function AboutSection({ settings }) {
-  const draftMode = useContext(DraftModeContext);
-  const readToken = useContext(SanityReadTokenContext);
+  const { isDraftMode } = useContext(DraftModeContext);
+  const { sanityReadToken } = useContext(SanityReadTokenContext);
 
-  return draftMode ? (
-    <DraftProvider readToken={readToken}>
+  return isDraftMode ? (
+    <DraftProvider readToken={sanityReadToken}>
       <AboutSectionDraft query={groqQueryAboutSectionSettings} />
       <Link href="/api/disable-draft" prefetch={false}>
         Exit Draft Mode
