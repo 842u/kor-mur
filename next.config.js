@@ -75,6 +75,21 @@ module.exports = (phase) => {
   ];
 
   const nextConfig = {
+    async redirects() {
+      return [
+        {
+          source: '/projects',
+          destination: '/projects/tag/all',
+          permanent: true,
+        },
+        {
+          source: '/projects/tag',
+          destination: '/projects/tag/all',
+          permanent: true,
+        },
+      ];
+    },
+
     async headers() {
       return [
         {
