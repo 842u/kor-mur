@@ -5,7 +5,7 @@ export const projectId = process.env.NEXT_PUBLIC_SANITY_PROJECT_ID;
 export const dataset = process.env.NEXT_PUBLIC_SANITY_DATASET;
 export const useCdn = false;
 
-export default function getClient({ readToken }) {
+export default function getClient({ draftMode }) {
   const client = createClient({
     apiVersion,
     projectId,
@@ -13,10 +13,8 @@ export default function getClient({ readToken }) {
     dataset,
   });
 
-  return readToken
+  return draftMode
     ? client.withConfig({
-        token: readToken,
-        ignoreBrowserTokenWarning: true,
         perspective: 'previewDraft',
       })
     : client;
