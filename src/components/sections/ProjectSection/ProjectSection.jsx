@@ -1,5 +1,4 @@
 import dynamic from 'next/dynamic';
-import Link from 'next/link';
 import { useContext } from 'react';
 
 import groqQueryProjectBySlug from '@/../groq/queryProjectBySlug';
@@ -18,9 +17,6 @@ export default function ProjectSection({ settings }) {
   return isDraftMode ? (
     <DraftProvider draftMode={isDraftMode}>
       <ProjectSectionDraft query={groqQueryProjectBySlug} />
-      <Link href="/api/disable-draft" prefetch={false}>
-        Exit Draft Mode
-      </Link>
     </DraftProvider>
   ) : (
     <ProjectSectionDefault settings={settings} />

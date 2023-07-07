@@ -6,7 +6,9 @@ import DefaultLayout from '@/components/layouts/DefaultLayout';
 import GlobalContextProvider from '@/components/providers/GlobalContextProvider';
 
 export default function App({ Component, pageProps }) {
-  const getLayout = Component.getLayout ?? ((page) => <DefaultLayout>{page}</DefaultLayout>);
+  const getLayout =
+    Component.getLayout ??
+    ((page) => <DefaultLayout draftMode={pageProps.draftMode}>{page}</DefaultLayout>);
 
   return getLayout(
     <GlobalContextProvider>

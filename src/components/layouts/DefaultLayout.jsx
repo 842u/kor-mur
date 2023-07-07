@@ -5,7 +5,9 @@ import NavBar from '@/components/ui/NavBar/NavBar';
 import WelcomeScreen from '@/components/ui/WelcomeScreen/WelcomeScreen';
 import { primaryFont } from '@/utils/fonts';
 
-export default function DefaultLayout({ children }) {
+import ExitDraftLink from '../ui/ExitDraftLink/ExitDraftLink';
+
+export default function DefaultLayout({ children, draftMode }) {
   const [isWelcomeAnimationFinished, setIsWelcomeAnimationFinished] = useState(false);
 
   useEffect(() => {
@@ -17,9 +19,9 @@ export default function DefaultLayout({ children }) {
   return (
     <>
       {!isWelcomeAnimationFinished && <WelcomeScreen className={primaryFont.className} />}
-
       <NavBar className={primaryFont.className} />
       <main className={primaryFont.className}>{children}</main>
+      {draftMode && <ExitDraftLink />}
       <Footer className={primaryFont.className} />
     </>
   );
