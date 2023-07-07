@@ -1,5 +1,7 @@
 import { CogIcon, DashboardIcon, MasterDetailIcon } from '@sanity/icons';
 
+import { singletonTypes } from './singleton';
+
 const settingsIcon = CogIcon;
 const pageSettingsIcon = MasterDetailIcon;
 const sectionSettingsIcon = DashboardIcon;
@@ -60,16 +62,8 @@ const deskToolStructureBuilder = (S) =>
                 ),
             ])
         ),
-      ...S.documentTypeListItems().filter(
-        (listItem) =>
-          ![
-            'heroSectionSettings',
-            'mottoSectionSettings',
-            'featuredProjectsSectionSettings',
-            'contactSectionSettings',
-            'aboutSectionSettings',
-          ].includes(listItem.getId())
-      ),
+      // hide singleton types from base menu
+      ...S.documentTypeListItems().filter((listItem) => !singletonTypes.has(listItem.getId())),
     ]);
 
 export default deskToolStructureBuilder;
