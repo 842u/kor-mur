@@ -3,7 +3,6 @@ import Link from 'next/link';
 import { useContext } from 'react';
 
 import DraftModeContext from '@/context/DraftModeContext';
-import SanityReadTokenContext from '@/context/SanityReadTokenContext';
 
 import groqQueryMottoSectionSettings from '../../../../groq/queryMottoSectionSettings';
 import MottoSectionDefault from './MottoSectionDefault';
@@ -15,10 +14,9 @@ const DraftProvider = dynamic(() => import('@/components/providers/DraftProvider
 
 export default function MottoSection({ settings }) {
   const { isDraftMode } = useContext(DraftModeContext);
-  const { sanityReadToken } = useContext(SanityReadTokenContext);
 
   return isDraftMode ? (
-    <DraftProvider readToken={sanityReadToken}>
+    <DraftProvider draftMode={isDraftMode}>
       <MottoSectionDraft query={groqQueryMottoSectionSettings} />
       <Link href="/api/disable-draft" prefetch={false}>
         Exit Draft Mode

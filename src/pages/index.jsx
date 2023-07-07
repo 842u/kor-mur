@@ -7,24 +7,20 @@ import FeaturedProjectsSection from '@/components/sections/FeaturedProjectsSecti
 import HeroSection from '@/components/sections/HeroSection/HeroSection';
 import MottoSection from '@/components/sections/MottoSection/MottoSection';
 import DraftModeContext from '@/context/DraftModeContext';
-import SanityReadTokenContext from '@/context/SanityReadTokenContext';
 
 import gqlQueryHomePageSettings from '../../graphql/queryHomePageSettings';
 
 export default function HomePage({
   draftMode,
-  readToken,
   heroSectionSettings,
   mottoSectionSettings,
   featuredProjectsSectionSettings,
   contactSectionSettings,
 }) {
   const { setIsDraftMode } = useContext(DraftModeContext);
-  const { setSanityReadToken } = useContext(SanityReadTokenContext);
 
   useEffect(() => {
     setIsDraftMode(draftMode);
-    setSanityReadToken(readToken);
   }, []);
 
   return (
@@ -41,8 +37,6 @@ export default function HomePage({
 }
 
 export async function getStaticProps({ draftMode = false }) {
-  const readToken = draftMode ? process.env.SANITY_READ_TOKEN : '';
-
   const { data } = await apolloClient.query({
     query: gqlQueryHomePageSettings,
   });
@@ -58,7 +52,6 @@ export async function getStaticProps({ draftMode = false }) {
   return {
     props: {
       draftMode,
-      readToken,
       heroSectionSettings,
       mottoSectionSettings,
       featuredProjectsSectionSettings,
