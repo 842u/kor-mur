@@ -1,3 +1,6 @@
+import { useRouter } from 'next/router';
+import { useEffect } from 'react';
+
 import ProjectCard from '@/components/ui/ProjectCard/ProjectCard';
 import SelectFilter from '@/components/ui/SelectFilter/SelectFilter';
 
@@ -16,6 +19,12 @@ const allTagMock = {
 };
 
 export default function SpecificTagPage({ projectsWithQueryTag, tags }) {
+  const router = useRouter();
+
+  useEffect(() => {
+    tags.forEach((tag) => router.prefetch(`/projects/tag/${tag.slug.current}`));
+  }, []);
+
   return (
     <>
       <h1 className={styles['page-title']}>Projects Page</h1>
