@@ -6,11 +6,13 @@ import DefaultLayout from '@/components/layouts/DefaultLayout';
 import GlobalContextProvider from '@/components/providers/GlobalContextProvider';
 
 export default function App({ Component, pageProps }) {
-  const getLayout = Component.getLayout ?? ((page) => <DefaultLayout>{page}</DefaultLayout>);
+  const getLayout =
+    Component.getLayout ??
+    ((page) => (
+      <GlobalContextProvider>
+        <DefaultLayout>{page}</DefaultLayout>
+      </GlobalContextProvider>
+    ));
 
-  return getLayout(
-    <GlobalContextProvider>
-      <Component {...pageProps} />
-    </GlobalContextProvider>
-  );
+  return getLayout(<Component {...pageProps} />);
 }
