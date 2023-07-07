@@ -8,11 +8,11 @@ import GlobalContextProvider from '@/components/providers/GlobalContextProvider'
 export default function App({ Component, pageProps }) {
   const getLayout =
     Component.getLayout ??
-    ((page) => <DefaultLayout draftMode={pageProps.draftMode}>{page}</DefaultLayout>);
+    ((page) => (
+      <GlobalContextProvider>
+        <DefaultLayout>{page}</DefaultLayout>
+      </GlobalContextProvider>
+    ));
 
-  return getLayout(
-    <GlobalContextProvider>
-      <Component {...pageProps} />
-    </GlobalContextProvider>
-  );
+  return getLayout(<Component {...pageProps} />);
 }
