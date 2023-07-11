@@ -36,7 +36,7 @@ async function handleRevalidate(type, res) {
         return res.revalidate(`/projects/tag/${tag.params.slug}`);
       });
 
-      await Promise.all(res.revalidate('/'), ...revalidateTagPaths);
+      await Promise.all([res.revalidate('/'), ...revalidateTagPaths]);
 
       console.log('revalidation complete');
       res.status(200).json({ revalidated: true });
