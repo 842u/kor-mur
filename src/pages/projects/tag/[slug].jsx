@@ -47,7 +47,7 @@ export async function getStaticPaths() {
     params: { slug: tag.slug.current },
   }));
 
-  return { paths, fallback: false };
+  return { paths, fallback: 'blocking' };
 }
 
 export async function getStaticProps({ params }) {
