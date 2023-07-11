@@ -1,4 +1,5 @@
 import { useRouter } from 'next/router';
+import { groq } from 'next-sanity';
 import { useEffect } from 'react';
 
 import ProjectCard from '@/components/ui/ProjectCard/ProjectCard';
@@ -6,8 +7,8 @@ import SelectFilter from '@/components/ui/SelectFilter/SelectFilter';
 
 import apolloClient from '../../../../graphql/apolloClient';
 import gqlQueryAllProjects from '../../../../graphql/queryAllProjects';
-import gqlQueryAllTags from '../../../../graphql/queryAllTags';
 import gqlQueryProjectByTagId from '../../../../graphql/queryProjectByTagId';
+import getClient from '../../../../sanity/lib/client';
 import styles from './[slug].module.scss';
 
 const allTagMock = {
@@ -37,25 +38,33 @@ export default function SpecificTagPage({ projectsWithQueryTag, tags }) {
 }
 
 export async function getStaticPaths() {
-  const allTagsData = await apolloClient.query({
-    query: gqlQueryAllTags,
-  });
+  const client = getClient(false);
+  const allTagsData = await client.fetch(groq`*[_type == "tag"]`);
+  const tags = [allTagMock, ...allTagsData];
 
-  const tags = [allTagMock, ...allTagsData.data.allTag];
+  // const allTagsData = await apolloClient.query({
+  //   query: gqlQueryAllTags,
+  // });
+
+  // const tags = [allTagMock, ...allTagsData.data.allTag];
 
   const paths = tags.map((tag) => ({
     params: { slug: tag.slug.current },
   }));
 
-  return { paths, fallback: false };
+  return { paths, fallback: 'blocking' };
 }
 
 export async function getStaticProps({ params }) {
-  const allTagsData = await apolloClient.query({
-    query: gqlQueryAllTags,
-  });
+  const client = getClient(false);
+  const allTagsData = await client.fetch(groq`*[_type == "tag"]`);
+  const tags = [allTagMock, ...allTagsData];
 
-  const tags = [allTagMock, ...allTagsData.data.allTag];
+  // const allTagsData = await apolloClient.query({
+  //   query: gqlQueryAllTags,
+  // });
+
+  // const tags = [allTagMock, ...allTagsData.data.allTag];
 
   const tagFromQuery = tags.find((tag) => tag.slug.current === params.slug);
 

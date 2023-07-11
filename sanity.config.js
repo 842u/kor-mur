@@ -2,7 +2,7 @@ import { visionTool } from '@sanity/vision';
 import { defineConfig } from 'sanity';
 import { deskTool } from 'sanity/desk';
 
-import { dataset, projectId } from './sanity/lib/client';
+import { projectId } from './sanity/lib/client';
 import defaultDocumentNode from './sanity/lib/defaultDocumentNode';
 import deskToolStructureBuilder from './sanity/lib/deskToolStructureBuilder';
 import schema from './sanity/lib/schema';
@@ -14,7 +14,7 @@ export default defineConfig([
     title: 'Production workspace',
     basePath: '/studio/production',
     projectId,
-    dataset,
+    dataset: 'production',
     schema,
     document: {
       actions: (prev, context) =>
@@ -35,7 +35,7 @@ export default defineConfig([
     title: 'Development workspace',
     basePath: '/studio/development',
     projectId,
-    dataset,
+    dataset: 'development',
     schema,
     document: {
       actions: (prev, context) =>
