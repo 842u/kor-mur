@@ -1,50 +1,66 @@
-/* eslint-disable no-console */
+/* eslint-disable no-promise-executor-return */
 import { isValidSignature, SIGNATURE_HEADER_NAME } from '@sanity/webhook';
 
-import { getStaticPaths as getTagsPath } from '../projects/tag/[slug]';
+import apolloClient from '../../../graphql/apolloClient';
+import gqlQueryProjectSlugByTagId from '../../../graphql/queryProjectSlugByTagId';
+import { getStaticPaths as getTagsStaticPaths } from '../projects/tag/[slug]';
 
 const secret = process.env.SANITY_WEBHOOK_SECRET;
 
-async function handleRevalidate(type, res) {
+async function revalidatePaths(pathsArray, res) {
+  try {
+    const revalidatePromises = pathsArray.map((path) => res.revalidate(path));
+
+    await Promise.all(revalidatePromises);
+
+    res.status(200).send('Revalidation done');
+    return;
+  } catch (error) {
+    res.status(500).send(`${error.message}`);
+  }
+}
+
+async function handleRevalidate(type, id, res) {
   switch (type) {
     case 'heroSectionSettings':
-      await res.revalidate('/');
-      break;
-
     case 'mottoSectionSettings':
-      await res.revalidate('/');
-      break;
-
     case 'featuredProjectsSectionSettings':
-      await res.revalidate('/');
-      break;
-
     case 'contactSectionSettings':
-      await res.revalidate('/');
+      await revalidatePaths(['/'], res);
       break;
 
     case 'aboutPageSettings':
-      await res.revalidate('/about');
+      await revalidatePaths(['/about'], res);
       break;
 
     case 'tag': {
-      const { paths } = await getTagsPath();
-      console.log('tag slugs from static paths', paths);
+      const { paths: tagsSlugs } = await getTagsStaticPaths();
+      const tagsPaths = tagsSlugs.map((slug) => `/projects/tag/${slug.params.slug}`);
 
-      const revalidateTagPaths = paths.map((tag) => {
-        console.log('revalidating tag slug', tag.params.slug);
-        return res.revalidate(`/projects/tag/${tag.params.slug}`);
+      const {
+        data: { allProject },
+      } = await apolloClient.query({
+        query: gqlQueryProjectSlugByTagId,
+        variables: {
+          where: {
+            _: {
+              references: id,
+            },
+          },
+        },
       });
+      const projectsPathsWithTagId = allProject.map(
+        (project) => `/projects/${project.slug.current}`
+      );
 
-      await Promise.all([res.revalidate('/'), ...revalidateTagPaths]);
+      await revalidatePaths(['/', ...tagsPaths, ...projectsPathsWithTagId], res);
 
-      console.log('revalidation complete');
-      res.status(200).json({ revalidated: true });
       break;
     }
 
     default:
-      throw new Error(`Unknown type "${type}"`);
+      res.status(400).send(`Unknown revalidation type: ${type}`);
+      break;
   }
 }
 
@@ -56,15 +72,15 @@ export default async function handler(req, res) {
 
   const signature = req.headers[SIGNATURE_HEADER_NAME];
   const jsonBody = JSON.stringify(req.body);
-
   if (!isValidSignature(jsonBody, signature, secret)) {
     res.status(401).send('Invalid signature');
     return;
   }
 
-  console.log('body', req.body);
+  const { _type, _id } = req.body;
 
-  const { type } = req.body;
+  // Sanity webhook is triggered too fast before dataset is updated so delay revalidation a bit to get fresh data
+  await new Promise((resolve) => setTimeout(resolve, 1000));
 
-  setTimeout(() => handleRevalidate(type, res), 2000);
+  await handleRevalidate(_type, _id, res);
 }
