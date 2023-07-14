@@ -2,8 +2,8 @@
 import { isValidSignature, SIGNATURE_HEADER_NAME } from '@sanity/webhook';
 
 import apolloClient from '../../../graphql/apolloClient';
+import gqlQueryAllTags from '../../../graphql/queryAllTags';
 import gqlQueryProjectSlugByTagId from '../../../graphql/queryProjectSlugByTagId';
-import { getStaticPaths as getTagsStaticPaths } from '../projects/tag/[slug]';
 
 const secret = process.env.SANITY_WEBHOOK_SECRET;
 
@@ -34,8 +34,14 @@ async function handleRevalidate(type, id, res) {
       break;
 
     case 'tag': {
-      const { paths: tagsSlugs } = await getTagsStaticPaths();
-      const tagsPaths = tagsSlugs.map((slug) => `/projects/tag/${slug.params.slug}`);
+      const {
+        data: { allTag },
+      } = await apolloClient.query({
+        query: gqlQueryAllTags,
+      });
+
+      const tagsPaths = allTag.map((tag) => `/projects/tag/${tag.slug.current}`);
+      tagsPaths.push('/projects/tag/all');
 
       const {
         data: { allProject },
@@ -55,6 +61,11 @@ async function handleRevalidate(type, id, res) {
 
       await revalidatePaths(['/', ...tagsPaths, ...projectsPathsWithTagId], res);
 
+      break;
+    }
+
+    case 'project': {
+      await revalidatePaths(['/'], res);
       break;
     }
 
