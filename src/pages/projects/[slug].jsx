@@ -30,7 +30,6 @@ export async function getStaticPaths() {
 }
 
 export async function getStaticProps({ params }) {
-  console.log('/projects', params);
   const { data } = await apolloClient.query({
     query: gqlQueryProjectBySlug,
     variables: {
@@ -44,7 +43,6 @@ export async function getStaticProps({ params }) {
     },
   });
 
-  console.log('/projects gql data', data);
   const project = data?.allProject;
 
   return {

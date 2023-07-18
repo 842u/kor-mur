@@ -51,7 +51,6 @@ export async function getStaticPaths() {
 }
 
 export async function getStaticProps({ params }) {
-  console.log('/projects/tag params', params);
   const allTagsData = await apolloClient.query({
     query: gqlQueryAllTags,
   });
