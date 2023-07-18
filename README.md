@@ -78,6 +78,9 @@ To choose colors, fonts, icons etc. to get basic understanding of visual design.
 
     - react
     - next.js
+    - next on demand revalidation
+    - next draft mode prieview
+    - ngrok for local testing
     - eslint
     - stylelint
     - jest
@@ -90,6 +93,9 @@ To choose colors, fonts, icons etc. to get basic understanding of visual design.
     - bundle analyzer
     - sanity headles cms
     - sanity studio custom desk structure
-    - apollo client
+    - sanity singleton types
+    - sanity webhooks
+    - sanity groq queries
+    - graphql apollo client
     - sendgrid
     - serverside form validation

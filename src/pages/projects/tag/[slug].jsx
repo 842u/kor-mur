@@ -47,23 +47,25 @@ export async function getStaticPaths() {
     params: { slug: tag.slug.current },
   }));
 
-  return { paths, fallback: false };
+  return { paths, fallback: 'blocking' };
 }
 
 export async function getStaticProps({ params }) {
   const allTagsData = await apolloClient.query({
     query: gqlQueryAllTags,
   });
-
   const tags = [allTagMock, ...allTagsData.data.allTag];
 
   const tagFromQuery = tags.find((tag) => tag.slug.current === params.slug);
 
   const isAllTag = tagFromQuery._id === allTagMock._id;
 
+  const query = isAllTag ? gqlQueryAllProjects : gqlQueryProjectByTagId;
+  const variables = isAllTag ? {} : { where: { _: { references: tagFromQuery._id } } };
+
   const allProjectsByTagData = await apolloClient.query({
-    query: isAllTag ? gqlQueryAllProjects : gqlQueryProjectByTagId,
-    variables: isAllTag ? {} : { where: { _: { references: tagFromQuery._id } } },
+    query,
+    variables,
   });
 
   const projectsWithQueryTag = allProjectsByTagData.data.allProject;

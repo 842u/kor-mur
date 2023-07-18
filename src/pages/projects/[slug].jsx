@@ -26,10 +26,10 @@ export async function getStaticPaths() {
     params: { slug: project.slug.current },
   }));
 
-  return { paths, fallback: false };
+  return { paths, fallback: 'blocking' };
 }
 
-export async function getStaticProps({ params, draftMode = false }) {
+export async function getStaticProps({ params }) {
   const { data } = await apolloClient.query({
     query: gqlQueryProjectBySlug,
     variables: {
@@ -43,11 +43,10 @@ export async function getStaticProps({ params, draftMode = false }) {
     },
   });
 
-  const project = data.allProject;
+  const project = data?.allProject;
 
   return {
     props: {
-      draftMode,
       project,
     },
   };
