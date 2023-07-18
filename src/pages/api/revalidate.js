@@ -3,7 +3,7 @@ import { isValidSignature, SIGNATURE_HEADER_NAME } from '@sanity/webhook';
 
 import apolloClient from '../../../graphql/apolloClient';
 import gqlQueryAllTags from '../../../graphql/queryAllTags';
-import gqlQueryProjectSlugAndTagsById from '../../../graphql/queryProjectSlugAndTagsById';
+// import gqlQueryProjectSlugAndTagsById from '../../../graphql/queryProjectSlugAndTagsById';
 import gqlQueryProjectSlugByTagId from '../../../graphql/queryProjectSlugByTagId';
 
 const secret = process.env.SANITY_WEBHOOK_SECRET;
@@ -21,7 +21,7 @@ async function revalidatePaths(pathsArray, res) {
   }
 }
 
-async function handleRevalidate(type, id, res) {
+async function handleRevalidate(type, id, projectSlug, projectTagsBefore, projectTagsAfter, res) {
   switch (type) {
     case 'heroSectionSettings':
     case 'mottoSectionSettings':
@@ -69,28 +69,37 @@ async function handleRevalidate(type, id, res) {
     }
 
     case 'project': {
-      console.log(type, id);
-      const {
-        data: { Project },
-      } = await apolloClient.query({
-        query: gqlQueryProjectSlugAndTagsById,
-        variables: {
-          projectId: id,
-        },
-      });
+      // console.log(type, id);
+      // const {
+      //   data: { Project },
+      // } = await apolloClient.query({
+      //   query: gqlQueryProjectSlugAndTagsById,
+      //   variables: {
+      //     projectId: id,
+      //   },
+      // });
 
-      console.log('Project', Project);
+      // console.log('Project', Project);
+      const tagsBefore = projectTagsBefore || [];
+      const tagsAfter = projectTagsAfter || [];
+      const tags = [...new Set([...tagsBefore, ...tagsAfter])];
+      tags.push('all');
+      const tagsPaths = tags.map((tag) => `/projects/tag/${tag}`);
+      const projectPath = `/projects/${projectSlug}`;
 
-      const tagsPaths = Project?.tags?.map((tag) => `/projects/tag/${tag.slug.current}`) || [];
-      tagsPaths.push('/projects/tag/all');
       console.log('tags paths', tagsPaths);
-
-      if (!Project) {
-        await revalidatePaths(['/', ...tagsPaths], res);
-        break;
-      }
-      const projectPath = `/projects/${Project.slug.current}`;
       console.log('project path', projectPath);
+
+      // const tagsPaths = Project?.tags?.map((tag) => `/projects/tag/${tag.slug.current}`) || [];
+      // tagsPaths.push('/projects/tag/all');
+      // console.log('tags paths', tagsPaths);
+
+      // if (!Project) {
+      //   await revalidatePaths(['/', ...tagsPaths], res);
+      //   break;
+      // }
+      // const projectPath = `/projects/${Project.slug.current}`;
+      // console.log('project path', projectPath);
 
       await revalidatePaths(['/', projectPath, ...tagsPaths], res);
       break;
@@ -115,10 +124,10 @@ export default async function handler(req, res) {
     return;
   }
 
-  const { _type, _id } = req.body;
+  const { _type, _id, projectSlug, projectTagsBefore, projectTagsAfter } = req.body;
 
   // Sanity webhook is triggered too fast before dataset is updated so delay revalidation a bit to get fresh data
   await new Promise((resolve) => setTimeout(resolve, 1000));
 
-  await handleRevalidate(_type, _id, res);
+  await handleRevalidate(_type, _id, projectSlug, projectTagsBefore, projectTagsAfter, res);
 }
