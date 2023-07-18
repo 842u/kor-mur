@@ -3,6 +3,7 @@ import { isValidSignature, SIGNATURE_HEADER_NAME } from '@sanity/webhook';
 
 import apolloClient from '../../../graphql/apolloClient';
 import gqlQueryAllTags from '../../../graphql/queryAllTags';
+import gqlQueryProjectSlugAndTagsById from '../../../graphql/queryProjectSlugAndTagsById';
 import gqlQueryProjectSlugByTagId from '../../../graphql/queryProjectSlugByTagId';
 
 const secret = process.env.SANITY_WEBHOOK_SECRET;
@@ -34,6 +35,7 @@ async function handleRevalidate(type, id, res) {
       break;
 
     case 'tag': {
+      console.log(type, id);
       const {
         data: { allTag },
       } = await apolloClient.query({
@@ -42,6 +44,7 @@ async function handleRevalidate(type, id, res) {
 
       const tagsPaths = allTag.map((tag) => `/projects/tag/${tag.slug.current}`);
       tagsPaths.push('/projects/tag/all');
+      console.log('tags paths \n', tagsPaths);
 
       const {
         data: { allProject },
@@ -58,6 +61,7 @@ async function handleRevalidate(type, id, res) {
       const projectsPathsWithTagId = allProject.map(
         (project) => `/projects/${project.slug.current}`
       );
+      console.log('projects paths with tag id \n', projectsPathsWithTagId);
 
       await revalidatePaths(['/', ...tagsPaths, ...projectsPathsWithTagId], res);
 
@@ -65,7 +69,30 @@ async function handleRevalidate(type, id, res) {
     }
 
     case 'project': {
-      await revalidatePaths(['/'], res);
+      console.log(type, id);
+      const {
+        data: { Project },
+      } = await apolloClient.query({
+        query: gqlQueryProjectSlugAndTagsById,
+        variables: {
+          projectId: id,
+        },
+      });
+
+      console.log('Project', Project);
+
+      const tagsPaths = Project?.tags?.map((tag) => `/projects/tag/${tag.slug.current}`) || [];
+      tagsPaths.push('/projects/tag/all');
+      console.log('tags paths', tagsPaths);
+
+      if (!Project) {
+        await revalidatePaths(['/', ...tagsPaths], res);
+        break;
+      }
+      const projectPath = `/projects/${Project.slug.current}`;
+      console.log('project path', projectPath);
+
+      await revalidatePaths(['/', projectPath, ...tagsPaths], res);
       break;
     }
 
