@@ -5,7 +5,7 @@ import styles from './NavMenuItem.module.scss';
 
 export default function NavMenuItem({ href, children, onClick }) {
   const router = useRouter();
-  const currentPath = router.pathname;
+  const currentPath = router.asPath;
 
   const styleClass = `${styles.item} ${currentPath === href ? styles['item--active'] : ''}`;
 
