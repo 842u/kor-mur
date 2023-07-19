@@ -58,10 +58,10 @@ export async function getStaticProps({ params }) {
 
   const tagFromQuery = tags.find((tag) => tag.slug.current === params.slug);
 
-  const isAllTag = tagFromQuery._id === allTagMock._id;
+  const isAllTag = tagFromQuery?._id === allTagMock._id;
 
   const query = isAllTag ? gqlQueryAllProjects : gqlQueryProjectByTagId;
-  const variables = isAllTag ? {} : { where: { _: { references: tagFromQuery._id } } };
+  const variables = isAllTag ? {} : { where: { _: { references: tagFromQuery?._id || null } } };
 
   const allProjectsByTagData = await apolloClient.query({
     query,
