@@ -3,20 +3,13 @@ import { useEffect } from 'react';
 
 import ProjectCard from '@/components/ui/ProjectCard/ProjectCard';
 import SelectFilter from '@/components/ui/SelectFilter/SelectFilter';
+import allTagMock from '@/utils/mocks';
 
 import apolloClient from '../../../../graphql/apolloClient';
 import gqlQueryAllProjects from '../../../../graphql/queryAllProjects';
 import gqlQueryAllTags from '../../../../graphql/queryAllTags';
 import gqlQueryProjectByTagId from '../../../../graphql/queryProjectByTagId';
 import styles from './[slug].module.scss';
-
-const allTagMock = {
-  _id: 'all',
-  name: 'All',
-  slug: {
-    current: 'all',
-  },
-};
 
 export default function SpecificTagPage({ projectsWithQueryTag, tags }) {
   const router = useRouter();
@@ -58,10 +51,10 @@ export async function getStaticProps({ params }) {
 
   const tagFromQuery = tags.find((tag) => tag.slug.current === params.slug);
 
-  const isAllTag = tagFromQuery._id === allTagMock._id;
+  const isAllTag = tagFromQuery?._id === allTagMock._id;
 
   const query = isAllTag ? gqlQueryAllProjects : gqlQueryProjectByTagId;
-  const variables = isAllTag ? {} : { where: { _: { references: tagFromQuery._id } } };
+  const variables = isAllTag ? {} : { where: { _: { references: tagFromQuery?._id || null } } };
 
   const allProjectsByTagData = await apolloClient.query({
     query,

@@ -29,7 +29,7 @@ export async function getStaticPaths() {
   return { paths, fallback: 'blocking' };
 }
 
-export async function getStaticProps({ params }) {
+export async function getStaticProps({ params, draftMode = false }) {
   const { data } = await apolloClient.query({
     query: gqlQueryProjectBySlug,
     variables: {
@@ -48,6 +48,7 @@ export async function getStaticProps({ params }) {
   return {
     props: {
       project,
+      draftMode,
     },
   };
 }
