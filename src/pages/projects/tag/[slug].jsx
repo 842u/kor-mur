@@ -3,20 +3,13 @@ import { useEffect } from 'react';
 
 import ProjectCard from '@/components/ui/ProjectCard/ProjectCard';
 import SelectFilter from '@/components/ui/SelectFilter/SelectFilter';
+import allTagMock from '@/utils/mocks';
 
 import apolloClient from '../../../../graphql/apolloClient';
 import gqlQueryAllProjects from '../../../../graphql/queryAllProjects';
 import gqlQueryAllTags from '../../../../graphql/queryAllTags';
 import gqlQueryProjectByTagId from '../../../../graphql/queryProjectByTagId';
 import styles from './[slug].module.scss';
-
-const allTagMock = {
-  _id: 'all',
-  name: 'All',
-  slug: {
-    current: 'all',
-  },
-};
 
 export default function SpecificTagPage({ projectsWithQueryTag, tags }) {
   const router = useRouter();

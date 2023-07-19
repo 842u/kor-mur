@@ -1,6 +1,8 @@
 /* eslint-disable no-promise-executor-return */
 import { isValidSignature, SIGNATURE_HEADER_NAME } from '@sanity/webhook';
 
+import allTagMock from '@/utils/mocks';
+
 import apolloClient from '../../../graphql/apolloClient';
 import gqlQueryAllTags from '../../../graphql/queryAllTags';
 import gqlQueryProjectSlugByTagId from '../../../graphql/queryProjectSlugByTagId';
@@ -43,7 +45,7 @@ async function getPathsToRevalidate(webhookBody) {
       });
 
       const tagsPaths = allTag.map((tag) => `/projects/tag/${tag.slug.current}`);
-      tagsPaths.push('/projects/tag/all');
+      tagsPaths.push(`/projects/tag/${allTagMock.slug.current}`);
 
       const projectsPaths = allProject.map((project) => `/projects/${project.slug.current}`);
 
@@ -56,7 +58,7 @@ async function getPathsToRevalidate(webhookBody) {
       const tagsSlugsAfter = webhookBody.tagsSlugsAfter || [];
 
       const tagsSlugs = [...new Set([...tagsSlugsBefore, ...tagsSlugsAfter])];
-      tagsSlugs.push('all');
+      tagsSlugs.push(`${allTagMock.slug.current}`);
 
       const tagsPaths = tagsSlugs.map((tag) => `/projects/tag/${tag}`);
       const projectPath = `/projects/${projectSlug}`;
