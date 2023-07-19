@@ -10,34 +10,16 @@ const heroSectionSettings = defineType({
   type: 'document',
   fields: [
     defineField({
-      name: 'imageLeft',
-      title: 'Hero Image Left',
-      type: 'image',
-      validation: (Rule) => Rule.required(),
+      name: 'heroSectionText',
+      title: 'Hero Section Text',
+      type: 'text',
     }),
     defineField({
-      name: 'imageMiddleTop',
-      title: 'Hero Image Middle Top',
-      type: 'image',
-      validation: (Rule) => Rule.required(),
-    }),
-    defineField({
-      name: 'imageMiddleBottom',
-      title: 'Hero Image Middle Bottom',
-      type: 'image',
-      validation: (Rule) => Rule.required(),
-    }),
-    defineField({
-      name: 'imageRightTop',
-      title: 'Hero Image Right Top',
-      type: 'image',
-      validation: (Rule) => Rule.required(),
-    }),
-    defineField({
-      name: 'imageRightBottom',
-      title: 'Hero Image Right Bottom',
-      type: 'image',
-      validation: (Rule) => Rule.required(),
+      name: 'heroSectionImages',
+      title: 'Hero Section Images',
+      type: 'array',
+      of: [{ type: 'image' }],
+      validation: (Rule) => Rule.unique().min(1).max(5).required(),
     }),
   ],
 });
