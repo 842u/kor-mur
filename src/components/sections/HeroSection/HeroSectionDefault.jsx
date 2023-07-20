@@ -1,60 +1,49 @@
+/* eslint no-return-assign: 0, no-param-reassign: 0, no-plusplus: 0 */
 import Image from 'next/image';
-
-import CircleLogo from '@/components/ui/CircleLogo/CircleLogo';
+import { useEffect, useState } from 'react';
 
 import getHeroSectionSetup from './getHeroSectionSetup';
 import styles from './HeroSectionDefault.module.scss';
 
 export default function HeroSectionDefault({ settings }) {
-  const setup = getHeroSectionSetup(settings);
+  const { heroSectionText, heroSectionImages } = getHeroSectionSetup(settings);
+
+  const [currentImageIndex, setCurrentImageIndex] = useState(0);
+
+  useEffect(() => {
+    const imageDelay = setTimeout(() => {
+      setCurrentImageIndex((currentIndex) =>
+        currentIndex >= heroSectionImages.length - 1 ? 0 : (currentIndex += 1)
+      );
+    }, 5000);
+
+    return () => {
+      clearTimeout(imageDelay);
+    };
+  }, [currentImageIndex, settings]);
 
   return (
     <section className={styles['hero-section']}>
-      <div className={styles['logo-container']}>
-        <CircleLogo className={styles.logo} text="MURAWSKA.STUDIO" />
-      </div>
+      <p className={styles['hero-text']}>{heroSectionText}</p>
       <div className={styles['image-container']}>
-        <Image
-          aria-hidden
-          fill
-          priority
-          alt=""
-          className={styles['image-1']}
-          sizes="33vw"
-          src={setup.imageLeft}
-        />
-        <Image
-          aria-hidden
-          fill
-          alt=""
-          className={styles['image-2']}
-          sizes="33vw"
-          src={setup.imageMiddleTop}
-        />
-        <Image
-          aria-hidden
-          fill
-          alt=""
-          className={styles['image-3']}
-          sizes="33vw"
-          src={setup.imageMiddleBottom}
-        />
-        <Image
-          aria-hidden
-          fill
-          alt=""
-          className={styles['image-4']}
-          sizes="33vw"
-          src={setup.imageRightTop}
-        />
-        <Image
-          aria-hidden
-          fill
-          alt=""
-          className={styles['image-5']}
-          sizes="33vw"
-          src={setup.imageRightBottom}
-        />
+        {heroSectionImages.map((image, index) => {
+          const imageStyle = `${styles.image} ${
+            currentImageIndex === index && styles['image--active']
+          }`;
+
+          return (
+            <Image
+              key={image.asset._id}
+              aria-hidden
+              fill
+              alt=""
+              className={imageStyle}
+              priority={index === 0}
+              sizes="100vw"
+              src={image.asset.url}
+            />
+          );
+        })}
       </div>
     </section>
   );

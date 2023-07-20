@@ -3,35 +3,13 @@ import { gql } from '@apollo/client';
 const gqlQueryHomePageSettings = gql`
   query HomePageSettings {
     allHeroSectionSettings {
-      imageLeft {
+      heroSectionImages {
         asset {
+          _id
           url
         }
       }
-
-      imageMiddleTop {
-        asset {
-          url
-        }
-      }
-
-      imageMiddleBottom {
-        asset {
-          url
-        }
-      }
-
-      imageRightTop {
-        asset {
-          url
-        }
-      }
-
-      imageRightBottom {
-        asset {
-          url
-        }
-      }
+      heroSectionText
     }
 
     allMottoSectionSettings {
