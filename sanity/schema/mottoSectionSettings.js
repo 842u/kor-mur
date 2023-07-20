@@ -10,34 +10,28 @@ const mottoSectionSettings = defineType({
   type: 'document',
   fields: [
     defineField({
-      name: 'title',
-      title: 'Motto Section Title',
-      type: 'string',
-      validation: (Rule) => Rule.required(),
+      name: 'mottoSectionTitles',
+      title: 'Motto Section Titles',
+      type: 'array',
+      of: [{ type: 'string' }],
+      validation: (Rule) => Rule.min(1).max(5).required(),
     }),
     defineField({
-      name: 'text',
-      title: 'Motto Text',
+      name: 'mottoSectionText',
+      title: 'Motto Section Text',
       type: 'text',
       validation: (Rule) => Rule.required(),
     }),
     defineField({
-      name: 'description',
-      title: 'Motto Description',
-      type: 'text',
-      validation: (Rule) => Rule.required(),
-    }),
-    defineField({
-      name: 'image',
-      title: 'Motto Image',
+      name: 'mottoSectionImage',
+      title: 'Motto Section Image',
       type: 'image',
       validation: (Rule) => Rule.required(),
     }),
   ],
   initialValue: {
-    title: 'Motto Section Title',
-    text: 'Motto Section Text',
-    description: 'Motto Section Description',
+    mottoSectionTitles: ['Motto title 1', 'Motto title 2'],
+    mottoSectionText: 'Motto Section Text',
   },
 });
 

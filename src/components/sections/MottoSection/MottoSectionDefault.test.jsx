@@ -7,10 +7,9 @@ import MottoSectionDefault from './MottoSectionDefault';
 
 const mockSettings = [
   {
-    title: 'Motto title',
-    text: 'Motto text',
-    description: 'Motto description',
-    image: 'url',
+    mottoSectionTitles: ['Motto title'],
+    mottoSectionText: 'Motto text',
+    mottoSectionImage: { asset: { url: '/url' } },
   },
 ];
 
@@ -20,7 +19,7 @@ describe('MottoSection', () => {
   it('should render motto title provided in settings prop', async () => {
     render(<MottoSectionDefault settings={mockSettings} />);
 
-    const mottoTitle = screen.getByText(mockSettings[0].title);
+    const mottoTitle = screen.getByText(mockSettings[0].mottoSectionTitles);
 
     await waitFor(() => expect(mottoTitle).toBeInTheDocument());
   });
@@ -28,15 +27,7 @@ describe('MottoSection', () => {
   it('should render motto text provided in settings prop', async () => {
     render(<MottoSectionDefault settings={mockSettings} />);
 
-    const mottoTitle = screen.getByText(mockSettings[0].text);
-
-    await waitFor(() => expect(mottoTitle).toBeInTheDocument());
-  });
-
-  it('should render motto description provided in settings prop', async () => {
-    render(<MottoSectionDefault settings={mockSettings} />);
-
-    const mottoTitle = screen.getByText(mockSettings[0].description);
+    const mottoTitle = screen.getByText(mockSettings[0].mottoSectionText);
 
     await waitFor(() => expect(mottoTitle).toBeInTheDocument());
   });
@@ -44,7 +35,7 @@ describe('MottoSection', () => {
   it('should render default motto title if not provided with settings prop', async () => {
     render(<MottoSectionDefault />);
 
-    const mottoTitle = screen.getByText(defaultSettings.title);
+    const mottoTitle = screen.getByText(defaultSettings.mottoSectionTitles[0]);
 
     await waitFor(() => expect(mottoTitle).toBeInTheDocument());
   });
@@ -52,15 +43,7 @@ describe('MottoSection', () => {
   it('should render default motto text if not provided with settings prop', async () => {
     render(<MottoSectionDefault />);
 
-    const mottoTitle = screen.getByText(defaultSettings.text);
-
-    await waitFor(() => expect(mottoTitle).toBeInTheDocument());
-  });
-
-  it('should render default motto description if not provided with settings prop', async () => {
-    render(<MottoSectionDefault />);
-
-    const mottoTitle = screen.getByText(defaultSettings.description);
+    const mottoTitle = screen.getByText(defaultSettings.mottoSectionText);
 
     await waitFor(() => expect(mottoTitle).toBeInTheDocument());
   });
