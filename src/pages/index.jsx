@@ -3,6 +3,7 @@ import { useContext, useEffect } from 'react';
 
 import apolloClient from '@/../graphql/apolloClient';
 import ContactSection from '@/components/sections/ContactSection/ContactSection';
+import DecorativeBreaker from '@/components/sections/DecorativeBreaker/DecorativeBreaker';
 import FeaturedProjectsSection from '@/components/sections/FeaturedProjectsSection/FeaturedProjectsSection';
 import HeroSection from '@/components/sections/HeroSection/HeroSection';
 import MottoSection from '@/components/sections/MottoSection/MottoSection';
@@ -30,6 +31,7 @@ export default function HomePage({
       </Head>
       <HeroSection settings={heroSectionSettings} />
       <MottoSection settings={mottoSectionSettings} />
+      <DecorativeBreaker />
       <FeaturedProjectsSection settings={featuredProjectsSectionSettings} />
       <ContactSection settings={contactSectionSettings} />
     </>
