@@ -13,10 +13,9 @@ const gqlQueryHomePageSettings = gql`
     }
 
     allMottoSectionSettings {
-      title
-      text
-      description
-      image {
+      mottoSectionTitles
+      mottoSectionText
+      mottoSectionImage {
         asset {
           url
         }
