@@ -4,11 +4,18 @@
   position: relative;
   aspect-ratio: 16 / 9;
   width: 100%;
-  min-height: 60vh;
+  height: 100vh;
 
   .hero-text {
     position: absolute;
     z-index: 10;
+    top: 40%;
+
+    margin: 0 2rem;
+
+    font-size: 2rem;
+    text-align: justify;
+    text-shadow: 0 0 1px var(--white-500), 0 0 2px var(--white-500), 0 0 3px var(--white-500);
   }
 
   .image-container {
@@ -16,6 +23,7 @@
     height: 100%;
 
     .image {
+      user-select: none;
       opacity: 0;
       object-fit: cover;
       transition: opacity 1s ease-in-out;
@@ -23,6 +31,25 @@
       &--active {
         opacity: 1;
       }
+    }
+  }
+}
+
+@media (width > 810px) {
+  .hero-section {
+    .hero-text {
+      bottom: 40%;
+      margin: 0 5rem;
+      font-size: 3.5rem;
+    }
+  }
+}
+
+@media (width > 1200px) {
+  .hero-section {
+    .hero-text {
+      margin: 0 10rem;
+      font-size: 5rem;
     }
   }
 }
