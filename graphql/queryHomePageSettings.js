@@ -27,9 +27,10 @@ const gqlQueryHomePageSettings = gql`
       description
     }
 
-    llProject(where: $where) {
+    allProject(where: $where) {
       name
-      description
+      descriptionFirst
+      descriptionSecond
       tags {
         name
         slug {

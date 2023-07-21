@@ -24,8 +24,15 @@ const project = defineType({
     }),
 
     defineField({
-      name: 'description',
-      title: 'Project Description',
+      name: 'descriptionFirst',
+      title: 'First Project Description',
+      type: 'text',
+      validation: (Rule) => Rule.required(),
+    }),
+
+    defineField({
+      name: 'descriptionSecond',
+      title: 'Second Project Description',
       type: 'text',
       validation: (Rule) => Rule.required(),
     }),

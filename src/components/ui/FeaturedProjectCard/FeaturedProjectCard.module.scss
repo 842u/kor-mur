@@ -1,0 +1,11 @@
+.card {
+  position: relative;
+  height: 100vh;
+  font-size: 3rem;
+  color: white;
+
+  .background-image {
+    z-index: -1;
+    object-fit: cover;
+  }
+}
