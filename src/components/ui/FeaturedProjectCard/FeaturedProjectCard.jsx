@@ -5,11 +5,13 @@ import styles from './FeaturedProjectCard.module.scss';
 export default function FeaturedProjectCard({ project }) {
   return (
     <div className={styles.card}>
-      <h3>{project.name}</h3>
-      <p>{project.descriptionFirst}</p>
-      {project.tags?.map((tag) => (
-        <p>{tag.name}</p>
-      ))}
+      <div aria-label="Project Information" className={styles.label} role="region">
+        <h3>{project.name}</h3>
+        {project.tags?.map((tag) => (
+          <p>{tag.name}</p>
+        ))}
+        <p>{project.descriptionFirst}</p>
+      </div>
       <Image fill className={styles['background-image']} src={project.mainImage.asset.url} />
     </div>
   );
