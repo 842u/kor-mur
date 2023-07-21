@@ -1,0 +1,21 @@
+.label {
+  display: inline-block;
+  justify-content: center;
+
+  padding: 0.5rem 1.5rem;
+
+  line-height: 120%;
+  color: white;
+  text-align: center;
+  text-decoration: none;
+
+  background-color: black;
+  border: 2px solid white;
+  border-radius: 2.5rem;
+
+  transition: scale 0.05s ease-in-out;
+
+  &:hover {
+    scale: 1.1;
+  }
+}

@@ -1,5 +1,6 @@
 import Image from 'next/image';
 
+import TagLabel from '../TagLabel/TagLabel';
 import styles from './FeaturedProjectCard.module.scss';
 
 export default function FeaturedProjectCard({ project }) {
@@ -8,7 +9,7 @@ export default function FeaturedProjectCard({ project }) {
       <div aria-label="Project Information" className={styles.label} role="region">
         <h3>{project.name}</h3>
         {project.tags?.map((tag) => (
-          <p>{tag.name}</p>
+          <TagLabel tag={tag} />
         ))}
         <p>{project.descriptionFirst}</p>
       </div>
