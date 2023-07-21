@@ -21,13 +21,6 @@ const featuredProjectsSectionSettings = defineType({
       type: 'text',
       validation: (Rule) => Rule.required(),
     }),
-    defineField({
-      name: 'featuredProjects',
-      title: 'Featured Projects',
-      type: 'array',
-      of: [{ type: 'reference', to: { type: 'project' }, options: { disableNew: true } }],
-      validation: (Rule) => Rule.unique(),
-    }),
   ],
   initialValue: {
     title: 'Featured Projects Section Title',

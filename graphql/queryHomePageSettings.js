@@ -25,22 +25,6 @@ const gqlQueryHomePageSettings = gql`
     allFeaturedProjectsSectionSettings {
       title
       description
-      featuredProjects {
-        _id
-        name
-        description
-        mainImage {
-          asset {
-            url
-          }
-        }
-        tags {
-          name
-        }
-        slug {
-          current
-        }
-      }
     }
 
     allContactSectionSettings {

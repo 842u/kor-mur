@@ -22,7 +22,7 @@ export default function HomePage({
 
   useEffect(() => {
     setIsDraftMode(draftMode);
-  }, []);
+  }, [draftMode]);
 
   return (
     <>
