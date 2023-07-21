@@ -11,7 +11,7 @@ const DraftProvider = dynamic(() => import('@/components/providers/DraftProvider
   loading: () => <p>Loading...</p>,
 });
 
-export default function FeaturedProjectsSection({ settings }) {
+export default function FeaturedProjectsSection({ settings, projects }) {
   const { isDraftMode } = useContext(DraftModeContext);
 
   return isDraftMode ? (
@@ -19,6 +19,6 @@ export default function FeaturedProjectsSection({ settings }) {
       <FeaturedProjectsSectionDraft query={groqQueryFeaturedProjectsSection} />
     </DraftProvider>
   ) : (
-    <FeaturedProjectsSectionDefault settings={settings} />
+    <FeaturedProjectsSectionDefault projects={projects} settings={settings} />
   );
 }

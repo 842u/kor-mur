@@ -1,7 +1,7 @@
 import { gql } from '@apollo/client';
 
 const gqlQueryHomePageSettings = gql`
-  query HomePageSettings {
+  query HomePageSettings($where: ProjectFilter) {
     allHeroSectionSettings {
       heroSectionImages {
         asset {
@@ -25,6 +25,22 @@ const gqlQueryHomePageSettings = gql`
     allFeaturedProjectsSectionSettings {
       title
       description
+    }
+
+    llProject(where: $where) {
+      name
+      description
+      tags {
+        name
+        slug {
+          current
+        }
+      }
+      mainImage {
+        asset {
+          url
+        }
+      }
     }
 
     allContactSectionSettings {

@@ -16,6 +16,7 @@ export default function HomePage({
   heroSectionSettings,
   mottoSectionSettings,
   featuredProjectsSectionSettings,
+  featuredProjects,
   contactSectionSettings,
 }) {
   const { setIsDraftMode } = useContext(DraftModeContext);
@@ -32,7 +33,10 @@ export default function HomePage({
       <HeroSection settings={heroSectionSettings} />
       <MottoSection settings={mottoSectionSettings} />
       <DecorativeBreaker />
-      <FeaturedProjectsSection settings={featuredProjectsSectionSettings} />
+      <FeaturedProjectsSection
+        projects={featuredProjects}
+        settings={featuredProjectsSectionSettings}
+      />
       <ContactSection settings={contactSectionSettings} />
     </>
   );
@@ -41,6 +45,13 @@ export default function HomePage({
 export async function getStaticProps({ draftMode = false }) {
   const { data } = await apolloClient.query({
     query: gqlQueryHomePageSettings,
+    variables: {
+      where: {
+        featured: {
+          eq: true,
+        },
+      },
+    },
   });
 
   const heroSectionSettings = data.allHeroSectionSettings;
@@ -48,6 +59,8 @@ export async function getStaticProps({ draftMode = false }) {
   const mottoSectionSettings = data.allMottoSectionSettings;
 
   const featuredProjectsSectionSettings = data.allFeaturedProjectsSectionSettings;
+
+  const featuredProjects = data.allProject;
 
   const contactSectionSettings = data.allContactSectionSettings;
 
@@ -57,6 +70,7 @@ export async function getStaticProps({ draftMode = false }) {
       heroSectionSettings,
       mottoSectionSettings,
       featuredProjectsSectionSettings,
+      featuredProjects,
       contactSectionSettings,
     },
   };
