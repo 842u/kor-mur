@@ -1,5 +1,9 @@
 import { defineField, defineType } from 'sanity';
 
+/**
+ * ! Remember to deploy graphql api after changing any schemas
+ */
+
 const project = defineType({
   name: 'project',
   title: 'Project',
@@ -7,7 +11,7 @@ const project = defineType({
   fields: [
     defineField({
       name: 'featured',
-      title: 'Featured Project',
+      title: 'Display Project as Featured',
       type: 'boolean',
       initialValue: false,
     }),
