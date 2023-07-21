@@ -6,6 +6,13 @@ const project = defineType({
   type: 'document',
   fields: [
     defineField({
+      name: 'featured',
+      title: 'Featured Project',
+      type: 'boolean',
+      initialValue: false,
+    }),
+
+    defineField({
       name: 'name',
       title: 'Project Name',
       type: 'string',
@@ -51,8 +58,6 @@ const project = defineType({
     defineField({
       name: 'slug',
       title: 'Project Slug',
-      description:
-        'This is used to generate the url for this project e.g. "my-project" will generate the url "https://www.example.com/projects/my-project".',
       type: 'slug',
       options: {
         source: (doc) => {
