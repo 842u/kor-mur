@@ -37,6 +37,9 @@ const gqlQueryHomePageSettings = gql`
           url
         }
       }
+      slug {
+        current
+      }
     }
 
     allContactSectionSettings {

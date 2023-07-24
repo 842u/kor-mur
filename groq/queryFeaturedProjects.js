@@ -14,6 +14,9 @@ const groqQueryFeaturedProjects = groq`*[_type == "project" && featured == true]
     asset->{
       url
     }
+  },
+  slug{
+    current
   }
 }`;
 
