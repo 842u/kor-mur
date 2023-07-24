@@ -4,7 +4,8 @@ const gqlQueryProjectBySlug = gql`
   query ProjectBySlug($where: ProjectFilter) {
     allProject(where: $where) {
       name
-      description
+      descriptionFirst
+      descriptionSecond
       year
       location
       area

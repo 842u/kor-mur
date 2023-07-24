@@ -13,8 +13,8 @@ export default function ProjectSectionDefault({ settings }) {
       <p>{setup.area}</p>
       <p>{setup.budget}</p>
       <h1>{setup.name}</h1>
-      <p>{setup.description}</p>
-      <Image alt={`${setup.name}`} height={400} src={setup.mainImage} width={400} />
+      <p>{setup.descriptionFirst}</p>
+      <Image alt={`${setup.name}`} height={400} src={setup.mainImage.asset.url} width={400} />
     </section>
   );
 }

@@ -1,6 +1,6 @@
 import '@testing-library/jest-dom';
 
-import { render, screen } from '@testing-library/react';
+import { render, screen, waitFor } from '@testing-library/react';
 
 import NavMenu from './NavMenu';
 
@@ -11,7 +11,7 @@ jest.mock('next/router', () => ({
 }));
 
 describe('NavMenu', () => {
-  it('should render all provided items', () => {
+  it('should render all provided items', async () => {
     const items = [
       { href: '/test', text: 'Test' },
       { href: '/test2', text: 'Test2' },
@@ -20,6 +20,8 @@ describe('NavMenu', () => {
 
     render(<NavMenu menuItems={items} />);
 
-    expect(screen.getAllByRole('listitem')).toHaveLength(items.length);
+    const menuItems = screen.getAllByRole('listitem');
+
+    await waitFor(() => expect(menuItems).toHaveLength(items.length));
   });
 });

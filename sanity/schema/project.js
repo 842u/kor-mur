@@ -1,10 +1,21 @@
 import { defineField, defineType } from 'sanity';
 
+/**
+ * ! Remember to deploy graphql api after changing any schemas
+ */
+
 const project = defineType({
   name: 'project',
   title: 'Project',
   type: 'document',
   fields: [
+    defineField({
+      name: 'featured',
+      title: 'Display Project as Featured',
+      type: 'boolean',
+      initialValue: false,
+    }),
+
     defineField({
       name: 'name',
       title: 'Project Name',
@@ -13,8 +24,15 @@ const project = defineType({
     }),
 
     defineField({
-      name: 'description',
-      title: 'Project Description',
+      name: 'descriptionFirst',
+      title: 'First Project Description',
+      type: 'text',
+      validation: (Rule) => Rule.required(),
+    }),
+
+    defineField({
+      name: 'descriptionSecond',
+      title: 'Second Project Description',
       type: 'text',
       validation: (Rule) => Rule.required(),
     }),
@@ -51,8 +69,6 @@ const project = defineType({
     defineField({
       name: 'slug',
       title: 'Project Slug',
-      description:
-        'This is used to generate the url for this project e.g. "my-project" will generate the url "https://www.example.com/projects/my-project".',
       type: 'slug',
       options: {
         source: (doc) => {

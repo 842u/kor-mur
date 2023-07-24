@@ -1,7 +1,5 @@
 import { CogIcon, DashboardIcon, MasterDetailIcon } from '@sanity/icons';
 
-import { singletonTypes } from './singleton';
-
 const settingsIcon = CogIcon;
 const pageSettingsIcon = MasterDetailIcon;
 const sectionSettingsIcon = DashboardIcon;
@@ -25,20 +23,21 @@ const deskToolStructureBuilder = (S) =>
                     .title('Home Page Settings')
                     .items([
                       S.documentListItem()
-                        .schemaType('heroSectionSettings')
-                        .id('heroSectionSettings')
-                        .title('Hero Section Settings')
-                        .icon(sectionSettingsIcon),
-                      S.documentListItem()
                         .schemaType('mottoSectionSettings')
                         .id('mottoSectionSettings')
-                        .title('Motto Section Settings')
-                        .icon(sectionSettingsIcon),
+                        .title('Motto Section Settings'),
                       S.documentListItem()
-                        .schemaType('contactSectionSettings')
-                        .id('contactSectionSettings')
+                        .schemaType('featuredProjectsSectionSettings')
+                        .id('featuredProjectsSectionSettings')
+                        .title('Featured Projects Section Settings'),
+                      S.listItem()
                         .title('Contact Section Settings')
-                        .icon(sectionSettingsIcon),
+                        .icon(sectionSettingsIcon)
+                        .child(
+                          S.document()
+                            .schemaType('contactSectionSettings')
+                            .documentId('contactSectionSettings')
+                        ),
                     ])
                 ),
               S.listItem()
@@ -48,17 +47,27 @@ const deskToolStructureBuilder = (S) =>
                   S.list()
                     .title('About Page Settings')
                     .items([
-                      S.documentListItem()
-                        .schemaType('aboutSectionSettings')
-                        .id('aboutSectionSettings')
+                      S.listItem()
                         .title('About Section Settings')
-                        .icon(sectionSettingsIcon),
+                        .icon(sectionSettingsIcon)
+                        .child(
+                          S.document()
+                            .schemaType('aboutSectionSettings')
+                            .documentId('aboutSectionSettings')
+                        ),
                     ])
                 ),
             ])
         ),
-      // hide singleton types from base menu
-      ...S.documentTypeListItems().filter((listItem) => !singletonTypes.has(listItem.getId())),
+      ...S.documentTypeListItems().filter(
+        (listItem) =>
+          ![
+            'mottoSectionSettings',
+            'featuredProjectsSectionSettings',
+            'contactSectionSettings',
+            'aboutSectionSettings',
+          ].includes(listItem.getId())
+      ),
     ]);
 
 export default deskToolStructureBuilder;
