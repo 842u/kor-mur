@@ -1,27 +1,24 @@
-import { groq } from 'next-sanity';
-import { PreviewSuspense } from 'next-sanity/preview';
-import { lazy } from 'react';
+import dynamic from 'next/dynamic';
+import { useContext } from 'react';
 
+import DraftModeContext from '@/context/DraftModeContext';
+
+import groqQueryMottoSectionSettings from '../../../../groq/queryMottoSectionSettings';
 import MottoSectionDefault from './MottoSectionDefault';
+import MottoSectionDraft from './MottoSectionDraft';
 
-const MottoSectionDraft = lazy(() =>
-  import('@/components/sections/MottoSection/MottoSectionDraft')
-);
+const DraftProvider = dynamic(() => import('@/components/providers/DraftProvider'), {
+  loading: () => <p>Loading...</p>,
+});
 
-const query = groq`*[_type == "mottoSectionSettings"]{
-  _id,
-  text,
-  title,
-  description,
-  "imgUrl": image.asset->url
-}`;
+export default function MottoSection({ settings }) {
+  const { isDraftMode } = useContext(DraftModeContext);
 
-export default function MottoSection({ draftMode, mottoSectionSettings }) {
-  return draftMode ? (
-    <PreviewSuspense fallback="loading">
-      <MottoSectionDraft query={query} />
-    </PreviewSuspense>
+  return isDraftMode ? (
+    <DraftProvider draftMode={isDraftMode}>
+      <MottoSectionDraft query={groqQueryMottoSectionSettings} />
+    </DraftProvider>
   ) : (
-    <MottoSectionDefault mottoSectionSettings={mottoSectionSettings} />
+    <MottoSectionDefault settings={settings} />
   );
 }

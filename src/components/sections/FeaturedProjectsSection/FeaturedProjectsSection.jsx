@@ -1,42 +1,24 @@
-import { groq } from 'next-sanity';
-import { PreviewSuspense } from 'next-sanity/preview';
-import { lazy } from 'react';
+import dynamic from 'next/dynamic';
+import { useContext } from 'react';
 
+import DraftModeContext from '@/context/DraftModeContext';
+
+import groqQueryFeaturedProjects from '../../../../groq/queryFeaturedProjects';
 import FeaturedProjectsSectionDefault from './FeaturedProjectsSectionDefault';
+import FeaturedProjectsSectionDraft from './FeaturedProjectsSectionDraft';
 
-const FeaturedProjectsSectionDraft = lazy(() =>
-  import('@/components/sections/FeaturedProjectsSection/FeaturedProjectsSectionDraft')
-);
+const DraftProvider = dynamic(() => import('@/components/providers/DraftProvider'), {
+  loading: () => <p>Loading...</p>,
+});
 
-const query = groq`*[_type == "featuredProjectsSectionSettings"]{
-  _id,
-  title,
-  description,
-  "featuredProjects": 
-    featuredProjects[]-> {
-      _id,
-      name,
-      description,
-      slug,
-      "tags": tags[]-> {
-        name
-      },
-      "mainImage": {
-        "asset": {
-          "url" : mainImage.asset->url
-        }
-      },
-    }
-}`;
+export default function FeaturedProjectsSection({ projects }) {
+  const { isDraftMode } = useContext(DraftModeContext);
 
-export default function FeaturedProjectsSection({ draftMode, featuredProjectsSectionSettings }) {
-  return draftMode ? (
-    <PreviewSuspense fallback="loading">
-      <FeaturedProjectsSectionDraft query={query} />
-    </PreviewSuspense>
+  return isDraftMode ? (
+    <DraftProvider draftMode={isDraftMode}>
+      <FeaturedProjectsSectionDraft query={groqQueryFeaturedProjects} />
+    </DraftProvider>
   ) : (
-    <FeaturedProjectsSectionDefault
-      featuredProjectsSectionSettings={featuredProjectsSectionSettings}
-    />
+    <FeaturedProjectsSectionDefault projects={projects} />
   );
 }

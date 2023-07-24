@@ -1,39 +1,37 @@
-import Image from 'next/image';
+import { useContext, useEffect } from 'react';
+
+import ProjectSection from '@/components/sections/ProjectSection/ProjectSection';
+import DraftModeContext from '@/context/DraftModeContext';
 
 import apolloClient from '../../../graphql/apolloClient';
-import GET_ALL_PROJECTS_SLUGS from '../../../graphql/queryAllProjectsSlugs';
-import GET_PROJECT_DATA_BY_SLUG from '../../../graphql/queryProjectDataBySlug';
-import styles from './[slug].module.scss';
+import gqlQueryAllProjectsSlugs from '../../../graphql/queryAllProjectsSlugs';
+import gqlQueryProjectBySlug from '../../../graphql/queryProjectDataBySlug';
 
-export default function SpecificProjectPage({ project }) {
-  return (
-    <section className={styles['project-section']}>
-      <p>{new Date(project.year).getFullYear()}</p>
-      <p>{project.location}</p>
-      <p>{project.area}</p>
-      <p>{project.budget}</p>
-      <h1>{project.name}</h1>
-      <p>{project.description}</p>
-      <Image alt={`${project.name}`} height={400} src={project.mainImage.asset.url} width={400} />
-    </section>
-  );
+export default function SpecificProjectPage({ draftMode, project }) {
+  const { setIsDraftMode } = useContext(DraftModeContext);
+
+  useEffect(() => {
+    setIsDraftMode(draftMode);
+  }, []);
+
+  return <ProjectSection settings={project} />;
 }
 
 export async function getStaticPaths() {
   const { data } = await apolloClient.query({
-    query: GET_ALL_PROJECTS_SLUGS,
+    query: gqlQueryAllProjectsSlugs,
   });
 
   const paths = data.allProject.map((project) => ({
     params: { slug: project.slug.current },
   }));
 
-  return { paths, fallback: false };
+  return { paths, fallback: 'blocking' };
 }
 
-export async function getStaticProps({ params }) {
+export async function getStaticProps({ params, draftMode = false }) {
   const { data } = await apolloClient.query({
-    query: GET_PROJECT_DATA_BY_SLUG,
+    query: gqlQueryProjectBySlug,
     variables: {
       where: {
         slug: {
@@ -45,11 +43,12 @@ export async function getStaticProps({ params }) {
     },
   });
 
-  const project = data.allProject[0];
+  const project = data?.allProject;
 
   return {
     props: {
       project,
+      draftMode,
     },
   };
 }

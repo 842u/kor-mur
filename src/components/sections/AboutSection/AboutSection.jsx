@@ -1,26 +1,24 @@
-import Image from 'next/image';
+import dynamic from 'next/dynamic';
+import { useContext } from 'react';
 
-import styles from './AboutSection.module.scss';
-import getDefaultAboutSectionSettings from './getDefaultAboutSectionSettings';
+import DraftModeContext from '@/context/DraftModeContext';
 
-const defaultSettings = getDefaultAboutSectionSettings();
+import groqQueryAboutSectionSettings from '../../../../groq/queryAboutSectionSettings';
+import AboutSectionDefault from './AboutSectionDefault';
+import AboutSectionDraft from './AboutSectionDraft';
 
-export default function AboutSection({ aboutSectionSettings }) {
-  const sectionTitle = aboutSectionSettings?.title || defaultSettings.title;
-  const sectionFirstParagraph =
-    aboutSectionSettings?.firstParagraph || defaultSettings.firstParagraph;
-  const sectionSecondParagraph =
-    aboutSectionSettings?.secondParagraph || defaultSettings.secondParagraph;
-  const sectionImage = aboutSectionSettings?.image?.asset?.url || defaultSettings.image;
+const DraftProvider = dynamic(() => import('@/components/providers/DraftProvider'), {
+  loading: () => <p>loading...</p>,
+});
 
-  return (
-    <section className={styles['about-section']}>
-      <h2>{sectionTitle}</h2>
-      <div>
-        <Image alt="Photo of Kornelia" height={100} src={sectionImage} width={100} />
-        <p>{sectionFirstParagraph}</p>
-      </div>
-      <p>{sectionSecondParagraph}</p>
-    </section>
+export default function AboutSection({ settings }) {
+  const { isDraftMode } = useContext(DraftModeContext);
+
+  return isDraftMode ? (
+    <DraftProvider draftMode={isDraftMode}>
+      <AboutSectionDraft query={groqQueryAboutSectionSettings} />
+    </DraftProvider>
+  ) : (
+    <AboutSectionDefault settings={settings} />
   );
 }

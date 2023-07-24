@@ -1,20 +1,24 @@
-import ContactForm from '@/components/ui/ContactForm/ContactForm';
-import { secondaryFont } from '@/utils/fonts';
+import dynamic from 'next/dynamic';
+import { useContext } from 'react';
 
-import styles from './ContactSection.module.scss';
-import getDefaultContactSectionSettings from './getDefaultContactSectionSettings';
+import DraftModeContext from '@/context/DraftModeContext';
 
-const defaultSettings = getDefaultContactSectionSettings();
+import groqQueryContactSectionSettings from '../../../../groq/queryContactSectionSettings';
+import ContactSectionDefault from './ContactSectionDefault';
+import ContactSectionDraft from './ContactSectionDraft';
 
-export default function ContactSection({ contactSectionSettings }) {
-  const sectionTitle = contactSectionSettings?.title || defaultSettings.title;
-  const sectionDescription = contactSectionSettings?.description || defaultSettings.description;
+const DraftProvider = dynamic(() => import('@/components/providers/DraftProvider'), {
+  loading: () => <p>Loading...</p>,
+});
 
-  return (
-    <section className={styles['contact-section']} id="contact">
-      <h2 className={secondaryFont.className}>{sectionTitle}</h2>
-      <p>{sectionDescription}</p>
-      <ContactForm />
-    </section>
+export default function ContactSection({ settings }) {
+  const { isDraftMode } = useContext(DraftModeContext);
+
+  return isDraftMode ? (
+    <DraftProvider draftMode={isDraftMode}>
+      <ContactSectionDraft query={groqQueryContactSectionSettings} />
+    </DraftProvider>
+  ) : (
+    <ContactSectionDefault settings={settings} />
   );
 }

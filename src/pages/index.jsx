@@ -1,64 +1,69 @@
 import Head from 'next/head';
+import { useContext, useEffect } from 'react';
 
 import apolloClient from '@/../graphql/apolloClient';
-import GET_CONTACT_SECTION_SETTINGS from '@/../graphql/queryContactSectionSettings';
-import GET_FEATURED_PROJECTS_SECTION_SETTINGS from '@/../graphql/queryFeaturedProjectsSectionSettings';
-import GET_MOTTO_SECTION_SETTINGS from '@/../graphql/queryMottoSectionSettings';
 import ContactSection from '@/components/sections/ContactSection/ContactSection';
+import DecorativeBreaker from '@/components/sections/DecorativeBreaker/DecorativeBreaker';
 import FeaturedProjectsSection from '@/components/sections/FeaturedProjectsSection/FeaturedProjectsSection';
 import HeroSection from '@/components/sections/HeroSection/HeroSection';
 import MottoSection from '@/components/sections/MottoSection/MottoSection';
+import DraftModeContext from '@/context/DraftModeContext';
+
+import gqlQueryHomePageSettings from '../../graphql/queryHomePageSettings';
 
 export default function HomePage({
   draftMode,
+  heroSectionSettings,
   mottoSectionSettings,
-  featuredProjectsSectionSettings,
+  featuredProjects,
   contactSectionSettings,
 }) {
+  const { setIsDraftMode } = useContext(DraftModeContext);
+
+  useEffect(() => {
+    setIsDraftMode(draftMode);
+  }, [draftMode]);
+
   return (
     <>
       <Head>
         <title>Murawska Studio</title>
       </Head>
-      <HeroSection />
-      <MottoSection draftMode={draftMode} mottoSectionSettings={mottoSectionSettings} />
-      <FeaturedProjectsSection
-        draftMode={draftMode}
-        featuredProjectsSectionSettings={featuredProjectsSectionSettings}
-      />
-      <ContactSection contactSectionSettings={contactSectionSettings} />
+      <HeroSection settings={heroSectionSettings} />
+      <MottoSection settings={mottoSectionSettings} />
+      <DecorativeBreaker />
+      <FeaturedProjectsSection projects={featuredProjects} />
+      <ContactSection settings={contactSectionSettings} />
     </>
   );
 }
 
 export async function getStaticProps({ draftMode = false }) {
-  if (draftMode) {
-    return {
-      props: { draftMode },
-    };
-  }
+  const { data } = await apolloClient.query({
+    query: gqlQueryHomePageSettings,
+    variables: {
+      where: {
+        featured: {
+          eq: true,
+        },
+      },
+    },
+  });
 
-  let data;
+  const heroSectionSettings = data.allHeroSectionSettings;
 
-  ({ data } = await apolloClient.query({
-    query: GET_MOTTO_SECTION_SETTINGS,
-  }));
-  const mottoSectionSettings = data.allMottoSectionSettings || [];
+  const mottoSectionSettings = data.allMottoSectionSettings;
 
-  ({ data } = await apolloClient.query({
-    query: GET_FEATURED_PROJECTS_SECTION_SETTINGS,
-  }));
-  const featuredProjectsSectionSettings = data.allFeaturedProjectsSectionSettings || [];
+  const featuredProjects = data.allProject;
 
-  ({ data } = await apolloClient.query({
-    query: GET_CONTACT_SECTION_SETTINGS,
-  }));
-  const contactSectionSettings = data.allContactSectionSettings[0] || [];
+  const contactSectionSettings = data.allContactSectionSettings;
 
   return {
     props: {
+      draftMode,
+      heroSectionSettings,
       mottoSectionSettings,
-      featuredProjectsSectionSettings,
+      featuredProjects,
       contactSectionSettings,
     },
   };

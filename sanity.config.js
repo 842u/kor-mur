@@ -2,19 +2,26 @@ import { visionTool } from '@sanity/vision';
 import { defineConfig } from 'sanity';
 import { deskTool } from 'sanity/desk';
 
-import defaultDocumentNode from './sanity/defaultDocumentNode';
-import deskToolStructureBuilder from './sanity/deskToolStructureBuilder';
-import { projectId } from './sanity/env';
-import schema from './sanity/schema';
+import { projectId } from './sanity/lib/client';
+import defaultDocumentNode from './sanity/lib/defaultDocumentNode';
+import deskToolStructureBuilder from './sanity/lib/deskToolStructureBuilder';
+import schema from './sanity/lib/schema';
+import { singletonActions, singletonTypes } from './sanity/lib/singleton';
 
 export default defineConfig([
   {
+    name: 'production-workspace',
+    title: 'Production workspace',
     basePath: '/studio/production',
     projectId,
     dataset: 'production',
-    name: 'production-workspace',
-    title: 'Production workspace',
     schema,
+    document: {
+      actions: (prev, context) =>
+        singletonTypes.has(context.schemaType)
+          ? prev.filter(({ action }) => action && singletonActions.has(action))
+          : prev,
+    },
     plugins: [
       deskTool({
         defaultDocumentNode,
@@ -24,12 +31,18 @@ export default defineConfig([
     ],
   },
   {
+    name: 'development-workspace',
+    title: 'Development workspace',
     basePath: '/studio/development',
     projectId,
     dataset: 'development',
-    name: 'development-workspace',
-    title: 'Development workspace',
     schema,
+    document: {
+      actions: (prev, context) =>
+        singletonTypes.has(context.schemaType)
+          ? prev.filter(({ action }) => action && singletonActions.has(action))
+          : prev,
+    },
     plugins: [
       deskTool({
         defaultDocumentNode,

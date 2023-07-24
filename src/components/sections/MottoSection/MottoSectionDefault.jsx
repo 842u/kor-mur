@@ -1,41 +1,61 @@
+/* eslint no-return-assign: 0, no-param-reassign: 0 */
 import Image from 'next/image';
 import Link from 'next/link';
+import { useEffect, useState } from 'react';
 
 import { secondaryFont } from '@/utils/fonts';
 
-import getDefaultMottoSectionSettings from './getDefaultMottoSectionSettings';
+import getMottoSectionSetup from './getMottoSectionSetup';
 import styles from './MottoSectionDefault.module.scss';
 
-const defaultSettings = getDefaultMottoSectionSettings();
+export default function MottoSectionDefault({ settings }) {
+  const { mottoSectionTitles, mottoSectionText, mottoSectionImage } =
+    getMottoSectionSetup(settings);
 
-export default function MottoSectionDefault({ mottoSectionSettings }) {
-  const mottoTitle = mottoSectionSettings?.[0]?.title || defaultSettings.title;
-  const mottoText = mottoSectionSettings?.[0]?.text || defaultSettings.text;
-  const mottoDescription = mottoSectionSettings?.[0]?.description || defaultSettings.description;
-  const mottoImageSrc =
-    mottoSectionSettings?.[0]?.image?.asset?.url ||
-    mottoSectionSettings?.[0]?.imgUrl ||
-    defaultSettings.image;
+  const [currentTitleIndex, setCurrentTitleIndex] = useState(0);
+
+  useEffect(() => {
+    const titleChangeDelay = setTimeout(() => {
+      setCurrentTitleIndex((currentIndex) =>
+        currentIndex >= mottoSectionTitles.length - 1 ? 0 : (currentIndex += 1)
+      );
+    }, 2500);
+
+    return () => {
+      clearTimeout(titleChangeDelay);
+    };
+  }, [currentTitleIndex, settings]);
 
   return (
     <section className={styles['motto-section']}>
-      <h2 className={secondaryFont.className}>{mottoTitle}</h2>
-      <p>{mottoText}</p>
-      <div className={styles.addnotation}>
+      <div className={styles['first-wrapper']}>
+        <div className={styles['title-container']}>
+          {mottoSectionTitles.map((title, index) => {
+            const titleStyle = `${secondaryFont.className} ${styles.title} ${
+              currentTitleIndex === index && styles['title--active']
+            }`;
+
+            return (
+              <h2 key={title} className={titleStyle}>
+                {title}
+              </h2>
+            );
+          })}
+        </div>
+        <Link className={styles['about-button']} href="/about">
+          O MNIE
+        </Link>
+      </div>
+      <div className={styles['second-wrapper']}>
+        <p>{mottoSectionText}</p>
         <div className={styles['image-container']}>
           <Image
             fill
             alt="motto image"
             className={styles.image}
             sizes="(max-width: 810px) 100vw, 50vw"
-            src={mottoImageSrc}
+            src={mottoSectionImage}
           />
-        </div>
-        <div className={styles.about}>
-          <p>{mottoDescription}</p>
-          <Link className={styles.link} href="/about">
-            O MNIE
-          </Link>
         </div>
       </div>
     </section>
