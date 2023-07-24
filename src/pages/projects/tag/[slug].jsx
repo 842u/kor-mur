@@ -1,8 +1,6 @@
-import { useRouter } from 'next/router';
-import { useEffect } from 'react';
-
 import ProjectCard from '@/components/ui/ProjectCard/ProjectCard';
-import SelectFilter from '@/components/ui/SelectFilter/SelectFilter';
+import TagLabel from '@/components/ui/TagLabel/TagLabel';
+import { secondaryFont } from '@/utils/fonts';
 import allTagMock from '@/utils/mocks';
 
 import apolloClient from '../../../../graphql/apolloClient';
@@ -12,16 +10,18 @@ import gqlQueryProjectByTagId from '../../../../graphql/queryProjectByTagId';
 import styles from './[slug].module.scss';
 
 export default function SpecificTagPage({ projectsWithQueryTag, tags }) {
-  const router = useRouter();
-
-  useEffect(() => {
-    tags.forEach((tag) => router.prefetch(`/projects/tag/${tag.slug.current}`));
-  }, []);
-
   return (
     <>
-      <h1 className={styles['page-title']}>Projects Page</h1>
-      <SelectFilter options={tags} />
+      <section>
+        <h1 className={`${styles['page-title']} ${secondaryFont.className}`}>
+          Projects Page Title
+        </h1>
+        <div className={styles['tag-container']}>
+          {tags.map((tag) => (
+            <TagLabel key={tag._id} tag={tag} />
+          ))}
+        </div>
+      </section>
       {projectsWithQueryTag.map((project) => (
         <ProjectCard key={project._id} project={project} sizes="100vw" />
       ))}
