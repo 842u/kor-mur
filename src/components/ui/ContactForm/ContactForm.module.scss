@@ -3,12 +3,7 @@
 .contact-form {
   display: flex;
   flex-direction: column;
-
-  width: 100%;
-  max-width: 500px;
-  margin: auto;
   padding: 1rem;
-
   background-color: var(--primary-200);
 
   button {
@@ -16,7 +11,7 @@
   }
 }
 
-@media (width > 830px) {
+@media (width > 810px) {
   .contact-form {
     font-size: 1rem;
   }

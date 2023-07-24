@@ -42,6 +42,11 @@ const gqlQueryHomePageSettings = gql`
     allContactSectionSettings {
       title
       description
+      image {
+        asset {
+          url
+        }
+      }
     }
   }
 `;

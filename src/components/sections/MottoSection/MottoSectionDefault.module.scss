@@ -12,8 +12,6 @@
   }
 
   .title-container {
-    text-align: center;
-
     .title {
       overflow: hidden;
       height: 0;
@@ -29,9 +27,7 @@
 
   .image-container {
     position: relative;
-    flex-grow: 1;
     aspect-ratio: auto 1 / 1;
-    width: 100%;
 
     .image {
       object-fit: cover;

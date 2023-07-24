@@ -3,5 +3,52 @@
 .contact-section {
   @include mixins.section;
 
-  scroll-margin-top: 5rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  min-height: 100vh;
+
+  p {
+    margin: 2rem 0;
+    text-align: center;
+  }
+
+  .contact-info {
+    width: 100%;
+  }
+
+  .image-container {
+    position: relative;
+    aspect-ratio: 1 / 1;
+    margin: 2rem 0;
+  }
+
+  .form {
+    width: 100%;
+    max-width: 500px;
+  }
+
+  .image {
+    object-fit: cover;
+  }
+}
+
+@media (width > 810px) {
+  .contact-section {
+    p {
+      text-align: left;
+    }
+
+    .image-container {
+      aspect-ratio: 16 / 9;
+    }
+  }
+}
+
+@media (width > 1200px) {
+  .contact-section {
+    flex-direction: row;
+    gap: 5%;
+    justify-content: space-between;
+  }
 }

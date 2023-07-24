@@ -13,10 +13,12 @@
 
 @mixin section-heading {
   font-size: 2rem;
+  text-align: center;
   letter-spacing: 0.5rem;
 
   @media (width > 810px) {
     font-size: 2rem;
+    text-align: left;
   }
 
   @media (width > 1200px) {
