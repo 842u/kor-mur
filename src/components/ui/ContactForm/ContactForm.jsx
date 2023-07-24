@@ -11,7 +11,7 @@ import {
 import styles from './ContactForm.module.scss';
 import FormField from './FormField/FormField';
 
-export default function ContactForm() {
+export default function ContactForm({ className }) {
   const [serverResponseMessages, setServerResponseMessages] = useState([]);
   const [isSubmitting, setIsSubmitting] = useState(false);
 
@@ -94,12 +94,10 @@ export default function ContactForm() {
     }
   };
 
+  const style = `${styles['contact-form']} ${className}`;
+
   return (
-    <form
-      className={styles['contact-form']}
-      data-testid="contact-form"
-      onSubmit={formSubmitHandler}
-    >
+    <form className={style} data-testid="contact-form" onSubmit={formSubmitHandler}>
       <FormField
         errorMessage={nameErrorMessage}
         hasError={nameHasError}

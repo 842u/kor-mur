@@ -21,6 +21,12 @@ const contactSectionSettings = defineType({
       type: 'text',
       validation: (Rule) => Rule.required(),
     }),
+    defineField({
+      name: 'image',
+      title: 'Contact Section Image',
+      type: 'image',
+      validation: (Rule) => Rule.required(),
+    }),
   ],
   initialValue: {
     title: 'Contact Section Title',
