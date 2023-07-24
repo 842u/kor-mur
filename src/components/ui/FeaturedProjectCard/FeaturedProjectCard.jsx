@@ -1,4 +1,5 @@
 import Image from 'next/image';
+import Link from 'next/link';
 
 import TagLabel from '../TagLabel/TagLabel';
 import styles from './FeaturedProjectCard.module.scss';
@@ -13,7 +14,9 @@ export default function FeaturedProjectCard({ project }) {
         ))}
         <p>{project.descriptionFirst}</p>
       </div>
-      <Image fill className={styles['background-image']} src={project.mainImage.asset.url} />
+      <Link className={styles['project-link']} href={`/projects/${project.slug.current}`}>
+        <Image fill className={styles['background-image']} src={project.mainImage.asset.url} />
+      </Link>
     </div>
   );
 }

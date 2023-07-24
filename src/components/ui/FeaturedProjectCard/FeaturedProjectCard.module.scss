@@ -4,13 +4,22 @@
   font-size: 3rem;
   color: white;
 
-  .background-image {
+  .project-link {
     z-index: -1;
+  }
+
+  .background-image {
     object-fit: cover;
+    transition: scale 0.1s ease-in-out;
+
+    &:hover {
+      scale: 1.03;
+    }
   }
 
   .label {
     position: absolute;
+    z-index: 1;
     top: 25%;
     left: 5%;
 
