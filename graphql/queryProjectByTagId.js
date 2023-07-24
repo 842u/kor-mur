@@ -5,7 +5,8 @@ const gqlQueryProjectByTagId = gql`
     allProject(where: $where) {
       _id
       name
-      description
+      descriptionFirst
+      descriptionSecond
       slug {
         current
       }

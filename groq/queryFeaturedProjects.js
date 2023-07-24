@@ -4,7 +4,7 @@ const groqQueryFeaturedProjects = groq`*[_type == "project" && featured == true]
   name,
   descriptionFirst,
   descriptionSecond,
-  "tags": tags[]->{
+  tags[]->{
     name,
     slug{
       current

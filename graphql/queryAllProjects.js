@@ -8,7 +8,8 @@ const gqlQueryAllProjects = gql`
         current
       }
       name
-      description
+      descriptionFirst
+      descriptionSecond
       mainImage {
         asset {
           url
