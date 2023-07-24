@@ -22,11 +22,6 @@ const gqlQueryHomePageSettings = gql`
       }
     }
 
-    allFeaturedProjectsSectionSettings {
-      title
-      description
-    }
-
     allProject(where: $where) {
       name
       descriptionFirst

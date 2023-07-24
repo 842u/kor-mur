@@ -4,7 +4,6 @@
 
 import aboutSectionSettings from '../schema/aboutSectionSettings';
 import contactSectionSettings from '../schema/contactSectionSettings';
-import featuredProjectsSectionSettings from '../schema/featuredProjectsSectionSettings';
 import heroSectionSettings from '../schema/heroSectionSettings';
 import mottoSectionSettings from '../schema/mottoSectionSettings';
 import project from '../schema/project';
@@ -17,7 +16,6 @@ const schema = {
     tag,
     heroSectionSettings,
     mottoSectionSettings,
-    featuredProjectsSectionSettings,
     contactSectionSettings,
     aboutSectionSettings,
   ],

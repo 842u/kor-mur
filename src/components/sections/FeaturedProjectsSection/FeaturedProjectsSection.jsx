@@ -3,7 +3,7 @@ import { useContext } from 'react';
 
 import DraftModeContext from '@/context/DraftModeContext';
 
-import groqQueryFeaturedProjectsSection from '../../../../groq/queryFeaturedProjectsSection';
+import groqQueryFeaturedProjects from '../../../../groq/queryFeaturedProjects';
 import FeaturedProjectsSectionDefault from './FeaturedProjectsSectionDefault';
 import FeaturedProjectsSectionDraft from './FeaturedProjectsSectionDraft';
 
@@ -11,14 +11,14 @@ const DraftProvider = dynamic(() => import('@/components/providers/DraftProvider
   loading: () => <p>Loading...</p>,
 });
 
-export default function FeaturedProjectsSection({ settings, projects }) {
+export default function FeaturedProjectsSection({ projects }) {
   const { isDraftMode } = useContext(DraftModeContext);
 
   return isDraftMode ? (
     <DraftProvider draftMode={isDraftMode}>
-      <FeaturedProjectsSectionDraft query={groqQueryFeaturedProjectsSection} />
+      <FeaturedProjectsSectionDraft query={groqQueryFeaturedProjects} />
     </DraftProvider>
   ) : (
-    <FeaturedProjectsSectionDefault projects={projects} settings={settings} />
+    <FeaturedProjectsSectionDefault projects={projects} />
   );
 }

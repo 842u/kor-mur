@@ -15,7 +15,6 @@ export default function HomePage({
   draftMode,
   heroSectionSettings,
   mottoSectionSettings,
-  featuredProjectsSectionSettings,
   featuredProjects,
   contactSectionSettings,
 }) {
@@ -33,10 +32,7 @@ export default function HomePage({
       <HeroSection settings={heroSectionSettings} />
       <MottoSection settings={mottoSectionSettings} />
       <DecorativeBreaker />
-      <FeaturedProjectsSection
-        projects={featuredProjects}
-        settings={featuredProjectsSectionSettings}
-      />
+      <FeaturedProjectsSection projects={featuredProjects} />
       <ContactSection settings={contactSectionSettings} />
     </>
   );
@@ -58,8 +54,6 @@ export async function getStaticProps({ draftMode = false }) {
 
   const mottoSectionSettings = data.allMottoSectionSettings;
 
-  const featuredProjectsSectionSettings = data.allFeaturedProjectsSectionSettings;
-
   const featuredProjects = data.allProject;
 
   const contactSectionSettings = data.allContactSectionSettings;
@@ -69,7 +63,6 @@ export async function getStaticProps({ draftMode = false }) {
       draftMode,
       heroSectionSettings,
       mottoSectionSettings,
-      featuredProjectsSectionSettings,
       featuredProjects,
       contactSectionSettings,
     },

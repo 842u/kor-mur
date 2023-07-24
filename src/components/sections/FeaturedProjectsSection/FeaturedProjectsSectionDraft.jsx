@@ -5,5 +5,5 @@ import FeaturedProjectsSectionDefault from './FeaturedProjectsSectionDefault';
 export default function FeaturedProjectsSectionPreview({ query }) {
   const [data] = useLiveQuery(null, query);
 
-  return <FeaturedProjectsSectionDefault settings={data} />;
+  return <FeaturedProjectsSectionDefault projects={data} />;
 }

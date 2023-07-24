@@ -35,11 +35,6 @@ const deskToolStructureBuilder = (S) =>
                         .title('Motto Section Settings')
                         .icon(sectionSettingsIcon),
                       S.documentListItem()
-                        .schemaType('featuredProjectsSectionSettings')
-                        .id('featuredProjectsSectionSettings')
-                        .title('Featured Projects Section Settings')
-                        .icon(sectionSettingsIcon),
-                      S.documentListItem()
                         .schemaType('contactSectionSettings')
                         .id('contactSectionSettings')
                         .title('Contact Section Settings')

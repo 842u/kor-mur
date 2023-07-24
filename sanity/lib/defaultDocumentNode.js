@@ -24,9 +24,6 @@ const defaultDocumentNode = (S, { schemaType }) => {
     case 'mottoSectionSettings':
       return enableDraftView(S, schemaType);
 
-    case 'featuredProjectsSectionSettings':
-      return enableDraftView(S, schemaType);
-
     case 'contactSectionSettings':
       return enableDraftView(S, schemaType);
 
