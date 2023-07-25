@@ -11,14 +11,14 @@ const DraftProvider = dynamic(() => import('@/components/providers/DraftProvider
   loading: () => <p>Loading...</p>,
 });
 
-export default function MottoSection({ settings }) {
+export default function MottoSection({ settings, withButton }) {
   const { isDraftMode } = useContext(DraftModeContext);
 
   return isDraftMode ? (
     <DraftProvider draftMode={isDraftMode}>
-      <MottoSectionDraft query={groqQueryMottoSectionSettings} />
+      <MottoSectionDraft query={groqQueryMottoSectionSettings} withButton={withButton} />
     </DraftProvider>
   ) : (
-    <MottoSectionDefault settings={settings} />
+    <MottoSectionDefault settings={settings} withButton={withButton} />
   );
 }

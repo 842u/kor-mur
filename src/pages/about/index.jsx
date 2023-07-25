@@ -16,7 +16,7 @@ export default function AboutPage({ draftMode, mottoSectionSettings, aboutSectio
 
   return (
     <>
-      <MottoSection settings={mottoSectionSettings} />
+      <MottoSection settings={mottoSectionSettings} withButton={false} />
       <AboutSection settings={aboutSectionSettings} />;
     </>
   );
