@@ -13,14 +13,17 @@ const qglQueryAboutPageSettings = gql`
     }
 
     allAboutSectionSettings {
-      title
-      firstParagraph
-      secondParagraph
-      image {
+      imageFirst {
         asset {
           url
         }
       }
+      imageSecond {
+        asset {
+          url
+        }
+      }
+      description
     }
   }
 `;
