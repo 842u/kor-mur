@@ -1,31 +1,27 @@
 import Image from 'next/image';
 import Link from 'next/link';
 
-import { secondaryFont } from '@/utils/fonts';
-
 import styles from './ProjectCard.module.scss';
 
-export default function ProjectCard({ project, sizes }) {
-  const mainImageUrl = project.mainImage.asset.url;
+export default function ProjectCard({ project, sizes, className, priority }) {
+  const image = project.mainImage.asset.url;
   const { current: slug } = project.slug;
   const { name } = project;
-  const { description } = project;
+  const style = `${styles['project-card']} ${className}`;
 
   return (
-    <div className={styles['project-card']}>
-      <h3 className={secondaryFont.className}>{name}</h3>
-      <Link className={styles['project-link']} href={`/projects/${slug}`}>
+    <Link className={style} href={`/projects/${slug}`}>
+      <div className={styles['hover-overlay']}>See More...</div>
+      <div className={styles['image-container']}>
         <Image
-          alt={`${name} main image`}
+          fill
+          alt={`${name} project image`}
           className={styles['project-image']}
-          height={1}
+          priority={priority}
           sizes={sizes}
-          src={mainImageUrl}
-          width={1}
+          src={image}
         />
-      </Link>
-      <p>{description}</p>
-      {project.tags && project.tags.map((tag) => tag && <span key={tag.name}>{tag.name}</span>)}
-    </div>
+      </div>
+    </Link>
   );
 }
