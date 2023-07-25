@@ -11,6 +11,7 @@ export default function ProjectCard({ project, sizes, className }) {
 
   return (
     <Link className={style} href={`/projects/${slug}`}>
+      <div className={styles['hover-overlay']}>See More...</div>
       <div className={styles['image-container']}>
         <Image
           fill

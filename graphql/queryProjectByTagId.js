@@ -5,20 +5,10 @@ const gqlQueryProjectByTagId = gql`
     allProject(where: $where) {
       _id
       name
-      descriptionFirst
-      descriptionSecond
       slug {
         current
       }
-      tags {
-        name
-      }
       mainImage {
-        asset {
-          url
-        }
-      }
-      images {
         asset {
           url
         }
