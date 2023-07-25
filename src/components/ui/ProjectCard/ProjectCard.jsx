@@ -3,7 +3,7 @@ import Link from 'next/link';
 
 import styles from './ProjectCard.module.scss';
 
-export default function ProjectCard({ project, sizes, className }) {
+export default function ProjectCard({ project, sizes, className, priority }) {
   const image = project.mainImage.asset.url;
   const { current: slug } = project.slug;
   const { name } = project;
@@ -17,6 +17,7 @@ export default function ProjectCard({ project, sizes, className }) {
           fill
           alt={`${name} project image`}
           className={styles['project-image']}
+          priority={priority}
           sizes={sizes}
           src={image}
         />

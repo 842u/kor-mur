@@ -19,10 +19,11 @@ export default function SpecificTagPage({ projectsWithQueryTag, tags }) {
         ))}
       </div>
       <div className={styles['projects-container']}>
-        {projectsWithQueryTag.map((project) => (
+        {projectsWithQueryTag.map((project, index) => (
           <ProjectCard
             key={project._id}
             className={styles['project-card']}
+            priority={index === 0}
             project={project}
             sizes="(max-width: 810px) 100vw, (max-width: 1200px) 50vw, 33vw"
           />
