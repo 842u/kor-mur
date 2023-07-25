@@ -8,11 +8,15 @@ export default function AboutSectionDefault({ settings }) {
 
   return (
     <section className={styles['about-section']}>
-      <div>
-        <Image height={100} src={imageFirst.asset.url} width={100} />
+      <section className={styles['info-section']}>
+        <div className={styles['first-image-container']}>
+          <Image fill className={styles.image} src={imageFirst.asset.url} />
+        </div>
         <p>{description}</p>
+      </section>
+      <div className={styles['second-image-container']}>
+        <Image fill className={styles.image} src={imageSecond.asset.url} />
       </div>
-      <Image height={100} src={imageSecond.asset.url} width={100} />
     </section>
   );
 }
