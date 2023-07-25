@@ -10,35 +10,24 @@ const aboutSectionSettings = defineType({
   type: 'document',
   fields: [
     defineField({
-      name: 'title',
-      title: 'About Section Title',
-      type: 'string',
-      validation: (Rule) => Rule.required(),
-    }),
-    defineField({
-      name: 'image',
-      title: 'About Section Image',
+      name: 'imageFirst',
+      title: 'About Section First Image',
       type: 'image',
       validation: (Rule) => Rule.required(),
     }),
     defineField({
-      name: 'firstParagraph',
-      title: 'About Section First Paragraph',
-      type: 'text',
+      name: 'imageSecond',
+      title: 'About Section Second Image',
+      type: 'image',
       validation: (Rule) => Rule.required(),
     }),
     defineField({
-      name: 'secondParagraph',
-      title: 'About Section Second Paragraph',
+      name: 'description',
+      title: 'About Section Description',
       type: 'text',
       validation: (Rule) => Rule.required(),
     }),
   ],
-  initialValue: {
-    title: 'About Section Title',
-    firstParagraph: 'About Section First Paragraph',
-    secondParagraph: 'About Section Second Paragraph',
-  },
 });
 
 export default aboutSectionSettings;

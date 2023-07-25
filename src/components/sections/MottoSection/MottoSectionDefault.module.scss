@@ -10,41 +10,45 @@
     margin: 2rem auto;
     text-align: center;
   }
+}
 
-  .title-container {
-    .title {
-      overflow: hidden;
-      height: 0;
-      opacity: 0;
-      transition: opacity 2s ease-in-out;
+.title-container {
+  .title {
+    overflow: hidden;
 
-      &--active {
-        height: auto;
-        opacity: 1;
-      }
+    height: 0;
+
+    text-align: center;
+
+    opacity: 0;
+
+    transition: opacity 2s ease-in-out;
+
+    &--active {
+      height: auto;
+      opacity: 1;
     }
   }
+}
 
-  .image-container {
-    position: relative;
-    aspect-ratio: auto 1 / 1;
+.image-container {
+  position: relative;
+  aspect-ratio: 1 / 1;
 
-    .image {
-      object-fit: cover;
-    }
+  .image {
+    object-fit: cover;
   }
+}
 
-  .about-button {
-    @include mixins.link-button;
+.about-button {
+  @include mixins.link-button;
 
-    margin: 2rem auto 0;
-  }
+  margin: 2rem auto 0;
 }
 
 @media (width > 810px) {
   .motto-section {
     flex-direction: row;
-    gap: 1.5rem;
 
     p {
       font-size: 1.5rem;
@@ -55,26 +59,23 @@
   .first-wrapper {
     display: flex;
     flex-direction: column-reverse;
-    flex-shrink: 2;
-    justify-content: space-around;
+    justify-content: space-evenly;
+    width: 50%;
   }
 
   .second-wrapper {
     display: flex;
     flex-direction: column;
-    flex-shrink: 3;
-    justify-content: space-between;
+    width: 50%;
+  }
 
-    .image-container {
-      aspect-ratio: auto 16 / 9;
-    }
+  .image-container {
+    aspect-ratio: auto 16 / 9;
   }
 }
 
 @media (width > 1200px) {
   .motto-section {
-    gap: 4rem;
-
     p {
       font-size: 2rem;
     }

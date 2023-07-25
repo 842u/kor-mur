@@ -8,7 +8,7 @@ import { secondaryFont } from '@/utils/fonts';
 import getMottoSectionSetup from './getMottoSectionSetup';
 import styles from './MottoSectionDefault.module.scss';
 
-export default function MottoSectionDefault({ settings }) {
+export default function MottoSectionDefault({ settings, withButton = true }) {
   const { mottoSectionTitles, mottoSectionText, mottoSectionImage } =
     getMottoSectionSetup(settings);
 
@@ -42,9 +42,11 @@ export default function MottoSectionDefault({ settings }) {
             );
           })}
         </div>
-        <Link className={styles['about-button']} href="/about">
-          O MNIE
-        </Link>
+        {withButton ? (
+          <Link className={styles['about-button']} href="/about">
+            O MNIE
+          </Link>
+        ) : null}
       </div>
       <div className={styles['second-wrapper']}>
         <p>{mottoSectionText}</p>
