@@ -7,4 +7,28 @@
   display: flex;
   gap: 1rem;
   justify-content: center;
+  margin: 2rem;
+}
+
+.projects-container {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+@media (width > 810px) {
+  .projects-container {
+    flex-flow: row wrap;
+    justify-content: space-evenly;
+  }
+
+  .project-card {
+    width: 45%;
+  }
+}
+
+@media (width > 1200px) {
+  .project-card {
+    width: 28%;
+  }
 }

@@ -12,19 +12,22 @@ import styles from './[slug].module.scss';
 export default function SpecificTagPage({ projectsWithQueryTag, tags }) {
   return (
     <>
-      <section>
-        <h1 className={`${styles['page-title']} ${secondaryFont.className}`}>
-          Projects Page Title
-        </h1>
-        <div className={styles['tag-container']}>
-          {tags.map((tag) => (
-            <TagLabel key={tag._id} tag={tag} />
-          ))}
-        </div>
-      </section>
-      {projectsWithQueryTag.map((project) => (
-        <ProjectCard key={project._id} project={project} sizes="100vw" />
-      ))}
+      <h1 className={`${styles['page-title']} ${secondaryFont.className}`}>Projects Page Title</h1>
+      <div className={styles['tag-container']}>
+        {tags.map((tag) => (
+          <TagLabel key={tag._id} tag={tag} />
+        ))}
+      </div>
+      <div className={styles['projects-container']}>
+        {projectsWithQueryTag.map((project) => (
+          <ProjectCard
+            key={project._id}
+            className={styles['project-card']}
+            project={project}
+            sizes="(max-width: 810px) 100vw, (max-width: 1200px) 50vw, 33vw"
+          />
+        ))}
+      </div>
     </>
   );
 }
