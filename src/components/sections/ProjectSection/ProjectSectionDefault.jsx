@@ -65,7 +65,7 @@ export default function ProjectSectionDefault({ settings }) {
         </div>
       </section>
 
-      <section>
+      <section className={styles['image-gallery']}>
         {images.map((image) => (
           <div className={styles['image-container']}>
             <Image fill className={styles.image} src={image.asset.url} />

@@ -24,6 +24,12 @@
   }
 }
 
+.image-gallery {
+  display: flex;
+  flex-flow: column;
+  border: 2px solid yellow;
+}
+
 .tag-container {
   display: flex;
   flex-wrap: wrap;
