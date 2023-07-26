@@ -1,17 +1,27 @@
 import placeholderImage from 'public/default-image-placeholder.png';
 
 const defaultSettings = {
-  name: 'Default project name',
-  descriptionFirst: 'Default project first description',
-  descriptionSecond: 'Default project second description',
+  name: 'Default Project Name',
+  descriptionFirst: 'Default Project First Description',
+  descriptionSecond: 'Default Project Second Description',
   year: new Date(),
-  location: 'Default project location',
-  area: 'Default project area',
-  budget: 'Default project budget',
+  location: 'Default Project location',
+  area: 'Default Project Area',
+  budget: 'Default Project Budget',
   mainImage: {
     asset: {
       url: placeholderImage,
     },
+  },
+  secondaryImage: {
+    asset: {
+      url: placeholderImage,
+    },
+  },
+  images: [],
+  tags: [],
+  slug: {
+    current: 'default-project-slug',
   },
 };
 
@@ -25,5 +35,9 @@ export default function getProjectSectionSetup(settings) {
     area: settings?.[0]?.area || defaultSettings.area,
     budget: settings?.[0]?.budget || defaultSettings.budget,
     mainImage: settings?.[0]?.mainImage || defaultSettings.mainImage,
+    secondaryImage: settings?.[0]?.secondaryImage || defaultSettings.secondaryImage,
+    images: settings?.[0]?.images || defaultSettings.images,
+    tags: settings?.[0]?.tags || defaultSettings.tags,
+    slug: settings?.[0]?.slug || defaultSettings.slug,
   };
 }

@@ -1,20 +1,43 @@
 import Image from 'next/image';
 
+import TagLabel from '@/components/ui/TagLabel/TagLabel';
+
 import getProjectSectionSetup from './getProjectSectionSetup';
 import styles from './ProjectSectionDefault.module.scss';
 
 export default function ProjectSectionDefault({ settings }) {
-  const setup = getProjectSectionSetup(settings);
+  const {
+    name,
+    descriptionFirst,
+    descriptionSecond,
+    year,
+    location,
+    area,
+    budget,
+    mainImage,
+    secondaryImage,
+    images,
+    tags,
+    slug,
+  } = getProjectSectionSetup(settings);
 
   return (
     <section className={styles['project-section']}>
-      <p>{new Date(setup.year).getFullYear()}</p>
-      <p>{setup.location}</p>
-      <p>{setup.area}</p>
-      <p>{setup.budget}</p>
-      <h1>{setup.name}</h1>
-      <p>{setup.descriptionFirst}</p>
-      <Image alt={`${setup.name}`} height={400} src={setup.mainImage.asset.url} width={400} />
+      <h1>{name}</h1>
+      <section className={styles['info-section']}>
+        <div className={styles['project-metrics']}>
+          <p>Rok: {year}</p>
+          <p>Miejsce: {location}</p>
+          <p>Powierzchnia: {area} m²</p>
+          <p>Budżet: {budget} PLN</p>
+          {tags.map((tag) => (
+            <TagLabel tag={tag} />
+          ))}
+        </div>
+        <div className={styles['main-image-container']}>
+          <Image fill src={mainImage.asset.url} />
+        </div>
+      </section>
     </section>
   );
 }

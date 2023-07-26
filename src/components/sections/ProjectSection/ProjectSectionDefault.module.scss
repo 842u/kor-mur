@@ -1,3 +1,23 @@
+@use '@/styles/mixins.scss' as mixins;
+
 .project-section {
-  margin-top: 5rem;
+  @include mixins.section;
+
+  h1 {
+    text-align: center;
+  }
+}
+
+.info-section {
+  display: flex;
+  border: 1px solid red;
+}
+
+.project-metrics {
+  border: 1px solid blue;
+}
+
+.main-image-container {
+  position: relative;
+  width: 50%;
 }
