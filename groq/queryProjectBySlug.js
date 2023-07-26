@@ -13,9 +13,26 @@ const groqQueryProjectBySlug = groq`*[_type == "project"]{
       url
     }
   },
+
+  secondaryImage{
+    asset->{
+      url
+    }
+  },
+
+  images[]{
+    asset->{
+      url
+    }
+  },
+
   tags[]->{
-    name
-    },
+    name,
+    slug{
+      current
+    }
+  },
+
   slug{
     current
   }

@@ -94,6 +94,13 @@ const project = defineType({
     }),
 
     defineField({
+      name: 'secondaryImage',
+      title: 'Project Secondary Image',
+      type: 'image',
+      validation: (Rule) => Rule.required(),
+    }),
+
+    defineField({
       name: 'images',
       title: 'Project Images',
       type: 'array',

@@ -1,3 +1,127 @@
+@use '@/styles/mixins.scss' as mixins;
+
 .project-section {
-  margin-top: 5rem;
+  @include mixins.section;
+
+  h1 {
+    text-align: center;
+  }
+
+  p {
+    font-size: 1.5rem;
+  }
+}
+
+.details-section {
+  display: flex;
+  flex-direction: column;
+}
+
+.details-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+}
+
+.project-details {
+  margin: 0 auto;
+
+  th {
+    padding-right: 1rem;
+    text-align: left;
+  }
+}
+
+.image-gallery {
+  display: flex;
+  flex-flow: column;
+}
+
+.tag-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.main-image,
+.secondary-image,
+.gallery-image {
+  aspect-ratio: 1 / 1;
+  width: 100%;
+}
+
+.gallery-image {
+  margin: 1rem 0;
+}
+
+@media (width > 810px) {
+  .project-section {
+    p {
+      font-size: 1.5rem;
+    }
+  }
+
+  .project-details {
+    th,
+    td {
+      font-size: 1.5rem;
+    }
+  }
+
+  .details-section {
+    flex-direction: row;
+  }
+
+  .details-container {
+    flex-direction: column;
+    width: 40%;
+  }
+
+  .main-image {
+    width: 60%;
+    margin-left: 2rem;
+  }
+
+  .description-section {
+    display: flex;
+    flex-direction: row-reverse;
+    margin: 3rem 0;
+
+    p {
+      width: 40%;
+    }
+
+    .secondary-image {
+      width: 60%;
+      height: auto;
+      margin-right: 2rem;
+    }
+  }
+
+  .gallery-image {
+    aspect-ratio: 16 / 9;
+    margin: 1rem 0;
+  }
+}
+
+@media (width > 1200px) {
+  .project-section {
+    p {
+      font-size: 2rem;
+    }
+  }
+
+  .main-image,
+  .secondary-image {
+    aspect-ratio: 16 / 9;
+  }
+
+  .image-gallery {
+    flex-flow: row wrap;
+    justify-content: space-evenly;
+
+    .gallery-image {
+      width: 45%;
+    }
+  }
 }

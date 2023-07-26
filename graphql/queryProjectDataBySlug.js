@@ -15,14 +15,26 @@ const gqlQueryProjectBySlug = gql`
           url
         }
       }
+
+      secondaryImage {
+        asset {
+          url
+        }
+      }
+
       images {
         asset {
           url
         }
       }
+
       tags {
         name
+        slug {
+          current
+        }
       }
+
       slug {
         current
       }
