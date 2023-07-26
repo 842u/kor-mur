@@ -1,5 +1,6 @@
 import Image from 'next/image';
 
+import InteractiveImage from '@/components/ui/InteractiveImage/InteractiveImage';
 import TagLabel from '@/components/ui/TagLabel/TagLabel';
 
 import getProjectSectionSetup from './getProjectSectionSetup';
@@ -52,12 +53,17 @@ export default function ProjectSectionDefault({ settings }) {
 
         <p>{descriptionFirst}</p>
 
-        <div className={styles['main-image-container']}>
+        <InteractiveImage
+          fill
+          className={styles['main-image-container']}
+          src={mainImage.asset.url}
+        />
+        {/* <div className={styles['main-image-container']}>
           <Image fill className={styles.image} src={mainImage.asset.url} />
-        </div>
+        </div> */}
       </section>
 
-      <section className={styles['description-section']}>
+      {/* <section className={styles['description-section']}>
         <p>{descriptionSecond}</p>
 
         <div className={styles['second-image-container']}>
@@ -71,7 +77,7 @@ export default function ProjectSectionDefault({ settings }) {
             <Image fill className={styles.image} src={image.asset.url} />
           </div>
         ))}
-      </section>
+      </section> */}
     </section>
   );
 }
