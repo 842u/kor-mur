@@ -24,34 +24,36 @@ export default function ProjectSectionDefault({ settings }) {
       <h1>{name}</h1>
 
       <section className={styles['details-section']}>
-        <table aria-label="Project details" className={styles['project-details']}>
-          <tbody>
-            <tr>
-              <th>Rok</th>
-              <td>{new Date(year).getFullYear()}</td>
-            </tr>
-            <tr>
-              <th>Miejsce</th>
-              <td>{location}</td>
-            </tr>
-            <tr>
-              <th>Powierzchnia</th>
-              <td>{area}</td>
-            </tr>
-            <tr>
-              <th>Budżet</th>
-              <td>{budget}</td>
-            </tr>
-          </tbody>
-        </table>
+        <div className={styles['details-container']}>
+          <table aria-label="Project details" className={styles['project-details']}>
+            <tbody>
+              <tr>
+                <th>Rok</th>
+                <td>{new Date(year).getFullYear()}</td>
+              </tr>
+              <tr>
+                <th>Miejsce</th>
+                <td>{location}</td>
+              </tr>
+              <tr>
+                <th>Powierzchnia</th>
+                <td>{area}</td>
+              </tr>
+              <tr>
+                <th>Budżet</th>
+                <td>{budget}</td>
+              </tr>
+            </tbody>
+          </table>
 
-        <div className={styles['tag-container']}>
-          {tags.map((tag) => (
-            <TagLabel tag={tag} />
-          ))}
+          <div className={styles['tag-container']}>
+            {tags.map((tag) => (
+              <TagLabel tag={tag} />
+            ))}
+          </div>
+
+          <p>{descriptionFirst}</p>
         </div>
-
-        <p>{descriptionFirst}</p>
 
         <InteractiveImage fill className={styles['main-image']} src={mainImage.asset.url} />
       </section>
