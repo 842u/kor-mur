@@ -8,16 +8,41 @@
   }
 }
 
-.info-section {
+.details-section {
   display: flex;
-  border: 1px solid red;
+  flex-direction: column;
+  border: 2px solid red;
 }
 
-.project-metrics {
-  border: 1px solid blue;
+.project-details {
+  margin: auto;
+  border: 2px solid blue;
+
+  th {
+    padding-right: 1rem;
+    text-align: left;
+  }
 }
 
-.main-image-container {
+.tag-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  border: 2px solid magenta;
+}
+
+.main-image-container,
+.second-image-container,
+.image-container {
   position: relative;
-  width: 50%;
+  aspect-ratio: 1 / 1;
+  width: 100%;
+}
+
+.image {
+  object-fit: cover;
+}
+
+.description-section {
+  border: 2px solid green;
 }
