@@ -3,7 +3,7 @@ import { useState } from 'react';
 
 import styles from './InteractiveImage.module.scss';
 
-export default function InteractiveImage({ fill, src, className }) {
+export default function InteractiveImage({ fill, src, className, sizes = '' }) {
   const [isActive, setIsActive] = useState(false);
 
   const onClickHandler = () => {
@@ -14,7 +14,7 @@ export default function InteractiveImage({ fill, src, className }) {
 
   return (
     <button className={style} type="button" onClick={onClickHandler}>
-      <Image className={styles.image} fill={fill} src={src} />
+      <Image className={styles.image} fill={fill} sizes={sizes} src={src} />
     </button>
   );
 }

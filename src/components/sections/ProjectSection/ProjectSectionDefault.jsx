@@ -1,5 +1,3 @@
-import Image from 'next/image';
-
 import InteractiveImage from '@/components/ui/InteractiveImage/InteractiveImage';
 import TagLabel from '@/components/ui/TagLabel/TagLabel';
 
@@ -27,22 +25,24 @@ export default function ProjectSectionDefault({ settings }) {
 
       <section className={styles['details-section']}>
         <table aria-label="Project details" className={styles['project-details']}>
-          <tr>
-            <th>Rok</th>
-            <td>{new Date(year).getFullYear()}</td>
-          </tr>
-          <tr>
-            <th>Miejsce</th>
-            <td>{location}</td>
-          </tr>
-          <tr>
-            <th>Powierzchnia</th>
-            <td>{area}</td>
-          </tr>
-          <tr>
-            <th>Budżet</th>
-            <td>{budget}</td>
-          </tr>
+          <tbody>
+            <tr>
+              <th>Rok</th>
+              <td>{new Date(year).getFullYear()}</td>
+            </tr>
+            <tr>
+              <th>Miejsce</th>
+              <td>{location}</td>
+            </tr>
+            <tr>
+              <th>Powierzchnia</th>
+              <td>{area}</td>
+            </tr>
+            <tr>
+              <th>Budżet</th>
+              <td>{budget}</td>
+            </tr>
+          </tbody>
         </table>
 
         <div className={styles['tag-container']}>
@@ -53,31 +53,29 @@ export default function ProjectSectionDefault({ settings }) {
 
         <p>{descriptionFirst}</p>
 
-        <InteractiveImage
-          fill
-          className={styles['main-image-container']}
-          src={mainImage.asset.url}
-        />
-        {/* <div className={styles['main-image-container']}>
-          <Image fill className={styles.image} src={mainImage.asset.url} />
-        </div> */}
+        <InteractiveImage fill className={styles['main-image']} src={mainImage.asset.url} />
       </section>
 
-      {/* <section className={styles['description-section']}>
+      <section className={styles['description-section']}>
         <p>{descriptionSecond}</p>
 
-        <div className={styles['second-image-container']}>
-          <Image fill className={styles.image} src={secondaryImage.asset.url} />
-        </div>
+        <InteractiveImage
+          fill
+          className={styles['secondary-image']}
+          src={secondaryImage.asset.url}
+        />
       </section>
 
       <section className={styles['image-gallery']}>
         {images.map((image) => (
-          <div className={styles['image-container']}>
-            <Image fill className={styles.image} src={image.asset.url} />
-          </div>
+          <InteractiveImage
+            fill
+            className={styles['gallery-image']}
+            sizes="100vw"
+            src={image.asset.url}
+          />
         ))}
-      </section> */}
+      </section>
     </section>
   );
 }
