@@ -24,7 +24,10 @@ export default function HeroSectionDefault({ settings }) {
 
   return (
     <section className={styles['hero-section']}>
-      <p className={styles['hero-text']}>{heroSectionText}</p>
+      <div className={styles['text-container']}>
+        <h1>{heroSectionText}</h1>
+      </div>
+
       <div className={styles['image-container']}>
         {heroSectionImages.map((image, index) => {
           const imageStyle = `${styles.image} ${
