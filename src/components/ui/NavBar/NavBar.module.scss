@@ -15,10 +15,6 @@
 
   filter: drop-shadow(0 0 1px white) drop-shadow(0 0 5px white) drop-shadow(0 0 10px white);
   backdrop-filter: blur(var(--light-blur));
-
-  .hamburger {
-    z-index: 40;
-  }
 }
 
 @media (width > 810px) {
@@ -27,10 +23,6 @@
 
     nav {
       width: 65%;
-    }
-
-    .hamburger {
-      display: none;
     }
   }
 }

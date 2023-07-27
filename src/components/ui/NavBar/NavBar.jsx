@@ -25,7 +25,7 @@ export default function NavBar({ className }) {
       <nav>
         <HamburgerButton
           className={styles.hamburger}
-          isMenuActive={isMenuActive}
+          isActive={isMenuActive}
           onClick={toggleMenuHandler}
         />
         <NavMenu
