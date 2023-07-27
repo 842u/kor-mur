@@ -4,7 +4,7 @@ import { useState } from 'react';
 import LogoButton from '../LogoButton/LogoButton.jsx';
 import HamburgerButton from './HamburgerButton/HamburgerButton.jsx';
 import styles from './NavBar.module.scss';
-import NavMenu from './NavMenu/NavMenu.jsx';
+import NavMenu from './NavMenu/NavList.jsx';
 
 export default function NavBar({ className }) {
   const [isMenuActive, setIsMenuActive] = useState(false);

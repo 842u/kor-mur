@@ -2,7 +2,7 @@ import '@testing-library/jest-dom';
 
 import { render, screen, waitFor } from '@testing-library/react';
 
-import NavMenu from './NavMenu';
+import NavMenu from './NavList';
 
 jest.mock('next/router', () => ({
   useRouter: () => ({

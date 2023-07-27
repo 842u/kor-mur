@@ -1,4 +1,4 @@
-import styles from './NavMenu.module.scss';
+import styles from './NavList.module.scss';
 import NavMenuItem from './NavMenuItem/NavMenuItem';
 
 const links = [
