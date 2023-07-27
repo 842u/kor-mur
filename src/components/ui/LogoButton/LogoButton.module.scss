@@ -1,0 +1,47 @@
+@use '@/components/ui/CircleLogo/mixins.scss' as Logo;
+
+.logo-button {
+  cursor: pointer;
+  z-index: 40;
+  background: none;
+  border: none;
+}
+
+.logo-circle {
+  @include Logo.configure(
+    $logo-width: calc(5rem - 10px),
+    $text-total-characters: 15,
+    $character-rotation-angle: 90deg,
+    $font-size: 0.7rem,
+    $text-spread-angle: 350deg,
+    $border-size: 2px,
+    $border-color: var(--secondary-500),
+    $spin: true,
+    $spin-duration: 30s
+  );
+}
+
+.logo-text {
+  cursor: pointer;
+  display: none;
+}
+
+@media (width > 810px) {
+  .logo-button {
+    display: flex;
+    gap: 1rem;
+    align-items: center;
+    border: 2px solid blue;
+  }
+
+  .logo-text {
+    display: initial;
+    font-size: 1.5rem;
+  }
+}
+
+@media (width > 1200px) {
+  .logo-text {
+    font-size: 2rem;
+  }
+}
