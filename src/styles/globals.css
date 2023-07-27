@@ -29,6 +29,8 @@
   --primary-700: #7e776b;
   --primary-800: #625c53;
   --primary-900: #4b464f;
+  --navbar-height: 5rem;
+  --light-blur: 5px;
 }
 
 *,
