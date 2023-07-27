@@ -29,7 +29,7 @@ export default function NavBar({ className }) {
         onClick={clickLogoHandler}
       >
         <span className={styles['logo-text']}>MURAWSKA.STUDIO</span>
-        <CircleLogo className={styles.logo} text="MURAWSKA.STUDIO" />
+        <CircleLogo className={styles['logo-circle']} text="MURAWSKA.STUDIO" />
       </button>
       <nav>
         <HamburgerButton

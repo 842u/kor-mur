@@ -1,6 +1,5 @@
 .item {
-  margin: 1rem auto;
-  font-size: 2rem;
+  white-space: nowrap;
 
   &--active {
     font-size: 2.5rem;
@@ -38,9 +37,6 @@
 
 @media (width > 810px) {
   .item {
-    margin: 0 1rem;
-    font-size: 1rem;
-
     &--active {
       font-size: 1.5rem;
     }
