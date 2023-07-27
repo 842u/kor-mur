@@ -17,12 +17,20 @@
   backdrop-filter: blur(var(--light-blur));
 }
 
+.logo-button {
+  margin-left: 1rem;
+}
+
 @media (width > 810px) {
   .navbar {
-    justify-content: space-evenly;
+    justify-content: space-around;
 
     nav {
       width: 65%;
     }
+  }
+
+  .logo-button {
+    margin: initial;
   }
 }
