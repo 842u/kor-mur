@@ -4,7 +4,7 @@ import { useState } from 'react';
 import LogoButton from '../LogoButton/LogoButton.jsx';
 import HamburgerButton from './HamburgerButton/HamburgerButton.jsx';
 import styles from './NavBar.module.scss';
-import NavMenu from './NavMenu/NavList.jsx';
+import NavList from './NavList/NavList.jsx';
 
 export default function NavBar({ className }) {
   const [isMenuActive, setIsMenuActive] = useState(false);
@@ -28,7 +28,7 @@ export default function NavBar({ className }) {
           isActive={isMenuActive}
           onClick={toggleMenuHandler}
         />
-        <NavMenu
+        <NavList
           className={styles.menu}
           isMenuActive={isMenuActive}
           onMenuItemClick={toggleMenuHandler}

@@ -2,7 +2,7 @@ import '@testing-library/jest-dom';
 
 import { render, screen, waitFor } from '@testing-library/react';
 
-import NavMenuItem from './NavMenuItem';
+import NavListItem from './NavListItem';
 
 jest.mock('next/router', () => ({
   useRouter: () => ({
@@ -10,12 +10,12 @@ jest.mock('next/router', () => ({
   }),
 }));
 
-describe('NavMenuItem', () => {
+describe('NavListItem', () => {
   it('should render a link with provided text', async () => {
     const href = '/test';
     const text = 'Test';
 
-    render(<NavMenuItem href={href}>{text}</NavMenuItem>);
+    render(<NavListItem href={href}>{text}</NavListItem>);
 
     const menuItem = screen.getByRole('link', { name: text });
 

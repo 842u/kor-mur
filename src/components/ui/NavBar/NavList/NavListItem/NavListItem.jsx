@@ -1,9 +1,9 @@
 import Link from 'next/link';
 import { useRouter } from 'next/router';
 
-import styles from './NavMenuItem.module.scss';
+import styles from './NavListItem.module.scss';
 
-export default function NavMenuItem({ href, children, onClick }) {
+export default function NavListItem({ href, children, onClick }) {
   const router = useRouter();
   const currentPath = router.asPath;
 

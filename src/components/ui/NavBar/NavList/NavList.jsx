@@ -1,5 +1,5 @@
 import styles from './NavList.module.scss';
-import NavMenuItem from './NavMenuItem/NavMenuItem';
+import NavListItem from './NavListItem/NavListItem';
 
 const links = [
   {
@@ -20,15 +20,15 @@ const links = [
   },
 ];
 
-export default function NavMenu({ isMenuActive, className, onMenuItemClick, menuItems = links }) {
+export default function NavList({ isMenuActive, className, onMenuItemClick, menuItems = links }) {
   const styleClass = `${styles.menu} ${isMenuActive && styles['menu--active']} ${className}`;
 
   return (
     <ul className={styleClass}>
       {menuItems.map((item) => (
-        <NavMenuItem key={item.href} href={item.href} onClick={onMenuItemClick}>
+        <NavListItem key={item.href} href={item.href} onClick={onMenuItemClick}>
           {item.text}
-        </NavMenuItem>
+        </NavListItem>
       ))}
     </ul>
   );
