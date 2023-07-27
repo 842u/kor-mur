@@ -13,11 +13,11 @@ describe('HamburgerButton', () => {
     expect(button).toBeInTheDocument();
   });
 
-  it('should add the active class when isMenuActive is true', () => {
-    render(<HamburgerButton isMenuActive />);
+  it('should add the active class when isActive={} is true', () => {
+    render(<HamburgerButton isActive />);
 
     const button = screen.getByRole('button', { name: 'menu' });
-    expect(button).toHaveClass('button--active');
+    expect(button).toHaveClass('hamburger-button--active');
   });
 
   it('should call onClick when the button is clicked', async () => {
