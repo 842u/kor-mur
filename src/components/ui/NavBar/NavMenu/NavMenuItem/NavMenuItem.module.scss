@@ -39,7 +39,7 @@
   .item {
     font-size: 1rem;
     white-space: nowrap;
-    transition: scale 0.1s ease-in;
+    transition: 0.3s ease;
 
     &:hover {
       scale: 1.1;
@@ -62,7 +62,6 @@
 @media (width > 1200px) {
   .item {
     font-size: 1.5rem;
-    transition: 0.3s ease;
 
     &--active {
       font-size: 2rem;
