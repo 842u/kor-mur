@@ -9,7 +9,7 @@ export default function FeaturedProjectCard({ project }) {
 
   return (
     <div className={styles['project-card']}>
-      <FeaturedProjectInfo project={project} />
+      <FeaturedProjectInfo className={styles['info-card']} project={project} />
 
       <Link className={styles['project-link']} href={`/projects/${slug.current}`}>
         <Image fill className={styles['project-image']} src={mainImage.asset.url} />
