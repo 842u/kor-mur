@@ -31,6 +31,8 @@
   --primary-900: #4b464f;
   --navbar-height: 5rem;
   --light-blur: 5px;
+  --border-radius-small: 1rem;
+  --margin-item-small: 2rem;
 }
 
 *,

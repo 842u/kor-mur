@@ -5,9 +5,12 @@
 
   display: flex;
   flex-direction: column;
+  align-items: center;
+  justify-content: center;
 
   p {
-    margin: 2rem auto;
+    margin: var(--margin-item-small) auto;
+    font-size: 1.5rem;
     text-align: center;
   }
 }
@@ -17,7 +20,9 @@
     overflow: hidden;
 
     height: 0;
+    margin: var(--margin-item-small) auto;
 
+    font-size: 2.5rem;
     text-align: center;
 
     opacity: 0;
@@ -37,18 +42,20 @@
 
   .image {
     object-fit: cover;
+    border-radius: var(--border-radius-small);
   }
 }
 
 .about-button {
   @include mixins.link-button;
 
-  margin: 2rem auto 0;
+  margin: 0 auto;
 }
 
 @media (width > 810px) {
   .motto-section {
     flex-direction: row;
+    gap: 2rem;
 
     p {
       font-size: 1.5rem;
@@ -59,25 +66,52 @@
   .first-wrapper {
     display: flex;
     flex-direction: column-reverse;
+    align-self: stretch;
     justify-content: space-evenly;
+
     width: 50%;
   }
 
   .second-wrapper {
     display: flex;
     flex-direction: column;
+    align-self: stretch;
+    justify-content: space-evenly;
+
     width: 50%;
   }
 
   .image-container {
-    aspect-ratio: auto 16 / 9;
+    aspect-ratio: auto 16 / 11;
   }
 }
 
 @media (width > 1200px) {
   .motto-section {
     p {
-      font-size: 2rem;
+      font-size: 3rem;
     }
+  }
+
+  .first-wrapper {
+    width: 40%;
+  }
+
+  .second-wrapper {
+    width: 60%;
+  }
+
+  .about-button {
+    width: 50%;
+  }
+
+  .title-container {
+    .title {
+      font-size: 4rem;
+    }
+  }
+
+  .image-container {
+    aspect-ratio: 16 / 9;
   }
 }
