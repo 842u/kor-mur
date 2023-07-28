@@ -83,6 +83,10 @@
 
   .image-container {
     aspect-ratio: auto 16 / 11;
+
+    .image {
+      border-radius: var(--border-radius-medium);
+    }
   }
 }
 
@@ -113,5 +117,9 @@
 
   .image-container {
     aspect-ratio: 16 / 9;
+
+    .image {
+      border-radius: var(--border-radius-large);
+    }
   }
 }
