@@ -4,23 +4,6 @@
   height: 100vh;
 }
 
-.project-info {
-  position: absolute;
-  z-index: 10;
-
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-
-  margin: 0 var(--margin-item-small);
-  padding: 1rem;
-
-  color: white;
-
-  background-color: rgb(0 0 0 / 30%);
-  border-radius: var(--border-radius-small);
-}
-
 .project-link {
   z-index: 5;
   display: block;
