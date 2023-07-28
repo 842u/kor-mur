@@ -1,29 +1,16 @@
 @mixin section {
-  padding: 4rem 1rem;
+  min-height: 100vh;
+  padding: 2rem 1rem;
   color: var(--secondary-700);
 
-  h2 {
-    @include section-heading;
-  }
-
   @media (width > 810px) {
+    min-height: 50vh;
     padding: 4rem 2rem;
-  }
-}
-
-@mixin section-heading {
-  font-size: 2rem;
-  text-align: center;
-  letter-spacing: 0.5rem;
-
-  @media (width > 810px) {
-    font-size: 2rem;
-    text-align: left;
   }
 
   @media (width > 1200px) {
-    font-size: 2.5rem;
-    letter-spacing: 1rem;
+    min-height: 100vh;
+    padding: 6rem 4rem;
   }
 }
 
@@ -39,11 +26,23 @@
   align-items: center;
   justify-content: center;
 
-  width: 14rem;
+  width: 70%;
   height: 4rem;
 
   color: var(--secondary-800);
   text-decoration: none;
 
   background-color: var(--primary-200);
+  border-radius: var(--border-radius-small);
+  box-shadow: 5px 5px 12px 0 rgb(66 68 90 / 100%);
+
+  transition: scale 0.1s ease;
+
+  &:hover {
+    scale: 1.05;
+  }
+
+  @media (width > 810px) {
+    font-size: 1.5rem;
+  }
 }
