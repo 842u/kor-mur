@@ -28,9 +28,11 @@ const socials = [
   },
 ];
 
-export default function Socials({ socialItems = socials }) {
+export default function Socials({ className, socialItems = socials }) {
+  const style = `${className} ${styles.socials}`;
+
   return (
-    <address className={styles.socials}>
+    <address className={style}>
       {socialItems.map((item) => (
         <SocialItem key={item.text} alt={item.alt} href={item.href} iconSrc={item.iconSrc}>
           {item.text}
