@@ -3,52 +3,56 @@
 .contact-section {
   @include mixins.section;
 
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  min-height: 100vh;
-
-  p {
-    margin: 2rem 0;
+  h2 {
+    font-size: 3rem;
     text-align: center;
   }
 
-  .contact-info {
-    width: 100%;
+  p {
+    margin: var(--margin-item-small) auto;
+    font-size: 1.5rem;
   }
+}
 
-  .image-container {
-    position: relative;
-    aspect-ratio: 1 / 1;
-    margin: 2rem 0;
-  }
+.image-container {
+  position: relative;
+  aspect-ratio: 1 / 1;
+  margin: var(--margin-item-small) auto;
+}
 
-  .form {
-    width: 100%;
-    max-width: 500px;
-  }
-
-  .image {
-    object-fit: cover;
-  }
+.image {
+  object-fit: cover;
+  border-radius: var(--border-radius-small);
 }
 
 @media (width > 810px) {
   .contact-section {
-    p {
+    h2 {
+      margin-bottom: 3rem;
       text-align: left;
     }
+  }
 
-    .image-container {
-      aspect-ratio: 16 / 9;
-    }
+  .contact-wrapper {
+    display: flex;
+    flex-direction: row;
+    gap: var(--margin-item-small);
+    align-items: center;
+
+    border: 1px solid red;
+  }
+
+  .description-wrapper {
+    width: 50%;
+  }
+
+  .form-wrapper {
+    width: 50%;
   }
 }
 
 @media (width > 1200px) {
-  .contact-section {
-    flex-direction: row;
-    gap: 5%;
-    justify-content: space-between;
+  .image-container {
+    aspect-ratio: 16 / 9;
   }
 }

@@ -11,14 +11,18 @@ export default function ContactSectionDefault({ settings }) {
 
   return (
     <section className={styles['contact-section']} id="contact">
-      <div className={styles['contact-info']}>
-        <h2 className={secondaryFont.className}>{title}</h2>
-        <p>{description}</p>
-        <div className={styles['image-container']}>
-          <Image fill className={styles.image} src={image.asset.url} />
+      <h2 className={secondaryFont.className}>{title}</h2>
+      <div className={styles['contact-wrapper']}>
+        <div className={styles['description-wrapper']}>
+          <p>{description}</p>
+          <div className={styles['image-container']}>
+            <Image fill className={styles.image} src={image.asset.url} />
+          </div>
+        </div>
+        <div className={styles['form-wrapper']}>
+          <ContactForm className={styles.form} />
         </div>
       </div>
-      <ContactForm className={styles.form} />
     </section>
   );
 }

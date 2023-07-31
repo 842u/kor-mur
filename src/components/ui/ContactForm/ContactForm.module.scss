@@ -3,8 +3,11 @@
 .contact-form {
   display: flex;
   flex-direction: column;
+
   padding: 1rem;
+
   background-color: var(--primary-200);
+  border-radius: var(--border-radius-small);
 
   button {
     @include mixins.button;
