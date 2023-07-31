@@ -8,3 +8,9 @@
   font-size: 2rem;
   font-style: normal;
 }
+
+@media (width > 810px) {
+  .socials {
+    align-items: start;
+  }
+}

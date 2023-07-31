@@ -12,7 +12,7 @@
   &::before {
     content: '';
 
-    width: 80%;
+    width: 90%;
     height: 5px;
     margin: 1rem auto;
 
@@ -24,7 +24,7 @@
   &::after {
     content: '';
 
-    width: 80%;
+    width: 90%;
     height: 5px;
     margin: 1rem auto;
 
@@ -36,7 +36,7 @@
   &::before {
     content: '';
 
-    width: 80%;
+    width: 90%;
     height: 5px;
     margin: 1rem auto;
 
@@ -64,7 +64,7 @@
   .footer {
     position: relative;
     flex-direction: row;
-    border: 1px solid red;
+    padding: 2rem;
 
     &::before {
       position: absolute;

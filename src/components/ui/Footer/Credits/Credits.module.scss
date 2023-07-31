@@ -7,3 +7,12 @@
 
   text-align: center;
 }
+
+@media (width > 810px) {
+  .credits {
+    align-items: end;
+    align-self: stretch;
+    justify-content: space-between;
+    text-align: right;
+  }
+}
