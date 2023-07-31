@@ -25,6 +25,12 @@
   border-radius: var(--border-radius-small);
 }
 
+.form-wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
 @media (width > 810px) {
   .contact-section {
     h2 {
@@ -38,8 +44,6 @@
     flex-direction: row;
     gap: var(--margin-item-small);
     align-items: center;
-
-    border: 1px solid red;
   }
 
   .description-wrapper {
