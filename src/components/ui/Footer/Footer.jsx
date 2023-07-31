@@ -7,9 +7,9 @@ import Socials from './Socials/Socials';
 export default function Footer({ className }) {
   return (
     <footer className={`${styles.footer} ${className}`}>
+      <Socials className={styles.socials} />
       <CircleLogo className={styles.logo} text="MURAWSKA.STUDIO" />
-      <Socials />
-      <Credits />
+      <Credits className={styles.credits} />
     </footer>
   );
 }
