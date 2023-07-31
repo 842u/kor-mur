@@ -11,6 +11,12 @@
   background-color: var(--primary-200);
   border-radius: var(--border-radius-small);
 
+  .server-response {
+    margin: var(--margin-item-small);
+    font-size: 1rem;
+    text-align: center;
+  }
+
   button {
     @include mixins.button;
   }
