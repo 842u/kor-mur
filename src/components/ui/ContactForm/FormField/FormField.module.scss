@@ -1,5 +1,4 @@
 // stylelint-disable no-descending-specificity
-
 .field {
   position: relative;
 
@@ -26,7 +25,7 @@
     border-radius: 4px;
   }
 
-  p {
+  .error-message {
     position: absolute;
     right: 0;
   }

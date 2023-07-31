@@ -46,18 +46,18 @@ export default function FormField({
 
   const requiredFlag = <span className={styles['required-flag']}> * </span>;
 
-  const fieldClasses = `${styles.field} ${isTouched && hasError && styles.invalid} ${
+  const style = `${styles.field} ${isTouched && hasError && styles.invalid} ${
     isTouched && !hasError && styles.valid
   }`;
 
   return (
-    <label className={fieldClasses} htmlFor={id}>
+    <label className={style} htmlFor={id}>
       <span>
         {label}
         {required && requiredFlag}
       </span>
       {type === 'textarea' ? textareaField : inputField}
-      {isTouched && hasError && <p>{errorMessage}</p>}
+      {isTouched && hasError && <span className={styles['error-message']}>{errorMessage}</span>}
     </label>
   );
 }
