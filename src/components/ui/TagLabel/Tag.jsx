@@ -6,12 +6,13 @@ import styles from './Tag.module.scss';
 export default function Tag({ tag }) {
   const router = useRouter();
 
+  const { name, slug } = tag;
+
+  const style = `${styles.tag} ${router.query.slug === slug.current ? styles.active : ''}`;
+
   return (
-    <Link
-      className={`${styles.label} ${router.query.slug === tag.slug.current ? styles.active : ''}`}
-      href={`/projects/tag/${tag.slug.current}`}
-    >
-      {tag.name}
+    <Link className={style} href={`/projects/tag/${slug.current}`}>
+      {name}
     </Link>
   );
 }

@@ -1,4 +1,4 @@
-.label {
+.tag {
   display: inline-block;
   justify-content: center;
 
@@ -29,4 +29,10 @@
 .active {
   scale: 1.1;
   color: red;
+}
+
+@media (width > 810px) {
+  .tag {
+    font-size: 1.5rem;
+  }
 }
