@@ -14,13 +14,3 @@
     scale: 1.1;
   }
 }
-
-@media (width > 810px) {
-  .item {
-    flex-direction: column;
-
-    img:nth-child(2) {
-      display: none;
-    }
-  }
-}
