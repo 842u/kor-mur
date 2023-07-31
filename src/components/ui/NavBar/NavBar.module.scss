@@ -13,12 +13,16 @@
   width: 100%;
   height: var(--navbar-height);
 
-  filter: drop-shadow(0 0 1px white) drop-shadow(0 0 5px white) drop-shadow(0 0 10px white);
   backdrop-filter: blur(var(--light-blur));
 }
 
 .logo-button {
   margin-left: 1rem;
+  filter: drop-shadow(0 0 5px white);
+}
+
+.hamburger-button {
+  filter: drop-shadow(0 0 5px white);
 }
 
 @media (width > 810px) {
@@ -32,5 +36,9 @@
 
   .logo-button {
     margin: initial;
+  }
+
+  .nav-menu {
+    filter: drop-shadow(0 0 5px white);
   }
 }

@@ -2,8 +2,4 @@
 
 .projects-section {
   @include mixins.section;
-
-  h2 {
-    text-align: right;
-  }
 }

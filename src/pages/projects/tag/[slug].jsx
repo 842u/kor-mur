@@ -1,5 +1,5 @@
 import ProjectCard from '@/components/ui/ProjectCard/ProjectCard';
-import TagLabel from '@/components/ui/TagLabel/TagLabel';
+import Tag from '@/components/ui/TagLabel/Tag';
 import { secondaryFont } from '@/utils/fonts';
 import allTagMock from '@/utils/mocks';
 
@@ -15,7 +15,7 @@ export default function SpecificTagPage({ projectsWithQueryTag, tags }) {
       <h1 className={`${styles['page-title']} ${secondaryFont.className}`}>Projects Page Title</h1>
       <div className={styles['tag-container']}>
         {tags.map((tag) => (
-          <TagLabel key={tag._id} tag={tag} />
+          <Tag key={tag._id} tag={tag} />
         ))}
       </div>
       <div className={styles['projects-container']}>

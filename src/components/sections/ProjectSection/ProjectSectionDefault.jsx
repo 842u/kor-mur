@@ -1,5 +1,5 @@
 import InteractiveImage from '@/components/ui/InteractiveImage/InteractiveImage';
-import TagLabel from '@/components/ui/TagLabel/TagLabel';
+import Tag from '@/components/ui/TagLabel/Tag';
 
 import getProjectSectionSetup from './getProjectSectionSetup';
 import styles from './ProjectSectionDefault.module.scss';
@@ -48,7 +48,7 @@ export default function ProjectSectionDefault({ settings }) {
 
           <div className={styles['tag-container']}>
             {tags.map((tag) => (
-              <TagLabel tag={tag} />
+              <Tag tag={tag} />
             ))}
           </div>
 

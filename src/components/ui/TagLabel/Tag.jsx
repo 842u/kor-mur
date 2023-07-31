@@ -1,9 +1,9 @@
 import Link from 'next/link';
 import { useRouter } from 'next/router';
 
-import styles from './TagLabel.module.scss';
+import styles from './Tag.module.scss';
 
-export default function TagLabel({ tag }) {
+export default function Tag({ tag }) {
   const router = useRouter();
 
   return (

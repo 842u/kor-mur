@@ -23,8 +23,16 @@ export default function NavBar({ className }) {
     <header className={`${styles.navbar} ${className}`}>
       <LogoButton className={styles['logo-button']} onClick={clickLogoHandler} />
       <nav>
-        <HamburgerButton isActive={isMenuActive} onClick={toggleMenuHandler} />
-        <NavMenu isMenuActive={isMenuActive} onMenuItemClick={toggleMenuHandler} />
+        <HamburgerButton
+          className={styles['hamburger-button']}
+          isActive={isMenuActive}
+          onClick={toggleMenuHandler}
+        />
+        <NavMenu
+          className={styles['nav-menu']}
+          isMenuActive={isMenuActive}
+          onMenuItemClick={toggleMenuHandler}
+        />
       </nav>
     </header>
   );
