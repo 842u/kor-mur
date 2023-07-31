@@ -21,10 +21,10 @@ const links = [
 ];
 
 export default function NavMenu({ isMenuActive, className, onMenuItemClick, menuItems = links }) {
-  const styleClass = `${styles.menu} ${isMenuActive && styles['menu--active']} ${className}`;
+  const style = `${styles.menu} ${isMenuActive && styles['menu--active']} ${className}`;
 
   return (
-    <ul className={styleClass}>
+    <ul className={style}>
       {menuItems.map((item) => (
         <NavMenuItem key={item.href} href={item.href} onClick={onMenuItemClick}>
           {item.text}
