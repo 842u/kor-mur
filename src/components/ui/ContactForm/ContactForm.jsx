@@ -158,7 +158,9 @@ export default function ContactForm({ className }) {
         {isSubmitting ? 'Sending...' : 'Send'}
       </button>
       {serverResponseMessages.map((message) => (
-        <p key={message.split(' ')[0]}>{message}</p>
+        <p key={message.split(' ')[0]} className={styles['server-response']}>
+          {message}
+        </p>
       ))}
     </form>
   );
