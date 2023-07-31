@@ -29,3 +29,15 @@
   align-items: center;
   justify-content: center;
 }
+
+@media (width > 810px) {
+  .project-info {
+    h3 {
+      font-size: 3rem;
+    }
+
+    p {
+      font-size: 2rem;
+    }
+  }
+}
