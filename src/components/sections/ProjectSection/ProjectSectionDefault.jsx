@@ -1,6 +1,7 @@
-import InteractiveImage from '@/components/ui/InteractiveImage/InteractiveImage';
+import Image from 'next/image';
 
-// import Tag from '@/components/ui/TagLabel/Tag';
+import TagsContainer from '@/components/ui/TagsContainer/TagsContainer';
+
 import getProjectSectionSetup from './getProjectSectionSetup';
 import styles from './ProjectSectionDefault.module.scss';
 
@@ -46,36 +47,29 @@ export default function ProjectSectionDefault({ settings }) {
             </tbody>
           </table>
 
-          {/* <div className={styles['tag-container']}>
-            {tags.map((tag) => (
-              <Tag tag={tag} />
-            ))}
-          </div> */}
+          <TagsContainer tags={tags} />
 
           <p>{descriptionFirst}</p>
         </div>
 
-        <InteractiveImage fill className={styles['main-image']} src={mainImage.asset.url} />
+        <div className={styles['main-image-container']}>
+          <Image fill src={mainImage.asset.url} />
+        </div>
       </section>
 
       <section className={styles['description-section']}>
         <p>{descriptionSecond}</p>
 
-        <InteractiveImage
-          fill
-          className={styles['secondary-image']}
-          src={secondaryImage.asset.url}
-        />
+        <div className={styles['secondary-image-container']}>
+          <Image fill src={secondaryImage.asset.url} />
+        </div>
       </section>
 
       <section className={styles['image-gallery']}>
         {images.map((image) => (
-          <InteractiveImage
-            fill
-            className={styles['gallery-image']}
-            sizes="100vw"
-            src={image.asset.url}
-          />
+          <div className={styles['gallery-image-container']}>
+            <Image fill sizes="100vw" src={image.asset.url} />
+          </div>
         ))}
       </section>
     </section>

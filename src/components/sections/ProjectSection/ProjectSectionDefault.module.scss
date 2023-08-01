@@ -4,27 +4,25 @@
   @include mixins.section;
 
   h1 {
-    text-align: center;
-  }
-
-  p {
-    font-size: 1.5rem;
+    @include mixins.page-title;
   }
 }
 
 .details-section {
   display: flex;
   flex-direction: column;
+  border: 1px solid red;
 }
 
 .details-container {
   display: flex;
   flex-direction: column;
   justify-content: space-evenly;
+  border: 1px solid blue;
 }
 
 .project-details {
-  margin: 0 auto;
+  margin: var(--margin-item-mobile) auto;
 
   th {
     padding-right: 1rem;
@@ -32,26 +30,15 @@
   }
 }
 
-.image-gallery {
-  display: flex;
-  flex-flow: column;
-}
-
-.tag-container {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-}
-
-.main-image,
-.secondary-image,
-.gallery-image {
+.main-image-container,
+.secondary-image-container,
+.gallery-image-container {
+  position: relative;
   aspect-ratio: 1 / 1;
-  width: 100%;
 }
 
-.gallery-image {
-  margin: 1rem 0;
+.gallery-image-container {
+  margin: var(--margin-item-mobile) 0;
 }
 
 @media (width > 810px) {
