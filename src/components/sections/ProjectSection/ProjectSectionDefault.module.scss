@@ -11,23 +11,30 @@
 .details-section {
   display: flex;
   flex-direction: column;
-  border: 1px solid red;
 }
 
 .details-container {
   display: flex;
   flex-direction: column;
   justify-content: space-evenly;
-  border: 1px solid blue;
 }
 
 .project-details {
   margin: var(--margin-item-mobile) auto;
 
-  th {
-    padding-right: 1rem;
+  th,
+  tr {
+    font-size: var(--text-body-mobile);
     text-align: left;
   }
+
+  th {
+    padding-right: 1rem;
+  }
+}
+
+.secondary-image-container {
+  margin: var(--margin-item-mobile) auto;
 }
 
 .main-image-container,
@@ -35,28 +42,24 @@
 .gallery-image-container {
   position: relative;
   aspect-ratio: 1 / 1;
+  max-height: 80vh;
 }
 
 .gallery-image-container {
-  margin: var(--margin-item-mobile) 0;
+  margin: var(--margin-item-mobile) auto;
 }
 
 @media (width > 810px) {
-  .project-section {
-    p {
-      font-size: 1.5rem;
-    }
-  }
-
   .project-details {
     th,
     td {
-      font-size: 1.5rem;
+      font-size: var(--text-body-tablet);
     }
   }
 
   .details-section {
     flex-direction: row;
+    gap: var(--margin-item-mobile);
   }
 
   .details-container {
@@ -64,51 +67,35 @@
     width: 40%;
   }
 
-  .main-image {
+  .main-image-container {
     width: 60%;
-    margin-left: 2rem;
   }
 
-  .description-section {
-    display: flex;
-    flex-direction: row-reverse;
-    margin: 3rem 0;
-
-    p {
-      width: 40%;
-    }
-
-    .secondary-image {
-      width: 60%;
-      height: auto;
-      margin-right: 2rem;
-    }
+  .secondary-image-container {
+    float: left;
+    width: 60%;
+    margin: 0 var(--margin-item-mobile) var(--margin-item-mobile) 0;
   }
 
-  .gallery-image {
+  .gallery-image-container {
     aspect-ratio: 16 / 9;
-    margin: 1rem 0;
   }
 }
 
 @media (width > 1200px) {
-  .project-section {
-    p {
-      font-size: 2rem;
-    }
-  }
-
-  .main-image,
-  .secondary-image {
+  .secondary-image-container {
     aspect-ratio: 16 / 9;
   }
 
   .image-gallery {
+    display: flex;
     flex-flow: row wrap;
+    gap: var(--margin-item-mobile);
     justify-content: space-evenly;
 
-    .gallery-image {
+    .gallery-image-container {
       width: 45%;
+      margin: initial;
     }
   }
 }

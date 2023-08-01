@@ -58,11 +58,12 @@ export default function ProjectSectionDefault({ settings }) {
       </section>
 
       <section className={styles['description-section']}>
-        <p>{descriptionSecond}</p>
-
-        <div className={styles['secondary-image-container']}>
-          <Image fill src={secondaryImage.asset.url} />
-        </div>
+        <p>
+          <div className={styles['secondary-image-container']}>
+            <Image fill src={secondaryImage.asset.url} />
+          </div>
+          {descriptionSecond}
+        </p>
       </section>
 
       <section className={styles['image-gallery']}>
