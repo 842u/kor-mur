@@ -1,6 +1,6 @@
 import InteractiveImage from '@/components/ui/InteractiveImage/InteractiveImage';
-import Tag from '@/components/ui/TagLabel/Tag';
 
+// import Tag from '@/components/ui/TagLabel/Tag';
 import getProjectSectionSetup from './getProjectSectionSetup';
 import styles from './ProjectSectionDefault.module.scss';
 
@@ -46,11 +46,11 @@ export default function ProjectSectionDefault({ settings }) {
             </tbody>
           </table>
 
-          <div className={styles['tag-container']}>
+          {/* <div className={styles['tag-container']}>
             {tags.map((tag) => (
               <Tag tag={tag} />
             ))}
-          </div>
+          </div> */}
 
           <p>{descriptionFirst}</p>
         </div>

@@ -32,6 +32,10 @@
 }
 
 @media (width > 1200px) {
+  .projects-container {
+    margin: 4rem auto;
+  }
+
   .project-card {
     width: 30%;
   }
