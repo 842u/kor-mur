@@ -9,8 +9,6 @@
   justify-content: center;
 
   p {
-    margin: var(--margin-item-small) auto;
-    font-size: 1.5rem;
     text-align: center;
   }
 }
@@ -21,9 +19,6 @@
 
     height: 0;
     margin: var(--margin-item-small) auto;
-
-    font-size: 2.5rem;
-    text-align: center;
 
     opacity: 0;
 
@@ -39,11 +34,6 @@
 .image-container {
   position: relative;
   aspect-ratio: 1 / 1;
-
-  .image {
-    object-fit: cover;
-    border-radius: var(--border-radius-small);
-  }
 }
 
 .about-button {
@@ -58,7 +48,6 @@
     gap: 2rem;
 
     p {
-      font-size: 1.5rem;
       text-align: left;
     }
   }
@@ -83,10 +72,6 @@
 
   .image-container {
     aspect-ratio: auto 16 / 11;
-
-    .image {
-      border-radius: var(--border-radius-medium);
-    }
   }
 }
 

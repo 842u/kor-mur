@@ -1,16 +1,57 @@
+@mixin page-title {
+  margin-top: calc(var(--navbar-height) + 2rem);
+  margin-bottom: 2rem;
+  font-size: var(--text-page-title);
+  text-align: center;
+}
+
 @mixin section {
   min-height: 100vh;
-  padding: 2rem 1rem;
-  color: var(--secondary-700);
+  margin: 1rem;
+  border: 1px solid red;
+
+  h1,
+  h2,
+  h3 {
+    @include section-title;
+  }
+
+  p {
+    @include body-text;
+  }
+
+  img {
+    @include image;
+  }
 
   @media (width > 810px) {
     min-height: 50vh;
-    padding: 4rem 2rem;
+    margin: 2rem;
   }
 
   @media (width > 1200px) {
     min-height: 100vh;
-    padding: 6rem 4rem;
+    margin: 4rem;
+  }
+}
+
+@mixin image {
+  object-fit: cover;
+  border-radius: var(--border-radius-image);
+}
+
+@mixin section-title {
+  margin: var(--margin-item-mobile) auto;
+  font-size: var(--text-section-title-mobile);
+  text-align: center;
+}
+
+@mixin body-text {
+  margin: var(--margin-item-mobile) auto;
+  font-size: var(--text-body-mobile);
+
+  @media (width > 810px) {
+    font-size: var(--text-body-tablet);
   }
 }
 
