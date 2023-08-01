@@ -16,12 +16,8 @@
 .title-container {
   .title {
     overflow: hidden;
-
     height: 0;
-    margin: var(--margin-item-small) auto;
-
     opacity: 0;
-
     transition: opacity 2s ease-in-out;
 
     &--active {
@@ -38,14 +34,12 @@
 
 .about-button {
   @include mixins.link-button;
-
-  margin: 0 auto;
 }
 
 @media (width > 810px) {
   .motto-section {
     flex-direction: row;
-    gap: 2rem;
+    gap: var(--margin-item-mobile);
 
     p {
       text-align: left;
@@ -54,7 +48,7 @@
 
   .first-wrapper {
     display: flex;
-    flex-direction: column-reverse;
+    flex-direction: column;
     align-self: stretch;
     justify-content: space-evenly;
 
@@ -71,17 +65,11 @@
   }
 
   .image-container {
-    aspect-ratio: auto 16 / 11;
+    aspect-ratio: auto 4 / 3;
   }
 }
 
 @media (width > 1200px) {
-  .motto-section {
-    p {
-      font-size: 2.5rem;
-    }
-  }
-
   .first-wrapper {
     width: 40%;
   }
@@ -94,17 +82,7 @@
     width: 50%;
   }
 
-  .title-container {
-    .title {
-      font-size: 4rem;
-    }
-  }
-
   .image-container {
     aspect-ratio: 16 / 9;
-
-    .image {
-      border-radius: var(--border-radius-large);
-    }
   }
 }

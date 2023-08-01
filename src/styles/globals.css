@@ -36,10 +36,15 @@
   /*
     * TEXT
   */
-  --text-page-title: 3rem;
+  --text-page-title-mobile: 3rem;
+  --text-page-title-tablet: 3.5rem;
+  --text-page-title-desktop: 4rem;
   --text-section-title-mobile: 2rem;
+  --text-section-title-tablet: 2.5rem;
+  --text-section-title-desktop: 3rem;
   --text-body-mobile: 1.5rem;
   --text-body-tablet: 2rem;
+  --text-body-desktop: 2.5rem;
 
   /*
     * ALIGNMENT
@@ -47,11 +52,17 @@
   --margin-item-mobile: 2rem;
 
   /*
+    * DECORATION
+  */
+  --border-radius-image: 1rem;
+  --border-radius-button: 1.5rem;
+  --drop-shadow: 10px 10px 15px #0000009c;
+
+  /*
     * OTHERS
   */
   --navbar-height: 5rem;
   --light-blur: 5px;
-  --border-radius-image: 1rem;
 }
 
 *,

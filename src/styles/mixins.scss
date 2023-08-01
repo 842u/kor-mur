@@ -1,10 +1,3 @@
-@mixin page-title {
-  margin-top: calc(var(--navbar-height) + 2rem);
-  margin-bottom: 2rem;
-  font-size: var(--text-page-title);
-  text-align: center;
-}
-
 @mixin section {
   min-height: 100vh;
   margin: 1rem;
@@ -30,20 +23,37 @@
   }
 
   @media (width > 1200px) {
-    min-height: 100vh;
+    min-height: 80vh;
     margin: 4rem;
   }
 }
 
-@mixin image {
-  object-fit: cover;
-  border-radius: var(--border-radius-image);
+@mixin page-title {
+  margin-top: calc(var(--navbar-height) + 2rem);
+  margin-bottom: 2rem;
+  font-size: var(--text-page-title-mobile);
+  text-align: center;
+
+  @media (width > 810px) {
+    font-size: var(--text-page-title-tablet);
+  }
+
+  @media (width > 1200px) {
+    font-size: var(--text-page-title-desktop);
+  }
 }
 
 @mixin section-title {
-  margin: var(--margin-item-mobile) auto;
   font-size: var(--text-section-title-mobile);
   text-align: center;
+
+  @media (width > 810px) {
+    font-size: var(--text-section-title-tablet);
+  }
+
+  @media (width > 1200px) {
+    font-size: var(--text-section-title-desktop);
+  }
 }
 
 @mixin body-text {
@@ -53,37 +63,45 @@
   @media (width > 810px) {
     font-size: var(--text-body-tablet);
   }
+
+  @media (width > 1200px) {
+    font-size: var(--text-body-desktop);
+  }
+}
+
+@mixin image {
+  object-fit: cover;
+  border-radius: var(--border-radius-image);
 }
 
 @mixin button {
-  width: 100%;
-  width: 70%;
+  width: 80%;
   height: 4rem;
-  margin: auto;
-}
+  margin: var(--margin-item-mobile) auto;
 
-@mixin link-button {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-
-  width: 70%;
-  height: 4rem;
-
-  color: var(--secondary-800);
-  text-decoration: none;
+  color: var(--black-500);
 
   background-color: var(--primary-200);
-  border-radius: var(--border-radius-small);
-  box-shadow: 5px 5px 12px 0 rgb(66 68 90 / 100%);
+  filter: drop-shadow(var(--drop-shadow));
+  border: none;
+  border-radius: var(--border-radius-button);
 
-  transition: scale 0.1s ease;
+  transition: scale 0.5s ease;
 
   &:hover {
     scale: 1.05;
   }
 
   @media (width > 810px) {
-    font-size: 1.5rem;
+    width: 250px;
   }
+}
+
+@mixin link-button {
+  @include button;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-decoration: none;
 }
