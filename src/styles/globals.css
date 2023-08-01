@@ -2,6 +2,8 @@
   /*
     * COLORS
   */
+  --error: red;
+  --success: green;
   --white-500: #fff;
   --white-600: #e8e8e8;
   --white-700: #b5b5b5;
@@ -45,10 +47,9 @@
   --text-body-mobile: 1.5rem;
   --text-body-tablet: 2rem;
   --text-body-desktop: 2.5rem;
-
-  /*
-    * ALIGNMENT
-  */
+  --text-small-mobile: 1rem;
+  --text-small-tablet: 1.5rem;
+  --text-small-desktop: 2rem;
   --margin-item-mobile: 2rem;
 
   /*

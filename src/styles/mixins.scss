@@ -1,7 +1,6 @@
 @mixin section {
   min-height: 100vh;
   margin: 1rem;
-  border: 1px solid red;
 
   h1,
   h2,
@@ -11,6 +10,10 @@
 
   p {
     @include body-text;
+  }
+
+  span {
+    @include small-text;
   }
 
   img {
@@ -70,6 +73,14 @@
   }
 }
 
+@mixin small-text {
+  font-size: var(--text-small-mobile);
+
+  @media (width > 810px) {
+    font-size: var(--text-small-tablet);
+  }
+}
+
 @mixin image {
   object-fit: cover;
   border-radius: var(--border-radius-image);
@@ -91,6 +102,16 @@
 
   &:hover {
     scale: 1.05;
+  }
+
+  &:disabled {
+    color: var(--white-800);
+    filter: none;
+    border: 1px solid var(--primary-500);
+
+    &:hover {
+      scale: none;
+    }
   }
 
   @media (width > 810px) {
