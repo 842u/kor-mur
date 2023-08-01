@@ -7,10 +7,6 @@
 .info-section {
   display: flex;
   flex-direction: column-reverse;
-
-  p {
-    margin: 1rem 0;
-  }
 }
 
 .first-image-container {
@@ -21,11 +17,7 @@
 .second-image-container {
   position: relative;
   aspect-ratio: 1 / 1;
-  margin: 3rem 0;
-}
-
-.image {
-  object-fit: cover;
+  margin: var(--margin-item-mobile) auto;
 }
 
 @media (width > 810px) {
@@ -35,31 +27,22 @@
 
     p {
       margin: initial;
-      font-size: 2rem;
     }
   }
 
   .first-image-container {
     float: left;
     width: 50%;
-    margin: 0 1rem 1rem 0;
+    margin-right: var(--margin-item-mobile);
   }
 
   .second-image-container {
-    width: 100%;
-    height: 100vh;
+    aspect-ratio: 16 / 9;
   }
 }
 
 @media (width > 1200px) {
-  .info-section {
-    p {
-      font-size: 2.5rem;
-    }
-  }
-
   .first-image-container {
     aspect-ratio: 16 / 9;
-    margin: 0 2rem 2rem 0;
   }
 }
