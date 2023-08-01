@@ -1,13 +1,15 @@
-.page-title {
-  margin-top: 8rem;
-  text-align: center;
+@use '@/styles/mixins.scss' as mixins;
+
+.page-section {
+  margin: 0 1rem;
 }
 
-.tag-container {
-  display: flex;
-  gap: 1rem;
-  justify-content: center;
-  margin: 2rem;
+.page-title {
+  @include mixins.page-title;
+}
+
+.tags-container {
+  margin: var(--margin-item-mobile) auto;
 }
 
 .projects-container {

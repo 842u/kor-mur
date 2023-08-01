@@ -8,7 +8,7 @@ export default function Tag({ tag }) {
 
   const { name, slug } = tag;
 
-  const style = `${styles.tag} ${router.query.slug === slug.current ? styles.active : ''}`;
+  const style = `${styles.tag} ${router.query.slug === slug.current ? styles['tag--active'] : ''}`;
 
   return (
     <Link className={style} href={`/projects/tag/${slug.current}`}>
