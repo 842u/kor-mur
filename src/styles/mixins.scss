@@ -44,6 +44,7 @@
 }
 
 @mixin section-title {
+  margin: var(--margin-item-mobile) auto;
   font-size: var(--text-section-title-mobile);
   text-align: center;
 
