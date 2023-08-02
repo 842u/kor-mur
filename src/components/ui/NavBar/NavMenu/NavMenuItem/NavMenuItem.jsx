@@ -7,7 +7,10 @@ export default function NavMenuItem({ href, children, onClick }) {
   const router = useRouter();
   const currentPath = router.asPath;
 
-  const styleClass = `${styles.item} ${currentPath === href ? styles['item--active'] : ''}`;
+  const isActive =
+    currentPath === href || (currentPath.includes('projects') && href.includes('projects'));
+
+  const styleClass = `${styles.item} ${isActive ? styles['item--active'] : ''}`;
 
   return (
     <li className={styleClass}>
