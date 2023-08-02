@@ -5,12 +5,12 @@ function createErrorInfo(message) {
 const uniqueValidationRules = {
   email: {
     regexp: /^[\w-.]+@([\w-]+\.)+[\w-]{2,4}$/i,
-    errorMessage: 'Please enter a valid email address.',
+    errorMessage: 'Wprowadź poprawny adres email.',
   },
 
   tel: {
     regexp: /^[0-9]+$/,
-    errorMessage: 'Phone number should contain only digits.',
+    errorMessage: 'Numer telefonu powinien składać sie z cyfr.',
   },
 };
 
@@ -18,15 +18,15 @@ export default function getFieldValidationInfo(value, { type, minLength, maxLeng
   const trimmedValue = value.trim();
 
   if (required && trimmedValue.length === 0) {
-    return createErrorInfo('This field is required.');
+    return createErrorInfo('To pole jest wymagane.');
   }
 
   if (minLength && trimmedValue.length < minLength) {
-    return createErrorInfo(`Please enter at least ${minLength} characters.`);
+    return createErrorInfo(`Minimalna ilość znaków: ${minLength}.`);
   }
 
   if (maxLength && trimmedValue.length > maxLength) {
-    return createErrorInfo(`Please enter no more than ${maxLength} characters.`);
+    return createErrorInfo(`Maksymalna ilość znaków: ${maxLength}.`);
   }
 
   if (uniqueValidationRules[type] && trimmedValue.length > 0) {

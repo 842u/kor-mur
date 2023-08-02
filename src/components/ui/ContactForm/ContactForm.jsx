@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import { PulseLoader } from 'react-spinners';
 
 import useInputField from '@/utils/hooks/useInputField';
 import {
@@ -83,7 +84,7 @@ export default function ContactForm({ className }) {
       const responseData = await response.json();
 
       if (!response.ok) {
-        throw new Error(responseData.message || 'Something went wrong!');
+        throw new Error(responseData.message || 'Coś poszło nie tak. Spróbuj ponownie.');
       }
 
       setServerResponseMessages([responseData.message]);
@@ -156,7 +157,7 @@ export default function ContactForm({ className }) {
         onChange={messageValueChangeHandler}
       />
       <button disabled={!!formHasError} type="submit">
-        {isSubmitting ? 'Sending...' : 'Wyślij'}
+        {isSubmitting ? <PulseLoader loading color="#373627" /> : 'Wyślij'}
       </button>
       {serverResponseMessages.map((message) => (
         <span key={message.split(' ')[0]} className={styles['server-response']}>
