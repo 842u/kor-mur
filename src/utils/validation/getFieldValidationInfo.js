@@ -10,7 +10,7 @@ const uniqueValidationRules = {
 
   tel: {
     regexp: /^[0-9]+$/,
-    errorMessage: 'Numer telefonu powinien składać sie z cyfr.',
+    errorMessage: 'Wprowadź tylko cyfry.',
   },
 };
 
