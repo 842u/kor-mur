@@ -23,7 +23,7 @@ export default function ContactForm({ className }) {
     nameValueChangeHandler,
     nameOnTouchHandler,
     nameOnSubmitHandler,
-  ] = useInputField();
+  ] = useInputField(nameInputReqirements);
 
   const [
     emailValue,
@@ -31,9 +31,9 @@ export default function ContactForm({ className }) {
     emailHasError,
     emailErrorMessage,
     emailValueChangeHandler,
-    emailIsTouchedHandler,
+    emailOnTouchHandler,
     emailOnSubmitHandler,
-  ] = useInputField();
+  ] = useInputField(emailInputReqirements);
 
   const [
     phoneValue,
@@ -41,9 +41,9 @@ export default function ContactForm({ className }) {
     phoneHasError,
     phoneErrorMessage,
     phoneValueChangeHandler,
-    phoneIsTouchedHandler,
+    phoneOnTouchHandler,
     phoneOnSubmitHandler,
-  ] = useInputField();
+  ] = useInputField(phoneInputReqirements);
 
   const [
     messageValue,
@@ -51,9 +51,9 @@ export default function ContactForm({ className }) {
     messageHasError,
     messageErrorMessage,
     messageValueChangeHandler,
-    messageIsTouchedHandler,
+    messageOnTouchHandler,
     messageOnSubmitHandler,
-  ] = useInputField();
+  ] = useInputField(messageInputReqirements);
 
   const formHasError = nameHasError || emailHasError || phoneHasError || messageHasError;
 
@@ -120,11 +120,12 @@ export default function ContactForm({ className }) {
         isTouched={emailIsTouched}
         label="Email"
         maxLength={emailInputReqirements.maxLength}
-        placeholder="Wprowadź swój adres email"
+        minLength={emailInputReqirements.minLength}
+        placeholder="Wprowadź swój email"
         required={emailInputReqirements.required}
         type={emailInputReqirements.type}
         value={emailValue}
-        onBlur={emailIsTouchedHandler}
+        onBlur={emailOnTouchHandler}
         onChange={emailValueChangeHandler}
       />
       <FormField
@@ -137,7 +138,7 @@ export default function ContactForm({ className }) {
         placeholder="Wprowadź swój numer telefonu"
         type={phoneInputReqirements.type}
         value={phoneValue}
-        onBlur={phoneIsTouchedHandler}
+        onBlur={phoneOnTouchHandler}
         onChange={phoneValueChangeHandler}
       />
       <FormField
@@ -147,11 +148,11 @@ export default function ContactForm({ className }) {
         isTouched={messageIsTouched}
         label="Wiadomość"
         maxLength={messageInputReqirements.maxLength}
-        placeholder="Wprowadź wiadomość"
+        placeholder="Wprowadź swoją wiadomość"
         required={messageInputReqirements.required}
         type={messageInputReqirements.type}
         value={messageValue}
-        onBlur={messageIsTouchedHandler}
+        onBlur={messageOnTouchHandler}
         onChange={messageValueChangeHandler}
       />
       <button disabled={!!formHasError} type="submit">

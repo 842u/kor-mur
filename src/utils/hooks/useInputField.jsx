@@ -2,22 +2,16 @@ import { useRef, useState } from 'react';
 
 import getFieldValidationInfo from '../validation/getFieldValidationInfo';
 
-export default function useInputField() {
+export default function useInputField(requirements) {
   const [fieldValue, setFieldValue] = useState('');
   const [isTouched, setIsTouched] = useState(false);
 
-  const hasError = useRef(true);
+  // Not required inputs dont have error on start
+  const hasError = requirements.required ? useRef(true) : useRef(false);
   const errorMessage = useRef('');
 
-  function validateFieldHelper(value, event) {
-    const fieldRequirements = {
-      type: event.type,
-      minLength: event.minLength,
-      maxLength: event.maxLength,
-      required: event.required,
-    };
-
-    const { hasErrorInfo, errorMessageInfo } = getFieldValidationInfo(value, fieldRequirements);
+  function validateFieldHelper(value) {
+    const { hasErrorInfo, errorMessageInfo } = getFieldValidationInfo(value, requirements);
 
     hasError.current = hasErrorInfo;
     errorMessage.current = errorMessageInfo;
@@ -25,12 +19,12 @@ export default function useInputField() {
 
   const valueChangeHandler = (event) => {
     setFieldValue(event.target.value);
-    validateFieldHelper(event.target.value, event.target, hasError, errorMessage);
+    validateFieldHelper(event.target.value);
   };
 
   const onTouchHandler = (event) => {
     setIsTouched(true);
-    validateFieldHelper(event.target.value, event.target, hasError, errorMessage);
+    validateFieldHelper(event.target.value);
   };
 
   const onSubmitHandler = () => {
