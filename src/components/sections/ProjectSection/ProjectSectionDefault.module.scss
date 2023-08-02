@@ -51,13 +51,13 @@
   }
 
   .description {
-    height: min-content;
+    overflow: auto;
   }
 
   .secondary-image {
     float: left;
     width: 60%;
-    margin: 0 var(--margin-item-mobile) var(--margin-item-mobile) 0;
+    margin-right: var(--margin-item-mobile);
   }
 
   .gallery-image {
