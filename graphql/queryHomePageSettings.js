@@ -5,13 +5,13 @@ import apolloClient from './apolloClient';
 const query = gql`
   query HomePageSettings($where: ProjectFilter) {
     allHeroSectionSettings {
-      heroSectionImages {
+      text
+      images {
         asset {
           _id
           url
         }
       }
-      heroSectionText
     }
 
     allMottoSectionSettings {

@@ -6,44 +6,44 @@ import getHeroSectionSetup from './getHeroSectionSetup';
 import styles from './HeroSectionDefault.module.scss';
 
 export default function HeroSectionDefault({ settings }) {
-  const { heroSectionText, heroSectionImages } = getHeroSectionSetup(settings);
+  const { text, images } = getHeroSectionSetup(settings);
 
   const [currentImageIndex, setCurrentImageIndex] = useState(0);
 
   useEffect(() => {
-    const imageDelay = setTimeout(() => {
+    const imageChangeDelay = setTimeout(() => {
       setCurrentImageIndex((currentIndex) =>
-        currentIndex >= heroSectionImages.length - 1 ? 0 : (currentIndex += 1)
+        currentIndex >= images.length - 1 ? 0 : (currentIndex += 1)
       );
     }, 5000);
 
     return () => {
-      clearTimeout(imageDelay);
+      clearTimeout(imageChangeDelay);
     };
   }, [currentImageIndex, settings]);
 
   return (
     <section className={styles['hero-section']}>
       <div className={styles['text-container']}>
-        <h1>{heroSectionText}</h1>
+        <h1>{text}</h1>
       </div>
 
       <div className={styles['image-container']}>
-        {heroSectionImages.map((image, index) => {
-          const imageStyle = `${styles.image} ${
-            currentImageIndex === index && styles['image--active']
-          }`;
+        {images.map((image, index) => {
+          const isActive = currentImageIndex === index;
+
+          const imageStyle = `${styles.image} ${isActive && styles['image--active']}`;
 
           return (
             <Image
-              key={image.asset._id}
+              key={image?.asset?._id}
               aria-hidden
               fill
               alt=""
               className={imageStyle}
               priority={index === 0}
               sizes="100vw"
-              src={image.asset.url}
+              src={image?.asset?.url}
             />
           );
         })}

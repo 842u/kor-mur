@@ -10,16 +10,16 @@ const heroSectionSettings = defineType({
   type: 'document',
   fields: [
     defineField({
-      name: 'heroSectionText',
+      name: 'text',
       title: 'Hero Section Text',
       type: 'text',
     }),
     defineField({
-      name: 'heroSectionImages',
+      name: 'images',
       title: 'Hero Section Images',
       type: 'array',
       of: [{ type: 'image' }],
-      validation: (Rule) => Rule.unique().min(1).max(5).required(),
+      validation: (Rule) => Rule.unique().min(1).required(),
     }),
   ],
 });

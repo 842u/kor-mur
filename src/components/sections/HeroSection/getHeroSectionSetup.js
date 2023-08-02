@@ -1,8 +1,8 @@
 import placeholderImage from 'public/default-image-placeholder.png';
 
 const defaultSettings = {
-  heroSectionText: 'Default Hero Section Text',
-  heroSectionImages: [
+  text: 'Default Hero Section Text',
+  images: [
     {
       asset: {
         _id: 'default-image-placeholder',
@@ -14,7 +14,7 @@ const defaultSettings = {
 
 export default function getHeroSectionSetup(settings) {
   return {
-    heroSectionText: settings?.[0]?.heroSectionText || defaultSettings.heroSectionText,
-    heroSectionImages: settings?.[0]?.heroSectionImages || defaultSettings.heroSectionImages,
+    text: settings?.[0]?.text || defaultSettings.text,
+    images: settings?.[0]?.images || defaultSettings.images,
   };
 }

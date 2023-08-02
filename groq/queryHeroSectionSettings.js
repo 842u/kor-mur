@@ -1,8 +1,8 @@
 import { groq } from 'next-sanity';
 
 const groqQueryHeroSectionSettings = groq`*[_type == "heroSectionSettings"]{
-  heroSectionText,
-  "heroSectionImages": heroSectionImages[]{
+  text,
+  images[]{
     asset->{
       _id,
       url
