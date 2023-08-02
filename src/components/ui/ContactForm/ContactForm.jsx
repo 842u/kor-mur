@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import { PulseLoader } from 'react-spinners';
 
 import useInputField from '@/utils/hooks/useInputField';
 import {
@@ -23,7 +24,7 @@ export default function ContactForm({ className }) {
     nameValueChangeHandler,
     nameOnTouchHandler,
     nameOnSubmitHandler,
-  ] = useInputField();
+  ] = useInputField(nameInputReqirements);
 
   const [
     emailValue,
@@ -31,9 +32,9 @@ export default function ContactForm({ className }) {
     emailHasError,
     emailErrorMessage,
     emailValueChangeHandler,
-    emailIsTouchedHandler,
+    emailOnTouchHandler,
     emailOnSubmitHandler,
-  ] = useInputField();
+  ] = useInputField(emailInputReqirements);
 
   const [
     phoneValue,
@@ -41,9 +42,9 @@ export default function ContactForm({ className }) {
     phoneHasError,
     phoneErrorMessage,
     phoneValueChangeHandler,
-    phoneIsTouchedHandler,
+    phoneOnTouchHandler,
     phoneOnSubmitHandler,
-  ] = useInputField();
+  ] = useInputField(phoneInputReqirements);
 
   const [
     messageValue,
@@ -51,9 +52,9 @@ export default function ContactForm({ className }) {
     messageHasError,
     messageErrorMessage,
     messageValueChangeHandler,
-    messageIsTouchedHandler,
+    messageOnTouchHandler,
     messageOnSubmitHandler,
-  ] = useInputField();
+  ] = useInputField(messageInputReqirements);
 
   const formHasError = nameHasError || emailHasError || phoneHasError || messageHasError;
 
@@ -83,7 +84,7 @@ export default function ContactForm({ className }) {
       const responseData = await response.json();
 
       if (!response.ok) {
-        throw new Error(responseData.message || 'Something went wrong!');
+        throw new Error(responseData.message || 'Coś poszło nie tak. Spróbuj ponownie.');
       }
 
       setServerResponseMessages([responseData.message]);
@@ -103,10 +104,10 @@ export default function ContactForm({ className }) {
         hasError={nameHasError}
         id="name"
         isTouched={nameIsTouched}
-        label="Name"
+        label="Imię"
         maxLength={nameInputReqirements.maxLength}
         minLength={nameInputReqirements.minLength}
-        placeholder="Enter your name"
+        placeholder="Wprowadź swoje imię"
         required={nameInputReqirements.required}
         type={nameInputReqirements.type}
         value={nameValue}
@@ -120,11 +121,12 @@ export default function ContactForm({ className }) {
         isTouched={emailIsTouched}
         label="Email"
         maxLength={emailInputReqirements.maxLength}
-        placeholder="Enter your email"
+        minLength={emailInputReqirements.minLength}
+        placeholder="Wprowadź swój email"
         required={emailInputReqirements.required}
         type={emailInputReqirements.type}
         value={emailValue}
-        onBlur={emailIsTouchedHandler}
+        onBlur={emailOnTouchHandler}
         onChange={emailValueChangeHandler}
       />
       <FormField
@@ -132,12 +134,12 @@ export default function ContactForm({ className }) {
         hasError={phoneHasError}
         id="phone"
         isTouched={phoneIsTouched}
-        label="Phone"
+        label="Telefon"
         maxLength={phoneInputReqirements.maxLength}
-        placeholder="Enter your phone number"
+        placeholder="Wprowadź swój numer telefonu"
         type={phoneInputReqirements.type}
         value={phoneValue}
-        onBlur={phoneIsTouchedHandler}
+        onBlur={phoneOnTouchHandler}
         onChange={phoneValueChangeHandler}
       />
       <FormField
@@ -145,17 +147,17 @@ export default function ContactForm({ className }) {
         hasError={messageHasError}
         id="message"
         isTouched={messageIsTouched}
-        label="Message"
+        label="Wiadomość"
         maxLength={messageInputReqirements.maxLength}
-        placeholder="Enter your message"
+        placeholder="Wprowadź swoją wiadomość"
         required={messageInputReqirements.required}
         type={messageInputReqirements.type}
         value={messageValue}
-        onBlur={messageIsTouchedHandler}
+        onBlur={messageOnTouchHandler}
         onChange={messageValueChangeHandler}
       />
       <button disabled={!!formHasError} type="submit">
-        {isSubmitting ? 'Sending...' : 'Send'}
+        {isSubmitting ? <PulseLoader loading color="#373627" /> : 'Wyślij'}
       </button>
       {serverResponseMessages.map((message) => (
         <span key={message.split(' ')[0]} className={styles['server-response']}>

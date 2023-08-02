@@ -1,35 +1,37 @@
+function createErrorInfo(message) {
+  return { hasErrorInfo: true, errorMessageInfo: message };
+}
+
+const uniqueValidationRules = {
+  email: {
+    regexp: /^[\w-.]+@([\w-]+\.)+[\w-]{2,4}$/i,
+    errorMessage: 'Wprowadź poprawny adres email.',
+  },
+
+  tel: {
+    regexp: /^[0-9]+$/,
+    errorMessage: 'Wprowadź tylko cyfry.',
+  },
+};
+
 export default function getFieldValidationInfo(value, { type, minLength, maxLength, required }) {
   const trimmedValue = value.trim();
 
-  function createErrorInfo(message) {
-    return { hasErrorInfo: true, errorMessageInfo: message };
-  }
-
   if (required && trimmedValue.length === 0) {
-    return createErrorInfo('This field is required.');
+    return createErrorInfo('To pole jest wymagane.');
   }
 
   if (minLength && trimmedValue.length < minLength) {
-    return createErrorInfo(`Please enter at least ${minLength} characters.`);
+    return createErrorInfo(`Minimalna ilość znaków: ${minLength}.`);
   }
 
   if (maxLength && trimmedValue.length > maxLength) {
-    return createErrorInfo(`Please enter no more than ${maxLength} characters.`);
+    return createErrorInfo(`Maksymalna ilość znaków: ${maxLength}.`);
   }
 
-  const validationRules = {
-    email: {
-      regexp: /^[\w-.]+@([\w-]+\.)+[\w-]{2,4}$/i,
-      errorMessage: 'Please enter a valid email address.',
-    },
-    tel: {
-      regexp: /^[0-9]+$/,
-      errorMessage: 'Phone number should contain only digits.',
-    },
-  };
+  if (uniqueValidationRules[type] && trimmedValue.length > 0) {
+    const { regexp, errorMessage } = uniqueValidationRules[type];
 
-  if (validationRules[type] && trimmedValue.length > 0) {
-    const { regexp, errorMessage } = validationRules[type];
     if (!regexp.test(trimmedValue)) {
       return createErrorInfo(errorMessage);
     }
