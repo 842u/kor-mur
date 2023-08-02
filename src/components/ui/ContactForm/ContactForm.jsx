@@ -103,10 +103,10 @@ export default function ContactForm({ className }) {
         hasError={nameHasError}
         id="name"
         isTouched={nameIsTouched}
-        label="Name"
+        label="Imię"
         maxLength={nameInputReqirements.maxLength}
         minLength={nameInputReqirements.minLength}
-        placeholder="Enter your name"
+        placeholder="Wprowadź swoje imię"
         required={nameInputReqirements.required}
         type={nameInputReqirements.type}
         value={nameValue}
@@ -120,7 +120,7 @@ export default function ContactForm({ className }) {
         isTouched={emailIsTouched}
         label="Email"
         maxLength={emailInputReqirements.maxLength}
-        placeholder="Enter your email"
+        placeholder="Wprowadź swój adres email"
         required={emailInputReqirements.required}
         type={emailInputReqirements.type}
         value={emailValue}
@@ -132,9 +132,9 @@ export default function ContactForm({ className }) {
         hasError={phoneHasError}
         id="phone"
         isTouched={phoneIsTouched}
-        label="Phone"
+        label="Telefon"
         maxLength={phoneInputReqirements.maxLength}
-        placeholder="Enter your phone number"
+        placeholder="Wprowadź swój numer telefonu"
         type={phoneInputReqirements.type}
         value={phoneValue}
         onBlur={phoneIsTouchedHandler}
@@ -145,9 +145,9 @@ export default function ContactForm({ className }) {
         hasError={messageHasError}
         id="message"
         isTouched={messageIsTouched}
-        label="Message"
+        label="Wiadomość"
         maxLength={messageInputReqirements.maxLength}
-        placeholder="Enter your message"
+        placeholder="Wprowadź wiadomość"
         required={messageInputReqirements.required}
         type={messageInputReqirements.type}
         value={messageValue}
@@ -155,7 +155,7 @@ export default function ContactForm({ className }) {
         onChange={messageValueChangeHandler}
       />
       <button disabled={!!formHasError} type="submit">
-        {isSubmitting ? 'Sending...' : 'Send'}
+        {isSubmitting ? 'Sending...' : 'Wyślij'}
       </button>
       {serverResponseMessages.map((message) => (
         <span key={message.split(' ')[0]} className={styles['server-response']}>
