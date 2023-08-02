@@ -8,6 +8,17 @@
 
   margin-bottom: 2rem;
 
+  input,
+  textarea {
+    padding: 0.5rem;
+    border: 2px solid var(--secondary-500);
+    border-radius: 4px;
+
+    &::placeholder {
+      font-size: var(--text-small-mobile);
+    }
+  }
+
   textarea {
     resize: vertical;
     min-width: 100%;
@@ -18,13 +29,6 @@
     height: 3rem;
   }
 
-  input,
-  textarea {
-    padding: 0.5rem;
-    border: 1px solid #ccc;
-    border-radius: 4px;
-  }
-
   .error-message {
     position: absolute;
     right: 0;
@@ -32,41 +36,40 @@
 }
 
 .invalid {
-  input {
-    outline: 1px solid red;
-
-    &:focus {
-      outline: 3px solid red;
-    }
-  }
-
+  input,
   textarea {
-    outline: 1px solid red;
+    outline: 1px solid var(--error);
 
     &:focus {
-      outline: 3px solid red;
+      outline: 3px solid var(--error);
     }
   }
 }
 
 .valid {
-  input {
-    outline: initial;
-
-    &:focus {
-      outline: 3px solid green;
-    }
-  }
-
+  input,
   textarea {
     outline: initial;
 
     &:focus {
-      outline: 3px solid green;
+      outline: 3px solid var(--success);
     }
   }
 }
 
 .required-flag {
-  color: #d60000;
+  color: var(--error);
+}
+
+@media (width > 810px) {
+  .field {
+    font-size: var(--text-small-tablet);
+
+    input,
+    textarea {
+      &::placeholder {
+        font-size: var(--text-small-tablet);
+      }
+    }
+  }
 }

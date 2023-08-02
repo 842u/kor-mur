@@ -5,39 +5,16 @@
 
   padding: 0 1rem;
 
-  color: white;
+  color: var(--white-500);
 
   background-color: rgb(0 0 0 / 50%);
-  border-radius: var(--border-radius-small);
+  border-radius: var(--border-radius-image);
 
   h3 {
-    margin: 1rem auto;
-    font-size: 2rem;
-    text-align: center;
+    margin: var(--margin-item-mobile) auto;
   }
 
   p {
-    margin: 1rem auto;
-    font-size: 1.5rem;
-  }
-}
-
-.tag-container {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 1rem;
-  align-items: center;
-  justify-content: center;
-}
-
-@media (width > 810px) {
-  .project-info {
-    h3 {
-      font-size: 3rem;
-    }
-
-    p {
-      font-size: 2rem;
-    }
+    margin: var(--margin-item-mobile) auto;
   }
 }

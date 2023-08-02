@@ -1,0 +1,28 @@
+.tag {
+  padding: 0.5rem 1.5rem;
+
+  font-size: var(--text-body-mobile);
+  color: white;
+  text-decoration: none;
+  white-space: nowrap;
+
+  background-color: black;
+  border-radius: 2rem;
+
+  transition: scale 0.5s ease;
+
+  &:hover {
+    scale: 1.2;
+  }
+
+  &--active {
+    scale: 1.1;
+    color: red;
+  }
+}
+
+@media (width > 810px) {
+  .tag {
+    font-size: var(--text-body-tablet);
+  }
+}

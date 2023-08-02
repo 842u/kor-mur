@@ -3,3 +3,19 @@
 .projects-section {
   @include mixins.section;
 }
+
+.project-card {
+  margin: var(--margin-item-mobile) auto;
+}
+
+@media (width > 810px) {
+  .project-card {
+    margin: 4rem auto;
+  }
+}
+
+@media (width > 1200px) {
+  .project-card {
+    margin: 6rem auto;
+  }
+}

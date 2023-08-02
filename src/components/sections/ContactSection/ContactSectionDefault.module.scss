@@ -4,27 +4,12 @@
   @include mixins.section;
 
   scroll-margin-top: var(--navbar-height);
-
-  h2 {
-    font-size: 3rem;
-    text-align: center;
-  }
-
-  p {
-    margin: var(--margin-item-small) auto;
-    font-size: 1.5rem;
-  }
 }
 
 .image-container {
   position: relative;
   aspect-ratio: 1 / 1;
-  margin: var(--margin-item-small) auto;
-}
-
-.image {
-  object-fit: cover;
-  border-radius: var(--border-radius-small);
+  margin: var(--margin-item-mobile) auto;
 }
 
 .form-wrapper {
@@ -34,22 +19,29 @@
 }
 
 @media (width > 810px) {
-  .contact-section {
-    scroll-margin-top: initial;
-
-    h2 {
-      margin-bottom: 3rem;
-      text-align: left;
-    }
-  }
-
   .contact-wrapper {
     display: flex;
     flex-direction: row;
-    gap: var(--margin-item-small);
-    align-items: center;
+    gap: var(--margin-item-mobile);
   }
 
+  .description-wrapper {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    width: 40%;
+  }
+
+  .image-container {
+    width: 100%;
+  }
+
+  .form-wrapper {
+    width: 60%;
+  }
+}
+
+@media (width > 1200px) {
   .description-wrapper {
     width: 50%;
   }
@@ -57,9 +49,7 @@
   .form-wrapper {
     width: 50%;
   }
-}
 
-@media (width > 1200px) {
   .image-container {
     aspect-ratio: 16 / 9;
   }

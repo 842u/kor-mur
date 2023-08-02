@@ -3,8 +3,6 @@ import Image from 'next/image';
 import Link from 'next/link';
 import { useEffect, useState } from 'react';
 
-import { secondaryFont } from '@/utils/fonts';
-
 import getMottoSectionSetup from './getMottoSectionSetup';
 import styles from './MottoSectionDefault.module.scss';
 
@@ -31,12 +29,12 @@ export default function MottoSectionDefault({ settings, withButton = true }) {
       <div className={styles['first-wrapper']}>
         <div className={styles['title-container']}>
           {mottoSectionTitles.map((title, index) => {
-            const titleStyle = `${secondaryFont.className} ${styles.title} ${
+            const style = `${styles.title} ${
               currentTitleIndex === index && styles['title--active']
             }`;
 
             return (
-              <h2 key={title} className={titleStyle}>
+              <h2 key={title} className={style}>
                 {title}
               </h2>
             );
@@ -54,7 +52,6 @@ export default function MottoSectionDefault({ settings, withButton = true }) {
           <Image
             fill
             alt="motto image"
-            className={styles.image}
             sizes="(max-width: 810px) 100vw, 50vw"
             src={mottoSectionImage}
           />

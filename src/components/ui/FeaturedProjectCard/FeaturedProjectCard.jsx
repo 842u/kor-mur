@@ -4,15 +4,17 @@ import Link from 'next/link';
 import styles from './FeaturedProjectCard.module.scss';
 import FeaturedProjectInfo from './FeaturedProjectInfo/FeaturedProjectInfo';
 
-export default function FeaturedProjectCard({ project }) {
+export default function FeaturedProjectCard({ project, className }) {
   const { slug, mainImage } = project;
 
+  const style = `${className} ${styles['project-card']}`;
+
   return (
-    <div className={styles['project-card']}>
+    <div className={style}>
       <FeaturedProjectInfo className={styles['info-card']} project={project} />
 
       <Link className={styles['project-link']} href={`/projects/${slug.current}`}>
-        <Image fill className={styles['project-image']} src={mainImage.asset.url} />
+        <Image fill src={mainImage.asset.url} />
       </Link>
     </div>
   );

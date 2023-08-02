@@ -9,21 +9,13 @@
   padding: 1rem;
 
   background-color: var(--primary-200);
-  border-radius: var(--border-radius-small);
-
-  .server-response {
-    margin: var(--margin-item-small);
-    font-size: 1rem;
-    text-align: center;
-  }
+  border-radius: var(--border-radius-image);
 
   button {
     @include mixins.button;
   }
 }
 
-@media (width > 810px) {
-  .contact-form {
-    font-size: 1rem;
-  }
+.server-response {
+  margin: var(--margin-item-mobile) auto;
 }

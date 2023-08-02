@@ -6,7 +6,7 @@ export default function FeaturedProjectsSectionDefault({ projects }) {
   return (
     <section className={styles['projects-section']}>
       {projects?.map((project) => (
-        <FeaturedProjectCard project={project} />
+        <FeaturedProjectCard className={styles['project-card']} project={project} />
       ))}
     </section>
   );

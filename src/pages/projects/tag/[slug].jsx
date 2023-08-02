@@ -1,6 +1,5 @@
 import ProjectCard from '@/components/ui/ProjectCard/ProjectCard';
-import Tag from '@/components/ui/TagLabel/Tag';
-import { secondaryFont } from '@/utils/fonts';
+import TagsContainer from '@/components/ui/TagsContainer/TagsContainer';
 import allTagMock from '@/utils/mocks';
 
 import apolloClient from '../../../../graphql/apolloClient';
@@ -11,13 +10,9 @@ import styles from './[slug].module.scss';
 
 export default function SpecificTagPage({ projectsWithQueryTag, tags }) {
   return (
-    <>
-      <h1 className={`${styles['page-title']} ${secondaryFont.className}`}>Projects Page Title</h1>
-      <div className={styles['tag-container']}>
-        {tags.map((tag) => (
-          <Tag key={tag._id} tag={tag} />
-        ))}
-      </div>
+    <section className={styles['page-section']}>
+      <h1 className={`${styles['page-title']}`}>Projects Page Title</h1>
+      <TagsContainer className={styles['tags-container']} tags={tags} />
       <div className={styles['projects-container']}>
         {projectsWithQueryTag.map((project, index) => (
           <ProjectCard
@@ -29,7 +24,7 @@ export default function SpecificTagPage({ projectsWithQueryTag, tags }) {
           />
         ))}
       </div>
-    </>
+    </section>
   );
 }
 

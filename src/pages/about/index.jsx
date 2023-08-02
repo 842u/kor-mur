@@ -6,6 +6,7 @@ import MottoSection from '@/components/sections/MottoSection/MottoSection';
 import DraftModeContext from '@/context/DraftModeContext';
 
 import qglQueryAboutPageSettings from '../../../graphql/queryAboutPageSettings';
+import styles from './index.module.scss';
 
 export default function AboutPage({ draftMode, mottoSectionSettings, aboutSectionSettings }) {
   const { setIsDraftMode } = useContext(DraftModeContext);
@@ -16,6 +17,7 @@ export default function AboutPage({ draftMode, mottoSectionSettings, aboutSectio
 
   return (
     <>
+      <h1 className={styles['page-title']}>About Me Page Title</h1>
       <MottoSection settings={mottoSectionSettings} withButton={false} />
       <AboutSection settings={aboutSectionSettings} />
     </>

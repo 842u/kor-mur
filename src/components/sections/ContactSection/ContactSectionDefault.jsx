@@ -16,7 +16,7 @@ export default function ContactSectionDefault({ settings }) {
         <div className={styles['description-wrapper']}>
           <p>{description}</p>
           <div className={styles['image-container']}>
-            <Image fill className={styles.image} src={image.asset.url} />
+            <Image fill src={image.asset.url} />
           </div>
         </div>
         <div className={styles['form-wrapper']}>

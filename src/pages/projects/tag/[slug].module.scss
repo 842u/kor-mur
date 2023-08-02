@@ -1,22 +1,22 @@
-.page-title {
-  margin-top: 8rem;
-  text-align: center;
+@use '@/styles/mixins.scss' as mixins;
+
+.page-section {
+  margin: 0 1rem;
 }
 
-.tag-container {
-  display: flex;
-  gap: 1rem;
-  justify-content: center;
-  margin: 2rem;
+.page-title {
+  @include mixins.page-title;
+}
+
+.tags-container {
+  margin: 5rem auto;
 }
 
 .projects-container {
   display: flex;
   flex-direction: column;
-  gap: 1rem;
-
-  min-height: 70vh;
-  margin: 0 1rem;
+  gap: var(--margin-item-mobile);
+  margin: var(--margin-item-mobile) auto;
 }
 
 @media (width > 810px) {
@@ -32,7 +32,11 @@
 }
 
 @media (width > 1200px) {
+  .projects-container {
+    margin: 4rem auto;
+  }
+
   .project-card {
-    width: 28%;
+    width: 30%;
   }
 }
