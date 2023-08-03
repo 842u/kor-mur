@@ -2,7 +2,10 @@ import dynamic from 'next/dynamic';
 import Head from 'next/head';
 import { useCallback, useContext, useEffect } from 'react';
 
+import DecorativeBreaker from '@/components/sections/DecorativeBreaker/DecorativeBreaker';
+import FeaturedProjectsSection from '@/components/sections/FeaturedProjectsSection/FeaturedProjectsSection';
 import HeroSection from '@/components/sections/HeroSection/HeroSection';
+import MottoSection from '@/components/sections/MottoSection/MottoSection';
 import DraftModeContext from '@/context/DraftModeContext';
 
 import getGqlHomePageData from '../../graphql/queryHomePageSettings';
@@ -15,10 +18,15 @@ const DraftProvider = dynamic(() => import('@/components/providers/DraftProvider
 export default function HomePage({ draftMode, data }) {
   const { setIsDraftMode } = useContext(DraftModeContext);
 
-  const { heroSectionSettings } = data;
+  const { heroSectionSettings, mottoSectionSettings, featuredProjects } = data;
 
   const renderItem = useCallback(
-    (draftData) => <HeroSection data={draftData[0]?.heroSectionSettings} />,
+    (draftData) => (
+      <>
+        <HeroSection data={draftData[0]?.heroSectionSettings} />
+        <MottoSection data={draftData[0]?.mottoSectionSettings} />
+      </>
+    ),
     []
   );
 
@@ -34,7 +42,12 @@ export default function HomePage({ draftMode, data }) {
       {draftMode ? (
         <DraftProvider query={groqQueryHomePageData} renderItem={renderItem} />
       ) : (
-        <HeroSection data={heroSectionSettings} />
+        <>
+          <HeroSection data={heroSectionSettings} />
+          <MottoSection withButton data={mottoSectionSettings} />
+          <DecorativeBreaker />
+          <FeaturedProjectsSection data={featuredProjects} />
+        </>
       )}
     </>
   );

@@ -9,6 +9,16 @@ const groqQueryHomePageData = groq`{
         url
       }
     }
+  },
+
+  "mottoSectionSettings": *[_type == 'mottoSectionSettings']{
+    titles,
+    text,
+    image{
+      asset->{
+        url
+      }
+    }
   }
 }`;
 

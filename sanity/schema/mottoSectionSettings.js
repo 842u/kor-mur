@@ -10,20 +10,20 @@ const mottoSectionSettings = defineType({
   type: 'document',
   fields: [
     defineField({
-      name: 'mottoSectionTitles',
+      name: 'titles',
       title: 'Motto Section Titles',
       type: 'array',
       of: [{ type: 'string' }],
-      validation: (Rule) => Rule.min(1).max(5).required(),
+      validation: (Rule) => Rule.min(1).required(),
     }),
     defineField({
-      name: 'mottoSectionText',
+      name: 'text',
       title: 'Motto Section Text',
       type: 'text',
       validation: (Rule) => Rule.required(),
     }),
     defineField({
-      name: 'mottoSectionImage',
+      name: 'image',
       title: 'Motto Section Image',
       type: 'image',
       validation: (Rule) => Rule.required(),

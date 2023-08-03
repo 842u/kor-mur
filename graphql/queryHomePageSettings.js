@@ -15,9 +15,9 @@ const query = gql`
     }
 
     allMottoSectionSettings {
-      mottoSectionTitles
-      mottoSectionText
-      mottoSectionImage {
+      titles
+      text
+      image {
         asset {
           url
         }
