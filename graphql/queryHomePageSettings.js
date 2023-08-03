@@ -25,6 +25,7 @@ const query = gql`
     }
 
     allProject(where: $where) {
+      _id
       name
       descriptionFirst
       descriptionSecond

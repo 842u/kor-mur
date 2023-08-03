@@ -19,7 +19,30 @@ const groqQueryHomePageData = groq`{
         url
       }
     }
-  }
+  },
+
+  "featuredProjects": *[_type == "project" && featured == true]{
+    _id,
+    name,
+    descriptionFirst,
+    descriptionSecond,
+    tags[]->{
+      name,
+      slug{
+        current
+      }
+    },
+
+    mainImage{
+      asset->{
+        url
+      }
+    },
+
+    slug{
+      current
+    }
+  },
 }`;
 
 export default groqQueryHomePageData;
