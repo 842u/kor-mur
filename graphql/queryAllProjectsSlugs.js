@@ -1,6 +1,8 @@
 import { gql } from '@apollo/client';
 
-const gqlQueryAllProjectsSlugs = gql`
+import apolloClient from './apolloClient';
+
+const query = gql`
   query AllProjectsSlugs {
     allProject {
       slug {
@@ -10,4 +12,10 @@ const gqlQueryAllProjectsSlugs = gql`
   }
 `;
 
-export default gqlQueryAllProjectsSlugs;
+export default async function getGqlAllProjectsSlugsData() {
+  const { data } = await apolloClient.query({
+    query,
+  });
+
+  return data.allProject.map((project) => project.slug.current);
+}

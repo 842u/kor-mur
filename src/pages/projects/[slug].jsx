@@ -3,11 +3,10 @@ import { useContext, useEffect } from 'react';
 import ProjectSection from '@/components/sections/ProjectSection/ProjectSection';
 import DraftModeContext from '@/context/DraftModeContext';
 
-import apolloClient from '../../../graphql/apolloClient';
-import gqlQueryAllProjectsSlugs from '../../../graphql/queryAllProjectsSlugs';
-import gqlQueryProjectBySlug from '../../../graphql/queryProjectDataBySlug';
+import getGqlAllProjectsSlugsData from '../../../graphql/queryAllProjectsSlugs';
+import getGqlProjecBySlugData from '../../../graphql/queryProjectDataBySlug';
 
-export default function SpecificProjectPage({ draftMode, project }) {
+export default function ProjectPage({ draftMode, project }) {
   const { setIsDraftMode } = useContext(DraftModeContext);
 
   useEffect(() => {
@@ -18,37 +17,22 @@ export default function SpecificProjectPage({ draftMode, project }) {
 }
 
 export async function getStaticPaths() {
-  const { data } = await apolloClient.query({
-    query: gqlQueryAllProjectsSlugs,
-  });
+  const slugs = await getGqlAllProjectsSlugsData();
 
-  const paths = data.allProject.map((project) => ({
-    params: { slug: project.slug.current },
+  const paths = slugs.map((slug) => ({
+    params: { slug },
   }));
 
   return { paths, fallback: 'blocking' };
 }
 
 export async function getStaticProps({ params, draftMode = false }) {
-  const { data } = await apolloClient.query({
-    query: gqlQueryProjectBySlug,
-    variables: {
-      where: {
-        slug: {
-          current: {
-            eq: params.slug,
-          },
-        },
-      },
-    },
-  });
-
-  const project = data?.allProject;
+  const { project } = await getGqlProjecBySlugData(params.slug);
 
   return {
     props: {
-      project,
       draftMode,
+      project,
     },
   };
 }
