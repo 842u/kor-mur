@@ -2,6 +2,7 @@ import dynamic from 'next/dynamic';
 import Head from 'next/head';
 import { useCallback, useContext, useEffect } from 'react';
 
+import ContactSection from '@/components/sections/ContactSection/ContactSection';
 import DecorativeBreaker from '@/components/sections/DecorativeBreaker/DecorativeBreaker';
 import FeaturedProjectsSection from '@/components/sections/FeaturedProjectsSection/FeaturedProjectsSection';
 import HeroSection from '@/components/sections/HeroSection/HeroSection';
@@ -18,14 +19,16 @@ const DraftProvider = dynamic(() => import('@/components/providers/DraftProvider
 export default function HomePage({ draftMode, data }) {
   const { setIsDraftMode } = useContext(DraftModeContext);
 
-  const { heroSectionSettings, mottoSectionSettings, featuredProjects } = data;
+  const { heroSectionSettings, mottoSectionSettings, featuredProjects, contactSectionSettings } =
+    data;
 
   const renderItem = useCallback(
     (draftData) => (
       <>
-        <HeroSection data={draftData[0]?.heroSectionSettings} />
-        <MottoSection withButton data={draftData[0]?.mottoSectionSettings} />
-        <FeaturedProjectsSection projects={draftData[0]?.featuredProjects} />
+        <HeroSection data={draftData?.[0]?.heroSectionSettings} />
+        <MottoSection withButton data={draftData?.[0]?.mottoSectionSettings} />
+        <FeaturedProjectsSection projects={draftData?.[0]?.featuredProjects} />
+        <ContactSection data={draftData?.[0]?.contactSectionSettings} />
       </>
     ),
     []
@@ -48,6 +51,7 @@ export default function HomePage({ draftMode, data }) {
           <MottoSection withButton data={mottoSectionSettings} />
           <DecorativeBreaker />
           <FeaturedProjectsSection projects={featuredProjects} />
+          <ContactSection data={contactSectionSettings} />
         </>
       )}
     </>

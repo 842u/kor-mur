@@ -43,6 +43,16 @@ const groqQueryHomePageData = groq`{
       current
     }
   },
+
+  "contactSectionSettings": *[_type == "contactSectionSettings"]{
+    title,
+    description,
+    image{
+      asset->{
+        url
+      }
+    }
+  },
 }`;
 
 export default groqQueryHomePageData;

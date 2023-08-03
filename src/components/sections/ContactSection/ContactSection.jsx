@@ -1,24 +1,27 @@
-import dynamic from 'next/dynamic';
-import { useContext } from 'react';
+import Image from 'next/image';
 
-import DraftModeContext from '@/context/DraftModeContext';
+import ContactForm from '@/components/ui/ContactForm/ContactForm';
 
-import groqQueryContactSectionSettings from '../../../../groq/queryContactSectionSettings';
-import ContactSectionDefault from './ContactSectionDefault';
-import ContactSectionDraft from './ContactSectionDraft';
+import styles from './ContactSection.module.scss';
+import getContactSectionSetup from './getContactSectionSetup';
 
-const DraftProvider = dynamic(() => import('@/components/providers/DraftProvider/DraftProvider'), {
-  loading: () => <p>Loading...</p>,
-});
+export default function ContactSection({ data }) {
+  const { title, description, image } = getContactSectionSetup(data);
 
-export default function ContactSection({ settings }) {
-  const { isDraftMode } = useContext(DraftModeContext);
-
-  return isDraftMode ? (
-    <DraftProvider draftMode={isDraftMode}>
-      <ContactSectionDraft query={groqQueryContactSectionSettings} />
-    </DraftProvider>
-  ) : (
-    <ContactSectionDefault settings={settings} />
+  return (
+    <section className={styles['contact-section']} id="contact">
+      <h2>{title}</h2>
+      <div className={styles['contact-wrapper']}>
+        <div className={styles['description-wrapper']}>
+          <p>{description}</p>
+          <div className={styles['image-container']}>
+            <Image fill src={image.asset.url} />
+          </div>
+        </div>
+        <div className={styles['form-wrapper']}>
+          <ContactForm className={styles.form} />
+        </div>
+      </div>
+    </section>
   );
 }
