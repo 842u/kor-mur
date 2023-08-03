@@ -1,23 +1,26 @@
+import dynamic from 'next/dynamic';
 import Head from 'next/head';
-import { useContext, useEffect } from 'react';
+import { useCallback, useContext, useEffect } from 'react';
 
-import ContactSection from '@/components/sections/ContactSection/ContactSection';
-import DecorativeBreaker from '@/components/sections/DecorativeBreaker/DecorativeBreaker';
-import FeaturedProjectsSection from '@/components/sections/FeaturedProjectsSection/FeaturedProjectsSection';
 import HeroSection from '@/components/sections/HeroSection/HeroSection';
-import MottoSection from '@/components/sections/MottoSection/MottoSection';
 import DraftModeContext from '@/context/DraftModeContext';
 
-import getHomePageSettings from '../../graphql/queryHomePageSettings';
+import getGqlHomePageSettings from '../../graphql/queryHomePageSettings';
+import groqQueryHomePageSettings from '../../groq/queryHomePageSettings';
 
-export default function HomePage({
-  draftMode,
-  heroSectionSettings,
-  mottoSectionSettings,
-  featuredProjects,
-  contactSectionSettings,
-}) {
+const DraftProvider = dynamic(() => import('@/components/providers/DraftProvider/DraftProvider'), {
+  loading: () => <p>Loading...</p>,
+});
+
+export default function HomePage({ draftMode, data }) {
   const { setIsDraftMode } = useContext(DraftModeContext);
+
+  const { heroSectionSettings } = data;
+
+  const renderItem = useCallback(
+    (draftData) => <HeroSection settings={draftData[0]?.heroSectionSettings} />,
+    []
+  );
 
   useEffect(() => {
     setIsDraftMode(draftMode);
@@ -28,28 +31,22 @@ export default function HomePage({
       <Head>
         <title>Murawska Studio</title>
       </Head>
-      <HeroSection settings={heroSectionSettings} />
-      <MottoSection settings={mottoSectionSettings} />
-      <DecorativeBreaker />
-      <FeaturedProjectsSection projects={featuredProjects} />
-      <ContactSection settings={contactSectionSettings} />
+      {draftMode ? (
+        <DraftProvider query={groqQueryHomePageSettings} renderItem={renderItem} />
+      ) : (
+        <HeroSection settings={heroSectionSettings} />
+      )}
     </>
   );
 }
 
 export async function getStaticProps({ draftMode = false }) {
-  const data = await getHomePageSettings();
-
-  const { contactSectionSettings, heroSectionSettings, mottoSectionSettings, featuredProjects } =
-    data;
+  const data = await getGqlHomePageSettings();
 
   return {
     props: {
       draftMode,
-      heroSectionSettings,
-      mottoSectionSettings,
-      featuredProjects,
-      contactSectionSettings,
+      data,
     },
   };
 }

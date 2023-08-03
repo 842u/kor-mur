@@ -7,7 +7,7 @@ import DraftModeContext from '@/context/DraftModeContext';
 import ProjectSectionDefault from './ProjectSectionDefault';
 import ProjectSectionDraft from './ProjectSectionDraft';
 
-const DraftProvider = dynamic(() => import('@/components/providers/DraftProvider'), {
+const DraftProvider = dynamic(() => import('@/components/providers/DraftProvider/DraftProvider'), {
   loading: () => <p>Loading...</p>,
 });
 

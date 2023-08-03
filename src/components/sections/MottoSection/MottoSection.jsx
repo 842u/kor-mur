@@ -7,7 +7,7 @@ import groqQueryMottoSectionSettings from '../../../../groq/queryMottoSectionSet
 import MottoSectionDefault from './MottoSectionDefault';
 import MottoSectionDraft from './MottoSectionDraft';
 
-const DraftProvider = dynamic(() => import('@/components/providers/DraftProvider'), {
+const DraftProvider = dynamic(() => import('@/components/providers/DraftProvider/DraftProvider'), {
   loading: () => <p>Loading...</p>,
 });
 

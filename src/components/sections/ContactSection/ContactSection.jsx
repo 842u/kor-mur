@@ -7,7 +7,7 @@ import groqQueryContactSectionSettings from '../../../../groq/queryContactSectio
 import ContactSectionDefault from './ContactSectionDefault';
 import ContactSectionDraft from './ContactSectionDraft';
 
-const DraftProvider = dynamic(() => import('@/components/providers/DraftProvider'), {
+const DraftProvider = dynamic(() => import('@/components/providers/DraftProvider/DraftProvider'), {
   loading: () => <p>Loading...</p>,
 });
 
