@@ -6,8 +6,8 @@ import { useEffect, useState } from 'react';
 import getHeroSectionSetup from './getHeroSectionSetup';
 import styles from './HeroSection.module.scss';
 
-export default function HeroSection({ settings }) {
-  const { text, images } = getHeroSectionSetup(settings);
+export default function HeroSection({ data }) {
+  const { text, images } = getHeroSectionSetup(data);
 
   const [currentImageIndex, setCurrentImageIndex] = useState(0);
 
@@ -21,7 +21,7 @@ export default function HeroSection({ settings }) {
     return () => {
       clearTimeout(imageChangeDelay);
     };
-  }, [currentImageIndex, settings]);
+  }, [currentImageIndex, data]);
 
   return (
     <section className={styles['hero-section']}>

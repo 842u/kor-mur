@@ -64,7 +64,7 @@ const variables = {
   },
 };
 
-export default async function getGqlHomePageSettings() {
+export default async function getGqlHomePageData() {
   const { data } = await apolloClient.query({
     query,
     variables,

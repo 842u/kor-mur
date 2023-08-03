@@ -5,8 +5,8 @@ import { useCallback, useContext, useEffect } from 'react';
 import HeroSection from '@/components/sections/HeroSection/HeroSection';
 import DraftModeContext from '@/context/DraftModeContext';
 
-import getGqlHomePageSettings from '../../graphql/queryHomePageSettings';
-import groqQueryHomePageSettings from '../../groq/queryHomePageSettings';
+import getGqlHomePageData from '../../graphql/queryHomePageSettings';
+import groqQueryHomePageData from '../../groq/queryHomePageSettings';
 
 const DraftProvider = dynamic(() => import('@/components/providers/DraftProvider/DraftProvider'), {
   loading: () => <p>Loading...</p>,
@@ -18,7 +18,7 @@ export default function HomePage({ draftMode, data }) {
   const { heroSectionSettings } = data;
 
   const renderItem = useCallback(
-    (draftData) => <HeroSection settings={draftData[0]?.heroSectionSettings} />,
+    (draftData) => <HeroSection data={draftData[0]?.heroSectionSettings} />,
     []
   );
 
@@ -32,16 +32,16 @@ export default function HomePage({ draftMode, data }) {
         <title>Murawska Studio</title>
       </Head>
       {draftMode ? (
-        <DraftProvider query={groqQueryHomePageSettings} renderItem={renderItem} />
+        <DraftProvider query={groqQueryHomePageData} renderItem={renderItem} />
       ) : (
-        <HeroSection settings={heroSectionSettings} />
+        <HeroSection data={heroSectionSettings} />
       )}
     </>
   );
 }
 
 export async function getStaticProps({ draftMode = false }) {
-  const data = await getGqlHomePageSettings();
+  const data = await getGqlHomePageData();
 
   return {
     props: {

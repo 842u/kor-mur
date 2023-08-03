@@ -1,6 +1,6 @@
 const { groq } = require('next-sanity');
 
-const groqQueryHomePageSettings = groq`{
+const groqQueryHomePageData = groq`{
   "heroSectionSettings": *[_type == 'heroSectionSettings']{
     text,
     images[]{
@@ -12,4 +12,4 @@ const groqQueryHomePageSettings = groq`{
   }
 }`;
 
-export default groqQueryHomePageSettings;
+export default groqQueryHomePageData;
