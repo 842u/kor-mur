@@ -2,10 +2,10 @@
 
 .page-section {
   margin: 0 1rem;
-}
 
-.page-title {
-  @include mixins.page-title;
+  h1 {
+    @include mixins.page-title;
+  }
 }
 
 .tags-container {

@@ -10,7 +10,7 @@ import styles from './[slug].module.scss';
 export default function TagPage({ projects, tags }) {
   return (
     <section className={styles['page-section']}>
-      <h1 className={`${styles['page-title']}`}>Projects Page Title</h1>
+      <h1>Projects Page Title</h1>
       <TagsContainer className={styles['tags-container']} tags={tags} />
       <div className={styles['projects-container']}>
         {projects.map((project, index) => (
