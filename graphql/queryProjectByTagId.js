@@ -1,6 +1,8 @@
 import { gql } from '@apollo/client';
 
-const gqlQueryProjectByTagId = gql`
+import apolloClient from './apolloClient';
+
+const query = gql`
   query ProjectByTagId($where: ProjectFilter) {
     allProject(where: $where) {
       _id
@@ -17,4 +19,11 @@ const gqlQueryProjectByTagId = gql`
   }
 `;
 
-export default gqlQueryProjectByTagId;
+export default async function getGqlProjectsByTagIdData(tagId) {
+  const { data } = await apolloClient.query({
+    query,
+    variables: { where: { _: { references: tagId || null } } },
+  });
+
+  return data.allProject;
+}

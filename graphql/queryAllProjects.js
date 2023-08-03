@@ -1,6 +1,8 @@
 import { gql } from '@apollo/client';
 
-const gqlQueryAllProjects = gql`
+import apolloClient from './apolloClient';
+
+const query = gql`
   query AllProjects {
     allProject {
       _id
@@ -17,4 +19,10 @@ const gqlQueryAllProjects = gql`
   }
 `;
 
-export default gqlQueryAllProjects;
+export default async function getGqlAllProjectsData() {
+  const { data } = await apolloClient.query({
+    query,
+  });
+
+  return data.allProject;
+}
