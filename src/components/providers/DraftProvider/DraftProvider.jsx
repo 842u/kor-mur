@@ -6,14 +6,14 @@ import DraftModeContext from '@/context/DraftModeContext';
 
 import DraftData from './DraftData';
 
-export default function DraftProvider({ query, renderItem }) {
+export default function DraftProvider({ query, queryParams, renderItem }) {
   const { isDraftMode } = useContext(DraftModeContext);
 
   const client = useMemo(() => getClient(isDraftMode), [isDraftMode]);
 
   return (
     <LiveQueryProvider client={client}>
-      <DraftData query={query} renderItem={renderItem} />
+      <DraftData query={query} queryParams={queryParams} renderItem={renderItem} />
     </LiveQueryProvider>
   );
 }

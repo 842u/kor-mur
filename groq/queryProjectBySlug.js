@@ -36,6 +36,6 @@ const groqQueryProjectBySlug = groq`*[_type == "project"]{
   slug{
     current
   }
-}[slug.current == $slug]`;
+}[slug.current == $slug][0]`;
 
 export default groqQueryProjectBySlug;

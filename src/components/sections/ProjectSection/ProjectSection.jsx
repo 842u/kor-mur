@@ -1,24 +1,47 @@
-import dynamic from 'next/dynamic';
-import { useContext } from 'react';
+import Image from 'next/image';
 
-import groqQueryProjectBySlug from '@/../groq/queryProjectBySlug';
-import DraftModeContext from '@/context/DraftModeContext';
+import ProjectDetailsCard from '@/components/ui/ProjectDetailsCard/ProjectDetailsCard';
+import TagsContainer from '@/components/ui/TagsContainer/TagsContainer';
 
-import ProjectSectionDefault from './ProjectSectionDefault';
-import ProjectSectionDraft from './ProjectSectionDraft';
+import getProjectSectionSetup from './getProjectSectionSetup';
+import styles from './ProjectSection.module.scss';
 
-const DraftProvider = dynamic(() => import('@/components/providers/DraftProvider/DraftProvider'), {
-  loading: () => <p>Loading...</p>,
-});
+export default function ProjectSection({ data }) {
+  const projectSettings = getProjectSectionSetup(data);
 
-export default function ProjectSection({ settings }) {
-  const { isDraftMode } = useContext(DraftModeContext);
+  const { name, descriptionFirst, descriptionSecond, mainImage, secondaryImage, images, tags } =
+    projectSettings;
 
-  return isDraftMode ? (
-    <DraftProvider draftMode={isDraftMode}>
-      <ProjectSectionDraft query={groqQueryProjectBySlug} />
-    </DraftProvider>
-  ) : (
-    <ProjectSectionDefault settings={settings} />
+  return (
+    <section className={styles['project-section']}>
+      <h1>{name}</h1>
+
+      <div className={styles.overview}>
+        <div className={styles.details}>
+          <ProjectDetailsCard project={projectSettings} />
+          <TagsContainer tags={tags} />
+          <p>{descriptionFirst}</p>
+        </div>
+
+        <div className={styles['main-image']}>
+          <Image fill src={mainImage.asset.url} />
+        </div>
+      </div>
+
+      <div className={styles.description}>
+        <div className={styles['secondary-image']}>
+          <Image fill src={secondaryImage.asset.url} />
+        </div>
+        <p>{descriptionSecond}</p>
+      </div>
+
+      <div className={styles.gallery}>
+        {images.map((image) => (
+          <div className={styles['gallery-image']}>
+            <Image fill sizes="100vw" src={image.asset.url} />
+          </div>
+        ))}
+      </div>
+    </section>
   );
 }
