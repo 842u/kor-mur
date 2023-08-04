@@ -1,5 +1,4 @@
 import dynamic from 'next/dynamic';
-import Head from 'next/head';
 import { useRouter } from 'next/router';
 import { useCallback, useContext, useEffect } from 'react';
 
@@ -9,6 +8,7 @@ import DraftModeContext from '@/context/DraftModeContext';
 import getGqlProjecBySlugData from '../../../graphql/queryProjectBySlug';
 import getGqlProjectsSlugsData from '../../../graphql/queryProjectsSlugs';
 import groqQueryProjectBySlug from '../../../groq/queryProjectBySlug';
+import HeadProjectPage from './HeadProjectPage';
 
 const DraftProvider = dynamic(() => import('@/components/providers/DraftProvider/DraftProvider'), {
   loading: () => <p>Loading...</p>,
@@ -28,9 +28,8 @@ export default function ProjectPage({ draftMode, project }) {
 
   return (
     <>
-      <Head>
-        <title>Project Page</title>
-      </Head>
+      <HeadProjectPage project={project} />
+
       {draftMode ? (
         <DraftProvider
           query={groqQueryProjectBySlug}
