@@ -1,5 +1,4 @@
 import dynamic from 'next/dynamic';
-import Head from 'next/head';
 import { useCallback, useContext, useEffect } from 'react';
 
 import ContactSection from '@/components/sections/ContactSection/ContactSection';
@@ -11,6 +10,7 @@ import DraftModeContext from '@/context/DraftModeContext';
 
 import getGqlHomePageData from '../../graphql/queryHomePageData';
 import groqQueryHomePageData from '../../groq/queryHomePageData';
+import HeadHomePage from './HeadHomePage';
 
 const DraftProvider = dynamic(() => import('@/components/providers/DraftProvider/DraftProvider'), {
   loading: () => <p>Loading...</p>,
@@ -40,9 +40,7 @@ export default function HomePage({ draftMode, data }) {
 
   return (
     <>
-      <Head>
-        <title>Murawska Studio</title>
-      </Head>
+      <HeadHomePage />
 
       {draftMode ? (
         <DraftProvider query={groqQueryHomePageData} renderItem={renderItem} />
