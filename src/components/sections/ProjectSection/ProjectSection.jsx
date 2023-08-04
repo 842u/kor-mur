@@ -26,6 +26,7 @@ export default function ProjectSection({ data }) {
         <div className={styles['main-image']}>
           <Image
             fill
+            priority
             alt={`Main image of the ${name} project.`}
             sizes="(max-width: 810px) 100vw, 60vw"
             src={mainImage.asset.url}

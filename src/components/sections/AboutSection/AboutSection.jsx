@@ -10,13 +10,25 @@ export default function AboutSection({ data }) {
     <section className={styles['about-section']}>
       <div className={styles['info-section']}>
         <div className={styles['first-image-container']}>
-          <Image fill className={styles.image} src={imageFirst.asset.url} />
+          <Image
+            fill
+            alt="One of the about me page photo."
+            className={styles.image}
+            sizes="(max-width: 810px) 100vw, 50vw"
+            src={imageFirst.asset.url}
+          />
         </div>
         <p>{description}</p>
       </div>
 
       <div className={styles['second-image-container']}>
-        <Image fill className={styles.image} src={imageSecond.asset.url} />
+        <Image
+          fill
+          alt="One of the about me page photo."
+          className={styles.image}
+          sizes="100vw"
+          src={imageSecond.asset.url}
+        />
       </div>
     </section>
   );
