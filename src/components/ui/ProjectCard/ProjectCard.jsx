@@ -3,22 +3,20 @@ import Link from 'next/link';
 
 import styles from './ProjectCard.module.scss';
 
-export default function ProjectCard({ project, sizes, className, priority }) {
-  const image = project.mainImage.asset.url;
-  const { current: slug } = project.slug;
-  const { name } = project;
+export default function ProjectCard({ project, sizes, className }) {
+  const { mainImage, name, slug } = project;
+
   const style = `${styles['project-card']} ${className}`;
 
   return (
-    <Link className={style} href={`/projects/${slug}`}>
+    <Link className={style} href={`/projects/${slug.current}`}>
       <div className={styles['image-container']}>
         <Image
           fill
-          alt={`${name} project image`}
+          alt={`Main image of the ${name} project.`}
           className={styles['project-image']}
-          priority={priority}
           sizes={sizes}
-          src={image}
+          src={mainImage.asset.url}
         />
       </div>
     </Link>

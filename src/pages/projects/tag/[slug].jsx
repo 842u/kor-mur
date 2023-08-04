@@ -15,13 +15,14 @@ export default function TagPage({ projects, tags, tag }) {
 
       <section className={styles['page-section']}>
         <h1>Projects Page Title</h1>
+
         <TagsContainer className={styles['tags-container']} tags={tags} />
+
         <div className={styles['projects-container']}>
-          {projects.map((project, index) => (
+          {projects.map((project) => (
             <ProjectCard
               key={project._id}
               className={styles['project-card']}
-              priority={index === 0}
               project={project}
               sizes="(max-width: 810px) 100vw, (max-width: 1200px) 50vw, 33vw"
             />
