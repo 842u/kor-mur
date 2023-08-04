@@ -7,9 +7,9 @@ export default function HamburgerButton({ isActive, onClick, className }) {
 
   return (
     <button aria-label="menu" className={style} type="button" onClick={onClick}>
-      <div />
-      <div />
-      <div />
+      <div aria-hidden />
+      <div aria-hidden />
+      <div aria-hidden />
     </button>
   );
 }
