@@ -29,10 +29,6 @@ const mottoSectionSettings = defineType({
       validation: (Rule) => Rule.required(),
     }),
   ],
-  initialValue: {
-    mottoSectionTitles: ['Motto title 1', 'Motto title 2'],
-    mottoSectionText: 'Motto Section Text',
-  },
 });
 
 export default mottoSectionSettings;

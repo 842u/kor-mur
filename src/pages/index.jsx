@@ -19,9 +19,6 @@ const DraftProvider = dynamic(() => import('@/components/providers/DraftProvider
 export default function HomePage({ draftMode, data }) {
   const { setIsDraftMode } = useContext(DraftModeContext);
 
-  const { heroSectionSettings, mottoSectionSettings, featuredProjects, contactSectionSettings } =
-    data;
-
   const renderItem = useCallback(
     (draftData) => (
       <>
@@ -38,11 +35,15 @@ export default function HomePage({ draftMode, data }) {
     setIsDraftMode(draftMode);
   }, []);
 
+  const { heroSectionSettings, mottoSectionSettings, featuredProjects, contactSectionSettings } =
+    data;
+
   return (
     <>
       <Head>
         <title>Murawska Studio</title>
       </Head>
+
       {draftMode ? (
         <DraftProvider query={groqQueryHomePageData} renderItem={renderItem} />
       ) : (

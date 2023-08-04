@@ -1,11 +1,13 @@
 import { gql } from '@apollo/client';
 
-const qglQueryAboutPageSettings = gql`
+import apolloClient from './apolloClient';
+
+const query = gql`
   query AboutPageSettings {
     allMottoSectionSettings {
-      mottoSectionTitles
-      mottoSectionText
-      mottoSectionImage {
+      titles
+      text
+      image {
         asset {
           url
         }
@@ -28,4 +30,13 @@ const qglQueryAboutPageSettings = gql`
   }
 `;
 
-export default qglQueryAboutPageSettings;
+export default async function getGqlAboutPageData() {
+  const { data } = await apolloClient.query({
+    query,
+  });
+
+  return {
+    aboutSectionSettings: data.allAboutSectionSettings,
+    mottoSectionSettings: data.allMottoSectionSettings,
+  };
+}
