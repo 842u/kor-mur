@@ -156,9 +156,11 @@ export default function ContactForm({ className }) {
         onBlur={messageOnTouchHandler}
         onChange={messageValueChangeHandler}
       />
+
       <button disabled={!!formHasError} type="submit">
         {isSubmitting ? <PulseLoader loading color="#373627" /> : 'Wyślij'}
       </button>
+
       {serverResponseMessages.map((message) => (
         <span key={message.split(' ')[0]} className={styles['server-response']}>
           {message}

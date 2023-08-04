@@ -6,7 +6,7 @@ import FeaturedProjectInfo from './FeaturedProjectInfo/FeaturedProjectInfo';
 import getFeaturedProjectSetup from './getFeaturedProjectSetup';
 
 export default function FeaturedProjectCard({ project, className }) {
-  const { slug, mainImage } = getFeaturedProjectSetup(project);
+  const { name, slug, mainImage } = getFeaturedProjectSetup(project);
 
   const style = `${className} ${styles['project-card']}`;
 
@@ -15,7 +15,12 @@ export default function FeaturedProjectCard({ project, className }) {
       <FeaturedProjectInfo className={styles['info-card']} project={project} />
 
       <Link className={styles['project-link']} href={`/projects/${slug.current}`}>
-        <Image fill src={mainImage.asset.url} />
+        <Image
+          fill
+          alt={`Main image of ${name} project.`}
+          sizes="100vw"
+          src={mainImage.asset.url}
+        />
       </Link>
     </div>
   );

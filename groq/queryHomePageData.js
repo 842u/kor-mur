@@ -27,6 +27,7 @@ const groqQueryHomePageData = groq`{
     descriptionFirst,
     descriptionSecond,
     tags[]->{
+      _id,
       name,
       slug{
         current

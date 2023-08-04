@@ -38,9 +38,8 @@ export default function HeroSection({ data }) {
           return (
             <Image
               key={image?.asset?._id}
-              aria-hidden
               fill
-              alt=""
+              alt="One of the hero section images."
               className={imageStyle}
               priority={index === 0}
               sizes="100vw"

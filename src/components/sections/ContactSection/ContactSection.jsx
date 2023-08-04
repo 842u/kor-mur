@@ -11,13 +11,20 @@ export default function ContactSection({ data }) {
   return (
     <section className={styles['contact-section']} id="contact">
       <h2>{title}</h2>
+
       <div className={styles['contact-wrapper']}>
         <div className={styles['description-wrapper']}>
           <p>{description}</p>
           <div className={styles['image-container']}>
-            <Image fill src={image.asset.url} />
+            <Image
+              fill
+              alt="Image of contact section."
+              sizes="(max-width: 810px) 100vw,(max-width: 1200px) 60vw, 50vw"
+              src={image.asset.url}
+            />
           </div>
         </div>
+
         <div className={styles['form-wrapper']}>
           <ContactForm className={styles.form} />
         </div>

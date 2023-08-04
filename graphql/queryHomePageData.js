@@ -30,6 +30,7 @@ const query = gql`
       descriptionFirst
       descriptionSecond
       tags {
+        _id
         name
         slug {
           current
