@@ -4,8 +4,8 @@ import { isValidSignature, SIGNATURE_HEADER_NAME } from '@sanity/webhook';
 import tagMock from '@/utils/mocks';
 
 import apolloClient from '../../../graphql/apolloClient';
-import gqlQueryAllTags from '../../../graphql/queryAllTags';
 import gqlQueryProjectSlugByTagId from '../../../graphql/queryProjectSlugByTagId';
+import gqlQueryAllTags from '../../../graphql/queryTags';
 
 const secret = process.env.SANITY_WEBHOOK_SECRET;
 

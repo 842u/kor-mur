@@ -5,7 +5,7 @@ import tagMock from '@/utils/mocks';
 import apolloClient from './apolloClient';
 
 const query = gql`
-  query AllTags {
+  query Tags {
     allTag {
       _id
       name
@@ -16,7 +16,7 @@ const query = gql`
   }
 `;
 
-export default async function getGqlAllTagsData() {
+export default async function getGqlTagsData() {
   const { data } = await apolloClient.query({
     query,
   });

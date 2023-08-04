@@ -3,7 +3,7 @@ import { gql } from '@apollo/client';
 import apolloClient from './apolloClient';
 
 const query = gql`
-  query AllProjectsSlugs {
+  query ProjectsSlugs {
     allProject {
       slug {
         current
@@ -12,7 +12,7 @@ const query = gql`
   }
 `;
 
-export default async function getGqlAllProjectsSlugsData() {
+export default async function getGqlProjectsSlugsData() {
   const { data } = await apolloClient.query({
     query,
   });

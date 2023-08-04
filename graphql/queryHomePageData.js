@@ -3,7 +3,7 @@ import { gql } from '@apollo/client';
 import apolloClient from './apolloClient';
 
 const query = gql`
-  query HomePageSettings($where: ProjectFilter) {
+  query HomePageData($where: ProjectFilter) {
     allHeroSectionSettings {
       text
       images {

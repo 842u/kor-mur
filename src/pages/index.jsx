@@ -9,8 +9,8 @@ import HeroSection from '@/components/sections/HeroSection/HeroSection';
 import MottoSection from '@/components/sections/MottoSection/MottoSection';
 import DraftModeContext from '@/context/DraftModeContext';
 
-import getGqlHomePageData from '../../graphql/queryHomePageSettings';
-import groqQueryHomePageData from '../../groq/queryHomePageSettings';
+import getGqlHomePageData from '../../graphql/queryHomePageData';
+import groqQueryHomePageData from '../../groq/queryHomePageData';
 
 const DraftProvider = dynamic(() => import('@/components/providers/DraftProvider/DraftProvider'), {
   loading: () => <p>Loading...</p>,

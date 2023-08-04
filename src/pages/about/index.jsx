@@ -5,8 +5,8 @@ import AboutSection from '@/components/sections/AboutSection/AboutSection';
 import MottoSection from '@/components/sections/MottoSection/MottoSection';
 import DraftModeContext from '@/context/DraftModeContext';
 
-import getGqlAboutPageData from '../../../graphql/queryAboutPageSettings';
-import groqQueryAboutPageData from '../../../groq/queryAboutPageSettings';
+import getGqlAboutPageData from '../../../graphql/queryAboutPageData';
+import groqQueryAboutPageData from '../../../groq/queryAboutPageData';
 import styles from './index.module.scss';
 
 const DraftProvider = dynamic(() => import('@/components/providers/DraftProvider/DraftProvider'), {
@@ -35,6 +35,7 @@ export default function AboutPage({ draftMode, data }) {
   return (
     <>
       <h1 className={styles['page-title']}>About Me Page Title</h1>
+
       {draftMode ? (
         <DraftProvider query={groqQueryAboutPageData} renderItem={renderItem} />
       ) : (

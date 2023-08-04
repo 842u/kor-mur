@@ -6,8 +6,8 @@ import { useCallback, useContext, useEffect } from 'react';
 import ProjectSection from '@/components/sections/ProjectSection/ProjectSection';
 import DraftModeContext from '@/context/DraftModeContext';
 
-import getGqlAllProjectsSlugsData from '../../../graphql/queryAllProjectsSlugs';
-import getGqlProjecBySlugData from '../../../graphql/queryProjectDataBySlug';
+import getGqlProjecBySlugData from '../../../graphql/queryProjectBySlug';
+import getGqlProjectsSlugsData from '../../../graphql/queryProjectsSlugs';
 import groqQueryProjectBySlug from '../../../groq/queryProjectBySlug';
 
 const DraftProvider = dynamic(() => import('@/components/providers/DraftProvider/DraftProvider'), {
@@ -45,7 +45,7 @@ export default function ProjectPage({ draftMode, project }) {
 }
 
 export async function getStaticPaths() {
-  const slugs = await getGqlAllProjectsSlugsData();
+  const slugs = await getGqlProjectsSlugsData();
 
   const paths = slugs.map((slug) => ({
     params: { slug },

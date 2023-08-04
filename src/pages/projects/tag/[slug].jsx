@@ -2,9 +2,9 @@ import ProjectCard from '@/components/ui/ProjectCard/ProjectCard';
 import TagsContainer from '@/components/ui/TagsContainer/TagsContainer';
 import tagMock from '@/utils/mocks';
 
-import getGqlAllProjectsData from '../../../../graphql/queryAllProjects';
-import getGqlAllTagsData from '../../../../graphql/queryAllTags';
-import getGqlProjectsByTagIdData from '../../../../graphql/queryProjectByTagId';
+import getGqlProjectsData from '../../../../graphql/queryProjects';
+import getGqlProjectsByTagIdData from '../../../../graphql/queryProjectsByTagId';
+import getGqlTagsData from '../../../../graphql/queryTags';
 import styles from './[slug].module.scss';
 
 export default function TagPage({ projects, tags }) {
@@ -28,7 +28,7 @@ export default function TagPage({ projects, tags }) {
 }
 
 export async function getStaticPaths() {
-  const { tags } = await getGqlAllTagsData();
+  const { tags } = await getGqlTagsData();
 
   const paths = tags.map((tag) => ({
     params: { slug: tag.slug.current },
@@ -38,7 +38,7 @@ export async function getStaticPaths() {
 }
 
 export async function getStaticProps({ params }) {
-  const { tags } = await getGqlAllTagsData();
+  const { tags } = await getGqlTagsData();
   let projects = [];
 
   const tagWithQuerySlug = tags.find((tag) => tag.slug.current === params.slug);
@@ -46,7 +46,7 @@ export async function getStaticProps({ params }) {
   const isAllTag = tagWithQuerySlug?._id === tagMock._id;
 
   if (isAllTag) {
-    projects = await getGqlAllProjectsData();
+    projects = await getGqlProjectsData();
   } else {
     projects = await getGqlProjectsByTagIdData(tagWithQuerySlug?._id);
   }
