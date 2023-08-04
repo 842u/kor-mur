@@ -22,11 +22,13 @@ const groqQueryProjectBySlug = groq`*[_type == "project"]{
 
   images[]{
     asset->{
+      _id,
       url
     }
   },
 
   tags[]->{
+    _id,
     name,
     slug{
       current

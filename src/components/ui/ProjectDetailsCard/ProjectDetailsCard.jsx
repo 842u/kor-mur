@@ -10,14 +10,17 @@ export default function ProjectDetailsCard({ project }) {
           <th>Rok</th>
           <td>{new Date(year).getFullYear()}</td>
         </tr>
+
         <tr>
           <th>Miejsce</th>
           <td>{location}</td>
         </tr>
+
         <tr>
           <th>Powierzchnia</th>
           <td>{area}</td>
         </tr>
+
         <tr>
           <th>Budżet</th>
           <td>{budget}</td>

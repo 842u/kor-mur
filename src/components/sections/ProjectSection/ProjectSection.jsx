@@ -24,21 +24,36 @@ export default function ProjectSection({ data }) {
         </div>
 
         <div className={styles['main-image']}>
-          <Image fill src={mainImage.asset.url} />
+          <Image
+            fill
+            alt={`Main image of the ${name} project.`}
+            sizes="(max-width: 810px) 100vw, 60vw"
+            src={mainImage.asset.url}
+          />
         </div>
       </div>
 
       <div className={styles.description}>
         <div className={styles['secondary-image']}>
-          <Image fill src={secondaryImage.asset.url} />
+          <Image
+            fill
+            alt={`One of the ${name} project image.`}
+            sizes="(max-width: 810px) 100vw, 60vw"
+            src={secondaryImage.asset.url}
+          />
         </div>
         <p>{descriptionSecond}</p>
       </div>
 
       <div className={styles.gallery}>
         {images.map((image) => (
-          <div className={styles['gallery-image']}>
-            <Image fill sizes="100vw" src={image.asset.url} />
+          <div key={image.asset._id} className={styles['gallery-image']}>
+            <Image
+              fill
+              alt={`One of the ${name} project image.`}
+              sizes="(max-width: 1200px) 100vw, 80vw"
+              src={image.asset.url}
+            />
           </div>
         ))}
       </div>

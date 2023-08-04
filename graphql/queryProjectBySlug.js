@@ -26,11 +26,13 @@ const query = gql`
 
       images {
         asset {
+          _id
           url
         }
       }
 
       tags {
+        _id
         name
         slug {
           current

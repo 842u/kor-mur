@@ -16,15 +16,16 @@ const DraftProvider = dynamic(() => import('@/components/providers/DraftProvider
 
 export default function ProjectPage({ draftMode, project }) {
   const { setIsDraftMode } = useContext(DraftModeContext);
-  const router = useRouter();
 
-  const querySlug = router.query;
+  const router = useRouter();
 
   const renderItem = useCallback((draftData) => <ProjectSection data={draftData} />, []);
 
   useEffect(() => {
     setIsDraftMode(draftMode);
   }, []);
+
+  const querySlug = router.query;
 
   return (
     <>
