@@ -13,6 +13,14 @@
   }
 }
 
+.first-wrapper {
+  align-self: stretch;
+}
+
+.second-wrapper {
+  align-self: stretch;
+}
+
 .title-container {
   .title {
     overflow: hidden;
@@ -49,18 +57,14 @@
   .first-wrapper {
     display: flex;
     flex-direction: column;
-    align-self: stretch;
     justify-content: space-evenly;
-
     width: 50%;
   }
 
   .second-wrapper {
     display: flex;
     flex-direction: column;
-    align-self: stretch;
     justify-content: space-evenly;
-
     width: 50%;
   }
 

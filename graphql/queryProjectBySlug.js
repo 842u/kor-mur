@@ -1,6 +1,8 @@
 import { gql } from '@apollo/client';
 
-const gqlQueryProjectBySlug = gql`
+import apolloClient from './apolloClient';
+
+const query = gql`
   query ProjectBySlug($where: ProjectFilter) {
     allProject(where: $where) {
       name
@@ -42,4 +44,21 @@ const gqlQueryProjectBySlug = gql`
   }
 `;
 
-export default gqlQueryProjectBySlug;
+export default async function getGqlProjecBySlugData(slug) {
+  const { data } = await apolloClient.query({
+    query,
+    variables: {
+      where: {
+        slug: {
+          current: {
+            eq: slug,
+          },
+        },
+      },
+    },
+  });
+
+  return {
+    project: data.allProject,
+  };
+}

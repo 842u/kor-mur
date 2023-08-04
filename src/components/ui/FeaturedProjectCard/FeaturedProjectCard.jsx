@@ -3,9 +3,10 @@ import Link from 'next/link';
 
 import styles from './FeaturedProjectCard.module.scss';
 import FeaturedProjectInfo from './FeaturedProjectInfo/FeaturedProjectInfo';
+import getFeaturedProjectSetup from './getFeaturedProjectSetup';
 
 export default function FeaturedProjectCard({ project, className }) {
-  const { slug, mainImage } = project;
+  const { slug, mainImage } = getFeaturedProjectSetup(project);
 
   const style = `${className} ${styles['project-card']}`;
 

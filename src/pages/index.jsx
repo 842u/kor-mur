@@ -1,7 +1,7 @@
+import dynamic from 'next/dynamic';
 import Head from 'next/head';
-import { useContext, useEffect } from 'react';
+import { useCallback, useContext, useEffect } from 'react';
 
-import apolloClient from '@/../graphql/apolloClient';
 import ContactSection from '@/components/sections/ContactSection/ContactSection';
 import DecorativeBreaker from '@/components/sections/DecorativeBreaker/DecorativeBreaker';
 import FeaturedProjectsSection from '@/components/sections/FeaturedProjectsSection/FeaturedProjectsSection';
@@ -9,62 +9,63 @@ import HeroSection from '@/components/sections/HeroSection/HeroSection';
 import MottoSection from '@/components/sections/MottoSection/MottoSection';
 import DraftModeContext from '@/context/DraftModeContext';
 
-import gqlQueryHomePageSettings from '../../graphql/queryHomePageSettings';
+import getGqlHomePageData from '../../graphql/queryHomePageData';
+import groqQueryHomePageData from '../../groq/queryHomePageData';
 
-export default function HomePage({
-  draftMode,
-  heroSectionSettings,
-  mottoSectionSettings,
-  featuredProjects,
-  contactSectionSettings,
-}) {
+const DraftProvider = dynamic(() => import('@/components/providers/DraftProvider/DraftProvider'), {
+  loading: () => <p>Loading...</p>,
+});
+
+export default function HomePage({ draftMode, data }) {
   const { setIsDraftMode } = useContext(DraftModeContext);
+
+  const renderItem = useCallback(
+    (draftData) => (
+      <>
+        <HeroSection data={draftData?.[0]?.heroSectionSettings} />
+        <MottoSection withButton data={draftData?.[0]?.mottoSectionSettings} />
+        <FeaturedProjectsSection projects={draftData?.[0]?.featuredProjects} />
+        <ContactSection data={draftData?.[0]?.contactSectionSettings} />
+      </>
+    ),
+    []
+  );
 
   useEffect(() => {
     setIsDraftMode(draftMode);
-  }, [draftMode]);
+  }, []);
+
+  const { heroSectionSettings, mottoSectionSettings, featuredProjects, contactSectionSettings } =
+    data;
 
   return (
     <>
       <Head>
         <title>Murawska Studio</title>
       </Head>
-      <HeroSection settings={heroSectionSettings} />
-      <MottoSection settings={mottoSectionSettings} />
-      <DecorativeBreaker />
-      <FeaturedProjectsSection projects={featuredProjects} />
-      <ContactSection settings={contactSectionSettings} />
+
+      {draftMode ? (
+        <DraftProvider query={groqQueryHomePageData} renderItem={renderItem} />
+      ) : (
+        <>
+          <HeroSection data={heroSectionSettings} />
+          <MottoSection withButton data={mottoSectionSettings} />
+          <DecorativeBreaker />
+          <FeaturedProjectsSection projects={featuredProjects} />
+          <ContactSection data={contactSectionSettings} />
+        </>
+      )}
     </>
   );
 }
 
 export async function getStaticProps({ draftMode = false }) {
-  const { data } = await apolloClient.query({
-    query: gqlQueryHomePageSettings,
-    variables: {
-      where: {
-        featured: {
-          eq: true,
-        },
-      },
-    },
-  });
-
-  const heroSectionSettings = data.allHeroSectionSettings;
-
-  const mottoSectionSettings = data.allMottoSectionSettings;
-
-  const featuredProjects = data.allProject;
-
-  const contactSectionSettings = data.allContactSectionSettings;
+  const data = await getGqlHomePageData();
 
   return {
     props: {
       draftMode,
-      heroSectionSettings,
-      mottoSectionSettings,
-      featuredProjects,
-      contactSectionSettings,
+      data,
     },
   };
 }

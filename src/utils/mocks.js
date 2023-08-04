@@ -1,4 +1,4 @@
-const allTagMock = {
+const tagMock = {
   _id: 'all',
   name: 'All',
   slug: {
@@ -6,4 +6,4 @@ const allTagMock = {
   },
 };
 
-export default allTagMock;
+export default tagMock;

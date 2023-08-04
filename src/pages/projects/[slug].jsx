@@ -1,54 +1,66 @@
-import { useContext, useEffect } from 'react';
+import dynamic from 'next/dynamic';
+import Head from 'next/head';
+import { useRouter } from 'next/router';
+import { useCallback, useContext, useEffect } from 'react';
 
 import ProjectSection from '@/components/sections/ProjectSection/ProjectSection';
 import DraftModeContext from '@/context/DraftModeContext';
 
-import apolloClient from '../../../graphql/apolloClient';
-import gqlQueryAllProjectsSlugs from '../../../graphql/queryAllProjectsSlugs';
-import gqlQueryProjectBySlug from '../../../graphql/queryProjectDataBySlug';
+import getGqlProjecBySlugData from '../../../graphql/queryProjectBySlug';
+import getGqlProjectsSlugsData from '../../../graphql/queryProjectsSlugs';
+import groqQueryProjectBySlug from '../../../groq/queryProjectBySlug';
 
-export default function SpecificProjectPage({ draftMode, project }) {
+const DraftProvider = dynamic(() => import('@/components/providers/DraftProvider/DraftProvider'), {
+  loading: () => <p>Loading...</p>,
+});
+
+export default function ProjectPage({ draftMode, project }) {
   const { setIsDraftMode } = useContext(DraftModeContext);
+  const router = useRouter();
+
+  const querySlug = router.query;
+
+  const renderItem = useCallback((draftData) => <ProjectSection data={draftData} />, []);
 
   useEffect(() => {
     setIsDraftMode(draftMode);
   }, []);
 
-  return <ProjectSection settings={project} />;
+  return (
+    <>
+      <Head>
+        <title>Project Page</title>
+      </Head>
+      {draftMode ? (
+        <DraftProvider
+          query={groqQueryProjectBySlug}
+          queryParams={querySlug}
+          renderItem={renderItem}
+        />
+      ) : (
+        <ProjectSection data={project} />
+      )}
+    </>
+  );
 }
 
 export async function getStaticPaths() {
-  const { data } = await apolloClient.query({
-    query: gqlQueryAllProjectsSlugs,
-  });
+  const slugs = await getGqlProjectsSlugsData();
 
-  const paths = data.allProject.map((project) => ({
-    params: { slug: project.slug.current },
+  const paths = slugs.map((slug) => ({
+    params: { slug },
   }));
 
   return { paths, fallback: 'blocking' };
 }
 
 export async function getStaticProps({ params, draftMode = false }) {
-  const { data } = await apolloClient.query({
-    query: gqlQueryProjectBySlug,
-    variables: {
-      where: {
-        slug: {
-          current: {
-            eq: params.slug,
-          },
-        },
-      },
-    },
-  });
-
-  const project = data?.allProject;
+  const { project } = await getGqlProjecBySlugData(params.slug);
 
   return {
     props: {
-      project,
       draftMode,
+      project,
     },
   };
 }

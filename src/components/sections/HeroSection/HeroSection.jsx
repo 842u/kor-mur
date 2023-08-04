@@ -1,24 +1,54 @@
-import dynamic from 'next/dynamic';
-import { useContext } from 'react';
+/* eslint no-return-assign: 0, no-param-reassign: 0, no-plusplus: 0 */
 
-import DraftModeContext from '@/context/DraftModeContext';
+import Image from 'next/image';
+import { useEffect, useState } from 'react';
 
-import groqQueryHeroSectionSettings from '../../../../groq/queryHeroSectionSettings';
-import HeroSectionDefault from './HeroSectionDefault';
-import HeroSectionDraft from './HeroSectionDraft';
+import getHeroSectionSetup from './getHeroSectionSetup';
+import styles from './HeroSection.module.scss';
 
-const DraftProvider = dynamic(() => import('@/components/providers/DraftProvider'), {
-  loading: () => <p>Loading...</p>,
-});
+export default function HeroSection({ data }) {
+  const { text, images } = getHeroSectionSetup(data);
 
-export default function HeroSection({ settings }) {
-  const { isDraftMode } = useContext(DraftModeContext);
+  const [currentImageIndex, setCurrentImageIndex] = useState(0);
 
-  return isDraftMode ? (
-    <DraftProvider draftMode={isDraftMode}>
-      <HeroSectionDraft query={groqQueryHeroSectionSettings} />
-    </DraftProvider>
-  ) : (
-    <HeroSectionDefault settings={settings} />
+  useEffect(() => {
+    const imageChangeDelay = setTimeout(() => {
+      setCurrentImageIndex((currentIndex) =>
+        currentIndex >= images.length - 1 ? 0 : (currentIndex += 1)
+      );
+    }, 5000);
+
+    return () => {
+      clearTimeout(imageChangeDelay);
+    };
+  }, [currentImageIndex, data]);
+
+  return (
+    <section className={styles['hero-section']}>
+      <div className={styles['text-container']}>
+        <h1>{text}</h1>
+      </div>
+
+      <div className={styles['image-container']}>
+        {images.map((image, index) => {
+          const isActive = currentImageIndex === index;
+
+          const imageStyle = `${styles.image} ${isActive && styles['image--active']}`;
+
+          return (
+            <Image
+              key={image?.asset?._id}
+              aria-hidden
+              fill
+              alt=""
+              className={imageStyle}
+              priority={index === 0}
+              sizes="100vw"
+              src={image?.asset?.url}
+            />
+          );
+        })}
+      </div>
+    </section>
   );
 }

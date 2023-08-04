@@ -1,21 +1,23 @@
 import { gql } from '@apollo/client';
 
-const gqlQueryHomePageSettings = gql`
-  query HomePageSettings($where: ProjectFilter) {
+import apolloClient from './apolloClient';
+
+const query = gql`
+  query HomePageData($where: ProjectFilter) {
     allHeroSectionSettings {
-      heroSectionImages {
+      text
+      images {
         asset {
           _id
           url
         }
       }
-      heroSectionText
     }
 
     allMottoSectionSettings {
-      mottoSectionTitles
-      mottoSectionText
-      mottoSectionImage {
+      titles
+      text
+      image {
         asset {
           url
         }
@@ -23,6 +25,7 @@ const gqlQueryHomePageSettings = gql`
     }
 
     allProject(where: $where) {
+      _id
       name
       descriptionFirst
       descriptionSecond
@@ -54,4 +57,24 @@ const gqlQueryHomePageSettings = gql`
   }
 `;
 
-export default gqlQueryHomePageSettings;
+const variables = {
+  where: {
+    featured: {
+      eq: true,
+    },
+  },
+};
+
+export default async function getGqlHomePageData() {
+  const { data } = await apolloClient.query({
+    query,
+    variables,
+  });
+
+  return {
+    heroSectionSettings: data.allHeroSectionSettings,
+    mottoSectionSettings: data.allMottoSectionSettings,
+    featuredProjects: data.allProject,
+    contactSectionSettings: data.allContactSectionSettings,
+  };
+}

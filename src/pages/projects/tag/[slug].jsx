@@ -1,20 +1,19 @@
 import ProjectCard from '@/components/ui/ProjectCard/ProjectCard';
 import TagsContainer from '@/components/ui/TagsContainer/TagsContainer';
-import allTagMock from '@/utils/mocks';
+import tagMock from '@/utils/mocks';
 
-import apolloClient from '../../../../graphql/apolloClient';
-import gqlQueryAllProjects from '../../../../graphql/queryAllProjects';
-import gqlQueryAllTags from '../../../../graphql/queryAllTags';
-import gqlQueryProjectByTagId from '../../../../graphql/queryProjectByTagId';
+import getGqlProjectsData from '../../../../graphql/queryProjects';
+import getGqlProjectsByTagIdData from '../../../../graphql/queryProjectsByTagId';
+import getGqlTagsData from '../../../../graphql/queryTags';
 import styles from './[slug].module.scss';
 
-export default function SpecificTagPage({ projectsWithQueryTag, tags }) {
+export default function TagPage({ projects, tags }) {
   return (
     <section className={styles['page-section']}>
-      <h1 className={`${styles['page-title']}`}>Projects Page Title</h1>
+      <h1>Projects Page Title</h1>
       <TagsContainer className={styles['tags-container']} tags={tags} />
       <div className={styles['projects-container']}>
-        {projectsWithQueryTag.map((project, index) => (
+        {projects.map((project, index) => (
           <ProjectCard
             key={project._id}
             className={styles['project-card']}
@@ -29,11 +28,7 @@ export default function SpecificTagPage({ projectsWithQueryTag, tags }) {
 }
 
 export async function getStaticPaths() {
-  const allTagsData = await apolloClient.query({
-    query: gqlQueryAllTags,
-  });
-
-  const tags = [allTagMock, ...allTagsData.data.allTag];
+  const { tags } = await getGqlTagsData();
 
   const paths = tags.map((tag) => ({
     params: { slug: tag.slug.current },
@@ -43,29 +38,23 @@ export async function getStaticPaths() {
 }
 
 export async function getStaticProps({ params }) {
-  const allTagsData = await apolloClient.query({
-    query: gqlQueryAllTags,
-  });
-  const tags = [allTagMock, ...allTagsData.data.allTag];
+  const { tags } = await getGqlTagsData();
+  let projects = [];
 
-  const tagFromQuery = tags.find((tag) => tag.slug.current === params.slug);
+  const tagWithQuerySlug = tags.find((tag) => tag.slug.current === params.slug);
 
-  const isAllTag = tagFromQuery?._id === allTagMock._id;
+  const isAllTag = tagWithQuerySlug?._id === tagMock._id;
 
-  const query = isAllTag ? gqlQueryAllProjects : gqlQueryProjectByTagId;
-  const variables = isAllTag ? {} : { where: { _: { references: tagFromQuery?._id || null } } };
-
-  const allProjectsByTagData = await apolloClient.query({
-    query,
-    variables,
-  });
-
-  const projectsWithQueryTag = allProjectsByTagData.data.allProject;
+  if (isAllTag) {
+    projects = await getGqlProjectsData();
+  } else {
+    projects = await getGqlProjectsByTagIdData(tagWithQuerySlug?._id);
+  }
 
   return {
     props: {
       tags,
-      projectsWithQueryTag,
+      projects,
     },
   };
 }

@@ -1,11 +1,10 @@
 /* eslint-disable no-promise-executor-return */
 import { isValidSignature, SIGNATURE_HEADER_NAME } from '@sanity/webhook';
 
-import allTagMock from '@/utils/mocks';
+import tagMock from '@/utils/mocks';
 
-import apolloClient from '../../../graphql/apolloClient';
-import gqlQueryAllTags from '../../../graphql/queryAllTags';
-import gqlQueryProjectSlugByTagId from '../../../graphql/queryProjectSlugByTagId';
+import getGqlProjectsSlugsByTagIdData from '../../../graphql/queryProjectsSlugsByTagId';
+import getGqlTagsData from '../../../graphql/queryTags';
 
 const secret = process.env.SANITY_WEBHOOK_SECRET;
 
@@ -14,7 +13,6 @@ async function getPathsToRevalidate(webhookBody) {
 
   switch (_type) {
     case 'heroSectionSettings':
-    case 'mottoSectionSettings':
     case 'featuredProjectsSectionSettings':
     case 'contactSectionSettings':
       return ['/'];
@@ -22,32 +20,19 @@ async function getPathsToRevalidate(webhookBody) {
     case 'aboutPageSettings':
       return ['/about'];
 
+    case 'mottoSectionSettings':
+      return ['/', '/about'];
+
     case 'tag': {
       const { _id } = webhookBody;
 
-      const {
-        data: { allTag },
-      } = await apolloClient.query({
-        query: gqlQueryAllTags,
-      });
+      const { tags } = getGqlTagsData();
 
-      const {
-        data: { allProject },
-      } = await apolloClient.query({
-        query: gqlQueryProjectSlugByTagId,
-        variables: {
-          where: {
-            _: {
-              references: _id,
-            },
-          },
-        },
-      });
+      const { slugs } = getGqlProjectsSlugsByTagIdData(_id);
 
-      const tagsPaths = allTag.map((tag) => `/projects/tag/${tag.slug.current}`);
-      tagsPaths.push(`/projects/tag/${allTagMock.slug.current}`);
+      const tagsPaths = tags.map((tag) => `/projects/tag/${tag.slug.current}`);
 
-      const projectsPaths = allProject.map((project) => `/projects/${project.slug.current}`);
+      const projectsPaths = slugs.map((slug) => `/projects/${slug}`);
 
       return ['/', ...tagsPaths, ...projectsPaths];
     }
@@ -58,7 +43,7 @@ async function getPathsToRevalidate(webhookBody) {
       const tagsSlugsAfter = webhookBody.tagsSlugsAfter || [];
 
       const tagsSlugs = [...new Set([...tagsSlugsBefore, ...tagsSlugsAfter])];
-      tagsSlugs.push(`${allTagMock.slug.current}`);
+      tagsSlugs.push(`${tagMock.slug.current}`);
 
       const tagsPaths = tagsSlugs.map((tag) => `/projects/tag/${tag}`);
       const projectPath = `/projects/${projectSlug}`;

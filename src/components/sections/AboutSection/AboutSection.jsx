@@ -1,24 +1,23 @@
-import dynamic from 'next/dynamic';
-import { useContext } from 'react';
+import Image from 'next/image';
 
-import DraftModeContext from '@/context/DraftModeContext';
+import styles from './AboutSection.module.scss';
+import getAboutSectionSetup from './getAboutSectionSetup';
 
-import groqQueryAboutSectionSettings from '../../../../groq/queryAboutSectionSettings';
-import AboutSectionDefault from './AboutSectionDefault';
-import AboutSectionDraft from './AboutSectionDraft';
+export default function AboutSection({ data }) {
+  const { imageFirst, imageSecond, description } = getAboutSectionSetup(data);
 
-const DraftProvider = dynamic(() => import('@/components/providers/DraftProvider'), {
-  loading: () => <p>loading...</p>,
-});
+  return (
+    <section className={styles['about-section']}>
+      <div className={styles['info-section']}>
+        <div className={styles['first-image-container']}>
+          <Image fill className={styles.image} src={imageFirst.asset.url} />
+        </div>
+        <p>{description}</p>
+      </div>
 
-export default function AboutSection({ settings }) {
-  const { isDraftMode } = useContext(DraftModeContext);
-
-  return isDraftMode ? (
-    <DraftProvider draftMode={isDraftMode}>
-      <AboutSectionDraft query={groqQueryAboutSectionSettings} />
-    </DraftProvider>
-  ) : (
-    <AboutSectionDefault settings={settings} />
+      <div className={styles['second-image-container']}>
+        <Image fill className={styles.image} src={imageSecond.asset.url} />
+      </div>
+    </section>
   );
 }
