@@ -2,14 +2,7 @@ import Image from 'next/image';
 
 import styles from './SocialItem.module.scss';
 
-const defaultImgSrc = './icons/image-outline.svg';
-
-export default function SocialItem({
-  iconSrc = defaultImgSrc,
-  href,
-  children = 'default text',
-  alt,
-}) {
+export default function SocialItem({ iconSrc, href, children, alt }) {
   return (
     <a className={styles.item} href={href} rel="noreferrer" target="_blank">
       <Image alt={alt} height={32} src={iconSrc} width={32} />

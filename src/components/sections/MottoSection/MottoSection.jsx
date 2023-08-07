@@ -51,7 +51,12 @@ export default function MottoSection({ data, withButton }) {
       <div className={styles['second-wrapper']}>
         <p>{text}</p>
         <div className={styles['image-container']}>
-          <Image fill alt="motto image" sizes="(max-width: 810px) 100vw, 50vw" src={image} />
+          <Image
+            fill
+            alt="Motivational image."
+            sizes="(max-width: 810px) 100vw,(max-width: 1200px) 50vw, 60vw"
+            src={image}
+          />
         </div>
       </div>
     </section>

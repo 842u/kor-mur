@@ -9,7 +9,6 @@ export default function FeaturedProjectInfo({ project, className }) {
   return (
     <div aria-label="Project Information" className={style} role="region">
       <h3>{name}</h3>
-
       <TagsContainer tags={tags} />
       <p>{descriptionFirst}</p>
     </div>

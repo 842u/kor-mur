@@ -4,7 +4,7 @@ import styles from './DecorativeBreaker.module.scss';
 
 export default function DecorativeBreaker() {
   return (
-    <div className={styles.breaker}>
+    <div aria-hidden className={styles.breaker}>
       <CircleLogo className={styles.logo} text="MURAWSKA.STUDIO" />
     </div>
   );

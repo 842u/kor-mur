@@ -8,6 +8,7 @@ import NavMenu from './NavMenu/NavMenu.jsx';
 
 export default function NavBar({ className }) {
   const [isMenuActive, setIsMenuActive] = useState(false);
+
   const router = useRouter();
 
   const toggleMenuHandler = () => {

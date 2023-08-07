@@ -1,9 +1,8 @@
 import dynamic from 'next/dynamic';
 import { useRouter } from 'next/router';
-import { useCallback, useContext, useEffect } from 'react';
+import { useCallback } from 'react';
 
 import ProjectSection from '@/components/sections/ProjectSection/ProjectSection';
-import DraftModeContext from '@/context/DraftModeContext';
 
 import getGqlProjecBySlugData from '../../../graphql/queryProjectBySlug';
 import getGqlProjectsSlugsData from '../../../graphql/queryProjectsSlugs';
@@ -15,16 +14,11 @@ const DraftProvider = dynamic(() => import('@/components/providers/DraftProvider
 });
 
 export default function ProjectPage({ draftMode, project }) {
-  const { setIsDraftMode } = useContext(DraftModeContext);
   const router = useRouter();
-
-  const querySlug = router.query;
 
   const renderItem = useCallback((draftData) => <ProjectSection data={draftData} />, []);
 
-  useEffect(() => {
-    setIsDraftMode(draftMode);
-  }, []);
+  const querySlug = router.query;
 
   return (
     <>

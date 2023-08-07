@@ -1,14 +1,17 @@
 .link {
   position: fixed;
+  z-index: 99999;
   right: 0;
   bottom: 0;
 
+  margin: 1rem;
   padding: 1rem;
 
-  font-size: 2rem;
+  font-size: var(--text-body-mobile);
   color: white;
   text-decoration: none;
 
   background-color: #ff00009d;
   border: 2px solid black;
+  border-radius: var(--border-radius-button);
 }
