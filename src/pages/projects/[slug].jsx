@@ -10,7 +10,7 @@ import getGqlProjectsSlugsData from '../../../graphql/queryProjectsSlugs';
 import groqQueryProjectBySlug from '../../../groq/queryProjectBySlug';
 import HeadProjectPage from './HeadProjectPage';
 
-const DraftProvider = dynamic(() => import('@/components/providers/DraftProvider/DraftProvider'), {
+const DraftProvider = dynamic(() => import('@/components/providers/DraftProvider'), {
   loading: () => <p>Loading...</p>,
 });
 

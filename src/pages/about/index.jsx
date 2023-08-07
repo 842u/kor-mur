@@ -10,7 +10,7 @@ import groqQueryAboutPageData from '../../../groq/queryAboutPageData';
 import HeadAboutPage from './HeadAboutPage';
 import styles from './index.module.scss';
 
-const DraftProvider = dynamic(() => import('@/components/providers/DraftProvider/DraftProvider'), {
+const DraftProvider = dynamic(() => import('@/components/providers/DraftProvider'), {
   loading: () => <p>loading...</p>,
 });
 

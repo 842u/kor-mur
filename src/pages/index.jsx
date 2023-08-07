@@ -12,7 +12,7 @@ import getGqlHomePageData from '../../graphql/queryHomePageData';
 import groqQueryHomePageData from '../../groq/queryHomePageData';
 import HeadHomePage from './HeadHomePage';
 
-const DraftProvider = dynamic(() => import('@/components/providers/DraftProvider/DraftProvider'), {
+const DraftProvider = dynamic(() => import('@/components/providers/DraftProvider'), {
   loading: () => <p>Loading...</p>,
 });
 
