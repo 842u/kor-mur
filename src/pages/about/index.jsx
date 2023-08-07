@@ -1,9 +1,8 @@
 import dynamic from 'next/dynamic';
-import { useCallback, useContext, useEffect } from 'react';
+import { useCallback } from 'react';
 
 import AboutSection from '@/components/sections/AboutSection/AboutSection';
 import MottoSection from '@/components/sections/MottoSection/MottoSection';
-import DraftModeContext from '@/context/DraftModeContext';
 
 import getGqlAboutPageData from '../../../graphql/queryAboutPageData';
 import groqQueryAboutPageData from '../../../groq/queryAboutPageData';
@@ -15,8 +14,6 @@ const DraftProvider = dynamic(() => import('@/components/providers/DraftProvider
 });
 
 export default function AboutPage({ draftMode, data }) {
-  const { setIsDraftMode } = useContext(DraftModeContext);
-
   const renderItem = useCallback(
     (draftData) => (
       <>
@@ -26,10 +23,6 @@ export default function AboutPage({ draftMode, data }) {
     ),
     []
   );
-
-  useEffect(() => {
-    setIsDraftMode(draftMode);
-  }, []);
 
   const { mottoSectionSettings, aboutSectionSettings } = data;
 
