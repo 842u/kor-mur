@@ -9,7 +9,7 @@ const defaultSettings = {
     current: 'default-featured-project-slug',
   },
   tags: [
-    { _id: 'Default Tag _id', name: 'Default Tag name', slug: { current: 'Default Tag Slug' } },
+    { _id: 'Default Tag _id', name: 'Default Tag name', slug: { current: 'default-tag-slug' } },
   ],
   mainImage: {
     asset: {
