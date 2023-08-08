@@ -22,7 +22,9 @@ export default function NavBar({ className }) {
 
   return (
     <header className={`${styles.navbar} ${className}`}>
-      <LogoButton className={styles['logo-button']} onClick={clickLogoHandler} />
+      <LogoButton className={styles['logo-button']} onClick={clickLogoHandler}>
+        MURAWSKA.STUDIO
+      </LogoButton>
       <nav>
         <HamburgerButton
           className={styles['hamburger-button']}
