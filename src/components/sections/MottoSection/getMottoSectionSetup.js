@@ -1,8 +1,8 @@
 import placeholderImage from 'public/default-image-placeholder.png';
 
-const defaultSettings = {
-  titles: ['Default Motto Section Title 1', 'Default Motto Section Title 2'],
-  text: 'Default Motto Section Text',
+const defaultData = {
+  titles: ['Default Title 1', 'Default Title 2'],
+  text: 'Default Text',
   image: {
     asset: {
       url: placeholderImage,
@@ -10,14 +10,14 @@ const defaultSettings = {
   },
 };
 
-export default function getMottoSectionSetup(settings) {
+export default function getMottoSectionSetup(data) {
   return {
-    titles: settings?.[0]?.titles || defaultSettings.titles,
-    text: settings?.[0]?.text || defaultSettings.text,
-    image: settings?.[0]?.image?.asset?.url || defaultSettings.image.asset.url,
+    titles: data?.titles || defaultData.titles,
+    text: data?.text || defaultData.text,
+    image: data?.image?.asset?.url || defaultData.image.asset.url,
   };
 }
 
-export function getDefaultMottoSectionSettings() {
-  return defaultSettings;
+export function getMottoSectionDefaultData() {
+  return defaultData;
 }

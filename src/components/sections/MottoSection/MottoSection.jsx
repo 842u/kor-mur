@@ -7,7 +7,7 @@ import { useEffect, useState } from 'react';
 import getMottoSectionSetup from './getMottoSectionSetup';
 import styles from './MottoSection.module.scss';
 
-export default function MottoSection({ data, withButton }) {
+export default function MottoSection({ data, withLink }) {
   const { titles, text, image } = getMottoSectionSetup(data);
 
   const [currentTitleIndex, setCurrentTitleIndex] = useState(0);
@@ -41,7 +41,7 @@ export default function MottoSection({ data, withButton }) {
           })}
         </div>
 
-        {withButton ? (
+        {withLink ? (
           <Link className={styles['about-button']} href="/about">
             O MNIE
           </Link>

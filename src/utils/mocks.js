@@ -23,3 +23,11 @@ export function getHeroSectionMockData() {
     images: [getImageMockData()],
   };
 }
+
+export function getMottoSectionMockData() {
+  return {
+    titles: ['Mock Title 1', 'Mock Title 2'],
+    text: 'Mock Text',
+    image: getImageMockData(),
+  };
+}

@@ -11,7 +11,7 @@ const groqQueryHomePageData = groq`{
     }
   },
 
-  "mottoSectionSettings": *[_type == 'mottoSectionSettings']{
+  "mottoSectionSettings": *[_type == 'mottoSectionSettings'][0]{
     titles,
     text,
     image{
