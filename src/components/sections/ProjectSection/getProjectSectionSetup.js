@@ -1,43 +1,21 @@
-import placeholderImage from 'public/default-image-placeholder.png';
+import { getProjectSchema } from '@/utils/createData/dataSchemas/project';
+import { defaultType } from '@/utils/createData/dataTypes';
 
-const defaultSettings = {
-  name: 'Default Project Name',
-  descriptionFirst: 'Default Project First Description',
-  descriptionSecond: 'Default Project Second Description',
-  year: new Date(),
-  location: 'Default Project location',
-  area: 'Default Project Area',
-  budget: 'Default Project Budget',
-  mainImage: {
-    asset: {
-      url: placeholderImage,
-    },
-  },
-  secondaryImage: {
-    asset: {
-      url: placeholderImage,
-    },
-  },
-  images: [],
-  tags: [],
-  slug: {
-    current: 'default-project-slug',
-  },
-};
+const defaultData = getProjectSchema(defaultType);
 
-export default function getProjectSectionSetup(settings) {
+export default function getProjectSectionSetup(data) {
   return {
-    name: settings?.[0]?.name || defaultSettings.name,
-    descriptionFirst: settings?.[0]?.descriptionFirst || defaultSettings.descriptionFirst,
-    descriptionSecond: settings?.[0]?.descriptionSecond || defaultSettings.descriptionSecond,
-    year: settings?.[0]?.year || defaultSettings.year,
-    location: settings?.[0]?.location || defaultSettings.location,
-    area: settings?.[0]?.area || defaultSettings.area,
-    budget: settings?.[0]?.budget || defaultSettings.budget,
-    mainImage: settings?.[0]?.mainImage || defaultSettings.mainImage,
-    secondaryImage: settings?.[0]?.secondaryImage || defaultSettings.secondaryImage,
-    images: settings?.[0]?.images || defaultSettings.images,
-    tags: settings?.[0]?.tags || defaultSettings.tags,
-    slug: settings?.[0]?.slug || defaultSettings.slug,
+    name: data?.name || defaultData.name,
+    descriptionFirst: data?.descriptionFirst || defaultData.descriptionFirst,
+    descriptionSecond: data?.descriptionSecond || defaultData.descriptionSecond,
+    year: data?.year || defaultData.year,
+    location: data?.location || defaultData.location,
+    area: data?.area || defaultData.area,
+    budget: data?.budget || defaultData.budget,
+    mainImage: data?.mainImage || defaultData.mainImage,
+    secondaryImage: data?.secondaryImage || defaultData.secondaryImage,
+    images: data?.images || defaultData.images,
+    tags: data?.tags || defaultData.tags,
+    slug: data?.slug || defaultData.slug,
   };
 }
