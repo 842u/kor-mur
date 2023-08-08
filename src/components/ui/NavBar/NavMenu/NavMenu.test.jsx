@@ -6,7 +6,7 @@ import NavMenu from './NavMenu';
 
 jest.mock('next/router', () => ({
   useRouter: () => ({
-    pathname: '',
+    asPath: '/some/path',
   }),
 }));
 
