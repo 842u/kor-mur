@@ -2,32 +2,20 @@ import '@testing-library/jest-dom';
 
 import { render, screen } from '@testing-library/react';
 
+import { getAboutSectionSchema } from '@/utils/createData/dataSchemas/aboutSection';
+import { defaultType, mockType } from '@/utils/createData/dataTypes';
+
 import AboutSection from './AboutSection';
-import { getDefaultAboutSectionSettings } from './getAboutSectionSetup';
 
-const mockSettings = [
-  {
-    imageFirst: {
-      asset: {
-        url: '/mock-url',
-      },
-    },
-    imageSecond: {
-      asset: {
-        url: '/mock-url',
-      },
-    },
-    description: 'mocked description',
-  },
-];
+const mockData = getAboutSectionSchema(mockType);
 
-const defaultSettings = getDefaultAboutSectionSettings();
+const defaultData = getAboutSectionSchema(defaultType);
 
 describe('AboutSection', () => {
   it('should render section description provided in data', () => {
-    render(<AboutSection data={mockSettings} />);
+    render(<AboutSection data={mockData} />);
 
-    const description = screen.getByText(mockSettings[0].description);
+    const description = screen.getByText(mockData.description);
 
     expect(description).toBeInTheDocument();
   });
@@ -35,13 +23,13 @@ describe('AboutSection', () => {
   it('should render default section description if not provided in data', () => {
     render(<AboutSection />);
 
-    const description = screen.getByText(defaultSettings.description);
+    const description = screen.getByText(defaultData.description);
 
     expect(description).toBeInTheDocument();
   });
 
   it('should render two images provided in data', () => {
-    render(<AboutSection data={mockSettings} />);
+    render(<AboutSection data={mockData} />);
 
     const images = screen.getAllByRole('img', { name: 'One of the about me section photo.' });
 

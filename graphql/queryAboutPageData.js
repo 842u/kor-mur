@@ -36,7 +36,7 @@ export default async function getGqlAboutPageData() {
   });
 
   return {
-    aboutSectionSettings: data.allAboutSectionSettings,
-    mottoSectionSettings: data.allMottoSectionSettings,
+    aboutSectionSettings: data.allAboutSectionSettings[0],
+    mottoSectionSettings: data.allMottoSectionSettings[0],
   };
 }

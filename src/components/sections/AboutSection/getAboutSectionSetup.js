@@ -1,27 +1,12 @@
-import placeholderImage from 'public/default-image-placeholder.png';
+import { getAboutSectionSchema } from '@/utils/createData/dataSchemas/aboutSection';
+import { defaultType } from '@/utils/createData/dataTypes';
 
-const defaultSettings = {
-  imageFirst: {
-    asset: {
-      url: placeholderImage,
-    },
-  },
-  imageSecond: {
-    asset: {
-      url: placeholderImage,
-    },
-  },
-  description: 'Default About Section Description',
-};
+const defaultData = getAboutSectionSchema(defaultType);
 
 export default function getAboutSectionSetup(settings) {
   return {
-    imageFirst: settings?.[0]?.imageFirst || defaultSettings.imageFirst,
-    imageSecond: settings?.[0]?.imageSecond || defaultSettings.imageSecond,
-    description: settings?.[0]?.description || defaultSettings.description,
+    imageFirst: settings?.imageFirst || defaultData.imageFirst,
+    imageSecond: settings?.imageSecond || defaultData.imageSecond,
+    description: settings?.description || defaultData.description,
   };
-}
-
-export function getDefaultAboutSectionSettings() {
-  return defaultSettings;
 }

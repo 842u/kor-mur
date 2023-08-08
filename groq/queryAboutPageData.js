@@ -1,7 +1,7 @@
 import { groq } from 'next-sanity';
 
 const groqQueryAboutPageData = groq`{
-  "aboutSectionSettings": *[_type == "aboutSectionSettings"]{
+  "aboutSectionSettings": *[_type == "aboutSectionSettings"][0]{
     imageFirst{
       asset->{
         url
@@ -15,7 +15,7 @@ const groqQueryAboutPageData = groq`{
     description
   },
 
-  "mottoSectionSettings": *[_type == 'mottoSectionSettings']{
+  "mottoSectionSettings": *[_type == 'mottoSectionSettings'][0]{
     titles,
     text,
     image{
