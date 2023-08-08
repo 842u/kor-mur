@@ -5,7 +5,9 @@ import { render, screen, waitFor } from '@testing-library/react';
 import NavBar from './NavBar';
 
 jest.mock('next/router', () => ({
-  useRouter: () => ({}),
+  useRouter: () => ({
+    asPath: '/some/path',
+  }),
 }));
 
 describe('NavBar', () => {
