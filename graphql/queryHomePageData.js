@@ -76,6 +76,6 @@ export default async function getGqlHomePageData() {
     heroSectionSettings: data.allHeroSectionSettings[0],
     mottoSectionSettings: data.allMottoSectionSettings[0],
     featuredProjects: data.allProject,
-    contactSectionSettings: data.allContactSectionSettings,
+    contactSectionSettings: data.allContactSectionSettings[0],
   };
 }

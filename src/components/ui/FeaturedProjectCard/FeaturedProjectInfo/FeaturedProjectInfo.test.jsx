@@ -2,10 +2,12 @@ import '@testing-library/jest-dom';
 
 import { render, screen, waitFor } from '@testing-library/react';
 
-import { getDefaultFeaturedProjectSetup } from '../getFeaturedProjectSetup';
+import { getFeaturedProjectSchema } from '@/utils/createData/dataSchemas/featuredProject';
+import { mockType } from '@/utils/createData/dataTypes';
+
 import FeaturedProjectInfo from './FeaturedProjectInfo';
 
-const defaultFeaturedProject = getDefaultFeaturedProjectSetup();
+const mockData = getFeaturedProjectSchema(mockType);
 
 jest.mock('next/router', () => ({
   useRouter: () => ({
@@ -17,15 +19,15 @@ jest.mock('next/router', () => ({
 
 describe('FeaturedProjectInfo', () => {
   it('should render heading with project name', async () => {
-    render(<FeaturedProjectInfo project={defaultFeaturedProject} />);
+    render(<FeaturedProjectInfo project={mockData} />);
 
-    const heading = screen.getByRole('heading', { name: defaultFeaturedProject.name });
+    const heading = screen.getByRole('heading', { name: mockData.name });
 
     await waitFor(() => expect(heading).toBeInTheDocument());
   });
 
   it('should render TagContainer', async () => {
-    render(<FeaturedProjectInfo project={defaultFeaturedProject} />);
+    render(<FeaturedProjectInfo project={mockData} />);
 
     const tagContainer = screen.getByTestId('tag-container');
 
@@ -33,9 +35,9 @@ describe('FeaturedProjectInfo', () => {
   });
 
   it('should render project first description', async () => {
-    render(<FeaturedProjectInfo project={defaultFeaturedProject} />);
+    render(<FeaturedProjectInfo project={mockData} />);
 
-    const description = screen.getByText(defaultFeaturedProject.descriptionFirst);
+    const description = screen.getByText(mockData.descriptionFirst);
 
     await waitFor(() => expect(description).toBeInTheDocument());
   });

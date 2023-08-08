@@ -3,13 +3,13 @@ import '@testing-library/jest-dom';
 import { render, screen } from '@testing-library/react';
 import { error } from 'console';
 
-import { getHeroSectionMockData } from '@/utils/mocks';
+import { getHeroSectionSchema } from '@/utils/createData/dataSchemas/heroSection';
+import { defaultType, mockType } from '@/utils/createData/dataTypes';
 
-import { getHeroSectionDefaultData } from './getHeroSectionSetup';
 import HeroSection from './HeroSection';
 
-const defaultData = getHeroSectionDefaultData();
-const mockData = getHeroSectionMockData();
+const defaultData = getHeroSectionSchema(defaultType);
+const mockData = getHeroSectionSchema(mockType);
 
 error(mockData);
 describe('HeroSection', () => {
@@ -29,8 +29,8 @@ describe('HeroSection', () => {
     expect(heading).toBeInTheDocument();
   });
 
-  it('should always render some image', () => {
-    render(<HeroSection />);
+  it('should render image provided in data', () => {
+    render(<HeroSection data={mockData} />);
 
     const image = screen.getByRole('img', { name: 'One of the hero section images.' });
 

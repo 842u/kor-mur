@@ -1,14 +1,7 @@
-import placeholderImage from 'public/default-image-placeholder.png';
+import { getMottoSectionSchema } from '@/utils/createData/dataSchemas/mottoSection';
+import { defaultType } from '@/utils/createData/dataTypes';
 
-const defaultData = {
-  titles: ['Default Title 1', 'Default Title 2'],
-  text: 'Default Text',
-  image: {
-    asset: {
-      url: placeholderImage,
-    },
-  },
-};
+const defaultData = getMottoSectionSchema(defaultType);
 
 export default function getMottoSectionSetup(data) {
   return {
@@ -16,8 +9,4 @@ export default function getMottoSectionSetup(data) {
     text: data?.text || defaultData.text,
     image: data?.image?.asset?.url || defaultData.image.asset.url,
   };
-}
-
-export function getMottoSectionDefaultData() {
-  return defaultData;
 }

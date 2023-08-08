@@ -1,22 +1,7 @@
-import placeholderImage from 'public/default-image-placeholder.png';
+import { getFeaturedProjectSchema } from '@/utils/createData/dataSchemas/featuredProject';
+import { defaultType } from '@/utils/createData/dataTypes';
 
-const defaultSettings = {
-  _id: 'Default Featured Project _id',
-  name: 'Default Featured Project Name',
-  descriptionFirst: 'Default Featured Project First Description',
-  descriptionSecond: 'Default Featured Project Second Description',
-  slug: {
-    current: 'default-featured-project-slug',
-  },
-  tags: [
-    { _id: 'Default Tag _id', name: 'Default Tag name', slug: { current: 'default-tag-slug' } },
-  ],
-  mainImage: {
-    asset: {
-      url: placeholderImage,
-    },
-  },
-};
+const defaultSettings = getFeaturedProjectSchema(defaultType);
 
 export default function getFeaturedProjectSetup(featuredProject) {
   return {
@@ -28,8 +13,4 @@ export default function getFeaturedProjectSetup(featuredProject) {
     tags: featuredProject?.tags || defaultSettings.tags,
     mainImage: featuredProject?.mainImage || defaultSettings.mainImage,
   };
-}
-
-export function getDefaultFeaturedProjectSetup() {
-  return defaultSettings;
 }

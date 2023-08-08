@@ -2,10 +2,12 @@ import '@testing-library/jest-dom';
 
 import { render, screen, waitFor } from '@testing-library/react';
 
-import FeaturedProjectCard from './FeaturedProjectCard';
-import { getDefaultFeaturedProjectSetup } from './getFeaturedProjectSetup';
+import { getFeaturedProjectSchema } from '@/utils/createData/dataSchemas/featuredProject';
+import { mockType } from '@/utils/createData/dataTypes';
 
-const defaultFeaturedProject = getDefaultFeaturedProjectSetup();
+import FeaturedProjectCard from './FeaturedProjectCard';
+
+const mockData = getFeaturedProjectSchema(mockType);
 
 jest.mock('next/router', () => ({
   useRouter: () => ({
@@ -17,7 +19,7 @@ jest.mock('next/router', () => ({
 
 describe('FeaturedProjectCard', () => {
   it('should render FeaturedProjectInfo', async () => {
-    render(<FeaturedProjectCard project={defaultFeaturedProject} />);
+    render(<FeaturedProjectCard project={mockData} />);
 
     const projectInfo = screen.getByTestId('featured-project-info');
 
@@ -25,20 +27,20 @@ describe('FeaturedProjectCard', () => {
   });
 
   it('should render main image of provided project', async () => {
-    render(<FeaturedProjectCard project={defaultFeaturedProject} />);
+    render(<FeaturedProjectCard project={mockData} />);
 
     const projectImage = screen.getByRole('img', {
-      name: 'Main image of Default Featured Project Name project.',
+      name: `Main image of ${mockData.name} project.`,
     });
 
     await waitFor(() => expect(projectImage).toBeInTheDocument());
   });
 
   it('should render link to provided project', async () => {
-    render(<FeaturedProjectCard project={defaultFeaturedProject} />);
+    render(<FeaturedProjectCard project={mockData} />);
 
     const projectLink = screen.getByRole('link', {
-      name: 'Main image of Default Featured Project Name project.',
+      name: `Main image of ${mockData.name} project.`,
     });
 
     await waitFor(() => {
@@ -46,10 +48,7 @@ describe('FeaturedProjectCard', () => {
     });
 
     await waitFor(() => {
-      expect(projectLink).toHaveAttribute(
-        'href',
-        expect.stringContaining(defaultFeaturedProject.slug.current)
-      );
+      expect(projectLink).toHaveAttribute('href', expect.stringContaining(mockData.slug.current));
     });
   });
 });

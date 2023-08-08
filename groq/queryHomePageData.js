@@ -45,7 +45,7 @@ const groqQueryHomePageData = groq`{
     }
   },
 
-  "contactSectionSettings": *[_type == "contactSectionSettings"]{
+  "contactSectionSettings": *[_type == "contactSectionSettings"][0]{
     title,
     description,
     image{

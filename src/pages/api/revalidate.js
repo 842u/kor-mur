@@ -1,7 +1,7 @@
 /* eslint-disable no-promise-executor-return */
 import { isValidSignature, SIGNATURE_HEADER_NAME } from '@sanity/webhook';
 
-import tagMock from '@/utils/mocks';
+import tagMock from '@/utils/dataMocks';
 
 import getGqlProjectsSlugsByTagIdData from '../../../graphql/queryProjectsSlugsByTagId';
 import getGqlTagsData from '../../../graphql/queryTags';

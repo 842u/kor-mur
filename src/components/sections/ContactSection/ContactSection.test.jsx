@@ -2,47 +2,44 @@ import '@testing-library/jest-dom';
 
 import { render, screen } from '@testing-library/react';
 
+import { getContactSectionSchema } from '@/utils/createData/dataSchemas/contactSection';
+import { defaultType, mockType } from '@/utils/createData/dataTypes';
+
 import ContactSection from './ContactSection';
-import { getDefaultContactSectionSettings } from './getContactSectionSetup';
 
-const mockSettings = [
-  {
-    title: 'mock title',
-    description: 'mock description',
-  },
-];
+const mockData = getContactSectionSchema(mockType);
 
-const defaultSettings = getDefaultContactSectionSettings();
+const defaultData = getContactSectionSchema(defaultType);
 
 describe('ContactSection', () => {
-  it('should render title provided in data prop', () => {
-    render(<ContactSection data={mockSettings} />);
+  it('should render title provided in data', () => {
+    render(<ContactSection data={mockData} />);
 
-    const title = screen.getByText(mockSettings[0].title);
+    const title = screen.getByText(mockData.title);
 
     expect(title).toBeInTheDocument();
   });
 
-  it('should render description provided in data prop', () => {
-    render(<ContactSection data={mockSettings} />);
+  it('should render default title if not provided with data', () => {
+    render(<ContactSection />);
 
-    const description = screen.getByText(mockSettings[0].description);
+    const title = screen.getByText(defaultData.title);
+
+    expect(title).toBeInTheDocument();
+  });
+
+  it('should render description provided in data', () => {
+    render(<ContactSection data={mockData} />);
+
+    const description = screen.getByText(mockData.description);
 
     expect(description).toBeInTheDocument();
   });
 
-  it('should render default title if not provided with data prop', () => {
+  it('should render default description if not provided with data', () => {
     render(<ContactSection />);
 
-    const title = screen.getByText(defaultSettings.title);
-
-    expect(title).toBeInTheDocument();
-  });
-
-  it('should render default description if not provided with data prop', () => {
-    render(<ContactSection />);
-
-    const description = screen.getByText(defaultSettings.description);
+    const description = screen.getByText(defaultData.description);
 
     expect(description).toBeInTheDocument();
   });

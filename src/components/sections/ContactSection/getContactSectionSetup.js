@@ -1,23 +1,12 @@
-import placeholderImage from 'public/default-image-placeholder.png';
+import { getContactSectionSchema } from '@/utils/createData/dataSchemas/contactSection';
+import { defaultType } from '@/utils/createData/dataTypes';
 
-const defaultSettings = {
-  title: 'Default Contact Section Title',
-  description: 'Default Contact Section Description',
-  image: {
-    asset: {
-      url: placeholderImage,
-    },
-  },
-};
+const defaultData = getContactSectionSchema(defaultType);
 
 export default function getContactSectionSetup(settings) {
   return {
-    title: settings?.[0]?.title || defaultSettings.title,
-    description: settings?.[0]?.description || defaultSettings.description,
-    image: settings?.[0]?.image || defaultSettings.image,
+    title: settings?.title || defaultData.title,
+    description: settings?.description || defaultData.description,
+    image: settings?.image || defaultData.image,
   };
-}
-
-export function getDefaultContactSectionSettings() {
-  return defaultSettings;
 }

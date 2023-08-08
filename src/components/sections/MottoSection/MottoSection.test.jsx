@@ -2,13 +2,13 @@ import '@testing-library/jest-dom';
 
 import { render, screen, waitFor } from '@testing-library/react';
 
-import { getMottoSectionMockData } from '@/utils/mocks';
+import { getMottoSectionSchema } from '@/utils/createData/dataSchemas/mottoSection';
+import { defaultType, mockType } from '@/utils/createData/dataTypes';
 
-import { getMottoSectionDefaultData } from './getMottoSectionSetup';
 import MottoSection from './MottoSection';
 
-const defaultData = getMottoSectionDefaultData();
-const mockData = getMottoSectionMockData();
+const defaultData = getMottoSectionSchema(defaultType);
+const mockData = getMottoSectionSchema(mockType);
 
 describe('MottoSection', () => {
   it('should render link if withLink = true', async () => {

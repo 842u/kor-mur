@@ -21,8 +21,8 @@ export default function HomePage({ draftMode, data }) {
       <>
         <HeroSection data={draftData?.heroSectionSettings} />
         <MottoSection withButton data={draftData?.mottoSectionSettings} />
-        <FeaturedProjectsSection projects={draftData?.[0]?.featuredProjects} />
-        <ContactSection data={draftData?.[0]?.contactSectionSettings} />
+        <FeaturedProjectsSection projects={draftData?.featuredProjects} />
+        <ContactSection data={draftData?.contactSectionSettings} />
       </>
     ),
     []

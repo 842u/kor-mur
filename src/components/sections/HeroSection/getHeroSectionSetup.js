@@ -1,24 +1,11 @@
-import placeholderImage from 'public/default-image-placeholder.png';
+import { getHeroSectionSchema } from '@/utils/createData/dataSchemas/heroSection';
+import { defaultType } from '@/utils/createData/dataTypes';
 
-const defaultData = {
-  text: 'Default Text',
-  images: [
-    {
-      asset: {
-        _id: 'Default ID',
-        url: placeholderImage,
-      },
-    },
-  ],
-};
+const defaultData = getHeroSectionSchema(defaultType);
 
 export default function getHeroSectionSetup(data) {
   return {
     text: data?.text || defaultData.text,
     images: data?.images || defaultData.images,
   };
-}
-
-export function getHeroSectionDefaultData() {
-  return defaultData;
 }
