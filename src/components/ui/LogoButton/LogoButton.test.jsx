@@ -1,6 +1,7 @@
 import '@testing-library/jest-dom';
 
 import { render, screen } from '@testing-library/react';
+import userEvent from '@testing-library/user-event';
 
 import LogoButton from './LogoButton';
 
@@ -21,5 +22,17 @@ describe('LogoButton', () => {
     const textElement = screen.getByText(text);
 
     expect(textElement).toBeInTheDocument();
+  });
+
+  it('should call onClick when the button is clicked', async () => {
+    const user = userEvent.setup();
+    const onClick = jest.fn();
+
+    render(<LogoButton onClick={onClick} />);
+
+    const buttonElement = screen.getByRole('button', { name: 'home page' });
+    await user.click(buttonElement);
+
+    expect(onClick).toHaveBeenCalled();
   });
 });
