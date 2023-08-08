@@ -8,12 +8,9 @@ const defaultSettings = {
   slug: {
     current: 'default-featured-project-slug',
   },
-  tags: {
-    name: 'Default Featured Project Tag Name',
-    slug: {
-      current: 'default-featured-project-tag-slug',
-    },
-  },
+  tags: [
+    { _id: 'Default Tag _id', name: 'Default Tag name', slug: { current: 'Default Tag Slug' } },
+  ],
   mainImage: {
     asset: {
       url: placeholderImage,
@@ -31,4 +28,8 @@ export default function getFeaturedProjectSetup(featuredProject) {
     tags: featuredProject?.tags || defaultSettings.tags,
     mainImage: featuredProject?.mainImage || defaultSettings.mainImage,
   };
+}
+
+export function getDefaultFeaturedProjectSetup() {
+  return defaultSettings;
 }
