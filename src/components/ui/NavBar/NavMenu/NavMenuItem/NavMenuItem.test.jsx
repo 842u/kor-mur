@@ -6,7 +6,7 @@ import NavMenuItem from './NavMenuItem';
 
 jest.mock('next/router', () => ({
   useRouter: () => ({
-    pathname: '',
+    asPath: '/some/path',
   }),
 }));
 
@@ -17,8 +17,30 @@ describe('NavMenuItem', () => {
 
     render(<NavMenuItem href={href}>{text}</NavMenuItem>);
 
-    const menuItem = screen.getByRole('link', { name: text });
+    const menuLink = screen.getByRole('link', { name: text });
 
-    await waitFor(() => expect(menuItem).toBeInTheDocument());
+    await waitFor(() => expect(menuLink).toBeInTheDocument());
+  });
+
+  it('should have "item--active" class if current path is same as href prop', async () => {
+    const href = '/some/path';
+    const text = 'To some path...';
+
+    render(<NavMenuItem href={href}>{text}</NavMenuItem>);
+
+    const menuListItem = screen.getByRole('listitem');
+
+    await waitFor(() => expect(menuListItem).toHaveClass('item--active'));
+  });
+
+  it('should not have "item--active" class if current path is different as href prop', async () => {
+    const href = '/different/path';
+    const text = 'To some path...';
+
+    render(<NavMenuItem href={href}>{text}</NavMenuItem>);
+
+    const menuListItem = screen.getByRole('listitem');
+
+    await waitFor(() => expect(menuListItem).not.toHaveClass('item--active'));
   });
 });
