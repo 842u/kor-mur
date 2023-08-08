@@ -12,7 +12,7 @@ export default function AboutSection({ data }) {
         <div className={styles['first-image-container']}>
           <Image
             fill
-            alt="One of the about me page photo."
+            alt="One of the about me section photo."
             className={styles.image}
             sizes="(max-width: 810px) 100vw, 50vw"
             src={imageFirst.asset.url}
@@ -24,7 +24,7 @@ export default function AboutSection({ data }) {
       <div className={styles['second-image-container']}>
         <Image
           fill
-          alt="One of the about me page photo."
+          alt="One of the about me section photo."
           className={styles.image}
           sizes="100vw"
           src={imageSecond.asset.url}
