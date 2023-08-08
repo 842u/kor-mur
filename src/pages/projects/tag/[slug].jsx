@@ -19,7 +19,7 @@ export default function TagPage({ projects, tags, tag }) {
         <TagsContainer className={styles['tags-container']} tags={tags} />
 
         <div className={styles['projects-container']}>
-          {projects.map((project) => (
+          {projects?.map((project) => (
             <ProjectCard
               key={project._id}
               className={styles['project-card']}
