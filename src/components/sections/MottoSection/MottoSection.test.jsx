@@ -2,8 +2,8 @@ import '@testing-library/jest-dom';
 
 import { render, screen, waitFor } from '@testing-library/react';
 
-import { getMottoSectionSchema } from '@/utils/createData/dataSchemas/mottoSection';
-import { defaultType, mockType } from '@/utils/createData/dataTypes';
+import { getMottoSectionSchema } from '@/utils/dataSetup/dataSchemas/mottoSection';
+import { defaultType, mockType } from '@/utils/dataSetup/dataTypes';
 
 import MottoSection from './MottoSection';
 

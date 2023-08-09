@@ -2,8 +2,8 @@ import '@testing-library/jest-dom';
 
 import { render, screen, waitFor } from '@testing-library/react';
 
-import { getProjectSchema } from '@/utils/createData/dataSchemas/project';
-import { defaultType, mockType } from '@/utils/createData/dataTypes';
+import { getProjectSchema } from '@/utils/dataSetup/dataSchemas/project';
+import { defaultType, mockType } from '@/utils/dataSetup/dataTypes';
 
 import ProjectSection from './ProjectSection';
 

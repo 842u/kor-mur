@@ -2,8 +2,8 @@ import '@testing-library/jest-dom';
 
 import { render, screen, waitFor } from '@testing-library/react';
 
-import { getFeaturedProjectSchema } from '@/utils/createData/dataSchemas/featuredProject';
-import { mockType } from '@/utils/createData/dataTypes';
+import { getFeaturedProjectSchema } from '@/utils/dataSetup/dataSchemas/featuredProject';
+import { mockType } from '@/utils/dataSetup/dataTypes';
 
 import FeaturedProjectCard from './FeaturedProjectCard';
 

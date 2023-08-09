@@ -2,8 +2,8 @@ import '@testing-library/jest-dom';
 
 import { render, screen } from '@testing-library/react';
 
-import { getAboutSectionSchema } from '@/utils/createData/dataSchemas/aboutSection';
-import { defaultType, mockType } from '@/utils/createData/dataTypes';
+import { getAboutSectionSchema } from '@/utils/dataSetup/dataSchemas/aboutSection';
+import { defaultType, mockType } from '@/utils/dataSetup/dataTypes';
 
 import AboutSection from './AboutSection';
 

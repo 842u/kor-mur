@@ -36,7 +36,7 @@ $text-total-characters: 12;
       calc(cos(var(--degrees)) * var(--text-radius)),
       calc(sin(var(--degrees)) * var(--text-radius))
       )
-      
+
       rotate(calc(var(--character-rotation-angle) + var(--degrees)));
 
     width: calc(var(--font-size) / 2);

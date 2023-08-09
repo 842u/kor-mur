@@ -2,8 +2,8 @@ import '@testing-library/jest-dom';
 
 import { render, screen, waitFor } from '@testing-library/react';
 
-import { getTagSchema } from '@/utils/createData/dataSchemas/tag';
-import { mockType } from '@/utils/createData/dataTypes';
+import { getTagSchema } from '@/utils/dataSetup/dataSchemas/tag';
+import { mockType } from '@/utils/dataSetup/dataTypes';
 
 import Tag from './Tag';
 

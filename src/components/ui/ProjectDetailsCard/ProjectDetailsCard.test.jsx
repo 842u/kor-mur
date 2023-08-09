@@ -2,8 +2,8 @@ import '@testing-library/jest-dom';
 
 import { render, screen } from '@testing-library/react';
 
-import { getProjectSchema } from '@/utils/createData/dataSchemas/project';
-import { mockType } from '@/utils/createData/dataTypes';
+import { getProjectSchema } from '@/utils/dataSetup/dataSchemas/project';
+import { mockType } from '@/utils/dataSetup/dataTypes';
 
 import ProjectDetailsCard from './ProjectDetailsCard';
 
