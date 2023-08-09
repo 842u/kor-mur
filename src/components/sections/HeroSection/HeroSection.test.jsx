@@ -1,17 +1,15 @@
 import '@testing-library/jest-dom';
 
 import { render, screen } from '@testing-library/react';
-import { error } from 'console';
 
 import { getHeroSectionSchema } from '@/utils/createData/dataSchemas/heroSection';
 import { defaultType, mockType } from '@/utils/createData/dataTypes';
 
 import HeroSection from './HeroSection';
 
-const defaultData = getHeroSectionSchema(defaultType);
 const mockData = getHeroSectionSchema(mockType);
+const defaultData = getHeroSectionSchema(defaultType);
 
-error(mockData);
 describe('HeroSection', () => {
   it('should render heading with text provided in data', () => {
     render(<HeroSection data={mockData} />);
