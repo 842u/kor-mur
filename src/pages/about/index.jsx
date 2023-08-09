@@ -17,8 +17,8 @@ export default function AboutPage({ draftMode, data }) {
   const renderItem = useCallback(
     (draftData) => (
       <>
-        <MottoSection data={draftData?.[0]?.mottoSectionSettings} />
-        <AboutSection data={draftData?.[0]?.aboutSectionSettings} />
+        <MottoSection data={draftData?.mottoSectionSettings} />
+        <AboutSection data={draftData?.aboutSectionSettings} />
       </>
     ),
     []

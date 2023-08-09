@@ -2,15 +2,15 @@ import Image from 'next/image';
 
 import ProjectDetailsCard from '@/components/ui/ProjectDetailsCard/ProjectDetailsCard';
 import TagsContainer from '@/components/ui/TagsContainer/TagsContainer';
+import getProjectSetup from '@/utils/dataSetup/dataSchemas/project';
 
-import getProjectSectionSetup from './getProjectSectionSetup';
 import styles from './ProjectSection.module.scss';
 
 export default function ProjectSection({ data }) {
-  const projectSettings = getProjectSectionSetup(data);
+  const project = getProjectSetup(data);
 
   const { name, descriptionFirst, descriptionSecond, mainImage, secondaryImage, images, tags } =
-    projectSettings;
+    project;
 
   return (
     <section className={styles['project-section']}>
@@ -18,7 +18,7 @@ export default function ProjectSection({ data }) {
 
       <div className={styles.overview}>
         <div className={styles.details}>
-          <ProjectDetailsCard project={projectSettings} />
+          <ProjectDetailsCard project={project} />
           <TagsContainer tags={tags} />
           <p>{descriptionFirst}</p>
         </div>

@@ -1,27 +1,24 @@
-import placeholderImage from 'public/default-image-placeholder.png';
+import { defaultType } from '../dataTypes';
+import { getImageSchema } from './image';
+import { getTagSchema } from './tag';
 
-const defaultSettings = {
-  _id: 'Default Featured Project _id',
-  name: 'Default Featured Project Name',
-  descriptionFirst: 'Default Featured Project First Description',
-  descriptionSecond: 'Default Featured Project Second Description',
-  slug: {
-    current: 'default-featured-project-slug',
-  },
-  tags: {
-    name: 'Default Featured Project Tag Name',
+export function getFeaturedProjectSchema(dataType) {
+  return {
+    _id: `${dataType} _id`,
+    name: `${dataType} name`,
+    descriptionFirst: `${dataType} descriptionFirst`,
+    descriptionSecond: `${dataType} descriptionSecond`,
     slug: {
-      current: 'default-featured-project-tag-slug',
+      current: `${dataType}-slug`,
     },
-  },
-  mainImage: {
-    asset: {
-      url: placeholderImage,
-    },
-  },
-};
+    tags: dataType === defaultType ? [] : [getTagSchema(dataType)],
+    mainImage: getImageSchema(dataType),
+  };
+}
 
 export default function getFeaturedProjectSetup(featuredProject) {
+  const defaultSettings = getFeaturedProjectSchema(defaultType);
+
   return {
     _id: featuredProject?._id || defaultSettings._id,
     name: featuredProject?.name || defaultSettings.name,

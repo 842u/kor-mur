@@ -19,10 +19,10 @@ export default function HomePage({ draftMode, data }) {
   const renderItem = useCallback(
     (draftData) => (
       <>
-        <HeroSection data={draftData?.[0]?.heroSectionSettings} />
-        <MottoSection withButton data={draftData?.[0]?.mottoSectionSettings} />
-        <FeaturedProjectsSection projects={draftData?.[0]?.featuredProjects} />
-        <ContactSection data={draftData?.[0]?.contactSectionSettings} />
+        <HeroSection data={draftData?.heroSectionSettings} />
+        <MottoSection withButton data={draftData?.mottoSectionSettings} />
+        <FeaturedProjectsSection projects={draftData?.featuredProjects} />
+        <ContactSection data={draftData?.contactSectionSettings} />
       </>
     ),
     []
@@ -40,7 +40,7 @@ export default function HomePage({ draftMode, data }) {
       ) : (
         <>
           <HeroSection data={heroSectionSettings} />
-          <MottoSection withButton data={mottoSectionSettings} />
+          <MottoSection withLink data={mottoSectionSettings} />
           <DecorativeBreaker />
           <FeaturedProjectsSection projects={featuredProjects} />
           <ContactSection data={contactSectionSettings} />

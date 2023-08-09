@@ -7,7 +7,12 @@ export default function FeaturedProjectInfo({ project, className }) {
   const style = `${styles['project-info']} ${className}`;
 
   return (
-    <div aria-label="Project Information" className={style} role="region">
+    <div
+      aria-label="Project Information"
+      className={style}
+      data-testid="featured-project-info"
+      role="region"
+    >
       <h3>{name}</h3>
       <TagsContainer tags={tags} />
       <p>{descriptionFirst}</p>

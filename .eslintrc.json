@@ -18,7 +18,14 @@
     "ecmaVersion": "latest",
     "sourceType": "module"
   },
-  "plugins": ["simple-import-sort", "react", "jest", "testing-library", "jest-dom", "prettier"],
+  "plugins": [
+    "simple-import-sort",
+    "react",
+    "jest",
+    "testing-library",
+    "jest-dom",
+    "prettier"
+  ],
   "rules": {
     "prettier/prettier": "error",
     "simple-import-sort/imports": "error",
@@ -27,6 +34,7 @@
     "import/no-unresolved": "off",
     "import/extensions": "off",
     "no-underscore-dangle": "off",
+    "import/prefer-default-export": "off",
     "react/jsx-sort-props": [
       "error",
       {

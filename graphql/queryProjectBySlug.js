@@ -61,6 +61,6 @@ export default async function getGqlProjecBySlugData(slug) {
   });
 
   return {
-    project: data.allProject,
+    project: data.allProject[0],
   };
 }

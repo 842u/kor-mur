@@ -1,9 +1,10 @@
-/* eslint no-return-assign: 0, no-param-reassign: 0, no-plusplus: 0 */
+/* eslint no-return-assign: 0 */
 
 import Image from 'next/image';
 import { useEffect, useState } from 'react';
 
-import getHeroSectionSetup from './getHeroSectionSetup';
+import getHeroSectionSetup from '@/utils/dataSetup/dataSchemas/heroSection';
+
 import styles from './HeroSection.module.scss';
 
 export default function HeroSection({ data }) {
@@ -14,7 +15,7 @@ export default function HeroSection({ data }) {
   useEffect(() => {
     const imageChangeDelay = setTimeout(() => {
       setCurrentImageIndex((currentIndex) =>
-        currentIndex >= images.length - 1 ? 0 : (currentIndex += 1)
+        currentIndex >= images.length - 1 ? 0 : currentIndex + 1
       );
     }, 5000);
 

@@ -1,6 +1,6 @@
 import ProjectCard from '@/components/ui/ProjectCard/ProjectCard';
 import TagsContainer from '@/components/ui/TagsContainer/TagsContainer';
-import tagMock from '@/utils/mocks';
+import tagMock from '@/utils/dataSetup/dataMocks';
 
 import getGqlProjectsData from '../../../../graphql/queryProjects';
 import getGqlProjectsByTagIdData from '../../../../graphql/queryProjectsByTagId';
@@ -19,7 +19,7 @@ export default function TagPage({ projects, tags, tag }) {
         <TagsContainer className={styles['tags-container']} tags={tags} />
 
         <div className={styles['projects-container']}>
-          {projects.map((project) => (
+          {projects?.map((project) => (
             <ProjectCard
               key={project._id}
               className={styles['project-card']}

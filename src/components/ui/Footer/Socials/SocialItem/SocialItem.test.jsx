@@ -1,22 +1,40 @@
+/* eslint  react/jsx-props-no-spreading: 0 */
 import '@testing-library/jest-dom';
 
 import { render, screen } from '@testing-library/react';
 
 import SocialItem from './SocialItem';
 
+const mockData = {
+  text: 'mock text',
+  iconSrc: '/mock/url',
+  alt: 'mock alt',
+  href: '/mock/url',
+};
+
 describe('SocialItem', () => {
-  it('should render link with icon and provided text', () => {
-    const text = 'test';
+  it('should render link with provided href', () => {
+    render(<SocialItem {...mockData} />);
 
-    render(
-      <SocialItem alt="test" href="/">
-        {text}
-      </SocialItem>
-    );
+    const link = screen.getByRole('link');
 
-    const img = screen.getByRole('img', { name: 'test' });
+    expect(link).toBeInTheDocument();
+    expect(link).toHaveAttribute('href', expect.stringContaining(mockData.href));
+  });
 
-    expect(screen.getByRole('link', { name: 'test test open link' })).toHaveTextContent(text);
-    expect(screen.getByRole('link', { name: 'test test open link' })).toContainElement(img);
+  it('should render provided text', () => {
+    render(<SocialItem {...mockData}>{mockData.text}</SocialItem>);
+
+    const text = screen.getByText(mockData.text);
+
+    expect(text).toBeInTheDocument();
+  });
+
+  it('should render icon image', () => {
+    render(<SocialItem {...mockData} />);
+
+    const iconImage = screen.getByRole('img', { name: mockData.alt });
+
+    expect(iconImage).toBeInTheDocument();
   });
 });

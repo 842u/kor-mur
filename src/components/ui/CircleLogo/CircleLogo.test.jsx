@@ -1,7 +1,5 @@
 import '@testing-library/jest-dom';
 
-// eslint-disable-next-line import/no-extraneous-dependencies
-import { describe, expect, it } from '@jest/globals';
 import { render, screen } from '@testing-library/react';
 
 import CircleLogo from './CircleLogo';

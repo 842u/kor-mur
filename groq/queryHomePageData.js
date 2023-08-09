@@ -1,7 +1,7 @@
 const { groq } = require('next-sanity');
 
 const groqQueryHomePageData = groq`{
-  "heroSectionSettings": *[_type == 'heroSectionSettings']{
+  "heroSectionSettings": *[_type == 'heroSectionSettings'][0]{
     text,
     images[]{
       asset->{
@@ -11,7 +11,7 @@ const groqQueryHomePageData = groq`{
     }
   },
 
-  "mottoSectionSettings": *[_type == 'mottoSectionSettings']{
+  "mottoSectionSettings": *[_type == 'mottoSectionSettings'][0]{
     titles,
     text,
     image{
@@ -45,7 +45,7 @@ const groqQueryHomePageData = groq`{
     }
   },
 
-  "contactSectionSettings": *[_type == "contactSectionSettings"]{
+  "contactSectionSettings": *[_type == "contactSectionSettings"][0]{
     title,
     description,
     image{
