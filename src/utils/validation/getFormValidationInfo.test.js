@@ -10,6 +10,7 @@ describe('getFormValidationInfo', () => {
     };
 
     const formValidationInfo = getFormValidationInfo(formData);
+
     expect(formValidationInfo.hasError).toBe(true);
     expect(formValidationInfo.errorMessage.length).toBeGreaterThan(0);
   });
@@ -23,6 +24,7 @@ describe('getFormValidationInfo', () => {
     };
 
     const formValidationInfo = getFormValidationInfo(formData);
+
     expect(formValidationInfo.hasError).toBe(false);
     expect(formValidationInfo.errorMessage).toHaveLength(0);
   });
