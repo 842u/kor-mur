@@ -1,10 +1,11 @@
-/* eslint no-return-assign: 0, no-param-reassign: 0, no-plusplus: 0 */
+/* eslint no-return-assign: 0 */
 
 import Image from 'next/image';
 import Link from 'next/link';
 import { useEffect, useState } from 'react';
 
-import getMottoSectionSetup from './getMottoSectionSetup';
+import getMottoSectionSetup from '@/utils/dataSetup/dataSchemas/mottoSection';
+
 import styles from './MottoSection.module.scss';
 
 export default function MottoSection({ data, withLink }) {
@@ -15,7 +16,7 @@ export default function MottoSection({ data, withLink }) {
   useEffect(() => {
     const titleChangeDelay = setTimeout(() => {
       setCurrentTitleIndex((currentIndex) =>
-        currentIndex >= titles.length - 1 ? 0 : (currentIndex += 1)
+        currentIndex >= titles.length - 1 ? 0 : currentIndex + 1
       );
     }, 2500);
 

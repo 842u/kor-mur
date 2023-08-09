@@ -1,6 +1,6 @@
 import { gql } from '@apollo/client';
 
-import tagMock from '@/utils/dataMocks';
+import tagMock from '@/utils/dataSetup/dataMocks';
 
 import apolloClient from './apolloClient';
 

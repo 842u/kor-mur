@@ -1,9 +1,9 @@
 import Image from 'next/image';
 
 import ContactForm from '@/components/ui/ContactForm/ContactForm';
+import getContactSectionSetup from '@/utils/dataSetup/dataSchemas/contactSection';
 
 import styles from './ContactSection.module.scss';
-import getContactSectionSetup from './getContactSectionSetup';
 
 export default function ContactSection({ data }) {
   const { title, description, image } = getContactSectionSetup(data);

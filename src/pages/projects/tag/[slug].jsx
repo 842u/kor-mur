@@ -1,6 +1,6 @@
 import ProjectCard from '@/components/ui/ProjectCard/ProjectCard';
 import TagsContainer from '@/components/ui/TagsContainer/TagsContainer';
-import tagMock from '@/utils/dataMocks';
+import tagMock from '@/utils/dataSetup/dataMocks';
 
 import getGqlProjectsData from '../../../../graphql/queryProjects';
 import getGqlProjectsByTagIdData from '../../../../graphql/queryProjectsByTagId';

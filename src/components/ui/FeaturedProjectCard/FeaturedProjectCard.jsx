@@ -1,9 +1,10 @@
 import Image from 'next/image';
 import Link from 'next/link';
 
+import getFeaturedProjectSetup from '@/utils/dataSetup/dataSchemas/featuredProject';
+
 import styles from './FeaturedProjectCard.module.scss';
 import FeaturedProjectInfo from './FeaturedProjectInfo/FeaturedProjectInfo';
-import getFeaturedProjectSetup from './getFeaturedProjectSetup';
 
 export default function FeaturedProjectCard({ project, className }) {
   const { name, slug, mainImage } = getFeaturedProjectSetup(project);

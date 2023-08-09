@@ -1,7 +1,8 @@
 import Image from 'next/image';
 
+import getAboutSectionSetup from '@/utils/dataSetup/dataSchemas/aboutSection';
+
 import styles from './AboutSection.module.scss';
-import getAboutSectionSetup from './getAboutSectionSetup';
 
 export default function AboutSection({ data }) {
   const { imageFirst, imageSecond, description } = getAboutSectionSetup(data);
