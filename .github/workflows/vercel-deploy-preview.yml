@@ -37,17 +37,12 @@ jobs:
           restore-keys: |
             ${{ runner.os }}-node-
 
-
-
-
       - name: Install Unlighthouse CLI
         if: steps.npm-cache.outputs.cache-hit != 'true'
-        run: npm install --global vercel@latest
+        run: npm install --global @unlighthouse/cli
 
       - name: Run audit
         run: unlighthouse-ci --site www.murawska.studio --build-static
-
-
 
       - name: Deploy .unlighthouse
         uses: s0/git-publish-subdir-action@develop
