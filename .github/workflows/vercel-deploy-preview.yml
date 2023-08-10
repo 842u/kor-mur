@@ -50,7 +50,7 @@ jobs:
           REPO: self
           BRANCH: insights
           FOLDER: .unlighthouse
-          GITHUB_TOKEN: ${{ secrets.USER_TOKEN }}
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
       - name: Discord Notification
         env:
