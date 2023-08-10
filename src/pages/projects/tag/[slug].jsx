@@ -61,7 +61,7 @@ export async function getStaticProps({ params }) {
     props: {
       tags,
       projects,
-      tag: tagWithQuerySlug,
+      tag: tagWithQuerySlug || null,
     },
   };
 }
