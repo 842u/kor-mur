@@ -62,4 +62,4 @@ jobs:
             New PRODUCTION build on {{ EVENT_PAYLOAD.repository.full_name }}, available at https://www.murawska.studio
 
       - name: Run Unlighthouse Audit
-        uses: 842u/kor-mur/.github/workflows/unlighthouse-audit.yml
+        uses: ./.github/workflows/unlighthouse-audit.yml
