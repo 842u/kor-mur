@@ -40,6 +40,7 @@ jobs:
         run: npm install --global vercel@latest
 
   Deployment:
+    needs: Install-Packages
     runs-on: ubuntu-latest
     environment:
       name: Preview
@@ -56,6 +57,7 @@ jobs:
         run: echo "URL=$(vercel deploy --prebuilt --token=${{ secrets.VERCEL_TOKEN }})" >> $GITHUB_ENV
 
   Notification:
+    needs: Deployment
     runs-on: ubuntu-latest
 
     steps:
