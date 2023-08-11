@@ -49,7 +49,7 @@ jobs:
         run: unlighthouse-ci --site www.murawska.studio --build-static
 
       - name: Change Vercel CWD
-        run: vercel --cwd .unlighthouse
+        run: vercel --cwd .unlighthouse --token=${{ secrets.VERCEL_TOKEN }}
 
       - name: Deploy Project Artifacts to Vercel
         run: echo "URL=$(vercel deploy --token=${{ secrets.VERCEL_TOKEN }})" >> $GITHUB_ENV
