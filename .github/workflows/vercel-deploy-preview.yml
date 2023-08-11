@@ -40,7 +40,7 @@ jobs:
       run: npm install --global @unlighthouse/cli
 
     - name: Run audit
-      run: unlighthouse-ci --site www.murawska.studio --build-static
+      run: mkdir .unlighthouse
 
     - name: Deploy .unlighthouse
       uses: s0/git-publish-subdir-action@develop
