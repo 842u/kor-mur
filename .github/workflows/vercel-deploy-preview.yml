@@ -17,6 +17,7 @@ jobs:
       name: Preview
       url: ${{ env.URL }}
 
+
     steps:
       - uses: actions/checkout@v3
 
@@ -62,5 +63,6 @@ jobs:
             New PR PREVIEW for {{ EVENT_PAYLOAD.repository.full_name }}
             ${{ env.URL }}
 
-      - name: Call workflow
-        uses: 842u/kor-mur/.github/workflows/unlighthouse-audit.yml@main
+  Call-Workflow:
+    needs: Deploy-Preview
+    uses: ./.github/workflows/unlighthouse-audit.yml
