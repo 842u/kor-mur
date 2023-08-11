@@ -66,3 +66,4 @@ jobs:
   Call-Workflow:
     needs: Deploy-Preview
     uses: ./.github/workflows/unlighthouse-audit.yml
+    secrets: inherit
