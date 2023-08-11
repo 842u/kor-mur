@@ -1,0 +1,47 @@
+name: Vercel Deploy Insights
+
+on:
+  workflow_dispatch:
+
+jobs:
+  Install-Packages:
+    runs-on: ubuntu-latest
+    environment:
+      name: Preview
+      url: ${{ env.URL }}
+
+    steps:
+    - uses: actions/checkout@v3
+
+    - uses: actions/setup-node@v3
+      with:
+        node-version: '18'
+
+    - name: Get Npm Cache Directory
+      id: npm-cache-dir
+      shell: bash
+      run: echo "dir=$(npm config get cache)" >> ${GITHUB_OUTPUT}
+
+    - name: Cache Npm Dependencies
+      uses: actions/cache@v3
+      id: npm-cache
+      with:
+        path: ${{ steps.npm-cache-dir.outputs.dir }}
+        key: ${{ runner.os }}-node-${{ hashFiles('**/package-lock.json') }}
+        restore-keys: |
+          ${{ runner.os }}-node-
+
+    - name: Install Unlighthouse CLI
+      if: steps.npm-cache.outputs.cache-hit != 'true'
+      run: npm install --global @unlighthouse/cli
+
+    - name: Run audit
+      run: unlighthouse-ci --site www.murawska.studio --build-static
+
+    - name: Deploy .unlighthouse
+      uses: s0/git-publish-subdir-action@develop
+      env:
+        REPO: self
+        BRANCH: insights
+        FOLDER: .unlighthouse
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}

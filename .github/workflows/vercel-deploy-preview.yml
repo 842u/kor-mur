@@ -41,16 +41,18 @@ jobs:
         if: steps.npm-cache.outputs.cache-hit != 'true'
         run: npm install --global @unlighthouse/cli
 
+      - name: Install Vercel CLI
+        if: steps.npm-cache.outputs.cache-hit != 'true'
+        run: npm install --global vercel@latest
+
       - name: Run audit
         run: unlighthouse-ci --site www.murawska.studio --build-static
 
-      - name: Deploy .unlighthouse
-        uses: s0/git-publish-subdir-action@develop
-        env:
-          REPO: self
-          BRANCH: insights
-          FOLDER: .unlighthouse
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      - name: Change Vercel CWD
+        run: vercel --cwd .unlighthouse
+
+      - name: Deploy Project Artifacts to Vercel
+        run: echo "URL=$(vercel deploy --token=${{ secrets.VERCEL_TOKEN }})" >> $GITHUB_ENV
 
       - name: Discord Notification
         env:
