@@ -4,18 +4,16 @@ env:
   VERCEL_ORG_ID: ${{ secrets.VERCEL_ORG_ID }}
   VERCEL_PROJECT_ID: ${{ secrets.VERCEL_PROJECT_ID }}
 
-on: 
+on:
   pull_request:
-    branches: 
+    branches:
     - main
   workflow_dispatch:
 
 jobs:
-  Deploy-Preview:
+  Install-Packages:
     runs-on: ubuntu-latest
-    environment:
-      name: Preview
-      url: ${{ env.URL }}
+
     steps:
       - uses: actions/checkout@v3
 
@@ -37,11 +35,17 @@ jobs:
           restore-keys: |
             ${{ runner.os }}-node-
 
-      
       - name: Install Vercel CLI
         if: steps.npm-cache.outputs.cache-hit != 'true'
         run: npm install --global vercel@latest
 
+  Deployment:
+    runs-on: ubuntu-latest
+    environment:
+      name: Preview
+      url: ${{ env.URL }}
+
+    steps:
       - name: Pull Vercel Environment Information
         run: vercel pull --yes --environment=preview --token=${{ secrets.VERCEL_TOKEN }}
 
@@ -51,6 +55,10 @@ jobs:
       - name: Deploy Project Artifacts to Vercel
         run: echo "URL=$(vercel deploy --prebuilt --token=${{ secrets.VERCEL_TOKEN }})" >> $GITHUB_ENV
 
+  Notification:
+    runs-on: ubuntu-latest
+
+    steps:
       - name: Discord Notification
         env:
           DISCORD_WEBHOOK: ${{ secrets.DISCORD_WEBHOOK }}
