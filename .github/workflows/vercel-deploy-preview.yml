@@ -48,4 +48,4 @@ jobs:
         REPO: git@github.com:842u/temp.git
         BRANCH: main
         FOLDER: .unlighthouse
-        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        SSH_PRIVATE_KEY: ${{ secrets.SSH_DEPLOY_KEY }}
