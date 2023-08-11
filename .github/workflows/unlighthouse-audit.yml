@@ -2,6 +2,7 @@ name: Unlighthouse Audit
 
 on:
   workflow_dispatch:
+  workflow_call:
 
 jobs:
   Unlighthouse-Audit:

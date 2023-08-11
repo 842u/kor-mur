@@ -61,3 +61,6 @@ jobs:
           args: |
             New PR PREVIEW for {{ EVENT_PAYLOAD.repository.full_name }}
             ${{ env.URL }}
+
+      - name: Call workflow
+        uses: 842u/kor-mur/.github/workflows/unlighthouse-audit.yml@main
