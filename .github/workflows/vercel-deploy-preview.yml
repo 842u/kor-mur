@@ -45,7 +45,7 @@ jobs:
     - name: Deploy .unlighthouse
       uses: s0/git-publish-subdir-action@develop
       env:
-        REPO: https://github.com/842u/temp
+        REPO: git@github.com:842u/temp.git
         BRANCH: main
         FOLDER: .unlighthouse
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
