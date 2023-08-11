@@ -54,4 +54,5 @@ jobs:
         uses: Ilshidur/action-discord@master
         with:
           args: |
-            Latest audit {{ EVENT_PAYLOAD.repository.full_name }}, available at https://www.insights.murawska.studio
+            New AUDIT for {{ EVENT_PAYLOAD.repository.full_name }}
+            https://www.insights.murawska.studio
