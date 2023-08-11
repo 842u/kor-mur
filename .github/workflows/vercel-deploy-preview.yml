@@ -59,4 +59,5 @@ jobs:
         uses: Ilshidur/action-discord@master
         with:
           args: |
-            New Pull Request on {{ EVENT_PAYLOAD.repository.full_name }}, preview available at ${{ env.URL }}
+            New PR PREVIEW for {{ EVENT_PAYLOAD.repository.full_name }}
+            ${{ env.URL }}
