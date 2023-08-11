@@ -47,7 +47,7 @@ jobs:
       run: unlighthouse-ci --site www.murawska.studio --build-static --output-path unlighthouse
       
     - name: asd
-      run: vercel cwd unlighthouse
+      run: vercel --cwd unlighthouse
 
     - name: Pull Vercel Environment Information
       run: vercel pull --yes --environment=production --token=${{ secrets.VERCEL_TOKEN }}
