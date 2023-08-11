@@ -46,6 +46,9 @@ jobs:
     - name: Run audit
       run: unlighthouse-ci --site www.murawska.studio --build-static
 
+    - name: Pull Vercel Environment Information
+      run: vercel pull --yes --environment=production --token=${{ secrets.VERCEL_TOKEN }}
+        
     - name: Build Project Artifacts
       run: vercel build --prod --token=${{ secrets.VERCEL_TOKEN }}
 
