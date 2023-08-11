@@ -35,10 +35,6 @@ jobs:
         restore-keys: |
           ${{ runner.os }}-node-
 
-    - name: Install Unlighthouse CLI
-      if: steps.npm-cache.outputs.cache-hit != 'true'
-      run: npm install --global @unlighthouse/cli
-
     - name: Run audit
       run: mkdir .unlighthouse
 
