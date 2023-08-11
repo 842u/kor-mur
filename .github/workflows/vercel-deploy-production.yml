@@ -4,9 +4,9 @@ env:
   VERCEL_ORG_ID: ${{ secrets.VERCEL_ORG_ID }}
   VERCEL_PROJECT_ID: ${{ secrets.VERCEL_PROJECT_ID }}
 
-on: 
+on:
   push:
-    branches: 
+    branches:
     - main
   workflow_dispatch:
 
@@ -16,6 +16,7 @@ jobs:
     environment:
       name: Production
       url: https://www.murawska.studio
+
     steps:
       - uses: actions/checkout@v3
 
@@ -36,7 +37,7 @@ jobs:
           key: ${{ runner.os }}-node-${{ hashFiles('**/package-lock.json') }}
           restore-keys: |
             ${{ runner.os }}-node-
-      
+
       - name: Install Vercel CLI
         if: steps.npm-cache.outputs.cache-hit != 'true'
         run: npm install --global vercel@latest
@@ -48,7 +49,7 @@ jobs:
         run: vercel build --prod --token=${{ secrets.VERCEL_TOKEN }}
 
       - name: Deploy Project Artifacts to Vercel
-        run: echo "URL=$(vercel deploy --prebuilt --prod --token=${{ secrets.VERCEL_TOKEN }})" >> $GITHUB_ENV
+        run: vercel deploy --prebuilt --prod --token=${{ secrets.VERCEL_TOKEN }})
 
       - name: Discord Notification
         env:
@@ -59,3 +60,6 @@ jobs:
         with:
           args: |
             New PRODUCTION build on {{ EVENT_PAYLOAD.repository.full_name }}, available at https://www.murawska.studio
+
+      - name: Run Unlighthouse Audit
+        uses: ./.github/workflows/unlighthouse-audit.yml
