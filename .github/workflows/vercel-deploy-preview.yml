@@ -46,10 +46,10 @@ jobs:
         run: npm install --global vercel@latest
 
       - name: Run audit
-        run: unlighthouse-ci --site www.murawska.studio --build-static
+        run: unlighthouse-ci --site www.murawska.studio --build-static --output-path
 
       - name: Change Vercel CWD
-        run: vercel --cwd .unlighthouse --token=${{ secrets.VERCEL_TOKEN }}
+        run: vercel --cwd unlighthouse --token=${{ secrets.VERCEL_TOKEN }}
 
       - name: Deploy Project Artifacts to Vercel
         run: echo "URL=$(vercel deploy --token=${{ secrets.VERCEL_TOKEN }})" >> $GITHUB_ENV
