@@ -63,4 +63,4 @@ jobs:
             https://www.murawska.studio
 
       - name: Run Unlighthouse Audit
-        uses: ./.github/workflows/unlighthouse-audit.yml
+        uses: 842u/kor-mur/.github/workflows/unlighthouse-audit.yml@main
