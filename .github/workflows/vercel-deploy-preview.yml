@@ -1,65 +1,53 @@
-name: Vercel Deploy Preview
+name: Vercel Deploy Insights
 
 env:
   VERCEL_ORG_ID: ${{ secrets.VERCEL_ORG_ID }}
-  VERCEL_PROJECT_ID: ${{ secrets.VERCEL_PROJECT_ID }}
+  VERCEL_PROJECT_ID: ${{ secrets.VERCEL_PROJECT_ID_INSIGHTS }}
 
 on:
-  pull_request:
-    branches:
-    - main
   workflow_dispatch:
 
 jobs:
-  Deploy-Preview:
+  Install-Packages:
     runs-on: ubuntu-latest
     environment:
       name: Preview
       url: ${{ env.URL }}
+
     steps:
-      - uses: actions/checkout@v3
+    - uses: actions/checkout@v3
 
-      - uses: actions/setup-node@v3
-        with:
-          node-version: '18'
+    - uses: actions/setup-node@v3
+      with:
+        node-version: '18'
 
-      - name: Get Npm Cache Directory
-        id: npm-cache-dir
-        shell: bash
-        run: echo "dir=$(npm config get cache)" >> ${GITHUB_OUTPUT}
+    - name: Get Npm Cache Directory
+      id: npm-cache-dir
+      shell: bash
+      run: echo "dir=$(npm config get cache)" >> ${GITHUB_OUTPUT}
 
-      - name: Cache Npm Dependencies
-        uses: actions/cache@v3
-        id: npm-cache
-        with:
-          path: ${{ steps.npm-cache-dir.outputs.dir }}
-          key: ${{ runner.os }}-node-${{ hashFiles('**/package-lock.json') }}
-          restore-keys: |
-            ${{ runner.os }}-node-
+    - name: Cache Npm Dependencies
+      uses: actions/cache@v3
+      id: npm-cache
+      with:
+        path: ${{ steps.npm-cache-dir.outputs.dir }}
+        key: ${{ runner.os }}-node-${{ hashFiles('**/package-lock.json') }}
+        restore-keys: |
+          ${{ runner.os }}-node-
 
-      - name: Install Unlighthouse CLI
-        if: steps.npm-cache.outputs.cache-hit != 'true'
-        run: npm install --global @unlighthouse/cli
+    - name: Install Unlighthouse CLI
+      if: steps.npm-cache.outputs.cache-hit != 'true'
+      run: npm install --global @unlighthouse/cli
 
-      - name: Install Vercel CLI
-        if: steps.npm-cache.outputs.cache-hit != 'true'
-        run: npm install --global vercel@latest
+    - name: Install Vercel CLI
+      if: steps.npm-cache.outputs.cache-hit != 'true'
+      run: npm install --global vercel@latest
 
-      - name: Run audit
-        run: unlighthouse-ci --site www.murawska.studio --build-static --output-path
+    - name: Run audit
+      run: unlighthouse-ci --site www.murawska.studio --build-static
 
-      - name: Change Vercel CWD
-        run: vercel --cwd unlighthouse --token=${{ secrets.VERCEL_TOKEN }}
+    - name: Build Project Artifacts
+      run: vercel build --prod --token=${{ secrets.VERCEL_TOKEN }}
 
-      - name: Deploy Project Artifacts to Vercel
-        run: echo "URL=$(vercel deploy --token=${{ secrets.VERCEL_TOKEN }})" >> $GITHUB_ENV
-
-      - name: Discord Notification
-        env:
-          DISCORD_WEBHOOK: ${{ secrets.DISCORD_WEBHOOK }}
-          DISCORD_USERNAME: 842u_BOT
-          DISCORD_AVATAR: https://avatars.githubusercontent.com/u/23544888?v=4
-        uses: Ilshidur/action-discord@master
-        with:
-          args: |
-            New Pull Request on {{ EVENT_PAYLOAD.repository.full_name }}, preview available at ${{ env.URL }}
+    - name: Deploy Project Artifacts to Vercel
+      run: echo "URL=$(vercel deploy --token=${{ secrets.VERCEL_TOKEN }})" >> $GITHUB_ENV
