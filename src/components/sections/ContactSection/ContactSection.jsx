@@ -17,8 +17,9 @@ export default function ContactSection({ data }) {
           <p>{description}</p>
           <div className={styles['image-container']}>
             <Image
+              aria-hidden
               fill
-              alt="Image of contact section."
+              alt=""
               sizes="(max-width: 810px) 100vw,(max-width: 1200px) 60vw, 50vw"
               src={image.asset.url}
             />

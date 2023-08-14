@@ -13,7 +13,7 @@ export default function ProjectCard({ project, sizes, className }) {
       <div className={styles['image-container']}>
         <Image
           fill
-          alt={`Main image of the ${name} project.`}
+          alt={`Główne zdjęcie porjektu ${name}.`}
           className={styles['project-image']}
           sizes={sizes}
           src={mainImage.asset.url}

@@ -54,7 +54,7 @@ export default function MottoSection({ data, withLink }) {
         <div className={styles['image-container']}>
           <Image
             fill
-            alt="Motivational image."
+            alt="Zdjęcie motywacyjne."
             sizes="(max-width: 810px) 100vw,(max-width: 1200px) 50vw, 60vw"
             src={image}
           />

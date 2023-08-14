@@ -12,8 +12,9 @@ export default function AboutSection({ data }) {
       <div className={styles['info-section']}>
         <div className={styles['first-image-container']}>
           <Image
+            aria-hidden
             fill
-            alt="One of the about me section photo."
+            alt=""
             className={styles.image}
             sizes="(max-width: 810px) 100vw, 50vw"
             src={imageFirst.asset.url}
@@ -24,8 +25,9 @@ export default function AboutSection({ data }) {
 
       <div className={styles['second-image-container']}>
         <Image
+          aria-hidden
           fill
-          alt="One of the about me section photo."
+          alt=""
           className={styles.image}
           sizes="100vw"
           src={imageSecond.asset.url}

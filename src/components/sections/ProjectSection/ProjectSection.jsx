@@ -27,7 +27,7 @@ export default function ProjectSection({ data }) {
           <Image
             fill
             priority
-            alt={`Main image of the ${name} project.`}
+            alt={`Główne zdjęcie porjektu ${name}.`}
             sizes="(max-width: 810px) 100vw, 60vw"
             src={mainImage.asset.url}
           />
@@ -38,7 +38,7 @@ export default function ProjectSection({ data }) {
         <div className={styles['secondary-image']}>
           <Image
             fill
-            alt={`One of the ${name} project image.`}
+            alt={`Jedno ze zdjęć projektu ${name}.`}
             sizes="(max-width: 810px) 100vw, 60vw"
             src={secondaryImage.asset.url}
           />
@@ -51,7 +51,7 @@ export default function ProjectSection({ data }) {
           <div key={image.asset._id} className={styles['gallery-image']}>
             <Image
               fill
-              alt={`One of the ${name} project image.`}
+              alt={`Jedno ze zdjęć projektu ${name}.`}
               sizes="(max-width: 1200px) 100vw, 80vw"
               src={image.asset.url}
             />

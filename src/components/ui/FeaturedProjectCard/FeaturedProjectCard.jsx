@@ -18,7 +18,7 @@ export default function FeaturedProjectCard({ project, className }) {
       <Link className={styles['project-link']} href={`/projects/${slug.current}`}>
         <Image
           fill
-          alt={`Main image of ${name} project.`}
+          alt={`Główne zdjęcie porjektu ${name}.`}
           sizes="100vw"
           src={mainImage.asset.url}
         />
