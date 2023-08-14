@@ -15,7 +15,7 @@ export default function NavMenuItem({ href, children, onClick }) {
 
   return (
     <li className={styleClass}>
-      <Link href={href} onClick={onClick}>
+      <Link href={href} scroll={false} onClick={onClick}>
         {children}
       </Link>
     </li>

@@ -5,6 +5,8 @@ import NavBar from '@/components/ui/NavBar/NavBar';
 import WelcomeScreen from '@/components/ui/WelcomeScreen/WelcomeScreen';
 import { primaryFont } from '@/utils/fonts';
 
+import { PageTransition } from '../animations/PageTransition';
+
 export default function DefaultLayout({ children }) {
   const [isWelcomeAnimationFinished, setIsWelcomeAnimationFinished] = useState(false);
 
@@ -18,7 +20,7 @@ export default function DefaultLayout({ children }) {
     <>
       {!isWelcomeAnimationFinished && <WelcomeScreen className={primaryFont.className} />}
       <NavBar className={primaryFont.className} />
-      <main className={primaryFont.className}>{children}</main>
+      <PageTransition>{children}</PageTransition>
       <Footer className={primaryFont.className} />
     </>
   );
