@@ -14,7 +14,7 @@ describe('ProjectCard', () => {
     render(<ProjectCard project={mockData} />);
 
     const projectImage = screen.getByRole('img', {
-      name: `Main image of the ${mockData.name} project.`,
+      name: `Główne zdjęcie porjektu ${mockData.name}.`,
     });
 
     await waitFor(() => expect(projectImage).toBeInTheDocument());

@@ -30,7 +30,7 @@ describe('FeaturedProjectCard', () => {
     render(<FeaturedProjectCard project={mockData} />);
 
     const projectImage = screen.getByRole('img', {
-      name: `Main image of ${mockData.name} project.`,
+      name: `Główne zdjęcie porjektu ${mockData.name}.`,
     });
 
     await waitFor(() => expect(projectImage).toBeInTheDocument());
@@ -40,7 +40,7 @@ describe('FeaturedProjectCard', () => {
     render(<FeaturedProjectCard project={mockData} />);
 
     const projectLink = screen.getByRole('link', {
-      name: `Main image of ${mockData.name} project.`,
+      name: `Główne zdjęcie porjektu ${mockData.name}.`,
     });
 
     await waitFor(() => {

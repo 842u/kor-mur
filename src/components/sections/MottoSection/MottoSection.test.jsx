@@ -66,7 +66,7 @@ describe('MottoSection', () => {
   it('should always render image', () => {
     render(<MottoSection />);
 
-    const image = screen.getByRole('img', { name: 'Motivational image.' });
+    const image = screen.getByRole('img');
 
     expect(image).toBeInTheDocument();
   });
