@@ -11,6 +11,12 @@ const mockData = getContactSectionSchema(mockType);
 
 const defaultData = getContactSectionSchema(defaultType);
 
+jest.mock('next/router', () => ({
+  useRouter: () => ({
+    asPath: 'some/path',
+  }),
+}));
+
 describe('ContactSection', () => {
   it('should render title provided in data', () => {
     render(<ContactSection data={mockData} />);
