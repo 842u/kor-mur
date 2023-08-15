@@ -43,7 +43,7 @@ export default function MottoSection({ data, withLink }) {
         </div>
 
         {withLink ? (
-          <Link className={styles['about-button']} href="/about">
+          <Link className={styles['about-button']} href="/about" scroll={false}>
             O MNIE
           </Link>
         ) : null}
