@@ -16,7 +16,7 @@ export default function NavBar({ className }) {
   };
 
   const clickLogoHandler = () => {
-    router.push('/');
+    router.push('/', '/', { scroll: router.asPath === '/' || false });
     setIsMenuActive(false);
   };
 
