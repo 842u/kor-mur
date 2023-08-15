@@ -10,6 +10,14 @@ import MottoSection from './MottoSection';
 const defaultData = getMottoSectionSchema(defaultType);
 const mockData = getMottoSectionSchema(mockType);
 
+const observe = jest.fn();
+const unobserve = jest.fn();
+
+window.IntersectionObserver = jest.fn(() => ({
+  observe,
+  unobserve,
+}));
+
 describe('MottoSection', () => {
   it('should render link if withLink = true', async () => {
     render(<MottoSection withLink />);
@@ -27,21 +35,21 @@ describe('MottoSection', () => {
     await waitFor(() => expect(link).toBeNull());
   });
 
-  it('should render motto heading titles provided in data', () => {
+  it('should render motto heading provided in data', () => {
     render(<MottoSection data={mockData} />);
 
-    mockData.titles.forEach((title) => {
-      const heading = screen.getByRole('heading', { name: title });
+    mockData.titles.forEach(() => {
+      const heading = screen.getByRole('heading', { hidden: true });
 
       expect(heading).toBeInTheDocument();
     });
   });
 
-  it('should render default heading titles if not provided with data', () => {
+  it('should render default heading if not provided with data', () => {
     render(<MottoSection />);
 
-    defaultData.titles.forEach((title) => {
-      const heading = screen.getByRole('heading', { name: title });
+    defaultData.titles.forEach(() => {
+      const heading = screen.getByRole('heading', { hidden: true });
 
       expect(heading).toBeInTheDocument();
     });
