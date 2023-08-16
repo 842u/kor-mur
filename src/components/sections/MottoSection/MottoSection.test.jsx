@@ -10,12 +10,9 @@ import MottoSection from './MottoSection';
 const defaultData = getMottoSectionSchema(defaultType);
 const mockData = getMottoSectionSchema(mockType);
 
-const observe = jest.fn();
-const unobserve = jest.fn();
-
 window.IntersectionObserver = jest.fn(() => ({
-  observe,
-  unobserve,
+  observe: jest.fn(),
+  unobserve: jest.fn(),
 }));
 
 describe('MottoSection', () => {
