@@ -7,7 +7,7 @@
   white-space: nowrap;
 
   background-color: var(--primary-200);
-  border: 2px solid var(--secondary-200);
+  border: 2px solid var(--secondary-300);
   border-radius: 2rem;
 
   transition: all 0.5s ease;
@@ -17,7 +17,7 @@
   }
 
   &--active {
-    scale: 1.1;
+    scale: 1.15;
     border: 2px solid var(--secondary-700);
   }
 }
