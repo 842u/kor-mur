@@ -18,7 +18,7 @@
   --secondary-100: #d9d8cd;
   --secondary-200: #c6c5b5;
   --secondary-300: #acaa93;
-  --secondaty-400: #9c997e;
+  --secondary-400: #9c997e;
   --secondary-500: #83805e;
   --secondary-600: #777456;
   --secondary-700: #5d5b43;
@@ -36,6 +36,14 @@
   --primary-900: #4b464f;
 
   /*
+    * LAYOUT
+  */
+  --margin-section-mobile: 1rem;
+  --margin-section-tablet: 2rem;
+  --margin-section-desktop: 4rem;
+  --margin-item-mobile: 2rem;
+
+  /*
     * TEXT
   */
   --text-page-title-mobile: 3rem;
@@ -50,14 +58,15 @@
   --text-small-mobile: 1rem;
   --text-small-tablet: 1.5rem;
   --text-small-desktop: 2rem;
-  --margin-item-mobile: 2rem;
 
   /*
     * DECORATION
   */
   --border-radius-image: 1rem;
   --border-radius-button: 1.5rem;
-  --drop-shadow: 10px 10px 15px #0000009c;
+  --drop-shadow-mobile: 5px 5px 5px var(--black-200);
+  --drop-shadow-tablet: 10px 10px 5px var(--black-200);
+  --drop-shadow-desktop: 15px 15px 5px var(--black-200);
 
   /*
     * OTHERS

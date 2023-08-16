@@ -1,5 +1,6 @@
 import Image from 'next/image';
 
+import { InViewSlide } from '@/components/animations/InViewSlide';
 import ProjectDetailsCard from '@/components/ui/ProjectDetailsCard/ProjectDetailsCard';
 import TagsContainer from '@/components/ui/TagsContainer/TagsContainer';
 import getProjectSetup from '@/utils/dataSetup/dataSchemas/project';
@@ -17,13 +18,13 @@ export default function ProjectSection({ data }) {
       <h1>{name}</h1>
 
       <div className={styles.overview}>
-        <div className={styles.details}>
+        <InViewSlide className={styles.details} slideFrom="left">
           <ProjectDetailsCard project={project} />
           <TagsContainer tags={tags} />
           <p>{descriptionFirst}</p>
-        </div>
+        </InViewSlide>
 
-        <div className={styles['main-image']}>
+        <InViewSlide className={styles['main-image']} slideFrom="right">
           <Image
             fill
             priority
@@ -31,31 +32,38 @@ export default function ProjectSection({ data }) {
             sizes="(max-width: 810px) 100vw, 60vw"
             src={mainImage.asset.url}
           />
-        </div>
+        </InViewSlide>
       </div>
 
       <div className={styles.description}>
-        <div className={styles['secondary-image']}>
+        <InViewSlide className={styles['secondary-image']} slideFrom="bottom">
           <Image
             fill
             alt={`Jedno ze zdjęć projektu ${name}.`}
             sizes="(max-width: 810px) 100vw, 60vw"
             src={secondaryImage.asset.url}
           />
-        </div>
-        <p>{descriptionSecond}</p>
+        </InViewSlide>
+
+        <InViewSlide slideFrom="right">
+          <p>{descriptionSecond}</p>
+        </InViewSlide>
       </div>
 
       <div className={styles.gallery}>
-        {images.map((image) => (
-          <div key={image.asset._id} className={styles['gallery-image']}>
+        {images.map((image, index) => (
+          <InViewSlide
+            key={image.asset._id}
+            className={styles['gallery-image']}
+            slideFrom={index % 2 ? 'left' : 'right'}
+          >
             <Image
               fill
               alt={`Jedno ze zdjęć projektu ${name}.`}
               sizes="(max-width: 1200px) 100vw, 80vw"
               src={image.asset.url}
             />
-          </div>
+          </InViewSlide>
         ))}
       </div>
     </section>

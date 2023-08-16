@@ -11,6 +11,17 @@ const mockData = getContactSectionSchema(mockType);
 
 const defaultData = getContactSectionSchema(defaultType);
 
+window.IntersectionObserver = jest.fn(() => ({
+  observe: jest.fn(),
+  unobserve: jest.fn(),
+}));
+
+jest.mock('next/router', () => ({
+  useRouter: () => ({
+    asPath: 'some/path',
+  }),
+}));
+
 describe('ContactSection', () => {
   it('should render title provided in data', () => {
     render(<ContactSection data={mockData} />);

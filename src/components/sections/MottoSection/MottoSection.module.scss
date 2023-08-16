@@ -21,20 +21,6 @@
   align-self: stretch;
 }
 
-.title-container {
-  .title {
-    overflow: hidden;
-    height: 0;
-    opacity: 0;
-    transition: opacity 2s ease-in-out;
-
-    &--active {
-      height: auto;
-      opacity: 1;
-    }
-  }
-}
-
 .image-container {
   position: relative;
   aspect-ratio: 1 / 1;

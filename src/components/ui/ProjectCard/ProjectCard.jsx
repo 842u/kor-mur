@@ -9,7 +9,7 @@ export default function ProjectCard({ project, sizes, className }) {
   const style = `${styles['project-card']} ${className}`;
 
   return (
-    <Link className={style} href={`/projects/${slug.current}`}>
+    <Link className={style} href={`/projects/${slug.current}`} scroll={false}>
       <div className={styles['image-container']}>
         <Image
           fill

@@ -15,7 +15,7 @@ export default function FeaturedProjectCard({ project, className }) {
     <div className={style}>
       <FeaturedProjectInfo className={styles['info-card']} project={project} />
 
-      <Link className={styles['project-link']} href={`/projects/${slug.current}`}>
+      <Link className={styles['project-link']} href={`/projects/${slug.current}`} scroll={false}>
         <Image
           fill
           alt={`Główne zdjęcie porjektu ${name}.`}

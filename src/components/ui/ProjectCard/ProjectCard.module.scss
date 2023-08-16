@@ -8,7 +8,7 @@
   text-decoration: none;
 
   background-color: var(--primary-500);
-  filter: drop-shadow(var(--drop-shadow));
+  filter: drop-shadow(var(--drop-shadow-mobile));
   border-radius: var(--border-radius-image);
 
   transition: scale 0.5s ease;
@@ -53,5 +53,17 @@
   .project-image {
     object-fit: cover;
     border-radius: var(--border-radius-image);
+  }
+}
+
+@media (width > 810px) {
+  .project-card {
+    filter: drop-shadow(var(--drop-shadow-tablet));
+  }
+}
+
+@media (width > 1200px) {
+  .project-card {
+    filter: drop-shadow(var(--drop-shadow-desktop));
   }
 }

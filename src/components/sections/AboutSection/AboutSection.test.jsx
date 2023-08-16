@@ -11,6 +11,11 @@ const mockData = getAboutSectionSchema(mockType);
 
 const defaultData = getAboutSectionSchema(defaultType);
 
+window.IntersectionObserver = jest.fn(() => ({
+  observe: jest.fn(),
+  unobserve: jest.fn(),
+}));
+
 describe('AboutSection', () => {
   it('should render section description provided in data', () => {
     render(<AboutSection data={mockData} />);

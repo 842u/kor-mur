@@ -11,7 +11,7 @@ export default function Tag({ tag }) {
   const style = `${styles.tag} ${router.query.slug === slug.current ? styles['tag--active'] : ''}`;
 
   return (
-    <Link className={style} href={`/projects/tag/${slug.current}`}>
+    <Link className={style} href={`/projects/tag/${slug.current}`} scroll={false}>
       {name}
     </Link>
   );

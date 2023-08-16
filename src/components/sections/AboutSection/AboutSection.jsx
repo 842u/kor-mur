@@ -1,5 +1,6 @@
 import Image from 'next/image';
 
+import { InViewSlide } from '@/components/animations/InViewSlide';
 import getAboutSectionSetup from '@/utils/dataSetup/dataSchemas/aboutSection';
 
 import styles from './AboutSection.module.scss';
@@ -10,7 +11,7 @@ export default function AboutSection({ data }) {
   return (
     <section className={styles['about-section']}>
       <div className={styles['info-section']}>
-        <div className={styles['first-image-container']}>
+        <InViewSlide className={styles['first-image-container']} slideFrom="left">
           <Image
             aria-hidden
             fill
@@ -19,11 +20,14 @@ export default function AboutSection({ data }) {
             sizes="(max-width: 810px) 100vw, 50vw"
             src={imageFirst.asset.url}
           />
-        </div>
-        <p>{description}</p>
+        </InViewSlide>
+
+        <InViewSlide slideFrom="right">
+          <p>{description}</p>
+        </InViewSlide>
       </div>
 
-      <div className={styles['second-image-container']}>
+      <InViewSlide className={styles['second-image-container']} slideFrom="bottom">
         <Image
           aria-hidden
           fill
@@ -32,7 +36,7 @@ export default function AboutSection({ data }) {
           sizes="100vw"
           src={imageSecond.asset.url}
         />
-      </div>
+      </InViewSlide>
     </section>
   );
 }
