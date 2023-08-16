@@ -1,13 +1,13 @@
+@use '@/styles/mixins.scss' as mixins;
+
 .project-card {
   position: relative;
 
   aspect-ratio: 1 / 1;
-  padding: 1rem;
 
   color: var(--white-500);
   text-decoration: none;
 
-  background-color: var(--primary-500);
   filter: drop-shadow(var(--drop-shadow-mobile));
   border-radius: var(--border-radius-image);
 
@@ -46,14 +46,8 @@
   }
 }
 
-.image-container {
-  position: relative;
-  aspect-ratio: 1 / 1;
-
-  .project-image {
-    object-fit: cover;
-    border-radius: var(--border-radius-image);
-  }
+.project-image {
+  @include mixins.image;
 }
 
 @media (width > 810px) {

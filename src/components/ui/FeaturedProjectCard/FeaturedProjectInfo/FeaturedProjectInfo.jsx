@@ -1,3 +1,5 @@
+import { secondaryFont } from '@/utils/fonts';
+
 import TagsContainer from '../../TagsContainer/TagsContainer';
 import styles from './FeaturedProjectInfo.module.scss';
 
@@ -13,7 +15,7 @@ export default function FeaturedProjectInfo({ project, className }) {
       data-testid="featured-project-info"
       role="region"
     >
-      <h3>{name}</h3>
+      <h3 className={secondaryFont.className}>{name}</h3>
       <TagsContainer tags={tags} />
       <p>{descriptionFirst}</p>
     </div>

@@ -6,6 +6,7 @@ import { useEffect, useRef } from 'react';
 import { InViewSlide } from '@/components/animations/InViewSlide';
 import ContactForm from '@/components/ui/ContactForm/ContactForm';
 import getContactSectionSetup from '@/utils/dataSetup/dataSchemas/contactSection';
+import { secondaryFont } from '@/utils/fonts';
 
 import styles from './ContactSection.module.scss';
 
@@ -26,7 +27,7 @@ export default function ContactSection({ data }) {
 
   return (
     <section ref={sectionElement} className={styles['contact-section']} id="contact">
-      <h2>{title}</h2>
+      <h2 className={secondaryFont.className}>{title}</h2>
 
       <div className={styles['contact-wrapper']}>
         <div className={styles['description-wrapper']}>
