@@ -99,10 +99,10 @@
 
   background-color: var(--primary-200);
   filter: drop-shadow(var(--drop-shadow-mobile));
-  border: none;
+  border: 2px solid var(--secondary-500);
   border-radius: var(--border-radius-button);
 
-  transition: scale 0.5s ease;
+  transition: all 0.5s ease;
 
   &:hover {
     scale: 1.05;
