@@ -5,7 +5,7 @@ import NavBar from '@/components/ui/NavBar/NavBar';
 import WelcomeScreen from '@/components/ui/WelcomeScreen/WelcomeScreen';
 import { primaryFont } from '@/utils/fonts';
 
-import { PageTransition } from '../animations/PageTransition';
+import { PageTransition } from '../animations/PageTransition/PageTransition';
 
 export default function DefaultLayout({ children }) {
   const [isWelcomeAnimationFinished, setIsWelcomeAnimationFinished] = useState(false);
