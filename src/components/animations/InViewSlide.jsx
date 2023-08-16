@@ -38,7 +38,7 @@ function animationSetup(slideFrom, offset, duration, ease) {
 export function InViewSlide({
   children,
   slideFrom,
-  offset,
+  offset = '100px',
   className,
   duration = 0.5,
   ease = easeInOut,

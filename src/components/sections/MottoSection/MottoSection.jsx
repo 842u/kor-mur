@@ -44,7 +44,7 @@ export default function MottoSection({ data, withLink }) {
         </AnimatePresence>
 
         {withLink && (
-          <InViewSlide offset="100px" slideFrom="left">
+          <InViewSlide slideFrom="left">
             <Link className={styles['about-button']} href="/about" scroll={false}>
               O MNIE
             </Link>
@@ -53,11 +53,11 @@ export default function MottoSection({ data, withLink }) {
       </div>
 
       <div className={styles['second-wrapper']}>
-        <InViewSlide offset="100px" slideFrom="right">
+        <InViewSlide slideFrom="right">
           <p>{text}</p>
         </InViewSlide>
 
-        <InViewSlide className={styles['image-container']} offset="100px" slideFrom="bottom">
+        <InViewSlide className={styles['image-container']} slideFrom="bottom">
           <Image
             fill
             alt="Zdjęcie motywacyjne."

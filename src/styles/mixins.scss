@@ -1,6 +1,8 @@
 @mixin section {
+  overflow: clip;
+  overflow-clip-margin: var(--margin-section-mobile);
   min-height: 100vh;
-  margin: 1rem;
+  margin: var(--margin-section-mobile);
 
   h1,
   h2,
@@ -21,13 +23,15 @@
   }
 
   @media (width > 810px) {
+    overflow-clip-margin: var(--margin-section-tablet);
     min-height: 50vh;
-    margin: 2rem;
+    margin: var(--margin-section-tablet);
   }
 
   @media (width > 1200px) {
+    overflow-clip-margin: var(--margin-section-desktop);
     min-height: 80vh;
-    margin: 4rem;
+    margin: var(--margin-section-desktop);
   }
 }
 
@@ -94,7 +98,7 @@
   color: var(--black-500);
 
   background-color: var(--primary-200);
-  filter: drop-shadow(var(--drop-shadow));
+  filter: drop-shadow(var(--drop-shadow-mobile));
   border: none;
   border-radius: var(--border-radius-button);
 
@@ -116,6 +120,11 @@
 
   @media (width > 810px) {
     width: 250px;
+    filter: drop-shadow(var(--drop-shadow-tablet));
+  }
+
+  @media (width > 1200px) {
+    filter: drop-shadow(var(--drop-shadow-desktop));
   }
 }
 
