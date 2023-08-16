@@ -10,6 +10,11 @@ import ProjectSection from './ProjectSection';
 const mockData = getProjectSchema(mockType);
 const defaultData = getProjectSchema(defaultType);
 
+window.IntersectionObserver = jest.fn(() => ({
+  observe: jest.fn(),
+  unobserve: jest.fn(),
+}));
+
 jest.mock('next/router', () => ({
   useRouter: () => ({
     query: {
