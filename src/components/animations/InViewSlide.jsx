@@ -8,7 +8,7 @@ function animationSetup(slideFrom, offset, duration, ease) {
         initial: { opacity: 0, y: `-${offset}` },
         transition: { duration, ease },
         whileInView: { opacity: 1, y: '0px' },
-        // viewport: { once: true },
+        viewport: { once: true },
       };
 
     case 'right':
@@ -16,7 +16,7 @@ function animationSetup(slideFrom, offset, duration, ease) {
         initial: { opacity: 0, x: offset },
         transition: { duration, ease },
         whileInView: { opacity: 1, x: '0px' },
-        // viewport: { once: true },
+        viewport: { once: true },
       };
 
     case 'bottom':
@@ -24,7 +24,7 @@ function animationSetup(slideFrom, offset, duration, ease) {
         initial: { opacity: 0, y: offset },
         transition: { duration, ease },
         whileInView: { opacity: 1, y: '0px' },
-        // viewport: { once: true },
+        viewport: { once: true },
       };
 
     case 'left':
@@ -32,7 +32,7 @@ function animationSetup(slideFrom, offset, duration, ease) {
         initial: { opacity: 0, x: `-${offset}` },
         transition: { duration, ease },
         whileInView: { opacity: 1, x: '0px' },
-        // viewport: { once: true },
+        viewport: { once: true },
       };
 
     default:
