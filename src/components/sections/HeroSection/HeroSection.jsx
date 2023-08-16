@@ -4,6 +4,7 @@ import Image from 'next/image';
 import { useEffect, useState } from 'react';
 
 import getHeroSectionSetup from '@/utils/dataSetup/dataSchemas/heroSection';
+import { secondaryFont } from '@/utils/fonts';
 
 import styles from './HeroSection.module.scss';
 
@@ -27,7 +28,7 @@ export default function HeroSection({ data }) {
   return (
     <section className={styles['hero-section']}>
       <div className={styles['text-container']}>
-        <h1>{text}</h1>
+        <h1 className={secondaryFont.className}>{text}</h1>
       </div>
 
       <div className={styles['image-container']}>

@@ -1,6 +1,7 @@
 import ProjectCard from '@/components/ui/ProjectCard/ProjectCard';
 import TagsContainer from '@/components/ui/TagsContainer/TagsContainer';
 import tagMock from '@/utils/dataSetup/dataMocks';
+import { secondaryFont } from '@/utils/fonts';
 
 import getGqlProjectsData from '../../../../graphql/queryProjects';
 import getGqlProjectsByTagIdData from '../../../../graphql/queryProjectsByTagId';
@@ -14,7 +15,7 @@ export default function TagPage({ projects, tags, tag }) {
       <HeadTagPage tag={tag} />
 
       <section className={styles['page-section']}>
-        <h1>Projects Page Title</h1>
+        <h1 className={secondaryFont.className}>Projects Page Title</h1>
 
         <TagsContainer className={styles['tags-container']} tags={tags} />
 

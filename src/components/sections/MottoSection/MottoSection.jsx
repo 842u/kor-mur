@@ -7,6 +7,7 @@ import { useEffect, useState } from 'react';
 
 import { InViewSlide } from '@/components/animations/InViewSlide';
 import getMottoSectionSetup from '@/utils/dataSetup/dataSchemas/mottoSection';
+import { secondaryFont } from '@/utils/fonts';
 
 import styles from './MottoSection.module.scss';
 
@@ -34,7 +35,7 @@ export default function MottoSection({ data, withLink }) {
           <motion.h2
             key={currentTitleIndex}
             animate={{ opacity: 1, scale: 1 }}
-            className={styles.title}
+            className={`${styles.title} ${secondaryFont.className}`}
             exit={{ opacity: 0, scale: 0.8 }}
             initial={{ opacity: 0, scale: 0.8 }}
             transition={{ duration: 0.5 }}

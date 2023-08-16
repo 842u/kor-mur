@@ -3,6 +3,7 @@ import { useCallback } from 'react';
 
 import AboutSection from '@/components/sections/AboutSection/AboutSection';
 import MottoSection from '@/components/sections/MottoSection/MottoSection';
+import { secondaryFont } from '@/utils/fonts';
 
 import getGqlAboutPageData from '../../../graphql/queryAboutPageData';
 import groqQueryAboutPageData from '../../../groq/queryAboutPageData';
@@ -30,7 +31,7 @@ export default function AboutPage({ draftMode, data }) {
     <>
       <HeadAboutPage />
 
-      <h1 className={styles['page-title']}>About Me Page Title</h1>
+      <h1 className={`${styles['page-title']} ${secondaryFont.className}`}>About Me Page Title</h1>
 
       {draftMode ? (
         <DraftProvider query={groqQueryAboutPageData} renderItem={renderItem} />

@@ -4,6 +4,7 @@ import { InViewSlide } from '@/components/animations/InViewSlide';
 import ProjectDetailsCard from '@/components/ui/ProjectDetailsCard/ProjectDetailsCard';
 import TagsContainer from '@/components/ui/TagsContainer/TagsContainer';
 import getProjectSetup from '@/utils/dataSetup/dataSchemas/project';
+import { secondaryFont } from '@/utils/fonts';
 
 import styles from './ProjectSection.module.scss';
 
@@ -15,7 +16,7 @@ export default function ProjectSection({ data }) {
 
   return (
     <section className={styles['project-section']}>
-      <h1>{name}</h1>
+      <h1 className={secondaryFont.className}>{name}</h1>
 
       <div className={styles.overview}>
         <InViewSlide className={styles.details} slideFrom="left">
