@@ -20,44 +20,21 @@
   }
 }
 
-.socials {
-  &::after {
-    content: '';
-
-    width: 90%;
-    height: 5px;
-    margin: 1rem auto;
-
-    background-color: var(--secondary-500);
-  }
-}
-
-.credits {
-  &::before {
-    content: '';
-
-    width: 90%;
-    height: 5px;
-    margin: 1rem auto;
-
-    background-color: var(--secondary-500);
-  }
-}
-
 .logo {
   @include Logo.configure(
     $logo-width: 200px,
     $text-total-characters: 15,
     $character-rotation-angle: 90deg,
-    $font-size: 1rem,
-    $text-spread-angle: 200deg,
-    $border-size: 2px,
+    $font-size: 1.5rem,
+    $text-spread-angle: 230deg,
+    $border-size: 5px,
     $border-color: var(--secondary-500),
     $spin: true,
-    $spin-duration: 30s
+    $spin-duration: 20s
   );
 
   user-select: none;
+  margin: 2rem auto;
 }
 
 @media (width > 810px) {
@@ -70,18 +47,6 @@
       position: absolute;
       top: 0;
       margin: initial;
-    }
-  }
-
-  .socials {
-    &::after {
-      content: none;
-    }
-  }
-
-  .credits {
-    &::before {
-      content: none;
     }
   }
 }

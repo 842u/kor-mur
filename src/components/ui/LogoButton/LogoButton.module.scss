@@ -31,15 +31,11 @@
     gap: 1rem;
     align-items: center;
   }
-
-  .logo-text {
-    display: initial;
-    font-size: 1.5rem;
-  }
 }
 
 @media (width > 1200px) {
   .logo-text {
+    display: initial;
     font-size: 2rem;
   }
 }

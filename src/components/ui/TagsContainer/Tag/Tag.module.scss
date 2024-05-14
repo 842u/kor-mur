@@ -10,14 +10,15 @@
   border: 2px solid var(--secondary-300);
   border-radius: 2rem;
 
-  transition: all 0.5s ease;
+  transition: all 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
 
   &:hover {
-    scale: 1.2;
+    scale: 1.1;
   }
 
   &--active {
-    scale: 1.15;
+    scale: 1.05;
+    background-color: var(--primary-400);
     border: 2px solid var(--secondary-700);
   }
 }
@@ -25,5 +26,12 @@
 @media (width > 810px) {
   .tag {
     font-size: var(--text-body-tablet);
+  }
+}
+
+@media (width > 1200px) {
+  .tag {
+    padding: 0.2rem 1.5rem;
+    font-size: var(--text-body-mobile);
   }
 }

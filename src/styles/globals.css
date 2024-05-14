@@ -48,13 +48,13 @@
   */
   --text-page-title-mobile: 3rem;
   --text-page-title-tablet: 3.5rem;
-  --text-page-title-desktop: 4rem;
+  --text-page-title-desktop: 2.5rem;
   --text-section-title-mobile: 2rem;
   --text-section-title-tablet: 2.5rem;
-  --text-section-title-desktop: 3rem;
+  --text-section-title-desktop: 2.5rem;
   --text-body-mobile: 1.5rem;
   --text-body-tablet: 2rem;
-  --text-body-desktop: 2.5rem;
+  --text-body-desktop: 2rem;
   --text-small-mobile: 1rem;
   --text-small-tablet: 1.5rem;
   --text-small-desktop: 2rem;
@@ -65,8 +65,10 @@
   --border-radius-image: 1rem;
   --border-radius-button: 1.5rem;
   --drop-shadow-mobile: 5px 5px 5px var(--black-200);
-  --drop-shadow-tablet: 10px 10px 5px var(--black-200);
+  --drop-shadow-mobile-hover: 10px 10px 15px var(--black-200);
+  --drop-shadow-tablet: 10px 10px 15px var(--black-200);
   --drop-shadow-desktop: 10px 10px 10px var(--black-200);
+  --drop-shadow-desktop-hover: 15px 15px 25px var(--black-200);
 
   /*
     * OTHERS

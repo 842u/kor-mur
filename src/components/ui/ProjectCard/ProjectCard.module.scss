@@ -1,49 +1,40 @@
 @use '@/styles/mixins.scss' as mixins;
 
 .project-card {
-  position: relative;
+  @include mixins.card;
 
+  position: relative;
   aspect-ratio: 1 / 1;
 
-  color: var(--white-500);
-  text-decoration: none;
+  // &::after {
+  //   content: '';
 
-  filter: drop-shadow(var(--drop-shadow-mobile));
-  border-radius: var(--border-radius-image);
+  //   position: absolute;
+  //   top: 0;
+  //   left: 0;
 
-  transition: scale 0.5s ease;
+  //   display: flex;
+  //   align-items: center;
+  //   justify-content: center;
 
-  &::after {
-    content: 'See more...';
+  //   width: 100%;
+  //   height: 100%;
 
-    position: absolute;
-    top: 0;
-    left: 0;
+  //   font-size: var(--text-body-desktop);
+  //   color: var(--white-500);
 
-    display: flex;
-    align-items: center;
-    justify-content: center;
+  //   opacity: 0;
+  //   background-color: rgb(0 0 0 / 50%);
+  //   border-radius: var(--border-radius-image);
 
-    width: 100%;
-    height: 100%;
+  //   transition: 1s ease;
+  // }
 
-    font-size: var(--text-body-desktop);
-    color: var(--white-500);
-
-    opacity: 0;
-    background-color: rgb(0 0 0 / 50%);
-    border-radius: var(--border-radius-image);
-
-    transition: 1s ease;
-  }
-
-  &:hover {
-    scale: 1.03;
-
-    &::after {
-      opacity: 1;
-    }
-  }
+  // &:hover {
+  //   &::after {
+  //     opacity: 1;
+  //   }
+  // }
 }
 
 .project-image {
@@ -52,7 +43,35 @@
 
 @media (width > 810px) {
   .project-card {
-    filter: drop-shadow(var(--drop-shadow-tablet));
+    &::after {
+      content: 'Zobacz więcej...';
+
+      position: absolute;
+      top: 0;
+      left: 0;
+
+      display: flex;
+      align-items: center;
+      justify-content: center;
+
+      width: 100%;
+      height: 100%;
+
+      font-size: var(--text-body-desktop);
+      color: var(--white-500);
+
+      opacity: 0;
+      background-color: rgb(0 0 0 / 50%);
+      border-radius: var(--border-radius-image);
+
+      transition: 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    }
+
+    &:hover {
+      &::after {
+        opacity: 1;
+      }
+    }
   }
 }
 

@@ -37,13 +37,9 @@
 
 @media (width > 810px) {
   .item {
-    font-size: 1rem;
+    font-size: 1.5rem;
     white-space: nowrap;
     transition: 0.3s ease;
-
-    &:hover {
-      scale: 1.1;
-    }
 
     a {
       &:hover {
@@ -52,16 +48,6 @@
         }
       }
     }
-
-    &--active {
-      font-size: 1.5rem;
-    }
-  }
-}
-
-@media (width > 1200px) {
-  .item {
-    font-size: 1.5rem;
 
     &--active {
       font-size: 2rem;

@@ -6,6 +6,11 @@
   width: 100%;
 
   text-align: center;
+
+  a {
+    color: var(--black-500);
+    text-decoration: none;
+  }
 }
 
 @media (width > 810px) {

@@ -10,6 +10,8 @@ export default function HamburgerButton({ isActive, onClick, className }) {
       <div aria-hidden />
       <div aria-hidden />
       <div aria-hidden />
+      <div aria-hidden />
+      <div aria-hidden />
     </button>
   );
 }

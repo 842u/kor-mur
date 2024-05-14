@@ -30,8 +30,9 @@
 
   @media (width > 1200px) {
     overflow-clip-margin: var(--margin-section-desktop);
+    max-width: 1200px;
     min-height: 80vh;
-    margin: var(--margin-section-desktop);
+    margin: var(--margin-section-desktop) auto var(--margin-section-desktop) auto;
   }
 }
 
@@ -90,11 +91,36 @@
   border-radius: var(--border-radius-image);
 }
 
+@mixin card {
+  filter: drop-shadow(var(--drop-shadow-mobile));
+
+  @media (width > 810px) {
+    filter: drop-shadow(var(--drop-shadow-tablet));
+    transition: scale 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+
+    &:hover {
+      scale: 1.02;
+    }
+  }
+
+  @media (width > 1200px) {
+    filter: drop-shadow(var(--drop-shadow-desktop));
+    transition: 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+
+    &:hover {
+      filter: drop-shadow(var(--drop-shadow-desktop-hover));
+    }
+  }
+}
+
 @mixin button {
+  cursor: pointer;
+
   width: 80%;
   height: 4rem;
   margin: var(--margin-item-mobile) auto;
 
+  font-size: 1.5rem;
   color: var(--black-500);
 
   background-color: var(--primary-200);
@@ -102,13 +128,19 @@
   border: 2px solid var(--secondary-500);
   border-radius: var(--border-radius-button);
 
-  transition: all 0.5s ease;
+  transition: all 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
 
   &:hover {
     scale: 1.05;
+    filter: drop-shadow(var(--drop-shadow-mobile-hover));
+
+    @media (width > 1200px) {
+      filter: drop-shadow(var(--drop-shadow-desktop-hover));
+    }
   }
 
   &:disabled {
+    cursor: not-allowed;
     color: var(--white-800);
     filter: none;
     border: 1px solid var(--primary-500);
@@ -120,10 +152,12 @@
 
   @media (width > 810px) {
     width: 250px;
+    font-size: 2rem;
     filter: drop-shadow(var(--drop-shadow-tablet));
   }
 
   @media (width > 1200px) {
+    font-size: 1.5rem;
     filter: drop-shadow(var(--drop-shadow-desktop));
   }
 }

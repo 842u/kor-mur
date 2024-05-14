@@ -5,10 +5,14 @@ export default function Credits({ className }) {
 
   return (
     <article className={style}>
-      <p>MURAWSKA.STUDIO ©2023</p>
+      <p>MURAWSKA.STUDIO ©2024</p>
       <div>
-        <p>Web Design & Dev</p>
-        <p>auth</p>
+        <p>
+          Made by{' '}
+          <a href="https://www.842u.dev/" rel="noreferrer" target="_blank">
+            842u
+          </a>
+        </p>
       </div>
     </article>
   );
