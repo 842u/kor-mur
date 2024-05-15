@@ -1,8 +1,8 @@
 const tagMock = {
-  _id: 'all',
-  name: 'All',
+  _id: 'wszystkie',
+  name: 'Wszystkie',
   slug: {
-    current: 'all',
+    current: 'wszystkie',
   },
 };
 

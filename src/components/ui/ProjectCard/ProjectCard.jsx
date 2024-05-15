@@ -10,15 +10,13 @@ export default function ProjectCard({ project, sizes, className }) {
 
   return (
     <Link className={style} href={`/projects/${slug.current}`} scroll={false}>
-      <div className={styles['image-container']}>
-        <Image
-          fill
-          alt={`Główne zdjęcie porjektu ${name}.`}
-          className={styles['project-image']}
-          sizes={sizes}
-          src={mainImage.asset.url}
-        />
-      </div>
+      <Image
+        fill
+        alt={`Główne zdjęcie porjektu ${name}.`}
+        className={styles['project-image']}
+        sizes={sizes}
+        src={mainImage.asset.url}
+      />
     </Link>
   );
 }

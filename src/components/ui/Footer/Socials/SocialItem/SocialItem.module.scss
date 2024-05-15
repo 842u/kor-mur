@@ -41,5 +41,9 @@
 @media (width > 1200px) {
   .item {
     font-size: 1.5rem;
+
+    img {
+      width: 24px;
+    }
   }
 }

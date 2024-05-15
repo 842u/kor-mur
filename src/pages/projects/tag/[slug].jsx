@@ -12,7 +12,7 @@ import HeadTagPage from './HeadTagPage';
 export default function TagPage({ projects, tags, tag }) {
   return (
     <>
-      <HeadTagPage tag={tag} />
+      <HeadTagPage tag={tag} tags={tags} />
 
       <section className={styles['page-section']}>
         <h1 className={secondaryFont.className}>Projects Page Title</h1>
