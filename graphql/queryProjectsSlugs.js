@@ -13,9 +13,10 @@ const query = gql`
 `;
 
 export default async function getGqlProjectsSlugsData() {
-  const { data } = await apolloClient.query({
-    query,
-  });
+  const { data } =
+    (await apolloClient.query({
+      query,
+    })) || {};
 
-  return data.allProject.map((project) => project.slug.current);
+  return data?.allProject.map((project) => project.slug.current) || [];
 }

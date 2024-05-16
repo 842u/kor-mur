@@ -7,13 +7,13 @@ module.exports = (phase) => {
         return [
           {
             source: '/projects',
-            destination: '/projects/tag/all',
-            permanent: true,
+            destination: '/projects/tag/wszystkie',
+            permanent: false,
           },
           {
             source: '/projects/tag',
-            destination: '/projects/tag/all',
-            permanent: true,
+            destination: '/projects/tag/wszystkie',
+            permanent: false,
           },
         ];
       },
@@ -79,13 +79,13 @@ module.exports = (phase) => {
       return [
         {
           source: '/projects',
-          destination: '/projects/tag/all',
-          permanent: true,
+          destination: '/projects/tag/wszystkie',
+          permanent: false,
         },
         {
           source: '/projects/tag',
-          destination: '/projects/tag/all',
-          permanent: true,
+          destination: '/projects/tag/wszystkie',
+          permanent: false,
         },
       ];
     },

@@ -20,10 +20,11 @@ const query = gql`
 `;
 
 export default async function getGqlProjectsByTagIdData(tagId) {
-  const { data } = await apolloClient.query({
-    query,
-    variables: { where: { _: { references: tagId || null } } },
-  });
+  const { data } =
+    (await apolloClient.query({
+      query,
+      variables: { where: { _: { references: tagId || null } } },
+    })) || {};
 
-  return data.allProject;
+  return data?.allProject || [];
 }

@@ -17,12 +17,13 @@ const query = gql`
 `;
 
 export default async function getGqlTagsData() {
-  const { data } = await apolloClient.query({
-    query,
-  });
+  const { data } =
+    (await apolloClient.query({
+      query,
+    })) || {};
 
   // Additional mock tag for all projects
-  const allTags = [tagMock, ...data.allTag];
+  const allTags = [tagMock, ...(data?.allTag || [])];
 
   return {
     tags: allTags,

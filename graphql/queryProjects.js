@@ -20,9 +20,10 @@ const query = gql`
 `;
 
 export default async function getGqlProjectsData() {
-  const { data } = await apolloClient.query({
-    query,
-  });
+  const { data } =
+    (await apolloClient.query({
+      query,
+    })) || {};
 
-  return data.allProject;
+  return data?.allProject || [];
 }

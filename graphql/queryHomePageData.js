@@ -67,15 +67,16 @@ const variables = {
 };
 
 export default async function getGqlHomePageData() {
-  const { data } = await apolloClient.query({
-    query,
-    variables,
-  });
+  const { data } =
+    (await apolloClient.query({
+      query,
+      variables,
+    })) || {};
 
   return {
-    heroSectionSettings: data.allHeroSectionSettings[0],
-    mottoSectionSettings: data.allMottoSectionSettings[0],
-    featuredProjects: data.allProject,
-    contactSectionSettings: data.allContactSectionSettings[0],
+    heroSectionSettings: data?.allHeroSectionSettings[0] || {},
+    mottoSectionSettings: data?.allMottoSectionSettings[0] || {},
+    featuredProjects: data?.allProject || [],
+    contactSectionSettings: data?.allContactSectionSettings[0] || {},
   };
 }

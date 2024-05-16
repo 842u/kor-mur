@@ -4,8 +4,10 @@ import FeaturedProjectCard from '@/components/ui/FeaturedProjectCard/FeaturedPro
 import styles from './FeaturedProjectsSection.module.scss';
 
 export default function FeaturedProjectsSection({ projects }) {
+  const isEmpty = projects.length <= 0;
+
   return (
-    <section className={styles['projects-section']}>
+    <section className={isEmpty ? styles['projects-section--empty'] : styles['projects-section']}>
       {projects?.map((project, index) => (
         <InViewSlide
           key={project._id}

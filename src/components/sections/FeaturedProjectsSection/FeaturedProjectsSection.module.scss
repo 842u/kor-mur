@@ -2,6 +2,10 @@
 
 .projects-section {
   @include mixins.section;
+
+  &--empty {
+    display: none;
+  }
 }
 
 .project-card {

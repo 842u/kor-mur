@@ -31,12 +31,13 @@ const query = gql`
 `;
 
 export default async function getGqlAboutPageData() {
-  const { data } = await apolloClient.query({
-    query,
-  });
+  const { data } =
+    (await apolloClient.query({
+      query,
+    })) || {};
 
   return {
-    aboutSectionSettings: data.allAboutSectionSettings[0],
-    mottoSectionSettings: data.allMottoSectionSettings[0],
+    aboutSectionSettings: data?.allAboutSectionSettings[0] || {},
+    mottoSectionSettings: data?.allMottoSectionSettings[0] || {},
   };
 }
