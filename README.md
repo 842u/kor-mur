@@ -1,113 +1,327 @@
-# Project Life Cycle
+# Overview
 
-## 🔍 1. Requirements Gathering
+A project of a landing page for a private person. The goal was to create a page where user can add and show personal projects as a form of a business portfolio.
 
-#### 💼 Objective:
+Live:
+<a href="https://www.murawska.studio/" target="_blank">
+murawska.studio
+</a>
 
-    - Create an architecture studio lending page.
-    - Target polish audience (clients and other architects).
+Lastest audit:
+<a href="https://www.insights.murawska.studio/" target="_blank">
+insights.murawska.studio
+</a>
 
-#### 🔦 Basic Features & Functionalities:
+## Tools & Technologies
 
-    - Home page as a landing page with a short description of the studio and featured projects showcase.
-    - Route to all projects page with filtering projects by type (e.g. gardens, interiors etc.).
-    - Routes to single projects pages.
-    - Route to contact page with contact form.
-    - Route to services page.
+<a href="https://git-scm.com/" target="_blank">
+ <img height=48 width=48 src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/git/git-original.svg" alt="Git"/>
+</a>
+<img height=48 width=48 src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/javascript/javascript-plain.svg" alt="JavaScript" />
+<a href="https://react.dev/" target="_blank">
+ <img height=48 width=48 src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/react/react-original.svg" alt="React"/>
+</a>
+<a href="https://nextjs.org/" target="_blank">
+ <img height=48 width=48 src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/nextjs/nextjs-plain.svg" alt="Next.js"/>
+</a>
+<a href="https://www.sanity.io/" target="_blank">
+ <img height=48 width=48 src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/sanity/sanity-plain.svg" alt="Sanity"/>
+</a>
+<a href="https://sass-lang.com/" target="_blank">
+ <img height=48 width=48 src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/sass/sass-original.svg" alt="Sass"/>
+</a>
 
-#### 🛠️ Tools Used In This Phase:
+<details>
+    <summary>Others</summary>
+    <table>
+        <thead>
+            <tr>
+                <th></th>
+                <th>Tool</th>
+                <th>Used for</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>
+                    <a href="https://github.com/" target="_blank"><img height=32 width=32 src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/github/github-original.svg" alt="GitHub"/></a>
+                </td>
+                <td>GitHub</td>
+                <td>project management and maintenance, CI/CD</td>
+            </tr>
+            <tr>
+                <td>
+                    <a href="https://unlighthouse.dev/" target="_blank"><img height=32 width=32 src="https://unlighthouse.dev/logo-light.svg" alt="Unlighthouse"/></a>
+                </td>
+                <td>Unlighthouse</td>
+                <td>quality assurance</td>
+            </tr>
+            <tr>
+                <td>
+                    <a href="https://www.figma.com/" target="_blank"><img height=32 width=32 src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/figma/figma-original.svg" alt="Figma"/></a>
+                </td>
+                <td>Figma</td>
+                <td>design, assets, prototyping, wireframing
+                    <details>
+                        <table>
+                            <thead>
+                                <tr>
+                                    <th>Screen Size</th>
+                                    <th></th>
+                                    <th></th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>Mobile</td>
+                                    <td>
+                                        <a href="https://www.figma.com/file/T9dJa9ck29CvkLH5yA1CcU/kor-mur-Wireframes?node-id=35%3A477&t=3LtvFHsMaSQbzBul-1">Wireframe</a>
+                                    </td>
+                                    <td>
+                                        <a href="https://www.figma.com/proto/T9dJa9ck29CvkLH5yA1CcU/kor-mur-Wireframes?node-id=1-2&scaling=scale-down&page-id=0%3A1&starting-point-node-id=1%3A2">Prototype</a>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>Tablet</td>
+                                    <td>
+                                        <a href="https://www.figma.com/file/T9dJa9ck29CvkLH5yA1CcU/kor-mur-Wireframes?node-id=123%3A910&t=3LtvFHsMaSQbzBul-1">Wireframe</a>
+                                    </td>
+                                    <td>
+                                        <a href="https://www.figma.com/proto/T9dJa9ck29CvkLH5yA1CcU/kor-mur-Wireframes?node-id=123-1028&scaling=scale-down&page-id=123%3A908&starting-point-node-id=123%3A1028">Prototype</a>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>Desktop</td>
+                                    <td>
+                                        <a href="https://www.figma.com/design/T9dJa9ck29CvkLH5yA1CcU/kor-mur-wireframes?node-id=165%3A570&t=3g16CT5J7dtwYLNs-1">Wireframe</a>
+                                    </td>
+                                    <td>
+                                        <a href="https://www.figma.com/proto/T9dJa9ck29CvkLH5yA1CcU/kor-mur-wireframes?node-id=165-689&t=6Ol4xmG1IZFvpA83-1&scaling=scale-down&page-id=123%3A909&starting-point-node-id=165%3A689">Prototype</a>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <a href="https://www.figma.com/file/7MlMZr0CoRwcLto6aAkac9/kor-mur-design?node-id=19-3">Color palette</a>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </details>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <a href="https://www.atlassian.com/software/jira" target="_blank"><img height=32 width=32 src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/jira/jira-original.svg" alt="Jira"/></a>
+                </td>
+                <td>Jira</td>
+                <td>
+                    project management and maintenance
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <a href="https://jestjs.io/" target="_blank"><img height=32 width=32 src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/jest/jest-plain.svg" alt="Jest"/></a>
+                </td>
+                <td>Jest</td>
+                <td>
+                    code testing and quality assurance
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <a href="https://testing-library.com/" target="_blank"><img height=32 width=32 src="https://testing-library.com/img/octopus-128x128.png" alt="Testing Library"/></a>
+                </td>
+                <td>Testing Library</td>
+                <td>
+                    code testing and quality assurance
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <a href="https://eslint.org/" target="_blank"><img height=32 width=32 src="https://www.svgrepo.com/show/353709/eslint.svg" alt="ESlint"/></a>
+                </td>
+                <td>ESLint</td>
+                <td>code linting</td>
+            </tr>
+            <tr>
+                <td>
+                    <a href="https://prettier.io/" target="_blank"><img height=32 width=32 src="https://www.svgrepo.com/show/354208/prettier.svg" alt="Prettier"/></a>
+                </td>
+                <td>Prettier</td>
+                <td>code formatting</td>
+            </tr>
+            <tr>
+                <td>
+                    <a href="https://stylelint.io/" target="_blank"><img height=32 width=32 src="https://www.svgrepo.com/show/354405/stylelint.svg" alt="Stylelint"/></a>
+                </td>
+                <td>Stylelint</td>
+                <td>code formatting</td>
+            </tr>
+            <tr>
+                <td>
+                    <a href="https://www.apollographql.com/" target="_blank"><img height=32 width=32 src="https://www.svgrepo.com/show/305728/apollographql.svg" alt="Apollo GraphQL"/></a>
+                </td>
+                <td>Apollo</td>
+                <td>GraphQL client</td>
+            </tr>
+            <tr>
+                <td>
+                    <a href="https://www.framer.com/motion/" target="_blank"><img height=32 width=32 src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/framermotion/framermotion-original.svg" alt="Framer Motion"/></a>
+                </td>
+                <td>Framer Motion</td>
+                <td>animations</td>
+            </tr>
+            <tr>
+                <td>
+                    <a href="https://ngrok.com/" target="_blank"><img height=32 width=32 src="https://assets-global.website-files.com/63ed4bc7a4b189da942a6b8c/6411ffa0b395a44345ed2b1a_Frame%201.svg" alt="ngrok"/></a>
+                </td>
+                <td>ngrok</td>
+                <td>local environment tunneling and webhook testing</td>
+            </tr>
+            <tr>
+                <td>
+                    <a href="https://sendgrid.com/" target="_blank"><img height=32 width=32 src="https://sendgrid.com/content/dam/sendgrid/global/en/7_company/brand/Twilio-Logo-Product-SendGrid-Icon-RGB%201.png/_jcr_content/renditions/compressed-original.webp" alt="SendGrid"/></a>
+                </td>
+                <td>SendGrid</td>
+                <td>email service</td>
+            </tr>
+        </tbody>
+    </table>
+</details>
 
-|                                                                                                                    | Tool   | Used for                                                                |
-| ------------------------------------------------------------------------------------------------------------------ | ------ | ----------------------------------------------------------------------- |
-| <img src="https://img.icons8.com/material-outlined/256/notion--v1.png" alt="Notion logo" width="32" height="32" /> | Notion | project management, documentation, information sharing, notes, planning |
+## Features
 
-## 📋 2. Analysis
+<details>
+    <summary>Integration with Sanity headless CMS.</summary>
 
-Because of buisness nature of the project, the main focus is to create a website that will be easy to navigate and easy to use for potential clients to maximalize convertion rate. It also needs to be performant and responsive. Another consideration is that the website needs to be easy to maintain and update. Content will not change frequently, but it will be updated from time to time. To improve reach and visibility, use SEO friendly techniques like SSG or SSR. mplement testing, to provide good quality of overall product and code. Ensure that the project will be delivered on time and with high quality and ability to adapt to changes and requirements.
+To minimize the developer interference in adding and managing new content on the page, and to give the user a clear and easy way to do that on his own, Sanity CMS was used.
 
-#### ✏️ Technology Considerations:
+The user has an administration panel under the `/studio` path in which he can manage content on the page such as projects, assets, etc.
 
-| Subject                     | Options                                                    | Why?                                                                                                                                             |
-| --------------------------- | ---------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------ |
-| Main technology             | React.js                                                   |                                                                                                                                                  |
-| Performance                 | SSG or SSR with Next.js, Gatsby.js                         | Next.js and Gatsby.js are both React.js frameworks that allow to generate static websites.                                                       |
-| SEO                         | Next.js, Gatsby.js                                         | SSG and SSR are better for SEO.                                                                                                                  |
-| Responsiveness              | Mobile first approach with responsive web design practices |
-| Routing                     | React Router, Next.js                                      | React Router is a popular routing library for React.js. Next.js has built-in routing.                                                            |
-| Testing                     | Jest, Vitest with Testing Library                          | Jest is a popular testing framework for JavaScript. Vitest is another option. Testing Library is a popular library for testing React components. |
-| Code quality                | ESLint, Prettier                                           | ESLint is a popular linter for JavaScript. Prettier is a popular code formatter.                                                                 |
-| Version control             | Git, GitHub, GitLab, Bitbucket                             | Git is a popular version control system. GitHub, GitLab and Bitbucket are popular hosting services for Git repositories.                         |
-| Hosting                     | Netlify, Vercel                                            | Netlify and Vercel are popular hosting services for static websites.                                                                             |
-| CI/CD                       | GitHub Actions, CircleCI, Jenkins, GitLab, Netlify, Vercel | Netlify and Vercel have built-in CI/CD. Rest gives more control over CI/CD pipeline.                                                             |
-| Build                       | Webpack, Vite, Next.js, Gatsby.js                          | Next.js and Gatsby.js have built-in bundlers.                                                                                                    |
-| Project and work management | Jiira, Notion, Trello                                      | Jiira and Trello are popular project management tools. Notion is a popular tool for documentation, notes, planning, etc.                         |
-| Workflow                    | Agile with Scrum or Kanban                                 | Agile is a popular workflow for software development. Scrum and Kanban are most popular Agile workflows.                                         |
+Pic.1
 
-#### 🛠️ Tools Used In This Phase:
+</details>
 
-|                                                                                                                    | Tool    | Used for                                            |
-| ------------------------------------------------------------------------------------------------------------------ | ------- | --------------------------------------------------- |
-| <img src="https://img.icons8.com/material-outlined/256/notion--v1.png" alt="Notion logo" width="32" height="32" /> | Notion  | project management, documentation, notes, planning  |
-| <img src="https://img.icons8.com/material-outlined/256/chatgpt.png" alt="Notion logo" width="32" height="32" />    | ChatGPT | generating hints and parts of project documentation |
+<details>
+    <summary>Live content drafts preview.</summary>
 
-## 🔨 3. Prototyping
+The user can see how content changes will look without the need to deploy those to production.
 
-To create basic understanding of user interface and user experience. Sketching and wireframing to create low fidelity prototypes.
+This can be done inside the studio.
 
-Due to the dynamic nature of client requirements, the project will be developed in iterations. Created prototypes will be used as a base for the next iterations and will likely to change.
+Pic.2
 
-#### 💭 Wireframes & Prototypes:
+Or just by hitting the `/api/enable-draft` endpoint.
 
-| Screen size |                                                                                                                                      |                                                                                                                                                                                       |
-| ----------- | ------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| Mobile      | <a href="https://www.figma.com/file/T9dJa9ck29CvkLH5yA1CcU/kor-mur-Wireframes?node-id=35%3A477&t=3LtvFHsMaSQbzBul-1">Wireframe</a>   | <a href="https://www.figma.com/proto/T9dJa9ck29CvkLH5yA1CcU/kor-mur-Wireframes?node-id=1-2&scaling=scale-down&page-id=0%3A1&starting-point-node-id=1%3A2">Prototype</a>               |
-| Tablet      | <a href="https://www.figma.com/file/T9dJa9ck29CvkLH5yA1CcU/kor-mur-Wireframes?node-id=123%3A910&t=3LtvFHsMaSQbzBul-1">Wireframe</a>  | <a href="https://www.figma.com/proto/T9dJa9ck29CvkLH5yA1CcU/kor-mur-Wireframes?node-id=123-1028&scaling=scale-down&page-id=123%3A908&starting-point-node-id=123%3A1028">Prototype</a> |
-| Desktop     | <a href="https://www.figma.com/file/T9dJa9ck29CvkLH5yA1CcU/kor-mur-Wireframes?node-id=123%3A1387&t=3LtvFHsMaSQbzBul-1">Wireframe</a> | <a href="https://www.figma.com/proto/T9dJa9ck29CvkLH5yA1CcU/kor-mur-Wireframes?node-id=123-1506&scaling=scale-down&page-id=123%3A909&starting-point-node-id=123%3A1506">Prototype</a> |
+Pic.3
 
-#### 🛠️ Tools Used In This Phase:
+</details>
 
-|                                                                                                                  | Tool  | Used for                 |
-| ---------------------------------------------------------------------------------------------------------------- | ----- | ------------------------ |
-| <img src="https://img.icons8.com/material-outlined/256/figma--v1.png" alt="Figma logo" width="32" height="32" /> | Figma | wireframing, prototyping |
+<details>
+    <summary>Pages revalidation on CMS content change.</summary>
 
-## 🎨 4. Design
+To not have to deploy the whole application every time content changes, and to ensure site performance, there is integration with Sanity webhooks.
 
-To choose colors, fonts, icons etc. to get basic understanding of visual design.
+When content changes, webhook will send info payload to the `/api/revalidate` endpoint, and then the server will generate necessary, new static files with fresh data.
 
-####
+</details>
 
-| Color Palette |
-| ------------- |
+## Setup
 
-| <a href="https://www.figma.com/file/7MlMZr0CoRwcLto6aAkac9/kor-mur-design?node-id=19-3">Figma File</a>
+- Clone the repository:
+  ```bash
+  git clone https://github.com/842u/kor-mur.git
+  ```
+- Install dependencies:
+  ```bash
+  npm install
+  ```
+- To run development environment:
+  ```bash
+  npm run dev
+  ```
+- To run production environment:
+  ```bash
+  npm run build
+  npm run start
+  ```
 
-| Fonts     |                                                                                               |                                                             |                                                                                                                                |                                                           |                                                       |
-| --------- | --------------------------------------------------------------------------------------------- | ----------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------ | --------------------------------------------------------- | ----------------------------------------------------- |
-| Primary   | <a href="https://fonts.google.com/specimen/Bebas+Neue?query=beba">Bebas Neue</a>              | <a href="https://fonts.google.com/specimen/Inter">Inter</a> | <a href="https://www.fontshare.com/fonts/general-sans">General Sans</a>                                                        |
-| Secondary | <a href="https://rajputrajesh-448.gumroad.com/l/MerchantTypeface?layout=profile">Merchant</a> | <a href="https://visuely.net/serif/mileur-free/">Mileur</a> | <a href="https://www.behance.net/gallery/163825025/NT-Fabulous-FONT?tracking_source=project_owner_other_projects">Fabulous</a> | <a href="https://fontesk.com/bumerang-font/">Bumerang</a> | <a href="https://fontesk.com/remboy-font/">Remboy</a> |
+At this point running app will contain placeholders instead of real data from CMS and will not have all of its functionality.
 
-## 🚧 5. Development
+To enable all features you will have to:
 
-    - react
-    - next.js
-    - next on demand revalidation
-    - next draft mode prieview
-    - ngrok for local testing
-    - eslint
-    - stylelint
-    - jest
-    - testing library
-    - vercel
-    - jira
-    - git
-    - Lighthouse
-    - security headers
-    - bundle analyzer
-    - sanity headles cms
-    - sanity studio custom desk structure
-    - sanity singleton types
-    - sanity webhooks
-    - sanity groq queries
-    - graphql apollo client
-    - sendgrid
-    - serverside form validation
+- Create a Sanity account with a new project to use it as CMS and to enable On-Demand revalidation.
+- Create a Sendgrid account to be able to receive emails.
+- Complete .env file with your API keys.
+
+<details>
+  <summary>Sanity CMS setup</summary>
+
+- Create "production" and "development" datasets in your Sanity project.
+- Complete .env with the dataset name you want to use.
+- Complete .env with your Sanity project ID.
+- Complete .env with your Sanity GraphQL endpoint for your project.
+
+  `https://<yourProjectId>.api.sanity.io/v1/graphql/<dataset>/default`
+
+- Deploy GraphQL API:
+
+  ```bash
+  npx sanity graphql deploy
+  ```
+
+- Add your hosts to CORS origins in Sanity project.
+
+  e.g. `http://localhost:3000` for development
+
+  e.g. `https://www.your.domain` for production
+
+- Enter studio to add content.
+
+  e.g. `http://localhost:3000/studio`
+
+</details>
+
+<details>
+  <summary>On-Demand revalidation setup</summary>
+
+To be able to revalidate routes in production on content change you will have to set up Sanity webhooks.
+
+- Create a new webhook in Sanity project.
+- Add the URL to the revalidation api endpoint.
+
+  e.g. `https://www.your.domain/api/revalidate`
+
+- Select "production" dataset.
+- Select webhook trigger on Create, Update, Delete.
+- Set Filter to:
+  ```
+  _type in ['heroSectionSettings', 'mottoSectionSettings', 'featuredProjectsSectionSettings', 'contactSectionSettings', 'aboutSectionSettings', 'tag', 'project']
+  ```
+- Set Projection to:
+  ```
+  {
+  _type,
+  _id,
+  "operationType": delta::operation(),
+  "projectSlug": slug.current,
+  "tagsSlugsBefore": before().tags[]->slug.current,
+  "tagsSlugsAfter": after().tags[]->slug.current,
+  }
+  ```
+- Create a secret for webhook and add it to your .env.
+
+  </details>
+
+<details>
+  <summary>SendGrid setup</summary>
+
+- Authenticate your Sender Identity on SendGrid.
+- Complete .env with your SendGrid Sender email.
+- Complete .env with recipent email.
+
+</details>
+
+## License
+
+Code is under GNU GPLv3 license, except private personal assets on <a href="https://www.murawska.studio/" target="_blank">
+murawska.studio
+</a>.
