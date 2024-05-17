@@ -17,7 +17,9 @@ insights.murawska.studio
 <a href="https://git-scm.com/" target="_blank">
  <img height=48 width=48 src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/git/git-original.svg" alt="Git"/>
 </a>
-<img height=48 width=48 src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/javascript/javascript-plain.svg" alt="JavaScript" />
+<a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript" target="_blank">
+ <img height=48 width=48 src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/javascript/javascript-plain.svg" alt="JavaScript" />
+</a>
 <a href="https://react.dev/" target="_blank">
  <img height=48 width=48 src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/react/react-original.svg" alt="React"/>
 </a>
@@ -196,7 +198,7 @@ To minimize the developer interference in adding and managing new content on the
 
 The user has an administration panel under the `/studio` path in which he can manage content on the page such as projects, assets, etc.
 
-Pic.1
+[Video.webm](https://github.com/842u/kor-mur/assets/23544888/1cbdaa91-a68c-4c90-9d7b-55e5c49a19f4)
 
 </details>
 
@@ -207,11 +209,11 @@ The user can see how content changes will look without the need to deploy those 
 
 This can be done inside the studio.
 
-Pic.2
+[Video_2.webm](https://github.com/842u/kor-mur/assets/23544888/552a3bd8-fab6-4e59-832a-b42c32ec9de9)
 
 Or just by hitting the `/api/enable-draft` endpoint.
 
-Pic.3
+[Video_3.webm](https://github.com/842u/kor-mur/assets/23544888/b7955cd6-6c78-438b-a051-9efba73dcd29)
 
 </details>
 
