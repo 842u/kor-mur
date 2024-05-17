@@ -4,7 +4,7 @@ import FeaturedProjectCard from '@/components/ui/FeaturedProjectCard/FeaturedPro
 import styles from './FeaturedProjectsSection.module.scss';
 
 export default function FeaturedProjectsSection({ projects }) {
-  const isEmpty = projects.length <= 0;
+  const isEmpty = projects?.length <= 0;
 
   return (
     <section className={isEmpty ? styles['projects-section--empty'] : styles['projects-section']}>
