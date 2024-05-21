@@ -314,7 +314,7 @@ To be able to revalidate routes in production on content change you will have to
   ```
 - Create a secret for webhook and add it to your .env.
 
-  </details>
+</details>
 
 <details>
   <summary>SendGrid setup</summary>
