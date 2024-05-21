@@ -46,21 +46,21 @@ insights.murawska.studio
         <tbody>
             <tr>
                 <td>
-                    <a href="https://github.com/" target="_blank"><img height=32 width=32 src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/github/github-original.svg" alt="GitHub"/></a>
+                    <a href="https://github.com/" target="_blank"><img height="32" width="32" src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/github/github-original.svg" alt="GitHub"/></a>
                 </td>
                 <td>GitHub</td>
                 <td>project management and maintenance, CI/CD</td>
             </tr>
             <tr>
                 <td>
-                    <a href="https://unlighthouse.dev/" target="_blank"><img height=32 width=32 src="https://unlighthouse.dev/logo-light.svg" alt="Unlighthouse"/></a>
+                    <a href="https://unlighthouse.dev/" target="_blank"><img height="32" width="32" src="https://unlighthouse.dev/logo-light.svg" alt="Unlighthouse"/></a>
                 </td>
                 <td>Unlighthouse</td>
                 <td>quality assurance</td>
             </tr>
             <tr>
                 <td>
-                    <a href="https://www.figma.com/" target="_blank"><img height=32 width=32 src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/figma/figma-original.svg" alt="Figma"/></a>
+                    <a href="https://www.figma.com/" target="_blank"><img height="32" width="32" src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/figma/figma-original.svg" alt="Figma"/></a>
                 </td>
                 <td>Figma</td>
                 <td>design, assets, prototyping, wireframing
