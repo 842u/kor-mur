@@ -15,22 +15,22 @@ insights.murawska.studio
 ## Tools & Technologies
 
 <a href="https://git-scm.com/" target="_blank">
- <img height=48 width=48 src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/git/git-original.svg" alt="Git"/>
+ <img height="48" width="48" src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/git/git-original.svg" alt="Git"/>
 </a>
 <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript" target="_blank">
- <img height=48 width=48 src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/javascript/javascript-plain.svg" alt="JavaScript" />
+ <img height="48" width="48" src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/javascript/javascript-plain.svg" alt="JavaScript" />
 </a>
 <a href="https://react.dev/" target="_blank">
- <img height=48 width=48 src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/react/react-original.svg" alt="React"/>
+ <img height="48" width="48" src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/react/react-original.svg" alt="React"/>
 </a>
 <a href="https://nextjs.org/" target="_blank">
- <img height=48 width=48 src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/nextjs/nextjs-plain.svg" alt="Next.js"/>
+ <img height="48" width="48" src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/nextjs/nextjs-plain.svg" alt="Next.js"/>
 </a>
 <a href="https://www.sanity.io/" target="_blank">
- <img height=48 width=48 src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/sanity/sanity-plain.svg" alt="Sanity"/>
+ <img height="48" width="48" src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/sanity/sanity-plain.svg" alt="Sanity"/>
 </a>
 <a href="https://sass-lang.com/" target="_blank">
- <img height=48 width=48 src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/sass/sass-original.svg" alt="Sass"/>
+ <img height="48" width="48" src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/sass/sass-original.svg" alt="Sass"/>
 </a>
 
 <details>
@@ -111,7 +111,7 @@ insights.murawska.studio
             </tr>
             <tr>
                 <td>
-                    <a href="https://www.atlassian.com/software/jira" target="_blank"><img height=32 width=32 src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/jira/jira-original.svg" alt="Jira"/></a>
+                    <a href="https://www.atlassian.com/software/jira" target="_blank"><img height="32" width="32" src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/jira/jira-original.svg" alt="Jira"/></a>
                 </td>
                 <td>Jira</td>
                 <td>
@@ -120,7 +120,7 @@ insights.murawska.studio
             </tr>
             <tr>
                 <td>
-                    <a href="https://jestjs.io/" target="_blank"><img height=32 width=32 src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/jest/jest-plain.svg" alt="Jest"/></a>
+                    <a href="https://jestjs.io/" target="_blank"><img height="32" width="32" src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/jest/jest-plain.svg" alt="Jest"/></a>
                 </td>
                 <td>Jest</td>
                 <td>
@@ -129,7 +129,7 @@ insights.murawska.studio
             </tr>
             <tr>
                 <td>
-                    <a href="https://testing-library.com/" target="_blank"><img height=32 width=32 src="https://testing-library.com/img/octopus-128x128.png" alt="Testing Library"/></a>
+                    <a href="https://testing-library.com/" target="_blank"><img height="32" width="32" src="https://testing-library.com/img/octopus-128x128.png" alt="Testing Library"/></a>
                 </td>
                 <td>Testing Library</td>
                 <td>
@@ -138,49 +138,49 @@ insights.murawska.studio
             </tr>
             <tr>
                 <td>
-                    <a href="https://eslint.org/" target="_blank"><img height=32 width=32 src="https://www.svgrepo.com/show/353709/eslint.svg" alt="ESlint"/></a>
+                    <a href="https://eslint.org/" target="_blank"><img height="32" width="32" src="https://www.svgrepo.com/show/353709/eslint.svg" alt="ESlint"/></a>
                 </td>
                 <td>ESLint</td>
                 <td>code linting</td>
             </tr>
             <tr>
                 <td>
-                    <a href="https://prettier.io/" target="_blank"><img height=32 width=32 src="https://www.svgrepo.com/show/354208/prettier.svg" alt="Prettier"/></a>
+                    <a href="https://prettier.io/" target="_blank"><img height="32" width="32" src="https://www.svgrepo.com/show/354208/prettier.svg" alt="Prettier"/></a>
                 </td>
                 <td>Prettier</td>
                 <td>code formatting</td>
             </tr>
             <tr>
                 <td>
-                    <a href="https://stylelint.io/" target="_blank"><img height=32 width=32 src="https://www.svgrepo.com/show/354405/stylelint.svg" alt="Stylelint"/></a>
+                    <a href="https://stylelint.io/" target="_blank"><img height="32" width="32" src="https://www.svgrepo.com/show/354405/stylelint.svg" alt="Stylelint"/></a>
                 </td>
                 <td>Stylelint</td>
                 <td>code formatting</td>
             </tr>
             <tr>
                 <td>
-                    <a href="https://www.apollographql.com/" target="_blank"><img height=32 width=32 src="https://www.svgrepo.com/show/305728/apollographql.svg" alt="Apollo GraphQL"/></a>
+                    <a href="https://www.apollographql.com/" target="_blank"><img height="32" width="32" src="https://www.svgrepo.com/show/305728/apollographql.svg" alt="Apollo GraphQL"/></a>
                 </td>
                 <td>Apollo</td>
                 <td>GraphQL client</td>
             </tr>
             <tr>
                 <td>
-                    <a href="https://www.framer.com/motion/" target="_blank"><img height=32 width=32 src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/framermotion/framermotion-original.svg" alt="Framer Motion"/></a>
+                    <a href="https://www.framer.com/motion/" target="_blank"><img height="32" width="32" src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/framermotion/framermotion-original.svg" alt="Framer Motion"/></a>
                 </td>
                 <td>Framer Motion</td>
                 <td>animations</td>
             </tr>
             <tr>
                 <td>
-                    <a href="https://ngrok.com/" target="_blank"><img height=32 width=32 src="https://assets-global.website-files.com/63ed4bc7a4b189da942a6b8c/6411ffa0b395a44345ed2b1a_Frame%201.svg" alt="ngrok"/></a>
+                    <a href="https://ngrok.com/" target="_blank"><img height="32" width="32" src="https://assets-global.website-files.com/63ed4bc7a4b189da942a6b8c/6411ffa0b395a44345ed2b1a_Frame%201.svg" alt="ngrok"/></a>
                 </td>
                 <td>ngrok</td>
                 <td>local environment tunneling and webhook testing</td>
             </tr>
             <tr>
                 <td>
-                    <a href="https://sendgrid.com/" target="_blank"><img height=32 width=32 src="https://sendgrid.com/content/dam/sendgrid/global/en/7_company/brand/Twilio-Logo-Product-SendGrid-Icon-RGB%201.png/_jcr_content/renditions/compressed-original.webp" alt="SendGrid"/></a>
+                    <a href="https://sendgrid.com/" target="_blank"><img height="32" width="32" src="https://sendgrid.com/content/dam/sendgrid/global/en/7_company/brand/Twilio-Logo-Product-SendGrid-Icon-RGB%201.png/_jcr_content/renditions/compressed-original.webp" alt="SendGrid"/></a>
                 </td>
                 <td>SendGrid</td>
                 <td>email service</td>
