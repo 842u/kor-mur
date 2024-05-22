@@ -3,225 +3,342 @@
 A project of a landing page for a private person. The goal was to create a page where user can add and show personal projects as a form of a business portfolio.
 
 Live:
-<a href="https://www.murawska.studio/" target="_blank">
-murawska.studio
-</a>
+
+[murawska.studio](https://www.murawska.studio/)
 
 Lastest audit:
-<a href="https://www.insights.murawska.studio/" target="_blank">
-insights.murawska.studio
-</a>
+
+[insights.murawska.studio](https://www.insights.murawska.studio/)
 
 ## Tools & Technologies
 
-<a href="https://git-scm.com/" target="_blank">
- <img height="48" width="48" src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/git/git-original.svg" alt="Git" />
-</a>
-<a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript" target="_blank">
- <img height="48" width="48" src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/javascript/javascript-plain.svg" alt="JavaScript" />
-</a>
-<a href="https://react.dev/" target="_blank">
- <img height="48" width="48" src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/react/react-original.svg" alt="React" />
-</a>
-<a href="https://nextjs.org/" target="_blank">
- <img height="48" width="48" src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/nextjs/nextjs-plain.svg" alt="Next.js" />
-</a>
-<a href="https://www.sanity.io/" target="_blank">
- <img height="48" width="48" src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/sanity/sanity-plain.svg" alt="Sanity" />
-</a>
-<a href="https://sass-lang.com/" target="_blank">
- <img height="48" width="48" src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/sass/sass-original.svg" alt="Sass" />
-</a>
+[<img
+    height="48"
+    width="48"
+    src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/git/git-original.svg"
+    alt="Git"
+  />](https://git-scm.com/)
+[<img
+    height="48"
+    width="48"
+    src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/javascript/javascript-plain.svg"
+    alt="JavaScript"
+  />](https://developer.mozilla.org/en-US/docs/Web/JavaScript)
+[<img
+    height="48"
+    width="48"
+    src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/react/react-original.svg"
+    alt="React"
+  />](https://react.dev/)
+[<img
+    height="48"
+    width="48"
+    src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/nextjs/nextjs-plain.svg"
+    alt="Next.js"
+  />](https://nextjs.org/)
+[<img
+    height="48"
+    width="48"
+    src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/sanity/sanity-plain.svg"
+    alt="Sanity"
+  />](https://www.sanity.io/)
+[<img
+    height="48"
+    width="48"
+    src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/sass/sass-original.svg"
+    alt="Sass"
+  />](https://sass-lang.com/)
 
 <details>
-    <summary>Others</summary>
-    <table>
-        <thead>
-            <tr>
-                <th></th>
-                <th>Tool</th>
-                <th>Used for</th>
-            </tr>
-        </thead>
-        <tbody>
-            <tr>
-                <td>
-                    <a href="https://github.com/" target="_blank"><img height="32" width="32" src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/github/github-original.svg" alt="GitHub"/></a>
-                </td>
-                <td>GitHub</td>
-                <td>project management and maintenance, CI/CD</td>
-            </tr>
-            <tr>
-                <td>
-                    <a href="https://unlighthouse.dev/" target="_blank"><img height="32" width="32" src="https://unlighthouse.dev/logo-light.svg" alt="Unlighthouse" /></a>
-                </td>
-                <td>Unlighthouse</td>
-                <td>quality assurance</td>
-            </tr>
-            <tr>
-                <td>
-                    <a href="https://www.figma.com/" target="_blank"><img height="32" width="32" src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/figma/figma-original.svg" alt="Figma" /></a>
-                </td>
-                <td>
-                    Figma
-                </td>
-                <td>
-                    design, assets, prototyping, wireframing
-                    <details>
-                        <table>
-                            <thead>
-                                <tr>
-                                    <th>Screen Size</th>
-                                    <th></th>
-                                    <th></th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <tr>
-                                    <td>Mobile</td>
-                                    <td>
-                                        <a href="https://www.figma.com/file/T9dJa9ck29CvkLH5yA1CcU/kor-mur-Wireframes?node-id=35%3A477&t=3LtvFHsMaSQbzBul-1">Wireframe</a>
-                                    </td>
-                                    <td>
-                                        <a href="https://www.figma.com/proto/T9dJa9ck29CvkLH5yA1CcU/kor-mur-Wireframes?node-id=1-2&scaling=scale-down&page-id=0%3A1&starting-point-node-id=1%3A2">Prototype</a>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td>Tablet</td>
-                                    <td>
-                                        <a href="https://www.figma.com/file/T9dJa9ck29CvkLH5yA1CcU/kor-mur-Wireframes?node-id=123%3A910&t=3LtvFHsMaSQbzBul-1">Wireframe</a>
-                                    </td>
-                                    <td>
-                                        <a href="https://www.figma.com/proto/T9dJa9ck29CvkLH5yA1CcU/kor-mur-Wireframes?node-id=123-1028&scaling=scale-down&page-id=123%3A908&starting-point-node-id=123%3A1028">Prototype</a>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td>Desktop</td>
-                                    <td>
-                                        <a href="https://www.figma.com/design/T9dJa9ck29CvkLH5yA1CcU/kor-mur-wireframes?node-id=165%3A570&t=3g16CT5J7dtwYLNs-1">Wireframe</a>
-                                    </td>
-                                    <td>
-                                        <a href="https://www.figma.com/proto/T9dJa9ck29CvkLH5yA1CcU/kor-mur-wireframes?node-id=165-689&t=6Ol4xmG1IZFvpA83-1&scaling=scale-down&page-id=123%3A909&starting-point-node-id=165%3A689">Prototype</a>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <a href="https://www.figma.com/file/7MlMZr0CoRwcLto6aAkac9/kor-mur-design?node-id=19-3">Color palette</a>
-                                </tr>
-                            </tbody>
-                        </table>
-                    </details>
-                </td>
-            </tr>
-            <tr>
-                <td>
-                    <a href="https://www.atlassian.com/software/jira" target="_blank"><img height="32" width="32" src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/jira/jira-original.svg" alt="Jira" /></a>
-                </td>
-                <td>Jira</td>
-                <td>
-                    project management and maintenance
-                </td>
-            </tr>
-            <tr>
-                <td>
-                    <a href="https://jestjs.io/" target="_blank"><img height="32" width="32" src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/jest/jest-plain.svg" alt="Jest" /></a>
-                </td>
-                <td>Jest</td>
-                <td>
-                    code testing and quality assurance
-                </td>
-            </tr>
-            <tr>
-                <td>
-                    <a href="https://testing-library.com/" target="_blank"><img height="32" width="32" src="https://testing-library.com/img/octopus-128x128.png" alt="Testing Library" /></a>
-                </td>
-                <td>Testing Library</td>
-                <td>
-                    code testing and quality assurance
-                </td>
-            </tr>
-            <tr>
-                <td>
-                    <a href="https://eslint.org/" target="_blank"><img height="32" width="32" src="https://www.svgrepo.com/show/353709/eslint.svg" alt="ESlint" /></a>
-                </td>
-                <td>ESLint</td>
-                <td>code linting</td>
-            </tr>
-            <tr>
-                <td>
-                    <a href="https://prettier.io/" target="_blank"><img height="32" width="32" src="https://www.svgrepo.com/show/354208/prettier.svg" alt="Prettier" /></a>
-                </td>
-                <td>Prettier</td>
-                <td>code formatting</td>
-            </tr>
-            <tr>
-                <td>
-                    <a href="https://stylelint.io/" target="_blank"><img height="32" width="32" src="https://www.svgrepo.com/show/354405/stylelint.svg" alt="Stylelint" /></a>
-                </td>
-                <td>Stylelint</td>
-                <td>code formatting</td>
-            </tr>
-            <tr>
-                <td>
-                    <a href="https://www.apollographql.com/" target="_blank"><img height="32" width="32" src="https://www.svgrepo.com/show/305728/apollographql.svg" alt="Apollo GraphQL" /></a>
-                </td>
-                <td>Apollo</td>
-                <td>GraphQL client</td>
-            </tr>
-            <tr>
-                <td>
-                    <a href="https://www.framer.com/motion/" target="_blank"><img height="32" width="32" src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/framermotion/framermotion-original.svg" alt="Framer Motion" /></a>
-                </td>
-                <td>Framer Motion</td>
-                <td>animations</td>
-            </tr>
-            <tr>
-                <td>
-                    <a href="https://ngrok.com/" target="_blank"><img height="32" width="32" src="https://assets-global.website-files.com/63ed4bc7a4b189da942a6b8c/6411ffa0b395a44345ed2b1a_Frame%201.svg" alt="ngrok" /></a>
-                </td>
-                <td>ngrok</td>
-                <td>local environment tunneling and webhook testing</td>
-            </tr>
-            <tr>
-                <td>
-                    <a href="https://sendgrid.com/" target="_blank"><img height="32" width="32" src="https://sendgrid.com/content/dam/sendgrid/global/en/7_company/brand/Twilio-Logo-Product-SendGrid-Icon-RGB%201.png/_jcr_content/renditions/compressed-original.webp" alt="SendGrid" /></a>
-                </td>
-                <td>SendGrid</td>
-                <td>email service</td>
-            </tr>
-        </tbody>
-    </table>
+  <summary>Others</summary>
+  <table>
+    <thead>
+      <tr>
+        <th></th>
+        <th>Tool</th>
+        <th>Used for</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>
+          <a href="https://github.com/" target="_blank">
+            <img
+              height="32"
+              width="32"
+              src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/github/github-original.svg"
+              alt="GitHub"
+            />
+          </a>
+        </td>
+        <td>GitHub</td>
+        <td>project management and maintenance, CI/CD</td>
+      </tr>
+      <tr>
+        <td>
+          <a href="https://unlighthouse.dev/" target="_blank">
+            <img
+              height="32"
+              width="32"
+              src="https://unlighthouse.dev/logo-light.svg"
+              alt="Unlighthouse"
+            />
+          </a>
+        </td>
+        <td>Unlighthouse</td>
+        <td>quality assurance</td>
+      </tr>
+      <tr>
+        <td>
+          <a href="https://www.figma.com/" target="_blank">
+            <img
+              height="32"
+              width="32"
+              src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/figma/figma-original.svg"
+              alt="Figma"
+            />
+          </a>
+        </td>
+        <td>Figma</td>
+        <td>
+          design, assets, prototyping, wireframing
+          <details>
+            <ul>
+              <li>
+                <a target="_blank" href="https://www.figma.com/file/T9dJa9ck29CvkLH5yA1CcU/kor-mur-Wireframes?node-id=35%3A477&t=3LtvFHsMaSQbzBul-1">
+                  Mobile Wireframe
+                </a>
+              </li>
+              <li>
+                <a href="https://www.figma.com/proto/T9dJa9ck29CvkLH5yA1CcU/kor-mur-Wireframes?node-id=1-2&scaling=scale-down&page-id=0%3A1&starting-point-node-id=1%3A2">
+                  Mobile Prototype
+                </a>
+              </li>
+              <li>
+                <a target="_blank" href="https://www.figma.com/proto/T9dJa9ck29CvkLH5yA1CcU/kor-mur-Wireframes?node-id=123-1028&scaling=scale-down&page-id=123%3A908&starting-point-node-id=123%3A1028">
+                  Tablet Prototype
+                </a>
+              </li>
+              <li>
+                <a target="_blank" href="https://www.figma.com/file/T9dJa9ck29CvkLH5yA1CcU/kor-mur-Wireframes?node-id=123%3A910&t=3LtvFHsMaSQbzBul-1">
+                  Tablet Wireframe
+                </a>
+              </li>
+              <li>
+                <a target="_blank" href="https://www.figma.com/design/T9dJa9ck29CvkLH5yA1CcU/kor-mur-wireframes?node-id=165%3A570&t=3g16CT5J7dtwYLNs-1">
+                  Desktop Wireframe
+                </a>
+              </li>
+              <li>
+                <a target="_blank" href="https://www.figma.com/proto/T9dJa9ck29CvkLH5yA1CcU/kor-mur-wireframes?node-id=165-689&t=6Ol4xmG1IZFvpA83-1&scaling=scale-down&page-id=123%3A909&starting-point-node-id=165%3A689">
+                  Desktop Prototype
+                </a>
+              </li>
+              <li>
+                <a target="_blank" href="https://www.figma.com/file/7MlMZr0CoRwcLto6aAkac9/kor-mur-design?node-id=19-3">
+                  Color palette
+                </a>
+              </li>
+            </ul>
+          </details>
+        </td>
+      </tr>
+      <tr>
+        <td>
+          <a href="https://www.atlassian.com/software/jira" target="_blank">
+            <img
+              height="32"
+              width="32"
+              src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/jira/jira-original.svg"
+              alt="Jira"
+            />
+          </a>
+        </td>
+        <td>Jira</td>
+        <td>project management and maintenance</td>
+      </tr>
+      <tr>
+        <td>
+          <a href="https://jestjs.io/" target="_blank">
+            <img
+              height="32"
+              width="32"
+              src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/jest/jest-plain.svg"
+              alt="Jest"
+            />
+          </a>
+        </td>
+        <td>Jest</td>
+        <td>code testing and quality assurance</td>
+      </tr>
+      <tr>
+        <td>
+          <a href="https://testing-library.com/" target="_blank">
+            <img
+              height="32"
+              width="32"
+              src="https://testing-library.com/img/octopus-128x128.png"
+              alt="Testing Library"
+            />
+          </a>
+        </td>
+        <td>Testing Library</td>
+        <td>code testing and quality assurance</td>
+      </tr>
+      <tr>
+        <td>
+          <a href="https://eslint.org/" target="_blank">
+            <img
+              height="32"
+              width="32"
+              src="https://www.svgrepo.com/show/353709/eslint.svg"
+              alt="ESlint"
+            />
+          </a>
+        </td>
+        <td>ESLint</td>
+        <td>code linting</td>
+      </tr>
+      <tr>
+        <td>
+          <a href="https://prettier.io/" target="_blank">
+            <img
+              height="32"
+              width="32"
+              src="https://www.svgrepo.com/show/354208/prettier.svg"
+              alt="Prettier"
+            />
+          </a>
+        </td>
+        <td>Prettier</td>
+        <td>code formatting</td>
+      </tr>
+      <tr>
+        <td>
+          <a href="https://stylelint.io/" target="_blank">
+            <img
+              height="32"
+              width="32"
+              src="https://www.svgrepo.com/show/354405/stylelint.svg"
+              alt="Stylelint"
+            />
+          </a>
+        </td>
+        <td>Stylelint</td>
+        <td>code formatting</td>
+      </tr>
+      <tr>
+        <td>
+          <a href="https://www.apollographql.com/" target="_blank">
+            <img
+              height="32"
+              width="32"
+              src="https://www.svgrepo.com/show/305728/apollographql.svg"
+              alt="Apollo GraphQL"
+            />
+          </a>
+        </td>
+        <td>Apollo</td>
+        <td>GraphQL client</td>
+      </tr>
+      <tr>
+        <td>
+          <a href="https://www.framer.com/motion/" target="_blank">
+            <img
+              height="32"
+              width="32"
+              src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/framermotion/framermotion-original.svg"
+              alt="Framer Motion"
+            />
+          </a>
+        </td>
+        <td>Framer Motion</td>
+        <td>animations</td>
+      </tr>
+      <tr>
+        <td>
+          <a href="https://ngrok.com/" target="_blank">
+            <img
+              height="32"
+              width="32"
+              src="https://assets-global.website-files.com/63ed4bc7a4b189da942a6b8c/6411ffa0b395a44345ed2b1a_Frame%201.svg"
+              alt="ngrok"
+            />
+          </a>
+        </td>
+        <td>ngrok</td>
+        <td>local environment tunneling and webhook testing</td>
+      </tr>
+      <tr>
+        <td>
+          <a href="https://sendgrid.com/" target="_blank">
+            <img
+              height="32"
+              width="32"
+              src="https://sendgrid.com/content/dam/sendgrid/global/en/7_company/brand/Twilio-Logo-Product-SendGrid-Icon-RGB%201.png/_jcr_content/renditions/compressed-original.webp"
+              alt="SendGrid"
+            />
+          </a>
+        </td>
+        <td>SendGrid</td>
+        <td>email service</td>
+      </tr>
+    </tbody>
+
+  </table>
 </details>
 
 ## Features
 
 <details>
-    <summary>Integration with Sanity headless CMS.</summary>
+  <summary>Integration with Sanity headless CMS.</summary>
 
 To minimize the developer interference in adding and managing new content on the page, and to give the user a clear and easy way to do that on his own, Sanity CMS was used.
 
 The user has an administration panel under the `/studio` path in which he can manage content on the page such as projects, assets, etc.
 
-[Video.webm](https://github.com/842u/kor-mur/assets/23544888/1cbdaa91-a68c-4c90-9d7b-55e5c49a19f4)
+[Sanity CMS integration](https://github.com/842u/kor-mur/assets/23544888/1cbdaa91-a68c-4c90-9d7b-55e5c49a19f4)
+
+<video controls>
+  <source
+    src="https://github.com/842u/kor-mur/assets/23544888/1cbdaa91-a68c-4c90-9d7b-55e5c49a19f4"
+    type="video/webm"
+  />
+</video>
 
 </details>
 
 <details>
-    <summary>Live content drafts preview.</summary>
+  <summary>Live content drafts preview.</summary>
 
 The user can see how content changes will look without the need to deploy those to production.
 
 This can be done inside the studio.
 
-[Video_2.webm](https://github.com/842u/kor-mur/assets/23544888/552a3bd8-fab6-4e59-832a-b42c32ec9de9)
+[Live drafts preview - studio](https://github.com/842u/kor-mur/assets/23544888/552a3bd8-fab6-4e59-832a-b42c32ec9de9)
+
+<video controls>
+  <source
+    src="https://github.com/842u/kor-mur/assets/23544888/552a3bd8-fab6-4e59-832a-b42c32ec9de9"
+    type="video/webm"
+  />
+</video>
 
 Or just by hitting the `/api/enable-draft` endpoint.
 
-[Video_3.webm](https://github.com/842u/kor-mur/assets/23544888/b7955cd6-6c78-438b-a051-9efba73dcd29)
+[Live drafts preview - API](https://github.com/842u/kor-mur/assets/23544888/b7955cd6-6c78-438b-a051-9efba73dcd29)
+
+<video controls>
+  <source
+    src="https://github.com/842u/kor-mur/assets/23544888/b7955cd6-6c78-438b-a051-9efba73dcd29"
+    type="video/webm"
+  />
+</video>
 
 </details>
 
 <details>
-    <summary>Pages revalidation on CMS content change.</summary>
+  <summary>Pages revalidation on CMS content change.</summary>
 
 To not have to deploy the whole application every time content changes, and to ensure site performance, there is integration with Sanity webhooks.
 
@@ -327,6 +444,4 @@ To be able to revalidate routes in production on content change you will have to
 
 ## License
 
-Code is under GNU GPLv3 license, except private personal assets on <a href="https://www.murawska.studio/" target="_blank">
-murawska.studio
-</a>.
+Code is under GNU GPLv3 license, except private personal assets on [murawska.studio](https://www.murawska.studio/).
