@@ -35,6 +35,7 @@
 
   user-select: none;
   margin: 2rem auto;
+  flex-shrink: 0;
 }
 
 @media (width > 810px) {
