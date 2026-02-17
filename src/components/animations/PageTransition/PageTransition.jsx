@@ -1,4 +1,3 @@
-import { useNextCssRemovalPrevention } from '@madeinhaus/nextjs-page-transition';
 import { AnimatePresence, circIn, circOut, motion } from 'framer-motion';
 import { useRouter } from 'next/router';
 
@@ -9,14 +8,11 @@ import styles from './PageTransition.module.scss';
 export function PageTransition({ children }) {
   const router = useRouter();
 
-  const removeUnusedCss = useNextCssRemovalPrevention();
-
   return (
     <AnimatePresence
       mode="wait"
       onExitComplete={() => {
         window?.scrollTo(0, 0);
-        removeUnusedCss();
       }}
     >
       <motion.main key={router.pathname} className={primaryFont.className}>
