@@ -16,6 +16,8 @@ export default function getClient(draftMode = false) {
   return draftMode
     ? client.withConfig({
         perspective: 'previewDrafts',
+        withCredentials: true,
+        useCdn: false,
       })
     : client;
 }
