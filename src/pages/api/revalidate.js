@@ -80,7 +80,6 @@ export default async function handler(req, res) {
     await Promise.all(revalidatePaths);
 
     res.status(200).send('Revalidation done');
-    return;
   } catch (error) {
     res.status(500).send(`${error.message}`);
   }

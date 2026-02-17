@@ -1,4 +1,4 @@
-import { useLiveQuery } from 'next-sanity/preview';
+import { useLiveQuery } from '@sanity/preview-kit';
 
 import ExitDraftLink from '@/components/ui/ExitDraftLink/ExitDraftLink';
 
