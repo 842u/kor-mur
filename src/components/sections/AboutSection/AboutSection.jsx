@@ -13,7 +13,6 @@ export default function AboutSection({ data }) {
       <div className={styles['info-section']}>
         <InViewSlide className={styles['first-image-container']} slideFrom="left">
           <Image
-            aria-hidden
             fill
             alt=""
             className={styles.image}
@@ -28,14 +27,7 @@ export default function AboutSection({ data }) {
       </div>
 
       <InViewSlide className={styles['second-image-container']} slideFrom="bottom">
-        <Image
-          aria-hidden
-          fill
-          alt=""
-          className={styles.image}
-          sizes="100vw"
-          src={imageSecond.asset.url}
-        />
+        <Image fill alt="" className={styles.image} sizes="100vw" src={imageSecond.asset.url} />
       </InViewSlide>
     </section>
   );
