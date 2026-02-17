@@ -40,7 +40,6 @@ export default function HeroSection({ data }) {
           return (
             <Image
               key={image?.asset?._id}
-              aria-hidden
               fill
               alt=""
               className={imageStyle}
