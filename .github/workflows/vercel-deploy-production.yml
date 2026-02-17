@@ -7,7 +7,7 @@ env:
 on:
   push:
     branches:
-    - main
+      - main
   workflow_dispatch:
 
 jobs:
@@ -15,7 +15,7 @@ jobs:
     runs-on: ubuntu-latest
     environment:
       name: Production
-      url: https://www.murawska.studio
+      url: https://www.murawska.842u.dev
 
     steps:
       - uses: actions/checkout@v3
@@ -60,7 +60,7 @@ jobs:
         with:
           args: |
             New PRODUCTION for {{ EVENT_PAYLOAD.repository.full_name }}
-            https://www.murawska.studio
+            https://www.murawska.842u.dev
 
   Run-Unlighthouse-Audit:
     needs: Deploy-Production
