@@ -4,19 +4,23 @@ on:
   workflow_dispatch:
   workflow_call:
 
+env:
+  SITE_URL: https://murawska.842u.dev
+  AUDIT_URL: https://www.insights.murawska.842u.dev
+
 jobs:
   Unlighthouse-Audit:
     runs-on: ubuntu-latest
     environment:
       name: Insights
-      url: https://www.insights.murawska.studio
+      url: ${{ env.AUDIT_URL }}
 
     steps:
-      - uses: actions/checkout@v3
+      - uses: actions/checkout@v6
 
-      - uses: actions/setup-node@v3
+      - uses: actions/setup-node@v6
         with:
-          node-version: '18'
+          node-version: 24
 
       - name: Get Npm Cache Directory
         id: npm-cache-dir
@@ -36,7 +40,7 @@ jobs:
         run: npm install --global @unlighthouse/cli
 
       - name: Run Unlighthouse Audit
-        run: unlighthouse-ci --site www.murawska.studio --build-static
+        run: unlighthouse-ci --site ${{ env.SITE_URL }} --build-static
 
       - name: Push To Static Audit Repo
         uses: s0/git-publish-subdir-action@develop
@@ -55,4 +59,4 @@ jobs:
         with:
           args: |
             New AUDIT for {{ EVENT_PAYLOAD.repository.full_name }}
-            https://www.insights.murawska.studio
+            ${{ env.AUDIT_URL }}
