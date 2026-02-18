@@ -43,6 +43,8 @@
 }
 
 .logo {
+  composes: logo-outline from '@/components/ui/CircleLogo/CircleLogo.module.scss';
+
   @include Logo.configure(
     $logo-width: 250px,
     $text-total-characters: 15,

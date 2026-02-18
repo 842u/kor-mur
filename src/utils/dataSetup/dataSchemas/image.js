@@ -1,6 +1,6 @@
-import placeholderImage from 'public/default-image-placeholder.png';
-
 import { defaultType } from '../dataTypes';
+
+const placeholderImage = '/default-image-placeholder.png';
 
 export function getImageSchema(dataType) {
   return {

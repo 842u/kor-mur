@@ -36,7 +36,7 @@ describe('AboutSection', () => {
   it('should render two images provided in data', () => {
     render(<AboutSection data={mockData} />);
 
-    const images = screen.getAllByRole('img', { hidden: true });
+    const images = screen.getAllByRole('presentation');
 
     expect(images).toHaveLength(2);
   });
@@ -44,7 +44,7 @@ describe('AboutSection', () => {
   it('should render two image placeholders if not provided with data', () => {
     render(<AboutSection />);
 
-    const images = screen.getAllByRole('img', { hidden: true });
+    const images = screen.getAllByRole('presentation');
 
     expect(images).toHaveLength(2);
   });

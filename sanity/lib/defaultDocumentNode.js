@@ -1,4 +1,4 @@
-import Iframe from 'sanity-plugin-iframe-pane';
+import { Iframe } from 'sanity-plugin-iframe-pane';
 
 function enableDraftView(S, documentTitle) {
   return S.document()

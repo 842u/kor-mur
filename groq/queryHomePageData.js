@@ -1,4 +1,4 @@
-const { groq } = require('next-sanity');
+import { groq } from 'next-sanity';
 
 const groqQueryHomePageData = groq`{
   "heroSectionSettings": *[_type == 'heroSectionSettings'][0]{

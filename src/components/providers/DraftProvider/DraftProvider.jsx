@@ -1,4 +1,4 @@
-import { LiveQueryProvider } from 'next-sanity/preview';
+import { LiveQueryProvider } from '@sanity/preview-kit';
 
 import getClient from '../../../../sanity/lib/client';
 import DraftRenderer from './DraftRenderer';

@@ -8,6 +8,8 @@
 }
 
 .logo-circle {
+  composes: logo-outline from '@/components/ui/CircleLogo/CircleLogo.module.scss';
+
   @include Logo.configure(
     $logo-width: calc(5rem - 10px),
     $text-total-characters: 15,

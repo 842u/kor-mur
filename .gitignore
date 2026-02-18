@@ -39,3 +39,12 @@ next-env.d.ts
 
 # vscode
 /.vscode
+
+# AI/editor tool configs
+.claude/
+.codex/
+.cursor/
+.gemini/
+.zed/
+.mcp.json
+opencode.json

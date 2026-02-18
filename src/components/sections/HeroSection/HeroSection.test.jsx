@@ -30,7 +30,7 @@ describe('HeroSection', () => {
   it('should render image provided in data', () => {
     render(<HeroSection data={mockData} />);
 
-    const image = screen.getByRole('img', { hidden: true });
+    const image = screen.getByRole('presentation');
 
     expect(image).toBeInTheDocument();
   });

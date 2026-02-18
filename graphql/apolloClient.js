@@ -1,7 +1,7 @@
-import { ApolloClient, InMemoryCache } from '@apollo/client';
+import { ApolloClient, HttpLink, InMemoryCache } from '@apollo/client';
 
 const apolloClient = new ApolloClient({
-  uri: process.env.SANITY_GRAPHQL_ENDPOINT,
+  link: new HttpLink({ uri: process.env.SANITY_GRAPHQL_ENDPOINT }),
   cache: new InMemoryCache(),
   defaultOptions: {
     watchQuery: {
