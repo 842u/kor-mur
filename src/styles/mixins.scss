@@ -87,8 +87,8 @@
 }
 
 @mixin image {
-  object-fit: cover;
   border-radius: var(--border-radius-image);
+  object-fit: cover;
 }
 
 @mixin card {
@@ -119,14 +119,14 @@
   width: 80%;
   height: 4rem;
   margin: var(--margin-item-mobile) auto;
+  border: 2px solid var(--secondary-500);
+  border-radius: var(--border-radius-button);
 
   font-size: 1.5rem;
   color: var(--black-500);
 
   background-color: var(--primary-200);
   filter: drop-shadow(var(--drop-shadow-mobile));
-  border: 2px solid var(--secondary-500);
-  border-radius: var(--border-radius-button);
 
   transition: all 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
 
@@ -141,9 +141,9 @@
 
   &:disabled {
     cursor: not-allowed;
+    border: 1px solid var(--primary-500);
     color: var(--white-800);
     filter: none;
-    border: 1px solid var(--primary-500);
 
     &:hover {
       scale: none;

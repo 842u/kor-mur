@@ -23,7 +23,10 @@
     margin: auto 1rem;
     font-size: 3rem;
     text-align: center;
-    text-shadow: 0 0 1px var(--white-500), 0 0 2px var(--white-500), 0 0 4px var(--white-500);
+    text-shadow:
+      0 0 1px var(--white-500),
+      0 0 2px var(--white-500),
+      0 0 4px var(--white-500);
   }
 
   .image-container {
