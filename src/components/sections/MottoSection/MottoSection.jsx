@@ -1,4 +1,4 @@
-import { AnimatePresence, motion } from 'framer-motion';
+import { AnimatePresence, m } from 'framer-motion';
 import Image from 'next/image';
 import Link from 'next/link';
 import { useEffect, useState } from 'react';
@@ -30,7 +30,7 @@ export default function MottoSection({ data, withLink }) {
     <section className={styles['motto-section']}>
       <div className={styles['first-wrapper']}>
         <AnimatePresence mode="wait">
-          <motion.h2
+          <m.h2
             key={currentTitleIndex}
             animate={{ opacity: 1, scale: 1 }}
             className={`${styles.title} ${secondaryFont.className}`}
@@ -39,7 +39,7 @@ export default function MottoSection({ data, withLink }) {
             transition={{ duration: 0.5 }}
           >
             {titles[currentTitleIndex]}
-          </motion.h2>
+          </m.h2>
         </AnimatePresence>
 
         {withLink && (

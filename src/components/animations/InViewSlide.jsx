@@ -1,5 +1,4 @@
-/* eslint react/jsx-props-no-spreading: 0 */
-import { easeInOut, motion } from 'framer-motion';
+import { easeInOut, m } from 'framer-motion';
 
 function animationSetup(slideFrom, offset, duration, ease) {
   switch (slideFrom) {
@@ -50,8 +49,8 @@ export function InViewSlide({
   const style = `${className}`;
 
   return (
-    <motion.div {...animationSetup(slideFrom, offset, duration, ease)} className={style}>
+    <m.div {...animationSetup(slideFrom, offset, duration, ease)} className={style}>
       {children}
-    </motion.div>
+    </m.div>
   );
 }
