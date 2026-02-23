@@ -3,10 +3,10 @@ import { PulseLoader } from 'react-spinners';
 
 import useInputField from '@/utils/hooks/useInputField';
 import {
-  emailInputReqirements,
-  messageInputReqirements,
-  nameInputReqirements,
-  phoneInputReqirements,
+  emailInputRequirements,
+  messageInputRequirements,
+  nameInputRequirements,
+  phoneInputRequirements,
 } from '@/utils/validation/fieldRequirements';
 
 import styles from './ContactForm.module.scss';
@@ -24,7 +24,7 @@ export default function ContactForm({ className }) {
     nameValueChangeHandler,
     nameOnTouchHandler,
     nameOnSubmitHandler,
-  ] = useInputField(nameInputReqirements);
+  ] = useInputField(nameInputRequirements);
 
   const [
     emailValue,
@@ -34,7 +34,7 @@ export default function ContactForm({ className }) {
     emailValueChangeHandler,
     emailOnTouchHandler,
     emailOnSubmitHandler,
-  ] = useInputField(emailInputReqirements);
+  ] = useInputField(emailInputRequirements);
 
   const [
     phoneValue,
@@ -44,7 +44,7 @@ export default function ContactForm({ className }) {
     phoneValueChangeHandler,
     phoneOnTouchHandler,
     phoneOnSubmitHandler,
-  ] = useInputField(phoneInputReqirements);
+  ] = useInputField(phoneInputRequirements);
 
   const [
     messageValue,
@@ -54,7 +54,7 @@ export default function ContactForm({ className }) {
     messageValueChangeHandler,
     messageOnTouchHandler,
     messageOnSubmitHandler,
-  ] = useInputField(messageInputReqirements);
+  ] = useInputField(messageInputRequirements);
 
   const formHasError = nameHasError || emailHasError || phoneHasError || messageHasError;
 
@@ -105,11 +105,11 @@ export default function ContactForm({ className }) {
         id="name"
         isTouched={nameIsTouched}
         label="Imię"
-        maxLength={nameInputReqirements.maxLength}
-        minLength={nameInputReqirements.minLength}
+        maxLength={nameInputRequirements.maxLength}
+        minLength={nameInputRequirements.minLength}
         placeholder="Wprowadź swoje imię"
-        required={nameInputReqirements.required}
-        type={nameInputReqirements.type}
+        required={nameInputRequirements.required}
+        type={nameInputRequirements.type}
         value={nameValue}
         onBlur={nameOnTouchHandler}
         onChange={nameValueChangeHandler}
@@ -120,11 +120,11 @@ export default function ContactForm({ className }) {
         id="email"
         isTouched={emailIsTouched}
         label="Email"
-        maxLength={emailInputReqirements.maxLength}
-        minLength={emailInputReqirements.minLength}
+        maxLength={emailInputRequirements.maxLength}
+        minLength={emailInputRequirements.minLength}
         placeholder="Wprowadź swój email"
-        required={emailInputReqirements.required}
-        type={emailInputReqirements.type}
+        required={emailInputRequirements.required}
+        type={emailInputRequirements.type}
         value={emailValue}
         onBlur={emailOnTouchHandler}
         onChange={emailValueChangeHandler}
@@ -135,9 +135,9 @@ export default function ContactForm({ className }) {
         id="phone"
         isTouched={phoneIsTouched}
         label="Telefon"
-        maxLength={phoneInputReqirements.maxLength}
+        maxLength={phoneInputRequirements.maxLength}
         placeholder="Wprowadź swój numer telefonu"
-        type={phoneInputReqirements.type}
+        type={phoneInputRequirements.type}
         value={phoneValue}
         onBlur={phoneOnTouchHandler}
         onChange={phoneValueChangeHandler}
@@ -148,10 +148,10 @@ export default function ContactForm({ className }) {
         id="message"
         isTouched={messageIsTouched}
         label="Wiadomość"
-        maxLength={messageInputReqirements.maxLength}
+        maxLength={messageInputRequirements.maxLength}
         placeholder="Wprowadź swoją wiadomość"
-        required={messageInputReqirements.required}
-        type={messageInputReqirements.type}
+        required={messageInputRequirements.required}
+        type={messageInputRequirements.type}
         value={messageValue}
         onBlur={messageOnTouchHandler}
         onChange={messageValueChangeHandler}
