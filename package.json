@@ -7,6 +7,7 @@
     "build": "next build --webpack",
     "start": "next start",
     "lint": "eslint src/ graphql/ sanity/",
+    "lint:style": "stylelint \"src/**/*.{css,scss}\"",
     "test": "jest",
     "analyze": "cross-env ANALYZE=true next build",
     "prepare": "husky install"
