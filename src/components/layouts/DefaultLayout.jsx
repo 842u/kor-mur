@@ -11,9 +11,11 @@ export default function DefaultLayout({ children }) {
   const [isWelcomeAnimationFinished, setIsWelcomeAnimationFinished] = useState(false);
 
   useEffect(() => {
-    setTimeout(() => {
+    const timer = setTimeout(() => {
       setIsWelcomeAnimationFinished(true);
     }, 5000);
+
+    return () => clearTimeout(timer);
   }, []);
 
   return (
