@@ -27,7 +27,7 @@ export default async function sendMail(req, res) {
     res
       .status(200)
       .json({ message: 'Otrzymaliśmy Twoją wiadomość i wkrótce się z Tobą skontaktujemy.' });
-  } catch (error) {
+  } catch {
     res.status(400).json({ message: `Coś poszło nie tak. Spróbuj ponownie.` });
   }
 }

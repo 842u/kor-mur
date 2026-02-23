@@ -23,7 +23,7 @@ export default function ContactSection({ data }) {
     if (isPresent && router.asPath === '/#contact') {
       sectionElement.current.scrollIntoView();
     }
-  }, [isPresent]);
+  }, [isPresent, router.asPath]);
 
   return (
     <section ref={sectionElement} className={styles['contact-section']} id="contact">

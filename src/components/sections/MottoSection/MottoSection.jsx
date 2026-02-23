@@ -24,7 +24,7 @@ export default function MottoSection({ data, withLink }) {
     return () => {
       clearTimeout(titleChangeDelay);
     };
-  }, [currentTitleIndex, data]);
+  }, [currentTitleIndex, data, titles.length]);
 
   return (
     <section className={styles['motto-section']}>
