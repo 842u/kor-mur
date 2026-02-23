@@ -1,4 +1,4 @@
-import { AnimatePresence, circIn, circOut, motion } from 'framer-motion';
+import { AnimatePresence, circIn, circOut, m } from 'framer-motion';
 import { useRouter } from 'next/router';
 
 import { primaryFont } from '@/utils/fonts';
@@ -17,23 +17,23 @@ export function PageTransition({ children }) {
         window?.scrollTo(0, 0);
       }}
     >
-      <motion.main key={router.asPath} className={primaryFont.className}>
+      <m.main key={router.asPath} className={primaryFont.className}>
         {children}
-        <motion.div
+        <m.div
           animate={{ scaleY: 0 }}
           className={styles['slide-in']}
           exit={{ scaleY: 1 }}
           initial={{ scaleY: 0 }}
           transition={{ duration: PAGE_TRANSITION_DURATION / 1000, ease: circOut }}
         />
-        <motion.div
+        <m.div
           animate={{ scaleY: 0 }}
           className={styles['slide-out']}
           exit={{ scaleY: 0 }}
           initial={{ scaleY: 1 }}
           transition={{ duration: PAGE_TRANSITION_DURATION / 1000, ease: circIn }}
         />
-      </motion.main>
+      </m.main>
     </AnimatePresence>
   );
 }
