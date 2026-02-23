@@ -1,9 +1,9 @@
-import sendgridMail from '@sendgrid/mail';
+// import sendgridMail from '@sendgrid/mail';
 
-import contactEmailTemplate from '@/utils/emailTemplate';
+// import contactEmailTemplate from '@/utils/emailTemplate';
 import getFormValidationInfo from '@/utils/validation/getFormValidationInfo';
 
-sendgridMail.setApiKey(process.env.SENDGRID_API_KEY);
+// sendgridMail.setApiKey(process.env.SENDGRID_API_KEY);
 
 export default async function sendMail(req, res) {
   if (req.method !== 'POST') {
@@ -12,7 +12,7 @@ export default async function sendMail(req, res) {
   }
 
   const formData = JSON.parse(req.body);
-  const { name, email, phone, message } = formData;
+  // const { name, email, phone, message } = formData;
 
   const { hasError, errorMessage } = getFormValidationInfo(formData);
 
@@ -22,7 +22,7 @@ export default async function sendMail(req, res) {
   }
 
   try {
-    await sendgridMail.send(contactEmailTemplate(name, email, phone, message));
+    // await sendgridMail.send(contactEmailTemplate(name, email, phone, message));
 
     res
       .status(200)
