@@ -1,5 +1,3 @@
-/* eslint no-return-assign: 0 */
-
 import Image from 'next/image';
 import { useEffect, useState } from 'react';
 
@@ -23,7 +21,7 @@ export default function HeroSection({ data }) {
     return () => {
       clearTimeout(imageChangeDelay);
     };
-  }, [currentImageIndex, data]);
+  }, [currentImageIndex, data, images.length]);
 
   return (
     <section className={styles['hero-section']}>

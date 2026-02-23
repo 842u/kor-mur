@@ -6,8 +6,8 @@ export default function useInputField(requirements) {
   const [fieldValue, setFieldValue] = useState('');
   const [isTouched, setIsTouched] = useState(false);
 
-  // Not required inputs dont have error on start
-  const hasError = requirements.required ? useRef(true) : useRef(false);
+  // Not required inputs don't have error on start
+  const hasError = useRef(requirements.required);
   const errorMessage = useRef('');
 
   function validateFieldHelper(value) {

@@ -2,6 +2,7 @@
 
 import '@testing-library/jest-dom';
 
+// eslint-disable-next-line testing-library/no-manual-cleanup
 import { cleanup, fireEvent, render, screen } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 
@@ -51,7 +52,6 @@ describe('FormField', () => {
 
       expect(input).toBeInTheDocument();
       expect(input).toHaveAttribute('type', type);
-
       cleanup();
     });
   });
